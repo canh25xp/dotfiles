@@ -1,0 +1,12 @@
+[user]
+	name = Ngô Văn Cảnh
+	email = canh25xp@gmail.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+[credential "https://github.com"]
+	username = canh25xp
+[init]
+	defaultBranch = main

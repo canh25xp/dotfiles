@@ -1,0 +1,9 @@
+alias cls=clear
+alias where=which
+alias explorer=explorer.exe
+alias notepad=notepad.exe
+alias np=notepad.exe
+alias exp=explorer.exe
+alias wtfis='type -a'
+alias rd='rm -r'
+alias printpath='echo -e ${PATH//:/\\n}'
