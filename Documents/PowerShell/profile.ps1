@@ -21,6 +21,7 @@ Set-Alias -Name vi -Value nvim
 Set-Alias -Name arduino -Value arudino-cli
 Set-Alias -Name edit -Value $env:EDITOR
 Set-Alias -Name dl -Value Get-FileFromInternet
+Set-Alias -Name dot -Value chezmoi
 
 # Load Custom functions
 # Import-Module "$PSScriptRoot\Scripts\func.psm1"
