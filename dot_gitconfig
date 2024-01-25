@@ -10,3 +10,5 @@
 	username = canh25xp
 [init]
 	defaultBranch = main
+[credential]
+	helper = cache
