@@ -7,8 +7,9 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
-
 export VCPKG_ROOT=~/library/vcpkg
+export EDITOR=nvim
+
 export PATH="$PATH:$VCPKG_ROOT"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
