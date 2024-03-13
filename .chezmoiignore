@@ -5,6 +5,8 @@ README.md
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
-./.config/xplr
+./.config/xplr/
 ./.tmux.conf
+./.profile
+./.config/lazygit/
 {{- end }}
