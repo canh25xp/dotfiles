@@ -11,4 +11,5 @@ README.md
 ./.tmux.conf
 ./.profile
 ./.config/lazygit/
+./.config/neofetch/
 {{- end }}
