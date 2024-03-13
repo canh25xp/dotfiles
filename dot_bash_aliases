@@ -6,4 +6,5 @@ alias np=notepad.exe
 alias exp=explorer.exe
 alias wtfis='type -a'
 alias rd='rm -r'
-alias printpath='echo -e ${PATH//:/\\n}'
+alias path='echo -e ${PATH//:/\\n}'
+alias lgit=lazygit
