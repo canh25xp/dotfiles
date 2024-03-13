@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+notARepository: skip
+gui:
+    nerdFontsVersion: "3"
+    showBottomLine: false
+    border: rounded
+git:
+    parseEmoji: true
