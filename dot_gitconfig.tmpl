@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 [user]
 	name = Ngô Văn Cảnh
 	email = canh25xp@gmail.com
@@ -9,6 +8,7 @@
 	process = git-lfs filter-process --skip
 [init]
   defaultBranch = main
+{{ if eq .chezmoi.os "linux" -}}
 [credential "https://github.com"]
 	username = canh25xp
 	helper = 
@@ -17,16 +17,6 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 {{ else if eq .chezmoi.os "windows" -}}
-[user]
-	name = Ngô Văn Cảnh
-	email = canh25xp@gmail.com
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
 [credential "https://github.com"]
 	username = canh25xp
-[init]
-	defaultBranch = main
 {{ end -}}
