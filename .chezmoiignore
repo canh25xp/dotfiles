@@ -2,7 +2,7 @@ README.md
 {{- if eq .chezmoi.os "linux" }}
 ./Documents/
 ./.config/winfetch/
-./AppData/Local/lazygit/
+./AppData/
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
