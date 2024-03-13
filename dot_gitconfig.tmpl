@@ -7,7 +7,7 @@
 	smudge = git-lfs smudge --skip -- %f
 	process = git-lfs filter-process --skip
 [init]
-  defaultBranch = main
+	defaultBranch = main
 {{ if eq .chezmoi.os "linux" -}}
 [credential "https://github.com"]
 	username = canh25xp
