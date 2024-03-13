@@ -1,5 +1,5 @@
 README.md
 {{- if eq .chezmoi.os "linux" }}
 ./Documents/
-./dot_config/winfetch/
+./.config/winfetch/
 {{- end }}
