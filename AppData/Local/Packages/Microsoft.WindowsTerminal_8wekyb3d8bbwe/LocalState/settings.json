@@ -88,7 +88,7 @@
         "list": 
         [
             {
-                "backgroundImage": "C:\\Users\\Admin\\Pictures\\Wallpaper\\Lucy\\lucy-cyberpunk-edgerunners-4k-thumb.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\lucy1.jpg",
                 "backgroundImageOpacity": 0.2,
                 "colorScheme": "Tokyo Night Storm",
                 "cursorShape": "filledBox",
@@ -120,7 +120,7 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "backgroundImage": "C:\\Users\\Admin\\Pictures\\Wallpaper\\Lucy\\cyberpunk-lucy-edgerunners-qj.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\lucy2.jpg",
                 "backgroundImageOpacity": 0.2,
                 "colorScheme": "Tokyo Night Storm",
                 "font": 
