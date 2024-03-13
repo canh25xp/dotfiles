@@ -8,7 +8,10 @@
 	process = git-lfs filter-process --skip
 [credential "https://github.com"]
 	username = canh25xp
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = main
-[credential]
-	helper = store
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
