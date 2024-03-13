@@ -3,3 +3,8 @@ README.md
 ./Documents/
 ./.config/winfetch/
 {{- end }}
+
+{{- if eq .chezmoi.os "windows" }}
+./.config/xplr
+./.tmux.config
+{{- end }}
