@@ -3,6 +3,7 @@ README.md
 ./Documents/
 ./.config/winfetch/
 ./AppData/
+./Pictures/
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
