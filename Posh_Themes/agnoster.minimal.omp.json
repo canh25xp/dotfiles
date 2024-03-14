@@ -1,30 +1,32 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
-  "final_space": false,
+  "final_space": true,
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
+          "type": "status",
           "foreground": "#ffffff",
           "style": "plain",
-          "template": "{{ reason .Code }}\u274c ",
-          "type": "status"
+          "template": "{{ reason .Code }}\u274c "
         },
         {
+          "type": "root",
           "foreground": "#ff0000",
           "style": "plain",
-          "template": "# ",
-          "type": "root"
+          "template": "# "
         },
         {
+          "type": "session",
           "foreground": "#ffffff",
           "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
-          "type": "session"
+          "template": "{{ .UserName }}@{{ .HostName }} "
         },
         {
+          "type": "path",
           "background": "#007ACC",
           "foreground": "#ffffff",
           "properties": {
@@ -34,10 +36,10 @@
             "max_depth": 3
           },
           "style": "plain",
-          "template": "<transparent>\ue0b0</> {{ .Path }} ",
-          "type": "path"
+          "template": "<transparent>\ue0b0</> {{ .Path }} "
         },
         {
+          "type": "git",
           "background": "#007ACC",
           "foreground": "#ffffff",
           "properties": {
@@ -50,17 +52,15 @@
             "tag_icon": "\u25b6 "
           },
           "style": "plain",
-          "template": "{{ .HEAD }}{{ if and (eq .Ahead 0) (eq .Behind 0) }} \u2261{{end}}{{ if gt .Ahead 0 }} \u2191{{.Ahead}}{{end}}{{ if gt .Behind 0 }} \u2193{{.Behind}}{{end}} {{ if .Working.Changed }}+{{ .Working.Added }} ~{{ .Working.Modified }} -{{ .Working.Deleted }} {{ end }}",
-          "type": "git"
+          "template": "{{ .HEAD }}{{ if and (eq .Ahead 0) (eq .Behind 0) }} \u2261{{end}}{{ if gt .Ahead 0 }} \u2191{{.Ahead}}{{end}}{{ if gt .Behind 0 }} \u2193{{.Behind}}{{end}} {{ if .Working.Changed }}+{{ .Working.Added }} ~{{ .Working.Modified }} -{{ .Working.Deleted }} {{ end }}"
         },
         {
+          "type": "text",
           "foreground": "#007ACC",
           "style": "plain",
-          "template": "\ue0b0 ",
-          "type": "text"
+          "template": "\ue0b0 "
         }
-      ],
-      "type": "prompt"
+      ]
     }
   ]
 }
