@@ -3,9 +3,9 @@
 # ==============================================
 
 # Load Oh-my-posh theme https://ohmyposh.dev/docs/themes
-# $OMPTHEME = "$env:POSH_THEMES_PATH\velvet.omp.json"
-# $OMPTHEME = "~/.velvet.omp.json"
-# oh-my-posh init pwsh --config $OMPTHEME | Invoke-Expression
+# $OMPTHEME = "$env:POSH_THEMES_PATH\agnoster.minimal.omp.json"
+$OMPTHEME = "~/Theme/agnoster.minimal.omp.json"
+oh-my-posh init pwsh --config $OMPTHEME | Invoke-Expression
 
 # Terminal-Icons theme (https://github.com/devblackops/Terminal-Icons)
 Import-Module -Name Terminal-Icons
