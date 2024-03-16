@@ -90,7 +90,7 @@
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\lucy1.jpg",
                 "backgroundImageOpacity": 0.2,
-                "colorScheme": "Tokyo Night Storm",
+                "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
                 "font": 
                 {
@@ -133,12 +133,13 @@
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
+                "colorScheme": "Tokyo Night",
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l",
                 "cursorShape": "vintage",
                 "experimental.retroTerminalEffect": false,
                 "font": 
                 {
-                    "face": "Cascadia Code"
+                    "face": "CaskaydiaMono Nerd Font Mono"
                 },
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
                 "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
