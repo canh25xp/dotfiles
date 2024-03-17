@@ -4,11 +4,11 @@ alias explorer=explorer.exe
 alias notepad=notepad.exe
 alias np=notepad.exe
 alias exp=explorer.exe
-alias wtfis='type -a'
 alias rd='rm -r'
 alias path='echo -e ${PATH//:/\\n}'
 alias lgit=lazygit
 alias wtf='type -a'
+alias cdx='cd "$(xplr --print-pwd-as-result)"'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
