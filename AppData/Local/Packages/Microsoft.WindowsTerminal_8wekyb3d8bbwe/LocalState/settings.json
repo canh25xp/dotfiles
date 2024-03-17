@@ -90,7 +90,7 @@
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\lucy1.jpg",
                 "backgroundImageOpacity": 0.2,
-                "colorScheme": "Tokyo Night",
+                "colorScheme": "Tokyo Night Storm",
                 "cursorShape": "filledBox",
                 "font": 
                 {
@@ -105,7 +105,6 @@
             {
                 "closeOnExit": "always",
                 "colorScheme": "Campbell",
-                "commandline": "%SystemRoot%\\System32\\cmd.exe /k \"%USERPROFILE%\\batchrc.bat\"",
                 "cursorShape": "filledBox",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -120,8 +119,8 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "backgroundImage": "%USERPROFILE%\\Pictures\\lucy2.jpg",
-                "backgroundImageOpacity": 0.2,
+                "backgroundImage": "%USERPROFILE%\\Pictures\\YOR2.jpg",
+                "backgroundImageOpacity": 0.3,
                 "colorScheme": "Tokyo Night Storm",
                 "font": 
                 {
