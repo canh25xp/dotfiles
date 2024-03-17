@@ -88,7 +88,7 @@
         "list": 
         [
             {
-                "backgroundImage": "%USERPROFILE%\\Pictures\\lucy1.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy1.jpg",
                 "backgroundImageOpacity": 0.2,
                 "colorScheme": "Tokyo Night Storm",
                 "cursorShape": "filledBox",
@@ -119,7 +119,17 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "backgroundImage": "%USERPROFILE%\\Pictures\\YOR2.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy3.jpg",
+                "backgroundImageOpacity": 0.2,
+                "colorScheme": "Tokyo Night Storm",
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\Pictures\\Assets\\debian_original_logo_icon.png",
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\YOR2.jpg",
                 "backgroundImageOpacity": 0.3,
                 "colorScheme": "Tokyo Night Storm",
                 "font": 
@@ -150,20 +160,6 @@
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure",
                 "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "cmd.exe /d /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" -startdir=none -arch=x64 -host_arch=x64",
-                "guid": "{74823df4-7031-58ee-be91-dd5dea0cb6ba}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "colorScheme": "Pandora",
-                "guid": "{8853a034-7879-5fbb-8feb-b2b3d02d5e1e}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
@@ -237,6 +233,18 @@
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell No Profile",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{5531e9cd-6128-5604-ad41-fa84cebea777}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{1ead4e23-1b89-5f61-a7ce-8d4a6799e39d}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
