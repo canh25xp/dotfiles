@@ -12,6 +12,7 @@ packages=(
 	"bash-completion"
 	"ripgrep"
 	"unzip"
+  "zip"
 	"python3"
 	"python3-pip"
 	"build-essential"
