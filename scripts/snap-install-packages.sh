@@ -17,7 +17,7 @@ read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
 if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	# Install packages
-	sudo snap install "${packages[@]}"
+	sudo snap install --classic "${packages[@]}"
 	echo "Packages installed successfully!"
 else
 	echo "Installation canceled."
