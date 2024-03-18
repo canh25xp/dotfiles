@@ -5,6 +5,9 @@ edit:
 git:
   autoCommit : true
   autoPush : false
+diff:
+  exclude:
+    - scripts
 {{- if eq .chezmoi.os "windows" }}
 cd:
   command: "pwsh"
