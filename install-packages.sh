@@ -1,5 +1,3 @@
-# {{ if eq .chezmoi.os "linux" }}
-
 #!/bin/sh
 
 packages=(
@@ -34,5 +32,3 @@ if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 else
 	echo "Installation canceled."
 fi
-
-# {{ end }}
