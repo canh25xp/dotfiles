@@ -61,7 +61,7 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "disableAnimations": true,
     "initialPosition": ",",
-    "launchMode": "maximized",
+    "launchMode": "fullscreen",
     "minimizeToNotificationArea": false,
     "newTabMenu": 
     [
@@ -119,9 +119,10 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy3.jpg",
+                "backgroundImage": "C:\\Users\\Admin\\Pictures\\Assets\\lucy2.jpg",
                 "backgroundImageOpacity": 0.2,
                 "colorScheme": "Tokyo Night Storm",
+                "cursorShape": "filledBox",
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
                 "icon": "%USERPROFILE%\\Pictures\\Assets\\debian_original_logo_icon.png",
@@ -138,6 +139,7 @@
                 },
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
+                "icon": "%USERPROFILE%\\Pictures\\Assets\\Ubuntu.png",
                 "name": "Ubuntu",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
