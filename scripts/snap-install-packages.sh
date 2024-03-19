@@ -4,7 +4,6 @@ packages=(
   "chezmoi"
   "nvim"
   "tldr"
-  "glow"
   "rustup"
 )
 

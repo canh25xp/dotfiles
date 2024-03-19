@@ -17,6 +17,7 @@ packages=(
 	"python3-pip"
 	"build-essential"
   "python3-venv"
+  "bat"
 )
 
 echo "The following packages will be installed:"
