@@ -1,6 +1,7 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
 # $Env:TERM = "tmux"
+# $Env:TERM = "ms-terminal"
 
 $Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'D:\Program Files\git-filter-repo;'
