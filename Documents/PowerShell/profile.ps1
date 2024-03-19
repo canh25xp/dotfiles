@@ -11,19 +11,16 @@ $Env:Path += 'D:\Program Files\draw.io;'
 $Env:Path += 'D:\Program Files\Inkscape\bin;'
 $Env:Path += 'D:\Program Files\du;'
 
-if (Test-Path("$PSScriptRoot\Functions.psm1"))
-{
+if (Test-Path("$PSScriptRoot\Functions.psm1")) {
   Import-Module "$PSScriptRoot\Functions.psm1"
 }
 
-if (Test-Path("$PSScriptRoot\Aliases.ps1"))
-{
+if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
   . "$PSScriptRoot\Aliases.ps1"
 }
 
 
-if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1"))
-{
+if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
   . "$PSScriptRoot\PSReadLineProfile.ps1"
 }
 
