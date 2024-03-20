@@ -1,6 +1,7 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
-$Env:TERM = "tmux"
+# $Env:TERM = "tmux"
+# $Env:TERM = "ms-terminal"
 
 $Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'D:\Program Files\git-filter-repo;'
@@ -10,11 +11,18 @@ $Env:Path += 'D:\Program Files\draw.io;'
 $Env:Path += 'D:\Program Files\Inkscape\bin;'
 $Env:Path += 'D:\Program Files\du;'
 
-Import-Module "$PSScriptRoot\Functions.psm1"
+if (Test-Path("$PSScriptRoot\Functions.psm1")) {
+  Import-Module "$PSScriptRoot\Functions.psm1"
+}
 
-. "$PSScriptRoot\Aliases.ps1"
+if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
+  . "$PSScriptRoot\Aliases.ps1"
+}
 
-. "$PSScriptRoot\PSReadLineProfile.ps1"
+
+if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
+  . "$PSScriptRoot\PSReadLineProfile.ps1"
+}
 
 # Tab-completions for `git`
 # Import-Module -Name posh-git

@@ -60,63 +60,6 @@ function Show-Meme {
     Invoke-Expression (Get-Content "~\Arts\$Name.ps1" -Raw)
 }
 
-function Get-LatestProfile {
-    <#
-    .SYNOPSIS
-        Checks the Github repository for the latest commit date and compares to the local version.
-        If the profile is out of date, instructions are displayed on how to update it.
-    #>
-
-    Write-Verbose "Checking for updates to the profile"
-    $currentWorkingDirectory = $PWD
-    Set-Location $ENV:WindotsLocalRepo
-    $gitStatus = git status
-
-    if ($gitStatus -like "*Your branch is up to date with*") {
-        Write-Verbose "Profile is up to date"
-        Set-Location $currentWorkingDirectory
-        return
-    }
-    else {
-        Write-Verbose "Profile is out of date"
-        Write-Host "Your PowerShell profile is out of date with the latest commit. To update it, run Update-Profile." -ForegroundColor Yellow
-        Set-Location $currentWorkingDirectory
-    }
-}
-
-function Update-Profile {
-    <#
-    .SYNOPSIS
-        Downloads the latest version of the PowerShell profile from Github, updates the PowerShell profile with the latest version and reruns the setup script.
-        Note that functions won't be updated, this requires a full restart. Alias: up
-    #>
-    Write-Verbose "Storing current working directory in memory"
-    $currentWorkingDirectory = $PWD
-
-    Write-Verbose "Updating local profile from Github repository"
-    Set-Location $ENV:WindotsLocalRepo
-    git pull | Out-Null
-
-    Write-Verbose "Rerunning setup script to capture any new dependencies."
-    Start-Process pwsh -Verb runAs -WorkingDirectory $PWD -ArgumentList "-Command .\Setup.ps1"
-
-    Write-Verbose "Reverting to previous working directory"
-    Set-Location $currentWorkingDirectory
-
-    Write-Verbose "Re-running profile script from $($PROFILE.CurrentUserAllHosts)"
-    .$PROFILE.CurrentUserAllHosts
-}
-
-function Update-Software {
-    <#
-    .SYNOPSIS
-        Updates all software installed via Winget & Chocolatey. Alias: us
-    #>
-    Write-Verbose "Updating software installed via Winget & Chocolatey"
-    Start-Process wt -Verb runAs -ArgumentList "pwsh.exe -Command &{winget upgrade --all && choco upgrade all -y}"
-    $ENV:UpdatesPending = ''
-}
-
 function Get-ChildItemPretty {
     <#
     .SYNOPSIS
@@ -145,55 +88,6 @@ function Get-ChildItemList {
         [string]$Path = $PWD
     )
     Get-ChildItem $Path | Format-TerminalIcons
-}
-
-function Get-OrCreateSecret {
-    <#
-    .SYNOPSIS
-        Gets secret from local vault or creates it if it does not exist. Requires SecretManagement and SecretStore modules and a local vault to be created.
-        Install Modules with:
-            Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore
-        Create local vault with:
-            Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore
-            Set-SecretStoreConfiguration -Authentication None -Confirm:$False
-
-        https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/
-
-    .PARAMETER secretName
-        Name of the secret to get or create. It is recommended to use the username or public key / client id as secret name to make it easier to identify the secret later.
-
-    .EXAMPLE
-        $password = Get-OrCreateSecret -secretName $username
-
-    .EXAMPLE
-        $clientSecret = Get-OrCreateSecret -secretName $clientId
-
-    .OUTPUTS
-        System.String
-    #>
-
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory = $true)]
-        [string]$secretName
-    )
-
-    Write-Verbose "Getting secret $secretName"
-    $secretValue = Get-Secret $secretName -AsPlainText -ErrorAction SilentlyContinue
-
-    if (!$secretValue) {
-        $createSecret = Read-Host "No secret found matching $secretName, create one? Y/N"
-
-        if ($createSecret.ToUpper() -eq "Y") {
-            $secretValue = Read-Host -Prompt "Enter secret value for ($secretName)" -AsSecureString
-            Set-Secret -Name $secretName -SecureStringSecret $secretValue
-            $secretValue = Get-Secret $secretName -AsPlainText
-        }
-        else {
-            throw "Secret not found and not created, exiting"
-        }
-    }
-    return $secretValue
 }
 
 function Show-Command {
