@@ -18,6 +18,7 @@ packages=(
 	"build-essential"
   "python3-venv"
   "bat"
+  "htop"
 )
 
 echo "The following packages will be installed:"
