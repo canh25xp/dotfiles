@@ -20,6 +20,7 @@ packages=(
   "bat"
   "htop"
   "ncdu"
+  "zathura"
 )
 
 echo "The following packages will be installed:"
