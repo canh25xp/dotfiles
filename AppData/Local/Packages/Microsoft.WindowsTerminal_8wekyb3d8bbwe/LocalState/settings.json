@@ -120,8 +120,8 @@
             },
             {
                 "backgroundImage": "C:\\Users\\Admin\\Pictures\\Assets\\YOR2.jpg",
-                "backgroundImageOpacity": 0.2,
-                "colorScheme": "Tokyo Night Storm",
+                "backgroundImageOpacity": 0.1,
+                "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
@@ -131,8 +131,8 @@
             },
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\CyberPunk.jpg",
-                "backgroundImageOpacity": 0.3,
-                "colorScheme": "Tokyo Night Storm",
+                "backgroundImageOpacity": 0.2,
+                "colorScheme": "Tokyo Night",
                 "font": 
                 {
                     "size": 12.0
@@ -946,7 +946,7 @@
         }
     ],
     "showTabsInTitlebar": true,
-    "startOnUserLogin": true,
+    "startOnUserLogin": false,
     "tabSwitcherMode": "disabled",
     "theme": "dark",
     "themes": [],
