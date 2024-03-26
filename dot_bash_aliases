@@ -1,3 +1,4 @@
+# pwsh-like aliases
 alias cls=clear
 alias where=which
 alias explorer=explorer.exe

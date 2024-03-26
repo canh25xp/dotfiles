@@ -17,8 +17,9 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=2000
-HISTIGNORE="&:ls:exit:pwd:clear:cls:mount:umount"
+HISTFILESIZE=5000
+HISTIGNORE="&:ls:la:exit:pwd:clear:cls:mount:umount:cd*"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

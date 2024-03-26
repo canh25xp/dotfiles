@@ -21,7 +21,7 @@ $include /etc/Inputrc
 Control-o: "> output"
 
 # Delete the whole line
-# ESC:kill-whole-line
+ESC:kill-whole-line
 
 "\e\e":nop
 
@@ -50,6 +50,9 @@ set bell-style none
 
 # Macros that are convenient for shell interaction
 $if Bash
+
+"\C-k":kill-whole-line
+
 # edit the path
 "\C-xp": "PATH=${PATH}\e\C-e\C-a\ef\C-f"
 

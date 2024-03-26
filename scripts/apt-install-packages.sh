@@ -19,6 +19,7 @@ packages=(
   "python3-venv"
   "bat"
   "htop"
+  "ncdu"
 )
 
 echo "The following packages will be installed:"
