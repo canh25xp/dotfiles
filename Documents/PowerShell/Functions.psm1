@@ -2,13 +2,6 @@
 # SHELL FUNCTIONS
 # ==============================================
 
-function Invoke-Tere() {
-    $result = . (Get-Command -CommandType Application tere) $args
-    if ($result) {
-        Set-Location $result
-    }
-}
-
 function Open-WinWord(){
 	param()
 	& "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" $args

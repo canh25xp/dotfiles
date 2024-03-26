@@ -19,8 +19,6 @@ Set-Alias -Name path    -Value Get-Path
 Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro 	-Value Open-Profile
 Set-Alias -Name word 	-Value Open-WinWord
-Set-Alias -Name tere 	-Value Invoke-Tere
-Set-Alias -Name cdx 	-Value Invoke-Tere
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
