@@ -89,8 +89,8 @@
         [
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy1.jpg",
-                "backgroundImageOpacity": 0.2,
-                "colorScheme": "Cyberpunk",
+                "backgroundImageOpacity": 0.1,
+                "colorScheme": "Duotone Dark",
                 "cursorShape": "filledBox",
                 "font": 
                 {
