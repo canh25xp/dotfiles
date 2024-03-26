@@ -21,6 +21,7 @@ packages=(
   "htop"
   "ncdu"
   "zathura"
+  "lf"
 )
 
 echo "The following packages will be installed:"
