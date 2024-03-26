@@ -1,5 +1,10 @@
+# {{ if eq .chezmoi.os "linux" -}}
 # interpreter for shell commands
-set shell sh
+# set shell sh
+# {{ else if eq .chezmoi.os "windows" -}}
+# interpreter for shell commands
+# set shell powershell
+# {{ end -}}
 
 # UI
 set drawbox
