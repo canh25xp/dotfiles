@@ -3,24 +3,25 @@ alias cls=clear
 alias where=which
 alias explorer=explorer.exe
 alias notepad=notepad.exe
-alias np=notepad.exe
-alias exp=explorer.exe
 alias rd='rm -r'
-alias path='echo -e ${PATH//:/\\n}'
 
-# Shorten alias
+# Shorten aliases, convenient aliases
 alias lgit=lazygit
+alias what='type -a'
 alias wtf='type -a'
 alias nmutt=neomutt
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# some more ls aliases
+alias mail=neomutt
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias np=notepad.exe
+alias exp=explorer.exe
+alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+# Useless in WSL
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
