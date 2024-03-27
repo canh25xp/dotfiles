@@ -18,9 +18,16 @@ alias np=notepad.exe
 alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 
+# cd on exit
 cdx () {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")"
+}
+
+# bat help
+alias bathelp='bat --plain --language=help'
+help() {
+	"$@" --help 2>&1 | bathelp
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
