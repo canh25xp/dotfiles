@@ -1,3 +1,6 @@
+# Credential
+source "gpg2 -dq ~/.config/neomutt/gmail.gpg |"
+
 # General settings
 set abort_nosubject = no
 set mail_check = 60
@@ -6,21 +9,9 @@ set sort = "reverse-date-received"
 set copy = no
 set header_cache="~/.cache/neomutt/"
 set message_cachedir="~/.cache/neomutt/"
-set sidebar_visible
+set sidebar_visible = no
 set sidebar_format = "%B%<F? [%F]>%* %<N?%N/>%S"
 set mail_check_stats
-
-# user credential
-set from = "canh25xp@gmail.com"
-set realname = "Ngô Văn Cảnh"
-
-# IMAP settings
-set imap_user = "canh25xp@gmail.com"
-set imap_pass = ""
-
-# SMTP settings
-set smtp_url = "smtps://canh25xp@smtp.gmail.com"
-set smtp_pass = ""
 
 # Remote Gmail folders
 set folder = "imaps://imap.gmail.com/"
@@ -29,3 +20,5 @@ set postponed = "+[Gmail]/Drafts"
 set record = "+[Gmail]/Sent Mail"
 set trash = "+[Gmail]/Trash"
 
+# Keymaps
+bind index,pager B sidebar-toggle-visible
