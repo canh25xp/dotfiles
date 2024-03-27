@@ -7,8 +7,11 @@ alias np=notepad.exe
 alias exp=explorer.exe
 alias rd='rm -r'
 alias path='echo -e ${PATH//:/\\n}'
+
+# Shorten alias
 alias lgit=lazygit
 alias wtf='type -a'
+alias nmutt=neomutt
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
