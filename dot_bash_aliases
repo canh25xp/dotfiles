@@ -18,6 +18,11 @@ alias np=notepad.exe
 alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 
+cdx () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 # Useless in WSL
