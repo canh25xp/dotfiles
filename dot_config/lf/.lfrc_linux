@@ -1,5 +1,7 @@
-# interpreter for shell commands
-set shell sh
+#===============================================================================
+# GENERAL
+#===============================================================================
+set shell bash # interpreter for shell commands
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -17,28 +19,80 @@ set shellopts '-eu'
 # commands accordingly.
 set ifs "\n"
 
+# Show dotfiles by default
+set hidden!
+
+# Show icons
+set icons
+
+# Enable mouse
+set mouse
+# set previewer ~/.config/lf/pv.sh
+
+#===============================================================================
 # UI
+#===============================================================================
 set drawbox
 set info size:time
 set scrolloff 10 # leave some space at the top and the bottom of the screen
-set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
+set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline
 
-# Keymap
+
+#===============================================================================
+# KEYMAPS
+#===============================================================================
+# Command completion
+cmap <tab> cmd-menu-complete
+cmap <backtab> cmd-menu-complete-back
+
 map C edit-config
 map J :updir; down; open
 map K :updir; up; open
-map <enter> shell # use enter for shell commands
+map <enter> $$SHELL # Open new shell at current directory
+
 # execute current file (must be executable)
 map x $$f
 map X !$f
+
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
 # map <delete> trash
 map <delete> delete
+
 # mkdir command. See wiki if you want it to select created dir
 map a :push %mkdir<space>
+map . set hidden!
 
+# Enhancing the rename command
+# map r
+map I :rename; cmd-home
+map A :rename; cmd-end
+map c :rename; cmd-delete-home
+
+# Preview file with bat
+map i $bat --paging=always "$f"
+# map i $~/.config/lf/pv.sh $f | less -R
+# map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
+
+# Follow symlinks
+map gL follow_link
+
+# Put lf into background
+map <c-z> $ kill -STOP $PPID
+
+# Share any file 256MiB limit
+cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+
+
+#===============================================================================
+# FUNCTIONS
+#===============================================================================
+# Follow symlinks
+cmd follow_link %{{
+  lf -remote "send ${id} select '$(readlink $f)'"
+}}
 
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
@@ -108,4 +162,29 @@ cmd zip ${{
 cmd edit-config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+# Rename multiple files at the same time using your text editor
+cmd bulkrename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
 }}
