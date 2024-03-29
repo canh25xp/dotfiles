@@ -131,7 +131,7 @@
             },
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\CyberPunk.jpg",
-                "backgroundImageOpacity": 0.2,
+                "backgroundImageOpacity": 0.1,
                 "colorScheme": "Tokyo Night",
                 "font": 
                 {
