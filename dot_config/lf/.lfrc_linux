@@ -19,20 +19,26 @@ set shellopts '-eu'
 # commands accordingly.
 set ifs "\n"
 
+# Enable mouse
+set mouse
+
+
+#===============================================================================
+# UI
+#===============================================================================
+
 # Show dotfiles by default
 set hidden!
 
 # Show icons
 set icons
 
-# Enable mouse
-set mouse
+# Show bounding box
+set drawbox
+
+# File previewer
 # set previewer ~/.config/lf/pv.sh
 
-#===============================================================================
-# UI
-#===============================================================================
-set drawbox
 set info size:time
 set scrolloff 10 # leave some space at the top and the bottom of the screen
 set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline
@@ -41,6 +47,7 @@ set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline
 #===============================================================================
 # KEYMAPS
 #===============================================================================
+
 # Command completion
 cmap <tab> cmd-menu-complete
 cmap <backtab> cmd-menu-complete-back
@@ -51,8 +58,13 @@ map K :updir; up; open
 map <enter> $$SHELL # Open new shell at current directory
 
 # execute current file (must be executable)
-map x $$f
-map X !$f
+# map x $$f
+# map X !$f
+# Or map to cut
+map x :cut
+
+# Remap d to delete
+map d delete
 
 # dedicated keys for file opener actions
 map o &mimeopen $f
@@ -63,13 +75,15 @@ map <delete> delete
 
 # mkdir command. See wiki if you want it to select created dir
 map a :push %mkdir<space>
+
+# Toggle hidden files
 map . set hidden!
 
 # Enhancing the rename command
 # map r
 map I :rename; cmd-home
 map A :rename; cmd-end
-map c :rename; cmd-delete-home
+# map c :rename; cmd-delete-home
 
 # Preview file with bat
 map i $bat --paging=always "$f"
@@ -82,17 +96,19 @@ map gL follow_link
 # Put lf into background
 map <c-z> $ kill -STOP $PPID
 
-# Share any file 256MiB limit
-cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
-
 
 #===============================================================================
 # FUNCTIONS
 #===============================================================================
+
+# Share any file 256MiB limit
+cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+
 # Follow symlinks
 cmd follow_link %{{
   lf -remote "send ${id} select '$(readlink $f)'"
 }}
+
 
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
@@ -105,23 +121,13 @@ cmd open &{{
 }}
 
 
-# define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-# map r push :rename<space>
-
-# make sure trash folder exists
-# %mkdir -p ~/.trash
-
-# move current file or selected files to trash folder
-# (also see 'man mv' for backup/overwrite options)
-# cmd trash %set -f; mv $fx ~/.trash
-
-# define a custom 'delete' command
+# define a custom 'delete' command, default answer yes
 cmd delete ${{
     set -f
     printf "$fx\n"
-    printf "delete?[y/n]"
+    printf "delete?([y]/n)"
     read ans
+    ans=${ans:-y}
     [ "$ans" = "y" ] && rm -rf $fx
 }}
 
