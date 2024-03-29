@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
   "blocks": [
     {
       "alignment": "left",
@@ -55,6 +56,5 @@
       "type": "prompt"
     }
   ],
-  "final_space": true,
-  "version": 2
+  "final_space": true
 }
