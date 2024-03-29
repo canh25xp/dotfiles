@@ -21,7 +21,7 @@
         },
         {
           "foreground": "#000000",
-          "background": "#bb9af7",
+          "background": "#b7a1ff",
           "style": "powerline",
           "powerline_symbol": "",
           "template": " {{ .UserName }}@{{ .HostName }} ",
