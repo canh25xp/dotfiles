@@ -12,8 +12,18 @@
           "type": "root"
         },
         {
-          "foreground": "#ffffff",
-          "style": "plain",
+          "background": "#906cff",
+          "foreground": "#100e23",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+          "type": "python"
+        },
+        {
+          "foreground": "#000000",
+          "background": "#c386f1",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
           "template": " {{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
@@ -35,14 +45,6 @@
           "style": "powerline",
           "template": " {{ .HEAD }} ",
           "type": "git"
-        },
-        {
-          "background": "#906cff",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
-          "style": "powerline",
-          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-          "type": "python"
         },
         {
           "background": "#ff8080",
