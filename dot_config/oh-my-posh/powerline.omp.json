@@ -16,12 +16,12 @@
           "foreground": "#100e23",
           "powerline_symbol": "",
           "style": "powerline",
-          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+          "template": "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
           "type": "python"
         },
         {
           "foreground": "#000000",
-          "background": "#c386f1",
+          "background": "#bb9af7",
           "style": "powerline",
           "powerline_symbol": "",
           "template": " {{ .UserName }}@{{ .HostName }} ",
