@@ -3,29 +3,6 @@
   "version": 2,
   "blocks": [
     {
-      "background": "#1A1B2C",
-      "black": "#414868",
-      "blue": "#7AA2F7",
-      "brightBlack": "#414868",
-      "brightBlue": "#7AA2F7",
-      "brightCyan": "#7DCFFF",
-      "brightGreen": "#73DACA",
-      "brightPurple": "#BB9AF7",
-      "brightRed": "#F7768E",
-      "brightWhite": "#C0CAF5",
-      "brightYellow": "#E0AF68",
-      "cursorColor": "#C0CAF5",
-      "cyan": "#7DCFFF",
-      "foreground": "#A9B1DC",
-      "green": "#73DACA",
-      "name": "Tokyo Night",
-      "purple": "#BB9AF7",
-      "red": "#F7768E",
-      "selectionBackground": "#28344A",
-      "white": "#C0CAF5",
-      "yellow": "#E0AF68"
-    },
-    {
       "alignment": "left",
       "segments": [
         {
@@ -43,7 +20,7 @@
           "type": "python"
         },
         {
-          "background": "#bb9af7",
+          "background": "#BB9AF7",
           "foreground": "#000000",
           "style": "powerline",
           "powerline_symbol": "",
@@ -51,8 +28,8 @@
           "type": "session"
         },
         {
-          "background": "#91ddff",
-          "foreground": "#100e23",
+          "background": "#91DDFF",
+          "foreground": "#100E23",
           "powerline_symbol": "",
           "properties": {
             "style": "full"
@@ -62,7 +39,7 @@
           "type": "path"
         },
         {
-          "background": "#95ffa4",
+          "background": "#95FFA4",
           "foreground": "#193549",
           "powerline_symbol": "",
           "style": "powerline",
@@ -70,8 +47,8 @@
           "type": "git"
         },
         {
-          "background": "#ff8080",
-          "foreground": "#ffffff",
+          "background": "#FF8080",
+          "foreground": "#FFFFFF",
           "powerline_symbol": "",
           "style": "powerline",
           "template": "  {{ .Code }} ",
