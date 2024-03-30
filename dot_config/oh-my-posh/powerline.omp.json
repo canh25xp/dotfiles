@@ -44,8 +44,19 @@
           "style": "powerline",
           "powerline_symbol": "",
           "background": "p:green",
-          "foreground": "p:brightBlack",
-          "template": " {{ .HEAD }} "
+          "foreground": "p:black",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}",
+            "{{ if gt .Ahead 0 }}p:green{{ end }}",
+            "{{ if gt .Behind 0 }}p:violet{{ end }}"
+          ],
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
         },
         {
           "type": "python",
@@ -73,9 +84,11 @@
     "blue": "#7AA2F7",
     "cyan": "#7DCFFF",
     "green": "#95FFA4",
-    "pink":"#EFDCF9",
+    "pink": "#EFDCF9",
     "purple": "#BB9AF9",
+    "violet": "#4c1f5e",
     "red": "#F7768E",
+    "orange": "#FF9248",
     "yellow": "#FFEE58"
   }
 }
