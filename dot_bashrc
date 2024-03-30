@@ -95,6 +95,10 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+if [ -f ~/.bash_completion_chezmoi.bash ]; then
+	. ~/.bash_completion_chezmoi.bash
+fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/canh25xp/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
@@ -113,6 +117,5 @@ unset __conda_setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/powerline.omp.json)"
