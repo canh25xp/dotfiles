@@ -80,7 +80,7 @@
             },
             "font": 
             {
-                "face": "CaskaydiaMono Nerd Font"
+                "face": "Hack Nerd Font"
             },
             "padding": "0",
             "scrollbarState": "hidden"
@@ -120,14 +120,15 @@
             },
             {
                 "backgroundImage": "C:\\Users\\Admin\\Pictures\\Assets\\YOR2.jpg",
-                "backgroundImageOpacity": 0.1,
+                "backgroundImageOpacity": 0.2,
                 "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
                 "icon": "%USERPROFILE%\\Pictures\\Assets\\debian_original_logo_icon.png",
                 "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
+                "source": "Windows.Terminal.Wsl",
+                "useAcrylic": false
             },
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\CyberPunk.jpg",
