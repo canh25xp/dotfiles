@@ -18,8 +18,8 @@
 $include /etc/Inputrc
 # set editing-mode vi
 # Write output to file
-Control-o: "> output"
-"\C-o":"cdx\C-m"
+# Control-o: "> output"
+Control-o:"cdx\C-m"
 # Delete the whole line
 ESC:kill-whole-line
 
