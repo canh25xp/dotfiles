@@ -1,21 +1,21 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
             "command": "scrollUpPage",
             "keys": "ctrl+shift+pgup"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "scrollDown"
             },
             "keys": "ctrl+shift+down"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "down",
@@ -28,14 +28,14 @@
             "keys": "ctrl+shift+pgdn"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+up"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "clearBuffer",
                 "clear": "all"
@@ -63,36 +63,36 @@
     "initialPosition": ",",
     "launchMode": "maximized",
     "minimizeToNotificationArea": false,
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "closeOnExit": "always",
-            "colorScheme":
+            "colorScheme": 
             {
                 "light": "Campbell"
             },
-            "font":
+            "font": 
             {
                 "face": "CaskaydiaMono Nerd Font"
             },
             "padding": "0",
             "scrollbarState": "hidden"
         },
-        "list":
+        "list": 
         [
             {
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy1.jpg",
                 "backgroundImageOpacity": 0.1,
-                "colorScheme": "Duotone Dark",
+                "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
-                "font":
+                "font": 
                 {
                     "face": "CaskaydiaMono Nerd Font",
                     "features": {}
@@ -133,7 +133,7 @@
                 "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\CyberPunk.jpg",
                 "backgroundImageOpacity": 0.1,
                 "colorScheme": "Tokyo Night",
-                "font":
+                "font": 
                 {
                     "size": 12.0
                 },
@@ -148,7 +148,7 @@
                 "commandline": "%PROGRAMFILES%/Git/usr/bin/bash.exe -i -l",
                 "cursorShape": "vintage",
                 "experimental.retroTerminalEffect": false,
-                "font":
+                "font": 
                 {
                     "face": "CaskaydiaMono Nerd Font Mono"
                 },
@@ -172,7 +172,7 @@
             {
                 "colorScheme": "Duotone Dark",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys",
-                "font":
+                "font": 
                 {
                     "face": "Cascadia Code",
                     "size": 12.0
@@ -185,7 +185,7 @@
             },
             {
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64",
-                "font":
+                "font": 
                 {
                     "face": "Lucida Console",
                     "size": 12.0
@@ -202,7 +202,7 @@
                 "colorScheme": "MaterialDark",
                 "commandline": "%comspec%",
                 "cursorShape": "bar",
-                "font":
+                "font": 
                 {
                     "face": "Cascadia Mono",
                     "size": 12.0
@@ -226,7 +226,7 @@
             },
             {
                 "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -nop",
-                "font":
+                "font": 
                 {
                     "face": "CaskaydiaMono Nerd Font",
                     "features": {},
@@ -252,7 +252,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0F1610",
