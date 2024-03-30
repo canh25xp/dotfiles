@@ -15,32 +15,24 @@
         },
         {
           "type": "os",
-          "style": "plain",
-          "foreground": "p:white",
-          "template": " {{ .Icon }} "
-        },
-        {
-          "type": "python",
           "style": "powerline",
-          "powerline_symbol": "",
-          "background": "p:blue",
+          "background": "p:purple",
           "foreground": "p:black",
-          "template": "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
+          "template": " {{ .Icon }} "
         },
         {
           "type": "session",
           "style": "powerline",
-          "powerline_symbol": "",
-          "background": "#BB9AF7",
-          "foreground": "#000000",
-          "template": " {{ .UserName }}@{{ .HostName }} "
+          "background": "p:purple",
+          "foreground": "p:black",
+          "template": "{{ .UserName }}@{{ .HostName }} "
         },
         {
           "type": "path",
           "style": "powerline",
-          "background": "#91DDFF",
-          "foreground": "#100E23",
           "powerline_symbol": "",
+          "background": "p:cyan",
+          "foreground": "p:black",
           "properties": {
             "style": "full"
           },
@@ -53,6 +45,14 @@
           "background": "p:green",
           "foreground": "p:brightBlack",
           "template": " {{ .HEAD }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "background": "p:blue",
+          "foreground": "p:black",
+          "template": "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
         },
         {
           "type": "status",
@@ -72,7 +72,8 @@
     "blue": "#7AA2F7",
     "cyan": "#7DCFFF",
     "green": "#95FFA4",
-    "purple": "#BB9AF7",
+    "pink":"#EFDCF9",
+    "purple": "#BB9AF9",
     "red": "#F7768E",
     "yellow": "#FFEE58"
   }
