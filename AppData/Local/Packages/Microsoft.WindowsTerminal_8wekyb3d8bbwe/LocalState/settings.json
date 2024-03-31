@@ -88,9 +88,9 @@
         "list": 
         [
             {
-                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\lucy1.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Assets\\YOR2.jpg",
                 "backgroundImageOpacity": 0.1,
-                "colorScheme": "Duotone Dark",
+                "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
                 "font": 
                 {
@@ -112,8 +112,8 @@
                 "startingDirectory": null
             },
             {
-                "backgroundImage": "C:\\Users\\Admin\\Pictures\\Assets\\YOR2.jpg",
-                "backgroundImageOpacity": 0.2,
+                "backgroundImage": "C:\\Users\\Admin\\Pictures\\Assets\\lucy1.jpg",
+                "backgroundImageOpacity": 0.1,
                 "colorScheme": "Tokyo Night",
                 "cursorShape": "filledBox",
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
