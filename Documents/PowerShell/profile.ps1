@@ -1,7 +1,6 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
-# $Env:TERM = "tmux"
-# $Env:TERM = "ms-terminal"
+$Env:VCPKG_ROOT = "C:\dev\vcpkg"
 
 $Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'D:\Program Files\git-filter-repo;'
@@ -10,6 +9,7 @@ $Env:Path += 'D:\Program Files\gdrive;'
 $Env:Path += 'D:\Program Files\draw.io;'
 $Env:Path += 'D:\Program Files\Inkscape\bin;'
 $Env:Path += 'D:\Program Files\du;'
+$Env:Path += "$Env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Functions.psm1")) {
   Import-Module "$PSScriptRoot\Functions.psm1"
