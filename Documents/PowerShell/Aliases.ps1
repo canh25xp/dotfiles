@@ -17,8 +17,8 @@ Set-Alias -Name meme    -Value Show-Meme # Maybe not so helpful :v
 Set-Alias -Name wtf     -Value Get-Command
 Set-Alias -Name path    -Value Get-Path
 Set-Alias -Name doc     -Value Show-Documents
-Set-Alias -Name pro 	-Value Open-Profile
-Set-Alias -Name word 	-Value Open-WinWord
+Set-Alias -Name pro     -Value Open-Profile
+Set-Alias -Name word    -Value Open-WinWord
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
