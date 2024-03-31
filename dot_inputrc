@@ -15,28 +15,7 @@
 #
 # First, include any system-wide bindings and variable
 # assignments from /etc/Inputrc
-$include /etc/Inputrc
-# set editing-mode vi
-# Write output to file
-# Control-o: "> output"
-Control-o:"cdx\C-m"
-# Delete the whole line
-ESC:kill-whole-line
-
-"\e\e":nop
-
-# If there are multiple matches for completion, Tab should cycle through them
-TAB:menu-complete
-# And Shift-Tab should cycle backwards
-"\e[Z":menu-complete-backward
-
-# Cycle through history based on characters already typed on the line
-"\e[A":history-search-backward
-"\e[B":history-search-forward
-
-# Keep Ctrl-Left and Ctrl-Right working when the above are used
-"\e[1;5C":forward-word
-"\e[1;5D":backward-word
+$include /etc/inputrc
 
 # Display a list of the matching files
 set show-all-if-ambiguous on
@@ -48,10 +27,28 @@ set completion-ignore-case on
 set completion-map-case on
 set bell-style none
 
-# Macros that are convenient for shell interaction
-$if Bash
+# Open file explorer
+Control-o:"cdx\C-m"
 
-"\C-k":kill-whole-line
+# Delete the whole line
+"\C-x\C-x":kill-whole-line
+
+# If there are multiple matches for completion, Tab should cycle through them
+TAB:menu-complete
+
+# And Shift-Tab should cycle backwards
+"\e[Z":menu-complete-backward
+
+# Cycle through history based on characters already typed on the line
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
+# Keep Ctrl-Left and Ctrl-Right working when the above are used
+"\e[1;5C":forward-word
+"\e[1;5D":backward-word
+
+
+$if Bash
 
 # edit the path
 "\C-xp": "PATH=${PATH}\e\C-e\C-a\ef\C-f"
