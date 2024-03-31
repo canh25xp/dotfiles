@@ -3,6 +3,7 @@ alias cls=clear
 alias where=which
 alias explorer=explorer.exe
 alias notepad=notepad.exe
+alias neovide='neovide.exe --wsl'
 alias rd='rm -r'
 
 # Shorten aliases, convenient aliases
