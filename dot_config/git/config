@@ -10,15 +10,22 @@
 	defaultBranch = main
 [pull]
   rebase = false
-{{ if eq .chezmoi.os "linux" -}}
+[push]
+	autoSetupRemote = true
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[mergetool]
+	keepBackup = false
 [credential "https://github.com"]
 	username = canh25xp
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
-{{ else if eq .chezmoi.os "windows" -}}
-[credential "https://github.com"]
-	username = canh25xp
-{{ end -}}
