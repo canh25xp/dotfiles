@@ -78,17 +78,17 @@
     }
   ],
   "palette": {
-    "black": "#000000",
-    "brightBlack": "#193549",
-    "white": "#FFFFFF",
-    "blue": "#7AA2F7",
-    "cyan": "#7DCFFF",
-    "green": "#95FFA4",
-    "pink": "#EFDCF9",
-    "purple": "#BB9AF9",
-    "violet": "#4c1f5e",
-    "red": "#F7768E",
-    "orange": "#FF9248",
-    "yellow": "#FFEE58"
+    "black":        "#000000",
+    "brightBlack":  "#193549",
+    "white":        "#FFFFFF",
+    "blue":         "#00AFFF",
+    "cyan":         "#7DCFFF",
+    "green":        "#95FFA4",
+    "pink":         "#FF00AF",
+    "purple":       "#BB9AF9",
+    "violet":       "#4c1f5e",
+    "red":          "#D70000",
+    "orange":       "#FF9248",
+    "yellow":       "#FFEE58"
   }
 }
