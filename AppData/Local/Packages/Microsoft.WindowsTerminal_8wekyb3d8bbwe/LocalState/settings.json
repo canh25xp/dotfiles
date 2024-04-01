@@ -52,7 +52,7 @@
         }
     ],
     "alwaysShowNotificationIcon": false,
-    "alwaysShowTabs": true,
+    "alwaysShowTabs": false,
     "autoHideWindow": false,
     "centerOnLaunch": true,
     "confirmCloseAllTabs": false,
@@ -913,7 +913,7 @@
             "yellow": "#808000"
         }
     ],
-    "showTabsInTitlebar": true,
+    "showTabsInTitlebar": false,
     "startOnUserLogin": false,
     "tabSwitcherMode": "disabled",
     "theme": "dark",
