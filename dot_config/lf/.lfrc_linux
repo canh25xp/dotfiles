@@ -125,7 +125,7 @@ cmd open &{{
 cmd delete ${{
     set -f
     printf "$fx\n"
-    printf "delete?([y]/n)"
+    printf "delete?[Y/n]"
     read ans
     ans=${ans:-y}
     [ "$ans" = "y" ] && rm -rf $fx
