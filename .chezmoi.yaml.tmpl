@@ -1,13 +1,27 @@
 format : yaml
+
 progress : true
+
 edit:
   apply : false
+
 git:
   autoCommit : false
   autoPush : false
+
 diff:
   exclude:
     - scripts
+  pager : "delta"
+
+merge:
+  command: nvim
+  args:
+    - -d
+    - "{{ "{{" }} .Destination {{ "}}" }}"
+    - "{{ "{{" }} .Source {{ "}}" }}"
+    - "{{ "{{" }} .Target {{ "}}" }}"
+
 {{- if eq .chezmoi.os "windows" }}
 cd:
   command: "pwsh"

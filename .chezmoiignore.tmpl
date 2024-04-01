@@ -3,7 +3,9 @@ batchrc.bat
 batch_aliases.bat
 scripts/
 ./.config/micro/
+
 {{- if eq .chezmoi.os "linux" }}
+
 ./Documents/
 ./Arts/
 ./.config/winfetch/
@@ -13,9 +15,11 @@ scripts/
 ./.arduinoIDE/
 ./.wslconfig
 ./AppData/Roaming/
+
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
+
 ./.config/zathura/
 ./.config/xplr/
 ./.config/tmux/
@@ -25,4 +29,5 @@ scripts/
 ./.config/lazygit/
 ./.config/neofetch/
 ./.config/bat/
+
 {{- end }}
