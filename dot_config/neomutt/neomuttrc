@@ -1,7 +1,12 @@
 # Credential
+set from = "canh25xp@gmail.com"
+set realname = "Ngô Văn Cảnh"
+set imap_user = "canh25xp@gmail.com"
+set smtp_url = "smtps://canh25xp@smtp.gmail.com"
 source "gpg2 -dq ~/.config/neomutt/gmail.gpg |"
 
 # General settings
+color status green default
 set abort_nosubject = no
 set mail_check = 60
 set timeout = 10
@@ -22,3 +27,6 @@ set trash = "+[Gmail]/Trash"
 
 # Keymaps
 bind index,pager B sidebar-toggle-visible
+
+# Theme
+source ~/.config/neomutt/colors.muttrc
