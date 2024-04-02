@@ -2,6 +2,9 @@
 	name = Ngô Văn Cảnh
 	email = canh25xp@gmail.com
 
+[credential]
+	helper = store
+
 [credential "https://github.com"]
   helper =
 	username = canh25xp
@@ -41,7 +44,11 @@
   navigate = true
 
 [merge]
-  conflictstyle = diff3
+  tool = nvimdiff
 
 [mergetool]
-	keepBackup = false
+  prompt = false
+  keepBackup = false
+
+[mergetool "nvimdiff"]
+  layout = "MERGED"
