@@ -3,12 +3,10 @@ $Env:EDITOR = "nvim"
 $Env:VCPKG_ROOT = "C:\dev\vcpkg"
 
 $Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
-$Env:Path += 'D:\Program Files\git-filter-repo;'
 $Env:Path += 'D:\Program Files\RePKG;'
 $Env:Path += 'D:\Program Files\gdrive;'
 $Env:Path += 'D:\Program Files\draw.io;'
 $Env:Path += 'D:\Program Files\Inkscape\bin;'
-$Env:Path += 'D:\Program Files\du;'
 $Env:Path += "$Env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Functions.psm1")) {
@@ -22,6 +20,10 @@ if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
 
 if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
   . "$PSScriptRoot\PSReadLineProfile.ps1"
+}
+
+if (Test-Path("$PSScriptRoot\TabExpansion.ps1")) {
+  . "$PSScriptRoot\TabExpansion.ps1"
 }
 
 # Tab-copletions for winget
@@ -49,9 +51,6 @@ if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
 #     $prompt += & $GitPromptScriptBlock
 #     $prompt
 # }
-
-# Tab-completions for `arduino-cli`
-# . "$PSScriptRoot\arduino-cli.ps1"
 
 # Tab-completions for `vcpkg`
 # Import-Module "$env:VCPKG_ROOT\scripts\posh-vcpkg"
