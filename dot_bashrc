@@ -19,7 +19,7 @@ shopt -s histappend
 
 HISTSIZE=1000
 HISTFILESIZE=5000
-HISTIGNORE="&:ls:la:exit:pwd:clear:cls:mount:umount:cd*"
+HISTIGNORE="&:ls:la:exit:pwd:clear:cls:mount:umount"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -126,3 +126,6 @@ fi
 # if ! [ -n "$TMUX" ]; then
 #   eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/powerline.omp.json)"
 # fi
+
+# heroku autocomplete setup
+HEROKU_AC_BASH_SETUP_PATH=/home/canh25xp/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
