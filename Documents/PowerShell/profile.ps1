@@ -22,6 +22,10 @@ if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
   . "$PSScriptRoot\PSReadLineProfile.ps1"
 }
 
+if (Test-Path("$PSScriptRoot\TabExpansion.ps1")) {
+  . "$PSScriptRoot\TabExpansion.ps1"
+}
+
 # Tab-copletions for winget
 # Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 #     param($wordToComplete, $commandAst, $cursorPosition)
