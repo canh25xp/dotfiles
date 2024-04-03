@@ -396,10 +396,9 @@ set -g status-position top
 set -g default-command /bin/bash
 
 # undercurl support
-set -g default-terminal "${TERM}"
-set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
-# underscore colours - needs tmux-3.0
-set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
+# set -g default-terminal "${TERM}"
+# set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+# set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m' # undercurl colours - needs tmux-3.0
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -439,10 +438,10 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
 
 # Plugin options
-set -g @continuum-restore 'on'
+# set -g @continuum-restore 'on'
 # set -g @resurrect-strategy-nvim 'session'
 # set -g @resurrect-dir '~/.cache/tmux/resurrect'
 # set -g @resurrect-save 'S'
