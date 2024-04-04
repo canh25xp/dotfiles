@@ -52,3 +52,5 @@
 
 [mergetool "nvimdiff"]
   layout = "MERGED"
+[credential "https://huggingface.co"]
+	provider = generic
