@@ -1,7 +1,8 @@
 #===============================================================================
 # GENERAL
 #===============================================================================
-set shell bash # interpreter for shell commands
+# interpreter for shell commands
+set shell bash
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -26,7 +27,6 @@ set mouse
 #===============================================================================
 # UI
 #===============================================================================
-
 # Show dotfiles by default
 set hidden!
 
@@ -47,7 +47,6 @@ set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline
 #===============================================================================
 # KEYMAPS
 #===============================================================================
-
 # Command completion
 cmap <tab> cmd-menu-complete
 cmap <backtab> cmd-menu-complete-back
@@ -100,7 +99,6 @@ map <c-z> $ kill -STOP $PPID
 #===============================================================================
 # FUNCTIONS
 #===============================================================================
-
 # Share any file 256MiB limit
 cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
