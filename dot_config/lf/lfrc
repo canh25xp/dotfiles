@@ -64,13 +64,11 @@ map x :cut
 
 # Remap d to delete
 map d delete
+map <delete> delete
 
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
-
-# map <delete> trash
-map <delete> delete
 
 # mkdir command. See wiki if you want it to select created dir
 map a :push %mkdir<space>
@@ -79,10 +77,8 @@ map a :push %mkdir<space>
 map . set hidden!
 
 # Enhancing the rename command
-# map r
 map I :rename; cmd-home
 map A :rename; cmd-end
-# map c :rename; cmd-delete-home
 
 # Preview file with bat
 map i $bat --paging=always "$f"
