@@ -97,7 +97,7 @@ if ! shopt -oq posix; then
 fi
 
 if [ -f ~/.bash_completion_chezmoi.bash ]; then
-	. ~/.bash_completion_chezmoi.bash
+	. ~/.chezmoi_completion.bash
 fi
 
 # >>> conda initialize >>>
