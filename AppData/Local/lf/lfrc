@@ -7,10 +7,6 @@ set shell powershell
 # Enable mouse
 set mouse
 
-
-#===============================================================================
-# UI
-#===============================================================================
 # Show dotfiles by default
 set hidden!
 
@@ -97,5 +93,5 @@ cmd doc $lf -doc | less
 
 # Edit config file
 cmd edit-config ${{
-    $nvim ~/AppData/Local/lf/lfrc
+    nvim ~/AppData/Local/lf/lfrc
 }}

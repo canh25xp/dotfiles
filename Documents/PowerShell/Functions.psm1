@@ -2,6 +2,11 @@
 # SHELL FUNCTIONS
 # ==============================================
 
+function Open-ListFile {
+  param ()
+  lf -print-last-dir $args | Set-Location
+}
+
 function Open-WinWord(){
 	param()
 	& "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" $args
