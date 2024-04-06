@@ -28,6 +28,12 @@ Set-PSReadLineOption -AddToHistoryHandler {
 # Save history in home directory
 Set-PSReadLineOption -HistorySavePath "~\pwsh_history.txt"
 
+Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdx")
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # Key bindings
 Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
