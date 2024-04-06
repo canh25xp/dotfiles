@@ -17,6 +17,13 @@
         {
             "command": 
             {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "down",
                 "splitMode": "duplicate"
@@ -33,6 +40,13 @@
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+up"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
