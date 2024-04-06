@@ -94,3 +94,8 @@ cmd open &start $Env:f
 
 # change 'doc' command to use a different pager
 cmd doc $lf -doc | less
+
+# Edit config file
+cmd edit-config ${{
+    $nvim ~/AppData/Local/lf/lfrc
+}}
