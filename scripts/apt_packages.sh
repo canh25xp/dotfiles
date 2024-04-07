@@ -1,30 +1,7 @@
 #!/bin/sh
 
-packages=(
-	"curl"
-	"wget"
-	"wslu"
-	"vim"
-	"neofetch"
-	"git"
-	"snapd"
-	"man-db"
-	"bash-completion"
-	"ripgrep"
-	"unzip"
-  "zip"
-	"python3"
-	"python3-pip"
-	"build-essential"
-  "python3-venv"
-  "bat"
-  "htop"
-  "ncdu"
-  "zathura"
-  "lf"
-  "zoxide",
-  "fzf"
-)
+# Read packages from apt_packages.txt
+mapfile -t packages < apt_packages.txt
 
 echo "The following packages will be installed:"
 for package in "${packages[@]}"; do
