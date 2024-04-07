@@ -12,9 +12,8 @@ alias what='type -a'
 alias wtf='type -a'
 alias nmutt=neomutt
 alias mail=neomutt
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias la='ls -A'    # Include hidden files
+alias ll='ls -AlF'
 alias np=notepad.exe
 alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
@@ -39,7 +38,11 @@ help() {
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto -1'
+  if [ -x "$(command -v eza)" ]; then
+    alias ls='eza --icons -1 --hyperlink --time-style relative'
+  else
+    alias ls='ls --color=auto -1'
+  fi
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 

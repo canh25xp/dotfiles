@@ -22,6 +22,8 @@ packages=(
   "ncdu"
   "zathura"
   "lf"
+  "zoxide",
+  "fzf"
 )
 
 echo "The following packages will be installed:"
