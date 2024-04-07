@@ -8,7 +8,9 @@ Set-Alias -Name ff      -Value Find-File
 Set-Alias -Name grep    -Value Find-String
 Set-Alias -Name df      -Value Get-Volume
 Set-Alias -Name which   -Value Show-Command
-Set-Alias -Name ls      -Value Get-ChildItemList
+Set-Alias -Name ls      -Value Get-ChildItemPretty
+Set-Alias -Name la      -Value Get-ChildItemPrettyAll
+Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
 Set-Alias -Name du      -Value Get-DirectorySummary
 
 # Helpful aliases
@@ -25,6 +27,7 @@ Set-Alias -Name cdx     -Value Open-ListFile
 Set-Alias -Name np      -Value notepad
 Set-Alias -Name exp     -Value explorer
 Set-Alias -Name vi      -Value nvim
+Set-Alias -Name vim     -Value nvim
 Set-Alias -Name edit    -Value $env:EDITOR
 Set-Alias -Name dl      -Value Get-FileFromInternet
 Set-Alias -Name ytdl    -Value yt-dlp

@@ -59,20 +59,15 @@ function Show-Meme {
 }
 
 function Get-ChildItemPretty {
-    <#
-    .SYNOPSIS
-        Runs eza with a specific set of arguments. Plus some line breaks before and after the output.
-        Alias: ls, ll, la, l
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        [string]$Path = $PWD
-    )
+    eza --icons -1 --hyperlink --time-style relative $args
+}
 
-    Write-Host ""
-    eza -a -l --header --icons --hyperlink --time-style relative $Path
-    Write-Host ""
+function Get-ChildItemPrettyAll {
+    eza -a --icons -1 --hyperlink --time-style relative $args
+}
+
+function Get-ChildItemPrettyLong {
+    eza -a -l --icons --hyperlink --time-style relative $args
 }
 
 function Get-ChildItemList {
