@@ -1,0 +1,60 @@
+{
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main.git",
+            "Updated": "2024-03-25T08:14:04+07:00",
+            "Manifests": 1310
+        },
+        {
+            "Name": "scoop-bucket",
+            "Source": "https://github.com/Rigellute/scoop-bucket",
+            "Updated": "2021-01-06T19:30:27+07:00",
+            "Manifests": 0
+        }
+    ],
+    "apps": [
+        {
+            "Name": "7zip",
+            "Source": "main",
+            "Updated": "2024-01-15T19:52:46.8834879+07:00",
+            "Info": "",
+            "Version": "23.01"
+        },
+        {
+            "Name": "dua",
+            "Source": "main",
+            "Updated": "2024-03-20T18:23:14.8606728+07:00",
+            "Info": "",
+            "Version": "2.29.0"
+        },
+        {
+            "Name": "pipx",
+            "Source": "main",
+            "Updated": "2024-02-04T01:20:26.7266319+07:00",
+            "Info": "",
+            "Version": "1.4.3"
+        },
+        {
+            "Name": "psutils",
+            "Source": "main",
+            "Updated": "2024-01-29T05:15:20.3155386+07:00",
+            "Info": "",
+            "Version": "0.2023.06.28"
+        },
+        {
+            "Name": "spotify-tui",
+            "Source": "main",
+            "Updated": "2024-01-25T01:48:41.7593512+07:00",
+            "Info": "",
+            "Version": "0.25.0"
+        },
+        {
+            "Name": "ttyd",
+            "Source": "main",
+            "Updated": "2024-01-15T19:52:41.1115496+07:00",
+            "Info": "",
+            "Version": "1.7.4"
+        }
+    ]
+}
