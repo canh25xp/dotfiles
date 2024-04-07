@@ -21,3 +21,4 @@ zathura
 lf
 zoxide
 fzf
+hexyl

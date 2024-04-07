@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# Read packages from apt_packages.txt
-mapfile -t packages < apt_packages.txt
+script_dir=$(dirname "$0")
+
+mapfile -t packages < "$script_dir/apt_packages.txt"
 
 echo "The following packages will be installed:"
 for package in "${packages[@]}"; do
