@@ -3,7 +3,7 @@
 # ==============================================
 
 # Only enable outside of neovim
-if ($env:NVIM -eq $null) {
+if ($null -eq $env:NVIM) {
   # Load Oh-my-posh theme https://ohmyposh.dev/docs/themes
   oh-my-posh init pwsh --config "~/.config/oh-my-posh/powerline.omp.json" | Invoke-Expression
   # Using posh-git module for autocompletion
