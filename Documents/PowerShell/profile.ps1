@@ -27,6 +27,10 @@ if (Test-Path("$PSScriptRoot\TabExpansion.ps1")) {
   . "$PSScriptRoot\TabExpansion.ps1"
 }
 
+# Init zoxide
+(zoxide init powershell | Out-String) | Invoke-Expression
+# Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
 # Tab-copletions for winget
 # Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 #     param($wordToComplete, $commandAst, $cursorPosition)
