@@ -285,6 +285,9 @@
         },
         {
           "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
+        },
+        {
+          "PackageIdentifier": "ajeetdsouza.zoxide"
         }
       ],
       "SourceDetails": {
@@ -297,4 +300,3 @@
   ],
   "WinGetVersion": "1.7.10861"
 }
-
