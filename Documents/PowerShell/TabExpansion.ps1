@@ -49,7 +49,7 @@ Function TabExpansion2 {
                 <#options#>          $options)
         }
         $field = [System.Management.Automation.CompletionResult].GetField('completionText', 'Instance, NonPublic')
-        $source.CompletionMatches | % {
+        $source.CompletionMatches | ForEach-Object {
             If ($_.ResultType -eq 'Command' -and [io.file]::Exists($_.ToolTip)) {
                 $field.SetValue($_, [io.path]::GetFileNameWithoutExtension($_.CompletionText))
             }

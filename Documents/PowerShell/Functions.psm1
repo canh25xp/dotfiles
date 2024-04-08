@@ -59,7 +59,12 @@ function Show-Meme {
 }
 
 function Get-ChildItemPretty {
-    eza --icons -1 --hyperlink --time-style relative $args
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $false, Position = 0)]
+        [string]$Path = $PWD
+    )
+    eza --icons -1 --hyperlink --time-style relative $Path
 }
 
 function Get-ChildItemPrettyAll {
@@ -73,7 +78,7 @@ function Get-ChildItemPrettyLong {
 function Get-ChildItemList {
     <#
     .SYNOPSIS
-        ls but list only names
+        ls with fancy icons
     #>
     [CmdletBinding()]
     param (
