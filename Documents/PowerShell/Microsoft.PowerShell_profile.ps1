@@ -12,3 +12,7 @@ if ($null -eq $env:NVIM) {
 
 # Terminal-Icons theme (https://github.com/devblackops/Terminal-Icons)
 # Import-Module -Name Terminal-Icons
+
+# Init zoxide
+# (zoxide init powershell | Out-String) | Invoke-Expression
+Invoke-Expression (& { (zoxide init --cmd j powershell | Out-String) })
