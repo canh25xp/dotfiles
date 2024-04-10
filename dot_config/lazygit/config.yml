@@ -9,3 +9,6 @@ gui:
     rate: 100
 git:
   parseEmoji: true
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
