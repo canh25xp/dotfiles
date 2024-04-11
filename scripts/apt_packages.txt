@@ -22,3 +22,4 @@ lf
 zoxide
 fzf
 hexyl
+gdu

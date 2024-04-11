@@ -288,6 +288,9 @@
         },
         {
           "PackageIdentifier": "ajeetdsouza.zoxide"
+        },
+        {
+          "PackageIdentifier": "dundee.gdu"
         }
       ],
       "SourceDetails": {

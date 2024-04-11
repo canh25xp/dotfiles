@@ -120,6 +120,7 @@ function Find-File {
     $result | Format-Table -AutoSize
 }
 
+
 function Find-String {
     <#
     .SYNOPSIS
@@ -166,13 +167,4 @@ function Get-CmdletAlias ($cmdletname) {
 
 function Show-Documents {
     glow $env:USERPROFILE\Documents\CheatSheets\
-}
-
-function Get-FileFromInternet {
-    param(
-        [Parameter(Mandatory = $true)]
-        [string]
-        $URL
-    )
-    curl -qLO $URL
 }
