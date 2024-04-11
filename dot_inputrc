@@ -30,8 +30,11 @@ set bell-style none
 # Open file explorer
 Control-o:"cdx\C-m"
 
-# Delete the whole line
-"\C-x\C-x":kill-whole-line
+# Open man page for the what ever typed in the terminal
+"\eh":"\C-aman \C-m" # Alt-h
+
+# Kill whole line
+"\el":kill-whole-line # Alt-l
 
 # If there are multiple matches for completion, Tab should cycle through them
 TAB:menu-complete

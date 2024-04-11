@@ -19,7 +19,7 @@ shopt -s histappend
 
 HISTSIZE=1000
 HISTFILESIZE=5000
-HISTIGNORE="&:ls:la:exit:pwd:clear:cls:mount:umount"
+HISTIGNORE="&:ls:la:exit:pwd:clear:cls:mount:umount:bash"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
