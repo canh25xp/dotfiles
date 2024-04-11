@@ -1,7 +1,14 @@
 notARepository: skip
+promptToReturnFromSubprocess: false
 gui:
-    nerdFontsVersion: "3"
-    showBottomLine: false
-    border: rounded
+  nerdFontsVersion: "3"
+  showBottomLine: false
+  border: single
+  spinner:
+    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+    rate: 100
 git:
-    parseEmoji: true
+  parseEmoji: true
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
