@@ -29,7 +29,5 @@ Set-Alias -Name exp     -Value explorer
 Set-Alias -Name vi      -Value nvim
 Set-Alias -Name vim     -Value nvim
 Set-Alias -Name edit    -Value $env:EDITOR
-Set-Alias -Name dl      -Value Get-FileFromInternet
-Set-Alias -Name ytdl    -Value yt-dlp
-Set-Alias -Name gitbash -Value Start-GitBash
 Set-Alias -Name lgit    -Value lazygit
+Set-Alias -Name cm      -Value chezmoi

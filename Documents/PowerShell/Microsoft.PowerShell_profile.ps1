@@ -1,5 +1,5 @@
 # ==============================================
-# SHELL APPEARANCES
+# SHELL EXTENSIONS
 # ==============================================
 
 # Only enable outside of neovim
