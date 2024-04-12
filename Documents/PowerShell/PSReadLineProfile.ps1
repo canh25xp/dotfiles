@@ -19,7 +19,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
     #     return $false
     # }
     # History ignored commands
-    if (@("exit", "dir", "ls", "pwd", "cd ..", "cls", "exp .", "pwsh").Contains($line.ToLowerInvariant())) {
+    if (@("exit", "dir", "ls", "la", "pwd", "cd ..", "cls", "clear", "exp .", "pwsh").Contains($line.ToLowerInvariant())) {
         return $false
     }
     return $true
@@ -28,14 +28,23 @@ Set-PSReadLineOption -AddToHistoryHandler {
 # Save history in home directory
 Set-PSReadLineOption -HistorySavePath "~\pwsh_history.txt"
 
+# ==============================================
+# KEY BINDINGS
+# ==============================================
+
+# Kill whole line
+Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
+
+# Dynamic help (like F1)
+Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
+
+# Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdx")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
-# Key bindings
-Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
 # CaptureScreen is good for blog posts or email showing a transaction
 # of what you did when asking for help or demonstrating a technique.
@@ -434,59 +443,3 @@ Set-PSReadLineKeyHandler -Key RightArrow `
         [Microsoft.PowerShell.PSConsoleReadLine]::AcceptNextSuggestionWord($key, $arg)
     }
 }
-
-# Cycle through arguments on current line and select the text. This makes it easier to quickly change the argument if re-running a previously run command from the history
-# or if using a psreadline predictor. You can also use a digit argument to specify which argument you want to select, i.e. Alt+1, Alt+a selects the first argument
-# on the command line.
-# Set-PSReadLineKeyHandler -Key Alt+a `
-#                          -BriefDescription SelectCommandArguments `
-#                          -LongDescription "Set current selection to next command argument in the command line. Use of digit argument selects argument by position" `
-#                          -ScriptBlock {
-#     param($key, $arg)
-  
-#     $ast = $null
-#     $cursor = $null
-#     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$ast, [ref]$null, [ref]$null, [ref]$cursor)
-  
-#     $asts = $ast.FindAll( {
-#         $args[0] -is [System.Management.Automation.Language.ExpressionAst] -and
-#         $args[0].Parent -is [System.Management.Automation.Language.CommandAst] -and
-#         $args[0].Extent.StartOffset -ne $args[0].Parent.Extent.StartOffset
-#       }, $true)
-  
-#     if ($asts.Count -eq 0) {
-#         [Microsoft.PowerShell.PSConsoleReadLine]::Ding()
-#         return
-#     }
-    
-#     $nextAst = $null
-
-#     if ($null -ne $arg) {
-#         $nextAst = $asts[$arg - 1]
-#     }
-#     else {
-#         foreach ($ast in $asts) {
-#             if ($ast.Extent.StartOffset -ge $cursor) {
-#                 $nextAst = $ast
-#                 break
-#             }
-#         } 
-        
-#         if ($null -eq $nextAst) {
-#             $nextAst = $asts[0]
-#         }
-#     }
-
-#     $startOffsetAdjustment = 0
-#     $endOffsetAdjustment = 0
-
-#     if ($nextAst -is [System.Management.Automation.Language.StringConstantExpressionAst] -and
-#         $nextAst.StringConstantType -ne [System.Management.Automation.Language.StringConstantType]::BareWord) {
-#             $startOffsetAdjustment = 1
-#             $endOffsetAdjustment = 2
-#     }
-  
-#     [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($nextAst.Extent.StartOffset + $startOffsetAdjustment)
-#     [Microsoft.PowerShell.PSConsoleReadLine]::SetMark($null, $null)
-#     [Microsoft.PowerShell.PSConsoleReadLine]::SelectForwardChar($null, ($nextAst.Extent.EndOffset - $nextAst.Extent.StartOffset) - $endOffsetAdjustment)
-# }
