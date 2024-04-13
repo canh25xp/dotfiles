@@ -1,36 +1,36 @@
 [user]
-	name = Ngô Văn Cảnh
-	email = canh25xp@gmail.com
+  name = Ngô Văn Cảnh
+  email = canh25xp@gmail.com
 
 [credential]
-	helper = store
+  helper = store
 
 [credential "https://github.com"]
   helper =
-	username = canh25xp
-	helper = !gh auth git-credential
+  username = canh25xp
+  helper = !gh auth git-credential
 
 [credential "https://gist.github.com"]
   helper =
-	helper = !gh auth git-credential
+  helper = !gh auth git-credential
 
 [credential "https://huggingface.co"]
-	provider = generic
+  provider = generic
 
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge --skip -- %f
+  process = git-lfs filter-process --skip
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [pull]
   rebase = false
 
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 
 [core]
   pager = delta
