@@ -936,7 +936,7 @@
     "showTabsInTitlebar": false,
     "startOnUserLogin": false,
     "tabSwitcherMode": "disabled",
-    "theme": "dark",
+    "Theme": "dark",
     "themes": [],
     "useAcrylicInTabRow": false,
     "windowingBehavior": "useAnyExisting"
