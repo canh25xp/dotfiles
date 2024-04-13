@@ -16,7 +16,6 @@ build-essential
 python3-venv
 bat
 htop
-ncdu
 zathura
 lf
 zoxide
