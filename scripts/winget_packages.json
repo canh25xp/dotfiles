@@ -291,6 +291,9 @@
         },
         {
           "PackageIdentifier": "dundee.gdu"
+        },
+        {
+          "PackageIdentifier": "Premake.Premake.5.Beta"
         }
       ],
       "SourceDetails": {
