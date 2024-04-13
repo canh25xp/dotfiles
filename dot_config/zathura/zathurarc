@@ -20,16 +20,25 @@ set window-title-home-tilde true
 # Set Statusbar
 set statusbar-home-tilde true
 
+set filemonitor "noop"
+
 # Set keymaps
 map [normal] <M-Return> toggle_fullscreen
 map [fullscreen] <M-Return> toggle_fullscreen
+map [normal] zz toggle_fullscreen
+map [fullscreen] zz toggle_fullscreen
+
+map [normal] r reload
+map [normal] R rotate
+map [fullscreen] r reload
+map [fullscreen] R rotate
 
 # Theme
-set default-bg                  "#0E1018"
-set default-fg                  "#000000"
+set default-bg                  "#1A1B2C"
+set default-fg                  "#0e1018"
 
 set statusbar-fg                "#ffffff"
-set statusbar-bg                "#0E1018"
+set statusbar-bg                "#0e1018"
 
 set inputbar-bg                 "#0E1018"
 set inputbar-fg                 "#fbf1c7"
