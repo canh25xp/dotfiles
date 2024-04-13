@@ -25,5 +25,4 @@
 --map-syntax ".ignore:Git Ignore"
 
 # Show line numbers, Git modifications and file header (but no grid)
---style="numbers,changes"
-
+--style="changes"
