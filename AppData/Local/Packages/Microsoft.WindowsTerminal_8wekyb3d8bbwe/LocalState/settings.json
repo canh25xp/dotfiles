@@ -78,7 +78,7 @@
         }
     ],
     "copyFormatting": "none",
-    "copyOnSelect": false,
+    "copyOnSelect": true,
     "defaultProfile": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
     "disableAnimations": false,
     "focusFollowMouse": true,
@@ -523,8 +523,13 @@
             "yellow": "#808000"
         }
     ],
+    "snapToGridOnResize": true,
     "tabSwitcherMode": "inOrder",
-    "theme": "Catppuccin Mocha",
+    "theme": 
+    {
+        "dark": "Catppuccin Mocha",
+        "light": "Catppuccin Latte"
+    },
     "themes": 
     [
         {
@@ -602,7 +607,7 @@
             {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
-                "showCloseButton": "always",
+                "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
             "tabRow": 
@@ -612,7 +617,7 @@
             },
             "window": 
             {
-                "applicationTheme": "dark",
+                "applicationTheme": "system",
                 "experimental.rainbowFrame": false,
                 "frame": null,
                 "unfocusedFrame": null,
@@ -620,5 +625,6 @@
             }
         }
     ],
-    "useAcrylicInTabRow": false
+    "useAcrylicInTabRow": false,
+    "windowingBehavior": "useExisting"
 }
