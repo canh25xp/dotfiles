@@ -21,7 +21,7 @@ Set-Alias -Name path    -Value Get-Path
 Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro     -Value Open-Profile
 Set-Alias -Name word    -Value Open-WinWord
-Set-Alias -Name cdx     -Value Open-ListFile
+Set-Alias -Name cdi     -Value Open-ListFile
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
@@ -30,4 +30,4 @@ Set-Alias -Name vi      -Value nvim
 Set-Alias -Name vim     -Value nvim
 Set-Alias -Name edit    -Value $env:EDITOR
 Set-Alias -Name lgit    -Value lazygit
-Set-Alias -Name cm      -Value chezmoi
+Set-Alias -Name cz      -Value chezmoi

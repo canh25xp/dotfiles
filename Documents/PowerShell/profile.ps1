@@ -1,14 +1,15 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
 $Env:PAGER = "less"
-$Env:VCPKG_ROOT = "C:\dev\vcpkg"
+$Env:NVIM_APPNAME = "lazyvim"
+# $Env:VCPKG_ROOT = "C:\dev\vcpkg"
 
 $Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'D:\Program Files\RePKG;'
 $Env:Path += 'D:\Program Files\gdrive;'
 $Env:Path += 'D:\Program Files\draw.io;'
 $Env:Path += 'D:\Program Files\Inkscape\bin;'
-$Env:Path += "$Env:VCPKG_ROOT;"
+# $Env:Path += "$Env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Functions.psm1")) {
   Import-Module "$PSScriptRoot\Functions.psm1"

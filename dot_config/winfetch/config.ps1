@@ -1,7 +1,7 @@
 # ===== WINFETCH CONFIGURATION =====
 
-# $image = "~/Pictures\luigi.png"
-# $noimage = $false
+# $image = "~/winfetch.png"
+# $noimage = $true
 
 # Display image using ASCII characters
 # $ascii = $true
@@ -10,7 +10,7 @@
 # $logo = "Windows 10"
 
 # Specify width for image/logo
-# $imgwidth = 32
+# $imgwidth = 24
 
 # Specify minimum alpha value for image pixels to be visible
 # $alphathreshold = 50

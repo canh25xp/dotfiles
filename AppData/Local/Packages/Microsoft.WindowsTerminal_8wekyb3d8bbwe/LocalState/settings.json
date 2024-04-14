@@ -28,13 +28,6 @@
             {
                 "action": "scrollDown"
             },
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
             "keys": "ctrl+shift+j"
         },
         {
@@ -51,11 +44,8 @@
             "keys": "alt+shift+\\"
         },
         {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+up"
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
         },
         {
             "command": 
@@ -75,13 +65,29 @@
         {
             "command": "scrollDownPage",
             "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "previous"
+            },
+            "keys": "alt+z"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "nextInOrder"
+            },
+            "keys": "alt+`"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
     "disableAnimations": false,
-    "focusFollowMouse": true,
+    "focusFollowMouse": false,
     "newTabMenu": 
     [
         {
@@ -92,6 +98,7 @@
     {
         "defaults": 
         {
+            "closeOnExit": "graceful",
             "colorScheme": 
             {
                 "dark": "Catppuccin Mocha",
@@ -99,10 +106,15 @@
             },
             "font": 
             {
-                "face": "CaskaydiaCove Nerd Font"
+                "face": "CaskaydiaCove Nerd Font",
+                "features": 
+                {
+                    "calt": 0
+                }
             },
             "padding": "0",
-            "scrollbarState": "hidden"
+            "scrollbarState": "hidden",
+            "suppressApplicationTitle": true
         },
         "list": 
         [

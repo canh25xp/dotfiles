@@ -26,7 +26,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
 }
 
 # Save history in home directory
-Set-PSReadLineOption -HistorySavePath "~\pwsh_history.txt"
+# Set-PSReadLineOption -HistorySavePath "~\.history.txt"
 
 # ==============================================
 # KEY BINDINGS
@@ -41,7 +41,7 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 # Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdx")
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdi")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
