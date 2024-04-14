@@ -546,7 +546,7 @@
             {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
-                "showCloseButton": "always",
+                "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
             "tabRow": 
