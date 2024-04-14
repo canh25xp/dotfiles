@@ -1,71 +1,69 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
   "palette": {
-        "os": "#ACB0BE",
-        "pink": "#F5BDE6",
-        "lavender": "#B7BDF8",
-        "blue":  "#8AADF4",
-        "wight": "#FFFFFF",
-        "text": "#494D64"
+    "os": "#ACB0BE",
+    "pink": "#F5BDE6",
+    "lavender": "#B7BDF8",
+    "blue": "#8AADF4",
+    "wight": "#FFFFFF",
+    "text": "#494D64"
   },
   "blocks": [
     {
       "alignment": "left",
+      "type": "prompt",
       "segments": [
         {
-          "background": "p:blue",
-          "foreground": "p:wight",
-          "powerline_symbol": "\ue0b4",
-          "leading_diamond": "\ue0b6",
+          "type": "os",
           "style": "diamond",
-          "template": "{{.Icon}} ",
-          "type": "os"
-        },
-        {
           "background": "p:blue",
           "foreground": "p:text",
-          "powerline_symbol": "\ue0b4",
-          "style": "diamond",
-          "template": "{{ .UserName }}@{{ .HostName }}",
-          "type": "session"
+          "powerline_symbol": "",
+          "leading_diamond": "",
+          "template": "{{ .Icon }} "
         },
         {
+          "type": "session",
+          "style": "diamond",
+          "background": "p:blue",
+          "foreground": "p:text",
+          "powerline_symbol": "",
+          "template": "{{ .UserName }}@{{ .HostName }}"
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "",
           "background": "p:pink",
           "foreground": "p:text",
           "properties": {
-            "folder_icon": "..\ue5fe..",
-            "home_icon": "~",
-            "style": "agnoster_short"
+            "style": "full"
           },
-          "powerline_symbol": "\ue0b4",
-          "style": "powerline",
-          "template": " {{ .Path }}",
-          "type": "path"
+          "template": "  {{ .Path }}"
         },
         {
+          "type": "git",
           "background": "p:lavender",
           "foreground": "p:text",
           "style": "powerline",
           "properties": {
-            "branch_icon": "\ue725 ",
-            "cherry_pick_icon": "\ue29b ",
-            "commit_icon": "\uf417 ",
+            "branch_icon": " ",
+            "cherry_pick_icon": " ",
+            "commit_icon": " ",
             "fetch_status": false,
             "fetch_upstream_icon": false,
-            "merge_icon": "\ue727 ",
-            "no_commits_icon": "\uf0c3 ",
-            "rebase_icon": "\ue728 ",
-            "revert_icon": "\uf0e2 ",
-            "tag_icon": "\uf412 "
+            "merge_icon": " ",
+            "no_commits_icon": " ",
+            "rebase_icon": " ",
+            "revert_icon": " ",
+            "tag_icon": " "
           },
-          "powerline_symbol": "\ue0b4",
-          "template": " {{ .HEAD }}",
-          "type": "git"
+          "powerline_symbol": "",
+          "template": " {{ .HEAD }}"
         }
-      ],
-      "type": "prompt"
+      ]
     }
-  ],
-  "final_space": true,
-  "version": 2
+  ]
 }
