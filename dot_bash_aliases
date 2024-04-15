@@ -17,7 +17,7 @@ alias ll='ls -AlF'
 alias np=notepad.exe
 alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
-alias cm=chezmoi
+alias cz=chezmoi
 
 # cd on exit
 cdx () {
