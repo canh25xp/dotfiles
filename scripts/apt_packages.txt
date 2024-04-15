@@ -1,13 +1,11 @@
 curl
 wget
-wslu
-vim
 neofetch
 git
-snapd
 man-db
 bash-completion
 ripgrep
+ld-find
 unzip
 zip
 python3
