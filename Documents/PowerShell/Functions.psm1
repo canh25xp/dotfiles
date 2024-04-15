@@ -55,7 +55,7 @@ function Show-Meme {
         [ValidateSet("nvim", "thisisfine", "man")]
         [string]$Name = "thisisfine"
     )
-    Invoke-Expression (Get-Content "~\Arts\$Name.ps1" -Raw)
+    Invoke-Expression (Get-Content "~\Pictures\Arts\$Name.ps1" -Raw)
 }
 
 function Get-ChildItemPretty {
