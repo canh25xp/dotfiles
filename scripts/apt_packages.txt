@@ -22,3 +22,5 @@ hexyl
 gdu
 tmux
 xclip
+neomutt
+pass
