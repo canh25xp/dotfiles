@@ -23,6 +23,10 @@
   smudge = git-lfs smudge --skip -- %f
   process = git-lfs filter-process --skip
 
+[core]
+  pager = delta
+  editor = nvim
+
 [init]
   defaultBranch = main
 
@@ -32,10 +36,6 @@
 [push]
   autoSetupRemote = true
 
-[core]
-  pager = delta
-  editor = nvim
-
 [diff]
   colorMoved = default
 
@@ -43,11 +43,13 @@
   diffFilter = delta --color-only
 
 [delta]
-  features = side-by-side line-numbers decorations
+  features = line-numbers decorations
+  line-numbers = true
   navigate = true
 
 [merge]
   tool = nvimdiff
+  conflictstyle = diff3
 
 [mergetool]
   prompt = false
