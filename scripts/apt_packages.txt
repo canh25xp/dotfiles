@@ -8,9 +8,9 @@ ripgrep
 ld-find
 unzip
 zip
+build-essential
 python3
 python3-pip
-build-essential
 python3-venv
 bat
 htop
@@ -21,3 +21,4 @@ fzf
 hexyl
 gdu
 tmux
+xclip
