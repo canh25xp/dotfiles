@@ -42,14 +42,6 @@
         {
             "command": 
             {
-                "action": "clearBuffer",
-                "clear": "all"
-            },
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "command": 
-            {
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+k"
@@ -57,6 +49,14 @@
         {
             "command": "togglePaneZoom",
             "keys": "ctrl+shift+z"
+        },
+        {
+            "command": 
+            {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "ctrl+shift+l"
         },
         {
             "command": "scrollDownPage",
@@ -110,7 +110,8 @@
                 "features": 
                 {
                     "calt": 0
-                }
+                },
+                "size": 13.0
             },
             "padding": "0",
             "scrollbarState": "hidden",
