@@ -46,7 +46,7 @@
   diffFilter = delta --color-only
 
 [delta]
-  features = line-numbers decorations catppuccin-mocha
+  features = decorations
   line-numbers = true
   navigate = true
 
