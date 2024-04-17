@@ -54,7 +54,7 @@ cmap <backtab> cmd-menu-complete-back
 map C edit-config
 map J :updir; down; open
 map K :updir; up; open
-map <enter> $$SHELL # Open new shell at current directory
+# map <enter> $$SHELL # Open new shell at current directory
 
 # Help
 map ? :maps

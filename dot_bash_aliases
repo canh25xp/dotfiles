@@ -19,6 +19,9 @@ alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
 
+# Neovim profiles
+alias lvim="NVIM_APPNAME=lvim nvim"
+
 # cd on exit
 cdx () {
     # `command` is needed in case `lfcd` is aliased to `lf`
