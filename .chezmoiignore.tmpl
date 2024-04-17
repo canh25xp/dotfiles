@@ -3,7 +3,7 @@ scripts/
 ./config/tmux/tmux.conf
 .arduinoIDE/
 
-{{- if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" }}
 
 ./Documents/
 ./Arts/
@@ -15,9 +15,7 @@ scripts/
 ./.wslconfig
 ./AppData/Roaming/
 
-{{- end }}
-
-{{- if eq .chezmoi.os "windows" }}
+{{ else if eq .chezmoi.os "windows" }}
 
 ./.config/latexindent/
 ./.config/lf/
@@ -32,4 +30,4 @@ scripts/
 ./.config/bat/
 ./.config/mimeapps.list
 
-{{- end }}
+{{ end }}
