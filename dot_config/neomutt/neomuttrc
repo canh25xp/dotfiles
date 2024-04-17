@@ -48,4 +48,4 @@ bind attach,index g first-entry
 bind attach,index G last-entry
 
 # Theme
-source ~/.config/neomutt/colors.muttrc
+source ~/.config/neomutt/catppuccin.neomutt
