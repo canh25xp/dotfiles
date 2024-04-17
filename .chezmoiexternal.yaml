@@ -1,4 +1,24 @@
-.config/bat/themes/CatppuccinMocha.tmTheme:
+.config/tmux/plugins/tpm:
+  type: git-repo
+  url: https://github.com/tmux-plugins/tpm
+  refreshPeriod: 168h
+
+.config/bat/themes/Catppuccin Mocha.tmTheme:
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+  refreshPeriod: 168h
+
+.config/bat/themes/Catppuccin Frappe.tmTheme:
+  type: file
+  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+  refreshPeriod: 168h
+
+.config/bat/themes/Catppuccin Macchiato.tmTheme:
+  type: file
+  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+  refreshPeriod: 168h
+
+.config/bat/themes/Catppuccin Latte.tmTheme:
+  type: file
+  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
   refreshPeriod: 168h
