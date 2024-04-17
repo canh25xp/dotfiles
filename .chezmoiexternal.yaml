@@ -1,8 +1,10 @@
+# https://github.com/tmux-plugins/tpm
 .config/tmux/plugins/tpm:
   type: git-repo
   url: https://github.com/tmux-plugins/tpm
   refreshPeriod: 168h
 
+# https://github.com/catppuccin/bat
 .config/bat/themes/Catppuccin Mocha.tmTheme:
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
@@ -23,6 +25,7 @@
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
   refreshPeriod: 168h
 
+# https://github.com/catppuccin/delta
 .config/git/catppuccin.gitconfig:
   type: file
   url: https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig
