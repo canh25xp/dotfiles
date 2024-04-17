@@ -309,6 +309,12 @@
         },
         {
           "PackageIdentifier": "Ookla.Speedtest.CLI"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.BuildTools"
+        },
+        {
+          "PackageIdentifier": "Rustlang.Rustup"
         }
       ],
       "SourceDetails": {
