@@ -3,9 +3,9 @@ Governor: Default
 Autostart:
   Validate: true
 WindowsThemeMode:
-  Enabled: false
-  DarkThemePath: 
-  LightThemePath: 
+  Enabled: true
+  DarkThemePath: C:\Windows\Resources\Themes\dark.theme
+  LightThemePath: C:\Windows\Resources\Themes\aero.theme
   MonitorActiveTheme: false
   ApplyFlags: []
 AppsSwitch:

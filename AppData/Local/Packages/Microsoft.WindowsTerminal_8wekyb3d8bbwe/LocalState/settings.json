@@ -12,23 +12,8 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
-        },
-        {
             "command": "find",
             "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+j"
         },
         {
             "command": 
@@ -40,12 +25,27 @@
             "keys": "ctrl+shift+\\"
         },
         {
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+pgup"
+        },
+        {
             "command": "toggleSplitOrientation",
             "keys": "alt+shift+\\"
         },
         {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
+            "command": 
+            {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
@@ -55,12 +55,8 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "command": 
-            {
-                "action": "clearBuffer",
-                "clear": "all"
-            },
-            "keys": "ctrl+shift+l"
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
         },
         {
             "command": "scrollDownPage",
@@ -83,6 +79,7 @@
             "keys": "alt+`"
         }
     ],
+    "confirmCloseAllTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
