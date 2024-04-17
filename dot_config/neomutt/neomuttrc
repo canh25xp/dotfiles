@@ -19,6 +19,8 @@ set message_cachedir="~/.cache/neomutt/"
 set sidebar_visible = no
 set sidebar_format = "%B%<F? [%F]>%* %<N?%N/>%S"
 set mail_check_stats
+set editor = "nvim"
+set tilde                            # use ~ to pad mutt
 
 # Remote Gmail folders
 set folder = "imaps://imap.gmail.com/"
@@ -29,6 +31,21 @@ set trash = "+[Gmail]/Trash"
 
 # Keymaps
 bind index,pager B sidebar-toggle-visible
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
+
+bind index j next-entry
+bind index k previous-entry
+bind pager j next-line
+bind pager k previous-line
+
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
 
 # Theme
 source ~/.config/neomutt/colors.muttrc
