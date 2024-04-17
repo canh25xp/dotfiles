@@ -33,12 +33,21 @@
   url: https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig
   refreshPeriod: 168h
 
-
 .config/neomutt/catppuccin.neomutt:
   type: file
   url: https://github.com/catppuccin/neomutt/raw/main/neomuttrc
   refreshPeriod: 168h
 
+.config/nvim:
+  type: git-repo
+  url: https://github.com/canh25xp/lazyVim-config
+  refreshPeriod: 168h
+
 {{ else if eq .chezmoi.os "windows" }}
+
+Appdata/Local/nvim
+  type: git-repo
+  url: https://github.com/canh25xp/lazyVim-config
+  refreshPeriod: 168h
 
 {{ end }}
