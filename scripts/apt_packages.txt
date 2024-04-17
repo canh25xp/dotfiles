@@ -22,3 +22,6 @@ hexyl
 gdu
 tmux
 xclip
+neomutt
+pass
+speedtest-cli

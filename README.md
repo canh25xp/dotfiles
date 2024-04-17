@@ -20,7 +20,10 @@ chezmoi init canh25xp
 
 ## Post install
 Git command returns fatal error: "detected dubious ownership"
->https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+> https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
 ```
 git config --global --add safe.directory '*'
 ```
+
+### Required packages
+1. [Git](https://github.com/git/git)
