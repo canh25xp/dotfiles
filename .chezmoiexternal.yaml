@@ -22,3 +22,8 @@
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
   refreshPeriod: 168h
+
+.config/git/catppuccin.gitconfig:
+  type: file
+  url: https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig
+  refreshPeriod: 168h

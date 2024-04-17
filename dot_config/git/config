@@ -1,3 +1,6 @@
+[include]
+	path = catppuccin.gitconfig
+
 [user]
   name = Ngô Văn Cảnh
   email = canh25xp@gmail.com
@@ -43,7 +46,7 @@
   diffFilter = delta --color-only
 
 [delta]
-  features = line-numbers decorations
+  features = line-numbers decorations catppuccin-mocha
   line-numbers = true
   navigate = true
 
