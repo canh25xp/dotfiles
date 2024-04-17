@@ -1,8 +1,3 @@
-.config/tmux/tmux.conf:
-  type: file
-  url: https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf
-  refreshPeriod: 168h
-
 .config/bat/themes/CatppuccinMocha.tmTheme:
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
