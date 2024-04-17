@@ -1,10 +1,10 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
 $Env:PAGER = "less"
-$Env:NVIM_APPNAME = "lazyvim"
+#$Env:NVIM_APPNAME = "lazyvim"
 # $Env:VCPKG_ROOT = "C:\dev\vcpkg"
 
-$Env:Path += 'D:\Program Files\pnnx-20230227-windows;'
+$Env:Path += ';D:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'D:\Program Files\RePKG;'
 $Env:Path += 'D:\Program Files\gdrive;'
 $Env:Path += 'D:\Program Files\draw.io;'
