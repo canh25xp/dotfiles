@@ -25,3 +25,4 @@ xclip
 neomutt
 pass
 speedtest-cli
+luarocks
