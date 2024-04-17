@@ -294,6 +294,21 @@
         },
         {
           "PackageIdentifier": "Premake.Premake.5.Beta"
+        },
+        {
+          "PackageIdentifier": "Neovim.Neovim.Nightly"
+        },
+        {
+          "PackageIdentifier": "GnuPG.Gpg4win"
+        },
+        {
+          "PackageIdentifier": "StrawberryPerl.StrawberryPerl"
+        },
+        {
+          "PackageIdentifier": "Miktex.Miktex"
+        },
+        {
+          "PackageIdentifier": "Ookla.Speedtest.CLI"
         }
       ],
       "SourceDetails": {
