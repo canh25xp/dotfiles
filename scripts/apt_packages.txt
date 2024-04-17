@@ -25,4 +25,6 @@ xclip
 neomutt
 pass
 speedtest-cli
+qrencode
+nsxiv
 luarocks
