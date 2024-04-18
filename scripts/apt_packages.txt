@@ -28,3 +28,4 @@ speedtest-cli
 qrencode
 nsxiv
 luarocks
+gdb
