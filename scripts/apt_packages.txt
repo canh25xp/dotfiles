@@ -1,9 +1,10 @@
-neovim
-vim
+git
+gh
 curl
 wget
+vim
+neovim
 neofetch
-git
 man-db
 bash-completion
 ripgrep
