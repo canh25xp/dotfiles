@@ -5,7 +5,7 @@ git
 man-db
 bash-completion
 ripgrep
-ld-find
+fd-find
 unzip
 zip
 build-essential
