@@ -32,3 +32,5 @@ qrencode
 nsxiv
 luarocks
 gdb
+eza
+git-delta
