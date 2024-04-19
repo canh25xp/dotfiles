@@ -76,7 +76,7 @@
                 "action": "moveFocus",
                 "direction": "nextInOrder"
             },
-            "keys": "alt+w"
+            "keys": "alt+q"
         }
     ],
     "alwaysShowNotificationIcon": false,
@@ -114,8 +114,7 @@
                 "size": 13.0
             },
             "padding": "0",
-            "scrollbarState": "hidden",
-            "suppressApplicationTitle": true
+            "scrollbarState": "hidden"
         },
         "list": 
         [
@@ -162,6 +161,12 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{c5ad8b93-8f13-5aa6-bdba-487b5a95c72f}",
+                "hidden": false,
+                "name": "DebianUnstable",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
