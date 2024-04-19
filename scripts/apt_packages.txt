@@ -34,3 +34,5 @@ luarocks
 gdb
 eza
 git-delta
+rustup
+tealdeer
