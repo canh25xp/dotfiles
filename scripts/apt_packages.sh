@@ -21,6 +21,5 @@ else
 fi
 
 echo "symlink bat and fd"
-ln -s $(which fdfind) ~/.local/bin/fd
-ln -s $(which batcat) ~/.local/bin/bat
-
+# ln -s $(which fdfind) ~/.local/bin/fd
+# ln -s $(which batcat) ~/.local/bin/bat

@@ -1,11 +1,14 @@
+git
+gh
 curl
 wget
+vim
+neovim
 neofetch
-git
 man-db
 bash-completion
 ripgrep
-ld-find
+fd-find
 unzip
 zip
 build-essential
@@ -30,3 +33,7 @@ nsxiv
 luarocks
 gdb
 lolcat
+eza
+git-delta
+rustup
+tealdeer
