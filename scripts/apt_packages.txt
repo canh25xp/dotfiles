@@ -29,3 +29,4 @@ qrencode
 nsxiv
 luarocks
 gdb
+lolcat
