@@ -11,15 +11,11 @@ export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux/"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 
-export PATH="$PATH:/mnt/c/Users/Admin/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:/mnt/c/Program Files/PowerShell/7"
 export PATH="$PATH:/mnt/c/Program Files/Neovide"
 export PATH="$PATH:/mnt/c/Windows"
 export PATH="$PATH:/mnt/c/Windows/System32"
-
-if [ -d "$HOME/.cargo/bin" ]; then
-  . "$HOME/.cargo/env"
-fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
