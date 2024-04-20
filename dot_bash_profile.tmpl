@@ -17,10 +17,6 @@ export PATH="$PATH:/mnt/c/Program Files/Neovide"
 export PATH="$PATH:/mnt/c/Windows"
 export PATH="$PATH:/mnt/c/Windows/System32"
 
-if [ -d "$HOME/.cargo/bin" ]; then
-  . "$HOME/.cargo/env"
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
