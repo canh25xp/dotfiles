@@ -37,6 +37,16 @@ chezmoi init canh25xp
 - Optional : install [gh-dash](https://github.com/dlvhdr/gh-dash) : `gh extension install dlvhdr/gh-dash`
 - login : `gh auth login`
 
+### Create Newuser
+```sh
+# As root:
+useradd -m <username>
+passwd <username>
+usermod -a -G sudo <username>
+su - <username>
+chsh -s /bin/bash
+```
+
 ## Troubleshooting
 
 1. Git command returns fatal error: "detected dubious ownership"
