@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "linux" -}}
+{{ include ".chezmoiscripts/.install-neovim.sh" -}}
+{{ end -}}
