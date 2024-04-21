@@ -34,6 +34,7 @@ packages=(
 	git-delta
 	rustup
 	tealdeer
+  tree-sitter-cli
 )
 
 echo "The following packages will be installed:"
