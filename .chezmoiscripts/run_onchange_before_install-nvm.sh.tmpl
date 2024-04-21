@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "linux" -}}
+  {{ include "scripts/install-nvm.sh" -}}
+{{ end -}}
