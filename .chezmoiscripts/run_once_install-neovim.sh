@@ -5,8 +5,15 @@
 echo "Installing neovim ..."
 
 if command -v nvim &>/dev/null; then
-    echo "Neovim is already installed. Exiting."
-    exit 0
+	echo "Neovim is already installed. Exiting."
+	exit 0
+fi
+
+read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+
+if not [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+	echo "Installation canceled."
 fi
 
 mkdir -p ~/projects/lua/
