@@ -38,6 +38,7 @@ chezmoi init canh25xp
 - login : `gh auth login`
 
 ### Create Newuser
+
 ```sh
 # As root:
 useradd -m <username>
@@ -47,9 +48,15 @@ su - <username>
 chsh -s /bin/bash
 ```
 
+### Build Bat theme
+
+```
+bat cache --build
+```
+
 ## Troubleshooting
 
-1. Git command returns fatal error: "detected dubious ownership"
+### Git command returns fatal error: "detected dubious ownership"
 > https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
 
 ```
