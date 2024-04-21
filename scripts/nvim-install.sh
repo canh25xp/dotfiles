@@ -7,7 +7,7 @@ cd neovim
 
 sudo apt-get update
 
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential file
 
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
