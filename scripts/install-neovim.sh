@@ -1,8 +1,7 @@
 #!/bin/bash
-
 # https://github.com/neovim/neovim/blob/master/BUILD.md
 
-echo "Installing neovim ..."
+echo "Installing Neovim"
 
 if command -v nvim &>/dev/null; then
 	echo "Neovim is already installed. Exiting."
@@ -14,7 +13,7 @@ confirmation=${confirmation:-Y}
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	echo "Installation canceled."
-  exit 0
+	exit 0
 fi
 
 mkdir -p ~/projects/lua/
@@ -29,4 +28,8 @@ sudo apt-get install ninja-build gettext cmake unzip curl build-essential file
 
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+cd build
+
+cpack -G DEB
+
+sudo dpkg -i nvim-linux64.deb
