@@ -40,10 +40,6 @@
             "keys": "alt+shift+\\"
         },
         {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
-        },
-        {
             "command": 
             {
                 "action": "clearBuffer",
@@ -57,6 +53,10 @@
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+k"
+        },
+        {
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
         },
         {
             "command": "scrollDownPage",
@@ -145,7 +145,7 @@
             {
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\Pictures\\Assets\\Debian_small.png",
+                "icon": "%USERPROFILE%\\Pictures\\Assets\\Debian.ico",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -167,6 +167,13 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\Pictures\\Assets\\Ubuntu.ico",
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
