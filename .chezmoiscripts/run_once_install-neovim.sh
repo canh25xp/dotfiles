@@ -14,13 +14,14 @@ confirmation=${confirmation:-Y}
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	echo "Installation canceled."
+  exit 0
 fi
 
 mkdir -p ~/projects/lua/
 
 git clone --depth 1 https://github.com/neovim/neovim ~/projects/lua/neovim
 
-cd neovim
+cd ~/projects/lua/neovim
 
 sudo apt-get update
 
