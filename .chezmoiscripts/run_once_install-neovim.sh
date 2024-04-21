@@ -12,7 +12,7 @@ fi
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
 
-if not [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	echo "Installation canceled."
 fi
 
