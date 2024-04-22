@@ -1,7 +1,8 @@
 #!/bin/bash
 # https://github.com/neovim/neovim/blob/master/BUILD.md
 
-echo "Installing nvim"
+echo "================================================================================"
+echo "[Chezmoi] Installing nvim"
 
 if command -v nvim &>/dev/null; then
 	echo "nvim is already installed. Exiting."
@@ -18,7 +19,11 @@ fi
 
 mkdir -p ~/projects/lua/
 
-git clone --depth 1 https://github.com/neovim/neovim ~/projects/lua/neovim
+if [ -d ~/projects/lua/neovim/.git ];then
+  echo "neovim already clone. skip"
+else
+  git clone --depth 1 https://github.com/neovim/neovim ~/projects/lua/neovim
+fi
 
 cd ~/projects/lua/neovim
 
