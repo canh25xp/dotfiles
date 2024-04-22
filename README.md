@@ -52,6 +52,10 @@ chsh -s /bin/bash
 bat cache --build
 ```
 
+### Install tmu packages
+
+`C-a C-I`
+
 ## Troubleshooting
 
 ### Git command returns fatal error: "detected dubious ownership"
