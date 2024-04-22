@@ -5,8 +5,7 @@ echo "==========================================================================
 echo "[Chezmoi] Installing node"
 
 if command -v node &>/dev/null; then
-	echo "node is already installed. Exiting."
-	exit 0
+	echo "node is already installed. Running anyway :v"
 fi
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
@@ -16,5 +15,7 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	echo "Installation canceled."
 	exit 0
 fi
+
+. ~/.nvm/nvm.sh
 
 nvm install node
