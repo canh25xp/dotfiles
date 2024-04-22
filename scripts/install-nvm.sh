@@ -1,7 +1,13 @@
 #!/bin/bash
 #https://github.com/nvm-sh/nvm
 
-echo "Installing nvm"
+echo "================================================================================"
+echo "[Chezmoi] Installing nvm"
+
+if [ -d "${HOME}/.nvm/.git" ]; then
+	echo "nvm is already installed. Exiting."
+	exit 0
+fi
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
@@ -12,5 +18,3 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 fi
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-
-nvm install node

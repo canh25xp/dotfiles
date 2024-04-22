@@ -1,11 +1,11 @@
 #!/bin/bash
+#https://github.com/nvm-sh/nvm
 
 echo "================================================================================"
-echo "[Chezmoi] Installing go"
+echo "[Chezmoi] Installing node"
 
-if command -v go &>/dev/null; then
-	echo "Go is already installed. Exiting."
-	exit 0
+if command -v node &>/dev/null; then
+	echo "node is already installed. Running anyway :v"
 fi
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
@@ -16,6 +16,6 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-# sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang
+. ~/.nvm/nvm.sh
+
+nvm install node

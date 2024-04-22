@@ -1,10 +1,11 @@
 #!/bin/bash
+# https://github.com/jesseduffield/lazygit
 
 echo "================================================================================"
-echo "[Chezmoi] Installing go"
+echo "[Chezmoi] Installing lazygit"
 
-if command -v go &>/dev/null; then
-	echo "Go is already installed. Exiting."
+if command -v lazygit &>/dev/null; then
+	echo "lazygit is already installed. Exiting."
 	exit 0
 fi
 
@@ -16,6 +17,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-# sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang
+go install github.com/jesseduffield/lazygit@latest
