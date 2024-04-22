@@ -1,10 +1,10 @@
 #!/bin/bash
 # https://github.com/neovim/neovim/blob/master/BUILD.md
 
-echo "Installing Neovim"
+echo "Installing nvim"
 
 if command -v nvim &>/dev/null; then
-	echo "Neovim is already installed. Exiting."
+	echo "nvim is already installed. Exiting."
 	exit 0
 fi
 
