@@ -20,4 +20,5 @@ fi
 sudo apt update
 sudo apt install rustup
 
+echo "download and set the latest stable release of Rust"
 rustup default stable
