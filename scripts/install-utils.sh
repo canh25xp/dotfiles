@@ -49,11 +49,16 @@ fi
 sudo apt-get update
 sudo apt-get install "${packages[@]}"
 
-read -p "Symlink bat and fd? (Y/n): " confirmation_symlink
-confirmation_symlink=${confirmation_symlink:-Y}
+if ! command -v fd &> /dev/null; then
+  if command -v fdfind &>/dev/null; then
+    echo "Creating symlinks fdfind -> fd"
+    ln -s $(which fdfind) ~/.local/bin/fd
+  fi
+fi
 
-if [[ "$confirmation_symlink" == "y" || "$confirmation_symlink" == "Y" ]]; then
-	mkdir -p ~/.local/bin
-	ln -s $(which fdfind) ~/.local/bin/fd
-	ln -s $(which batcat) ~/.local/bin/bat
+if ! command -v bat &> /dev/null; then
+  if command -v batcat &>/dev/null; then
+    echo "Creating symlinks batcat -> bat"
+    ln -s $(which fdfind) ~/.local/bin/fd
+  fi
 fi
