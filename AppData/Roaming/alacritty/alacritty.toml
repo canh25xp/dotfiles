@@ -1,5 +1,10 @@
+import = [
+  # uncomment the flavour you want below:
+  "~/AppData/Roaming/alacritty/catppuccin-mocha.toml"
+]
+
 [shell]
-program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+program = "C:/Program Files/PowerShell/7/pwsh.exe"
 
 [font]
 normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
