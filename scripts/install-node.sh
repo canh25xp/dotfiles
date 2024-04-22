@@ -1,10 +1,10 @@
 #!/bin/bash
 #https://github.com/nvm-sh/nvm
 
-echo "Installing nvm"
+echo "Installing node"
 
-if [ -d "${HOME}/.nvm/.git" ]; then
-	echo "nvm is already installed. Exiting."
+if command -v node &>/dev/null; then
+	echo "node is already installed. Exiting."
 	exit 0
 fi
 
@@ -16,4 +16,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install node
