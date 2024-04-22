@@ -12,8 +12,8 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+pgup"
         },
         {
             "command": 
@@ -32,8 +32,8 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "toggleSplitOrientation",
@@ -42,17 +42,17 @@
         {
             "command": 
             {
-                "action": "clearBuffer",
-                "clear": "all"
+                "action": "scrollUp"
             },
-            "keys": "ctrl+shift+l"
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
             {
-                "action": "scrollUp"
+                "action": "clearBuffer",
+                "clear": "all"
             },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+l"
         },
         {
             "command": "togglePaneZoom",
@@ -169,11 +169,16 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "guid": "{527f2af4-96ca-5097-9b4f-d3b1768fd3e3}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\Pictures\\Assets\\Ubuntu.ico",
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c9f058d4-6bf9-53dd-b604-54e761f9b2ca}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
