@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "================================================================================"
-echo "[Chezmoi] Installing go"
+echo "[Chezmoi] Installing rustup"
 
-if command -v go &>/dev/null; then
-	echo "Go is already installed. Exiting."
+if command -v rustup &>/dev/null; then
+	echo "rustup is already installed. Exiting."
 	exit 0
 fi
 
@@ -18,4 +18,4 @@ fi
 
 # sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
-sudo apt install golang
+sudo apt install rustup

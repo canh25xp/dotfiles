@@ -1,17 +1,14 @@
 #!/bin/bash
 
+echo "================================================================================"
+echo "[Chezmoi] Installing utils apt packages"
+
 packages=(
 	# vim
 	# neovim
 	neofetch
 	ripgrep
 	fd-find
-	unzip
-	zip
-	build-essential
-	python3
-	python3-pip
-	python3-venv
 	bat
 	htop
 	zathura
@@ -21,7 +18,6 @@ packages=(
 	hexyl
 	gdu
 	tmux
-	xclip
 	neomutt
 	pass
 	speedtest-cli
@@ -32,7 +28,6 @@ packages=(
 	lolcat
 	eza
 	git-delta
-	rustup
 	tealdeer
   tree-sitter-cli
 )

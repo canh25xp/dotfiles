@@ -1,4 +1,10 @@
+#!/bin/bash
+
 # https://miktex.org/download
+
+echo "================================================================================"
+echo "[Chezmoi] Installing utils apt packages"
+
 curl -fsSL https://miktex.org/download/key | sudo tee /usr/share/keyrings/miktex-keyring.asc > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/miktex-keyring.asc] https://miktex.org/download/debian bookworm universe" | sudo tee /etc/apt/sources.list.d/miktex.list
 sudo apt-get update

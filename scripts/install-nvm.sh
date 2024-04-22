@@ -1,7 +1,8 @@
 #!/bin/bash
 #https://github.com/nvm-sh/nvm
 
-echo "Installing nvm"
+echo "================================================================================"
+echo "[Chezmoi] Installing nvm"
 
 if [ -d "${HOME}/.nvm/.git" ]; then
 	echo "nvm is already installed. Exiting."

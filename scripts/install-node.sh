@@ -1,7 +1,8 @@
 #!/bin/bash
 #https://github.com/nvm-sh/nvm
 
-echo "Installing node"
+echo "================================================================================"
+echo "[Chezmoi] Installing node"
 
 if command -v node &>/dev/null; then
 	echo "node is already installed. Exiting."
