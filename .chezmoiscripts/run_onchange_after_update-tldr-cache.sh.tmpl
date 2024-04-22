@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "linux" -}}
+  {{ include "scripts/update-tldr-cache.sh" -}}
+{{ end -}}
