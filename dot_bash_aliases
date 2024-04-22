@@ -3,8 +3,8 @@ alias cls=clear
 alias where=which
 alias explorer=explorer.exe
 alias notepad=notepad.exe
-alias neovide='neovide.exe --wsl'
-alias rd='rm -r'
+alias neovide='neovide.exe'
+alias gvim='neovide.exe --wsl'
 
 # Shorten aliases, convenient aliases
 alias lgit=lazygit
@@ -12,7 +12,7 @@ alias what='type -a'
 alias wtf='type -a'
 alias nmutt=neomutt
 alias mail=neomutt
-alias la='ls -A'    # Include hidden files
+alias la='ls -A' # Include hidden files
 alias ll='ls -AlF'
 alias np=notepad.exe
 alias exp=explorer.exe
@@ -24,9 +24,9 @@ alias man=batman
 alias lvim="NVIM_APPNAME=lvim nvim"
 
 # cd on exit
-cdx () {
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    cd "$(command lf -print-last-dir "$@")"
+cdx() {
+	# `command` is needed in case `lfcd` is aliased to `lf`
+	cd "$(command lf -print-last-dir "$@")"
 }
 
 # bat help
@@ -43,11 +43,11 @@ help() {
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  if [ -x "$(command -v eza)" ]; then
-    alias ls='eza --icons -1 --hyperlink --time-style relative'
-  else
-    alias ls='ls --color=auto -1'
-  fi
+	if [ -x "$(command -v eza)" ]; then
+		alias ls='eza --icons -1 --hyperlink --time-style relative'
+	else
+		alias ls='ls --color=auto -1'
+	fi
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 
