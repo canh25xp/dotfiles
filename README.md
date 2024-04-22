@@ -31,25 +31,9 @@ chezmoi init canh25xp
 
 ### Required packages
 
-1. [git](https://github.com/git/git) : `sudo apt install git`
-
-2. [gh](https://github.com/cli/cli) : `sudo apt install gh`
-
 - Optional : install [gh-dash](https://github.com/dlvhdr/gh-dash) : `gh extension install dlvhdr/gh-dash`
 - login : `gh auth login`
 
-3. [wslu](https://wslutiliti.es/wslu/install.html)
-
-```sh
-sudo apt install gnupg2 apt-transport-https
-wget -O - https://pkg.wslutiliti.es/public.key | sudo gpg -o /usr/share/keyrings/wslu-archive-keyring.pgp --dearmor
-
-# Debian 12
-echo "deb [signed-by=/usr/share/keyrings/wslu-archive-keyring.pgp] https://pkg.wslutiliti.es/debian bookworm main" | sudo tee -a /etc/apt/sources.list.d/wslu.list
-
-sudo apt update
-sudo apt install wslu
-```
 
 ### Create Newuser
 
@@ -77,3 +61,9 @@ bat cache --build
 git config --global --add safe.directory '*'
 ```
 
+### Cannot set LC_CTYPE to default locale: No such file or directory
+> https://askubuntu.com/questions/599808/cannot-set-lc-ctype-to-default-locale-no-such-file-or-directory
+
+```
+sudo dpkg-reconfigure locales
+```
