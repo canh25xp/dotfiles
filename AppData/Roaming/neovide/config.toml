@@ -1,4 +1,10 @@
 [font]
-normal = ["Hack Nerd Font"]
-size = 14
+normal = ["CaskaydiaCove Nerd Font"]
+size = 16
 maximized = true
+title-hidden = true
+
+[font.features]
+"CaskaydiaCove Nerd Font" = [ "+ss01", "+ss07", "+ss11", "-calt", "+ss09", "+ss02", "+ss14", "+ss16", "+ss17" ]
+
+
