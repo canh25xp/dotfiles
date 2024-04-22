@@ -11,6 +11,7 @@ packages=(
 	fd-find
 	bat
 	htop
+	# btm
 	zathura
 	lf
 	zoxide
@@ -25,11 +26,11 @@ packages=(
 	nsxiv
 	luarocks
 	gdb
-	lolcat
+	lolcat # goofy ahh
 	eza
 	git-delta
 	tealdeer
-  tree-sitter-cli
+	tree-sitter-cli
 )
 
 echo "The following packages will be installed:"

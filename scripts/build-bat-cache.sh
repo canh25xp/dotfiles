@@ -1,3 +1,19 @@
 #!/bin/bash
 
+echo "================================================================================"
+echo "[Chezmoi] Building bat theme (catppuccin)"
+
+if ! command -v bat &>/dev/null ; then
+	echo "bat is not installed. Exiting"
+	exit 1
+fi
+
+read -p "Build bat theme? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+
+if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+	echo "Canceled."
+	exit 0
+fi
+
 bat cache --build

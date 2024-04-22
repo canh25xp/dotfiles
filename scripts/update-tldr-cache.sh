@@ -3,7 +3,7 @@
 echo "================================================================================"
 echo "[Chezmoi] Updating tldr cache"
 
-if ! ( command -v tldr &>/dev/null ); then
+if ! command -v tldr &>/dev/null ; then
 	echo "tldr is not installed. Exiting"
 	exit 1
 fi
