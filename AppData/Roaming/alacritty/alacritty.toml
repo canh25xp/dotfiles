@@ -1,5 +1,4 @@
 import = [
-  # uncomment the flavour you want below:
   "~/AppData/Roaming/alacritty/catppuccin-mocha.toml"
 ]
 
@@ -20,4 +19,5 @@ hide_when_typing = true
 [keyboard]
 bindings = [
   { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
 ]

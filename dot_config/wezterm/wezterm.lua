@@ -10,6 +10,8 @@ config.enable_tab_bar = true
 
 config.hide_tab_bar_if_only_one_tab = true
 
+config.unzoom_on_switch_pane = true
+
 config.window_padding = {
 	left = 0,
 	right = 0,

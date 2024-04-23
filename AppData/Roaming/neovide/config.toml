@@ -4,6 +4,6 @@ size = 16
 maximized = false
 
 [font.features]
-"CaskaydiaCove Nerd Font" = [ "+ss01", "+ss07", "+ss11", "-calt", "+ss09", "+ss02", "+ss14", "+ss16", "+ss17" ]
+"CaskaydiaCove Nerd Font" = [ "-calt" ]
 
 
