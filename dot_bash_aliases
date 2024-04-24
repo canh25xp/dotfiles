@@ -3,6 +3,7 @@ alias cls=clear
 alias where=which
 alias explorer=explorer.exe
 alias notepad=notepad.exe
+alias pwsh=pwsh.exe
 alias neovide='neovide.exe'
 alias gvim='neovide.exe --wsl'
 
