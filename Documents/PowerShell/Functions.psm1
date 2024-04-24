@@ -2,6 +2,10 @@
 # SHELL FUNCTIONS
 # ==============================================
 
+function Open-DefaultDistro {
+  wsl --cd ~
+}
+
 function Open-ListFile {
   param ()
   lf -print-last-dir $args | Set-Location
