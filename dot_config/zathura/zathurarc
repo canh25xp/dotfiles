@@ -33,6 +33,8 @@ map [normal] R rotate
 map [fullscreen] r reload
 map [fullscreen] R rotate
 
+map [normal] I recolor
+
 # Theme
 set default-bg                  "#1A1B2C"
 set default-fg                  "#0e1018"
