@@ -19,7 +19,8 @@ hide_when_typing = true
 [keyboard]
 bindings = [
   { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-  { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Return", mods = "Control|Shift", action = "Open" },
+  { key = "W", mods = "Control|Shift", action = "Quit" },
   { key = "Slash", mods = "Control", chars = "\u001B[47;5u" },
   { key = "Space", mods = "Control", chars = "\u001B[32;5u" }
 ]
