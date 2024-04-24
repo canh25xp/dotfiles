@@ -20,6 +20,7 @@ alias exp=explorer.exe
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
 alias man=batman
+alias cht=cht.sh
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=lvim nvim"
