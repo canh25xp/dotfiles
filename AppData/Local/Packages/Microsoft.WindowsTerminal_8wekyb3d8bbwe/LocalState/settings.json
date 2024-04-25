@@ -12,14 +12,6 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "command": 
             {
                 "action": "scrollDown"
@@ -36,12 +28,16 @@
             "keys": "ctrl+shift+\\"
         },
         {
-            "command": "toggleSplitOrientation",
-            "keys": "alt+shift+\\"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "command": "toggleSplitOrientation",
+            "keys": "alt+shift+\\"
         },
         {
             "command": 
@@ -50,6 +46,10 @@
                 "clear": "all"
             },
             "keys": "ctrl+shift+l"
+        },
+        {
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
         },
         {
             "command": 
@@ -161,6 +161,18 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{527f2af4-96ca-5097-9b4f-d3b1768fd3e3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c9f058d4-6bf9-53dd-b604-54e761f9b2ca}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
