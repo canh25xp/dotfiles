@@ -4,8 +4,8 @@ set realname = "Ngô Văn Cảnh"
 set imap_user = "canh25xp@gmail.com"
 set smtp_url = "smtps://canh25xp@smtp.gmail.com"
 
-# set imap_pass = "mypassword"
-source "gpg -dq ~/.config/neomutt/gmail.gpg |"
+set imap_pass = "{{ pass "gmail" }}"
+# source "gpg -dq ~/.config/neomutt/gmail.gpg |"
 
 # General settings
 color status green default
