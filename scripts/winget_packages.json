@@ -314,6 +314,9 @@
           "PackageIdentifier": "Microsoft.VisualStudio.2022.BuildTools"
         },
         {
+          "PackageIdentifier": "Alacritty.Alacritty"
+        },
+        {
           "PackageIdentifier": "Rustlang.Rustup"
         }
       ],

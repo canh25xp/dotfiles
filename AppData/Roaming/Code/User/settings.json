@@ -115,4 +115,7 @@
     "[latex]": {},
     "workbench.colorTheme": "Catppuccin Mocha",
     "extensions.ignoreRecommendations": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
 }

@@ -12,8 +12,8 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+pgup"
         },
         {
             "command": 
@@ -32,16 +32,19 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "toggleSplitOrientation",
             "keys": "alt+shift+\\"
         },
         {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -52,11 +55,8 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+k"
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
         },
         {
             "command": "scrollDownPage",
@@ -145,7 +145,7 @@
             {
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
-                "icon": "%USERPROFILE%\\Pictures\\Assets\\Debian_small.png",
+                "icon": "%USERPROFILE%\\Pictures\\Assets\\Debian.ico",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -167,6 +167,18 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{527f2af4-96ca-5097-9b4f-d3b1768fd3e3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c9f058d4-6bf9-53dd-b604-54e761f9b2ca}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
