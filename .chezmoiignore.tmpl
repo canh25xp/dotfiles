@@ -9,31 +9,34 @@ scripts/
 .config/neovide/
 {{ end }}
 
-./Documents/
-./Arts/
-./.config/winfetch/
-./AppData/
-./Pictures/
-./.profile
-./.arduinoIDE/
-./.wslconfig
-./AppData/Roaming/
+Documents/
+Arts/
+.config/winfetch/
+AppData/
+Pictures/
+.profile
+.arduinoIDE/
+.wslconfig
+AppData/Roaming/
 
 {{ else if eq .chezmoi.os "windows" }}
 
-./.config/latexindent/
-./.config/lf/
-./.config/zathura/
-./.config/xplr/
-./.config/tmux/
-./.config/neomutt/
-./.condarc
-./.profile
-./.config/lazygit/
-./.config/neofetch/
-./.config/bat/
-./.config/mimeapps.list
-./.config/tealdeer/
-./.config/glow/
+.config/alacritty/
+.config/neovide/
+
+.config/latexindent/
+.config/lf/
+.config/zathura/
+.config/xplr/
+.config/tmux/
+.config/neomutt/
+.condarc
+.profile
+.config/lazygit/
+.config/neofetch/
+.config/bat/
+.config/mimeapps.list
+.config/tealdeer/
+.config/glow/
 
 {{ end }}
