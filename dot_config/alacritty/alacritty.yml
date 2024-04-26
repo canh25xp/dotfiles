@@ -2,13 +2,18 @@ shell:
   program: /bin/bash
   args:
     - -l
-# Font configuration (changes require restart)
+
 font:
-  # The normal (roman) font face to use.
-  # Style can be specified to pick a specific face.
   normal:
     family: CaskaydiaCove Nerd Font
-    style: Normal
-    # family: "Fira Code"
-    # family: "Source Code Pro"
-    # style: Retina
+    style: Regular
+  bold:
+    family: CaskaydiaCove Nerd Font
+    style: Bold
+  italic:
+    family: CaskaydiaCove Nerd Font
+    style: Italic
+  bold_italic:
+    family: CaskaydiaCove Nerd Font
+    style: Bold Italic
+  size: 12
