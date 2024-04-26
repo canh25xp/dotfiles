@@ -1,3 +1,6 @@
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
+
 shell:
   program: /bin/bash
   args:
