@@ -43,6 +43,8 @@
   url: https://github.com/canh25xp/lazyVim-config
   refreshPeriod: 168h
 
+{{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+
 .config/alacritty/catppuccin-mocha.yml:
   type: file
   url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-mocha.yml
@@ -62,6 +64,8 @@
   type: file
   url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-frappe.yml
   refreshPeriod: 168h
+
+{{ end }}
 
 {{ else if eq .chezmoi.os "windows" }}
 

@@ -4,6 +4,11 @@ scripts/
 
 {{ if eq .chezmoi.os "linux" }}
 
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+.config/alacritty/
+.config/neovide/
+{{ end }}
+
 ./Documents/
 ./Arts/
 ./.config/winfetch/

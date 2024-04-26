@@ -4,7 +4,8 @@
 echo "================================================================================"
 echo "[Chezmoi] Installing wslu"
 
-if command -v wslu &>/dev/null; then
+
+if command -v wslfetch &>/dev/null; then
 	echo "wslu is already installed. Exiting."
 	exit 0
 fi
