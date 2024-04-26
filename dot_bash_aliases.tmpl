@@ -1,10 +1,12 @@
 # pwsh-like aliases
 alias cls=clear
 alias where=which
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 alias explorer=explorer.exe
 alias notepad=notepad.exe
-alias neovide='neovide.exe --wsl'
-alias rd='rm -r'
+alias pwsh=pwsh.exe
+alias neovide='neovide.exe'
+{{ end -}}
 
 # Shorten aliases, convenient aliases
 alias lgit=lazygit
@@ -12,20 +14,26 @@ alias what='type -a'
 alias wtf='type -a'
 alias nmutt=neomutt
 alias mail=neomutt
-alias la='ls -A'    # Include hidden files
+alias la='ls -A' # Include hidden files
 alias ll='ls -AlF'
-alias np=notepad.exe
-alias exp=explorer.exe
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+alias np=notepad
+alias exp=explorer
+alias gvim='neovide --wsl'
+{{ end -}}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
+alias man=batman
+alias cht=cht.sh
+alias gvim='neovide'
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=lvim nvim"
 
 # cd on exit
-cdx () {
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    cd "$(command lf -print-last-dir "$@")"
+cdx() {
+	# `command` is needed in case `lfcd` is aliased to `lf`
+	cd "$(command lf -print-last-dir "$@")"
 }
 
 # bat help
@@ -42,11 +50,11 @@ help() {
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  if [ -x "$(command -v eza)" ]; then
-    alias ls='eza --icons -1 --hyperlink --time-style relative'
-  else
-    alias ls='ls --color=auto -1'
-  fi
+	if [ -x "$(command -v eza)" ]; then
+		alias ls='eza --icons -1 --hyperlink --time-style relative'
+	else
+		alias ls='ls --color=auto -1'
+	fi
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 

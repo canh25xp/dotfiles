@@ -1,10 +1,11 @@
 #!/bin/bash
+#https://github.com/nvm-sh/nvm
 
 echo "================================================================================"
-echo "[Chezmoi] Installing rustup"
+echo "[Chezmoi] Installing cht.sh"
 
-if command -v rustup &>/dev/null; then
-	echo "rustup is already installed. Exiting."
+if [ -e "${HOME}/bin/cht.sh" ]; then
+	echo "cht.sh is already installed. Exiting."
 	exit 0
 fi
 
@@ -16,9 +17,10 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-# sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install rustup
+PATH_DIR="$HOME/bin"  # or another directory on your $PATH
 
-echo "download and set the latest stable release of Rust"
-rustup default stable
+mkdir -p "$PATH_DIR"
+
+curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
+
+chmod +x "$PATH_DIR/cht.sh"
