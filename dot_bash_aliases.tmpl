@@ -1,11 +1,13 @@
 # pwsh-like aliases
 alias cls=clear
 alias where=which
+{{ if eq .chezmoi.os "linux" -}}
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 alias explorer=explorer.exe
 alias notepad=notepad.exe
 alias pwsh=pwsh.exe
 alias neovide='neovide.exe'
+{{ end -}}
 {{ end -}}
 
 # Shorten aliases, convenient aliases
@@ -16,10 +18,12 @@ alias nmutt=neomutt
 alias mail=neomutt
 alias la='ls -A' # Include hidden files
 alias ll='ls -AlF'
+{{ if eq .chezmoi.os "linux" -}}
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 alias np=notepad
 alias exp=explorer
 alias gvim='neovide --wsl'
+{{ end -}}
 {{ end -}}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
