@@ -59,6 +59,6 @@ fi
 if ! command -v bat &> /dev/null; then
   if command -v batcat &>/dev/null; then
     echo "Creating symlinks batcat -> bat"
-    ln -s $(which fdfind) ~/.local/bin/fd
+    ln -s $(which batcat) ~/.local/bin/bat
   fi
 fi
