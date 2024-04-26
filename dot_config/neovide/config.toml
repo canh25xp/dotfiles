@@ -1,0 +1,7 @@
+[font]
+normal = ["CaskaydiaCove Nerd Font"]
+size = 16
+maximized = false
+
+[font.features]
+"CaskaydiaCove Nerd Font" = [ "-calt" ]
