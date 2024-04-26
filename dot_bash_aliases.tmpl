@@ -1,7 +1,7 @@
-{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 # pwsh-like aliases
 alias cls=clear
 alias where=which
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 alias explorer=explorer.exe
 alias notepad=notepad.exe
 alias pwsh=pwsh.exe
