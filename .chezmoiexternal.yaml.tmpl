@@ -45,24 +45,9 @@
 
 {{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
-.config/alacritty/catppuccin-mocha.yml:
+.config/alacritty/catppuccin-mocha.toml:
   type: file
-  url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-mocha.yml
-  refreshPeriod: 168h
-
-.config/alacritty/catppuccin-macchiato.yml:
-  type: file
-  url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-macchiato.yml
-  refreshPeriod: 168h
-
-.config/alacritty/catppuccin-latte.yml:
-  type: file
-  url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-latte.yml
-  refreshPeriod: 168h
-
-.config/alacritty/catppuccin-frappe.yml:
-  type: file
-  url: https://raw.githubusercontent.com/catppuccin/alacritty/yaml/catppuccin-frappe.yml
+  url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
   refreshPeriod: 168h
 
 {{ end }}
