@@ -96,8 +96,8 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-if [ -f ~/.bash_completion_chezmoi.bash ]; then
-	. ~/.chezmoi_completion.bash
+if [ -f ~/.bash_completion/chezmoi ]; then
+	. ~/.bash_completion/chezmoi
 fi
 
 
