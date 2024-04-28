@@ -9,6 +9,9 @@ shell:
   args:
     - -l
 
+window:
+  startup_mode: Maximized
+
 font:
   normal:
     family: CaskaydiaCove Nerd Font
@@ -22,11 +25,11 @@ font:
   bold_italic:
     family: CaskaydiaCove Nerd Font
     style: Bold Italic
-  size: 13
+  size: 12
 
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Q, mods: Control|Shift, action: Quit }
-  - { key: W, mods: Control|Shift,action: Quit }
+  - { key: W, mods: Control|Shift, action: Quit }
