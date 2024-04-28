@@ -3,6 +3,13 @@ import = ["/home/michael/.config/alacritty/catppuccin-mocha.toml"]
 [env]
 TERM = "xterm-256color"
 
+[shell]
+args = ["-l"]
+program = "/bin/bash"
+
+[window]
+startup_mode = "Maximized"
+
 [font]
 size = 12
 
@@ -22,33 +29,10 @@ style = "Italic"
 family = "CaskaydiaCove Nerd Font"
 style = "Regular"
 
-[[keyboard.bindings]]
-action = "ToggleFullscreen"
-key = "F11"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "Q"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "W"
-mods = "Control|Shift"
-
-[shell]
-args = ["-l"]
-program = "/bin/bash"
-
-[window]
-startup_mode = "Maximized"
+[keyboard]
+bindings = [
+  { key = "F11", action = "ToggleFullscreen" },
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "Return", mods = "Control|Shift", action = "Open" },
+  { key = "W", mods = "Control|Shift", action = "Quit" },
+]
