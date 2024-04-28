@@ -20,6 +20,14 @@ merge:
     - "{{ "{{" }} .Source {{ "}}" }}"
     - "{{ "{{" }} .Target {{ "}}" }}"
 
+{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+data:
+  wsl : true
+{{- else }}
+data:
+  wsl : false
+{{- end}}
+
 {{- if eq .chezmoi.os "windows" }}
 cd:
   command: "pwsh"
