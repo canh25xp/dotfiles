@@ -31,8 +31,8 @@ style = "Regular"
 
 [keyboard]
 bindings = [
-  { key = "F11", action = "ToggleFullscreen" },
+  { key = "Enter", mods = "Alt", action = "ToggleFullscreen" },
   { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-  { key = "Return", mods = "Control|Shift", action = "Open" },
+  { key = "Enter", mods = "Control|Shift", action = "Open" },
   { key = "W", mods = "Control|Shift", action = "Quit" },
 ]
