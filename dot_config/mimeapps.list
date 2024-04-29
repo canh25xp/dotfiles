@@ -1,4 +1,5 @@
 [Default Applications]
+text/html=firefox.desktop
 image/bmp=nsxiv.desktop
 image/gif=nsxiv.desktop
 image/jpeg=nsxiv.desktop
