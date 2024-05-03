@@ -49,6 +49,8 @@ fi
 sudo apt-get update
 sudo apt-get install "${packages[@]}"
 
+mkdir -p ~/.local/bin/
+
 if ! command -v fd &> /dev/null; then
   if command -v fdfind &>/dev/null; then
     echo "Creating symlinks fdfind -> fd"
