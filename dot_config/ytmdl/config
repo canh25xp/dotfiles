@@ -30,7 +30,7 @@
 # ReleaseDate --> Song Release date
 #
 # Following is an example of the format
-SONG_DIR = "/home/michael/Music$Artist->Album"
+SONG_DIR = "~/Music$Artist->Album"
 # SONG_DIR = "/home/michael/Music$Artist->Album->Title"
 #
 #*****************************************#
