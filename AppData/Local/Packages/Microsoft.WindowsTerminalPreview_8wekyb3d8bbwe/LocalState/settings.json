@@ -12,8 +12,8 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -32,8 +32,8 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+pgup"
         },
         {
             "command": "toggleSplitOrientation",
@@ -47,16 +47,16 @@
             "keys": "ctrl+shift+k"
         },
         {
+            "command": "togglePaneZoom",
+            "keys": "ctrl+shift+z"
+        },
+        {
             "command": 
             {
                 "action": "clearBuffer",
                 "clear": "all"
             },
             "keys": "ctrl+shift+l"
-        },
-        {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
         },
         {
             "command": "scrollDownPage",
@@ -104,6 +104,7 @@
                 "dark": "Catppuccin Mocha",
                 "light": "Catppuccin Latte"
             },
+            "cursorShape": "filledBox",
             "font": 
             {
                 "face": "CaskaydiaCove Nerd Font",
@@ -141,13 +142,6 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
-            },
-            {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
-                "icon": "%USERPROFILE%\\Pictures\\Assets\\Debian.ico",
-                "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{c5ad8b93-8f13-5aa6-bdba-487b5a95c72f}",
