@@ -6,7 +6,9 @@ import = [
 startup_mode = "Maximized"
 
 [shell]
-program = "pwsh.exe"
+program = "wsl.exe"
+args = [ "-d DebianUnstable --cd ~" ]
+# program = "pwsh.exe"
 # args = [ "-wd ~" ]
 
 [font]

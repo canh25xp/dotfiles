@@ -40,13 +40,6 @@
             "keys": "alt+shift+\\"
         },
         {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+k"
-        },
-        {
             "command": "togglePaneZoom",
             "keys": "ctrl+shift+z"
         },
@@ -57,6 +50,13 @@
                 "clear": "all"
             },
             "keys": "ctrl+shift+l"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": "scrollDownPage",
@@ -88,6 +88,7 @@
     "disableAnimations": false,
     "focusFollowMouse": false,
     "initialRows": 40,
+    "launchMode": "maximized",
     "newTabMenu": 
     [
         {
@@ -144,6 +145,7 @@
                 "name": "Command Prompt"
             },
             {
+                "colorScheme": "Catppuccin Mocha",
                 "guid": "{c5ad8b93-8f13-5aa6-bdba-487b5a95c72f}",
                 "hidden": false,
                 "name": "Debian Unstable",
