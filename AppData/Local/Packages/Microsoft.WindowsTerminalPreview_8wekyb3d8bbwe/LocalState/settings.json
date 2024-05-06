@@ -25,13 +25,6 @@
             "keys": "ctrl+shift+\\"
         },
         {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+j"
-        },
-        {
             "command": "scrollUpPage",
             "keys": "ctrl+shift+pgup"
         },
@@ -44,21 +37,6 @@
             "keys": "ctrl+shift+z"
         },
         {
-            "command": 
-            {
-                "action": "clearBuffer",
-                "clear": "all"
-            },
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+k"
-        },
-        {
             "command": "scrollDownPage",
             "keys": "ctrl+shift+pgdn"
         },
@@ -66,9 +44,33 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "previous"
+                "direction": "up"
             },
-            "keys": "alt+z"
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
