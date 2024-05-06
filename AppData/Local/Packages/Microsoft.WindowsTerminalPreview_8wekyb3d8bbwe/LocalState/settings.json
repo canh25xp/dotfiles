@@ -37,6 +37,22 @@
             "keys": "ctrl+shift+z"
         },
         {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+alt+l"
+        },
+        {
             "command": "scrollDownPage",
             "keys": "ctrl+shift+pgdn"
         },
@@ -46,7 +62,15 @@
                 "action": "moveFocus",
                 "direction": "up"
             },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
@@ -54,23 +78,7 @@
                 "action": "moveFocus",
                 "direction": "down"
             },
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+h"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+l"
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
