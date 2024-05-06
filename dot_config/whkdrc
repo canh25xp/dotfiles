@@ -1,5 +1,8 @@
 .shell pwsh
 
+# Show cheatsheets
+win + oem_2             : Start-Process pwsh -ArgumentList "-c", "glow $HOME/Documents/CheatSheets"
+
 # Reload whkd configuration
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
 alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
