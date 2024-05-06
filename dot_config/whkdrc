@@ -7,6 +7,8 @@ win + oem_2             : Start-Process pwsh -ArgumentList "-c", "glow $HOME/Doc
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
 alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
 alt + shift + o         : komorebic reload-configuration
+# alt + shftt + r         : komorebic quick-load-resize
+# alt + shftt + s         : komorebic quick-save-resize
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
@@ -16,6 +18,7 @@ alt + shift + o         : komorebic reload-configuration
 # Focus windows
 alt + h                 : komorebic focus left
 alt + j                 : komorebic focus down
+
 alt + k                 : komorebic focus up
 alt + l                 : komorebic focus right
 # alt + oem_4             : komorebic cycle-focus previous # oem_4 is [
