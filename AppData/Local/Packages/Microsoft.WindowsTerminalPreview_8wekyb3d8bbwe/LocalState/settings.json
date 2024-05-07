@@ -115,6 +115,10 @@
                 "direction": "nextInOrder"
             },
             "keys": "alt+q"
+        },
+        {
+            "command": "toggleFocusMode",
+            "keys": "ctrl+shift+alt+f"
         }
     ],
     "alwaysShowNotificationIcon": false,
