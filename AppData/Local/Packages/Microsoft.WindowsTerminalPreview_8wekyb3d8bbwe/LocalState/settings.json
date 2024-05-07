@@ -30,7 +30,7 @@
         },
         {
             "command": "toggleSplitOrientation",
-            "keys": "alt+shift+\\"
+            "keys": "ctrl+shift+alt+\\"
         },
         {
             "command": "togglePaneZoom",
