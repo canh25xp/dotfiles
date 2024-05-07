@@ -1,7 +1,7 @@
 .shell pwsh
 
 # Open cheatsheets
-win + oem_2             : Start-Process pwsh -ArgumentList "-c", "glow $HOME/Documents/CheatSheets"
+win + oem_2             : wt split-pane glow "$HOME/Documents/CheatSheets"
 
 # Reload whkd configuration
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
@@ -12,7 +12,7 @@ alt + shift + s         : komorebic quick-save-resize
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
-# alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
+alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 # alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 
 # Focus windows
@@ -74,3 +74,4 @@ alt + shift + 4         : komorebic move-to-workspace 3
 
 # Change Layouts
 alt + shift + oem_5     : komorebic cycle-layout next
+
