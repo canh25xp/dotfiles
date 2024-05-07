@@ -3,9 +3,11 @@
 # Open cheatsheets
 win + oem_2             : wt split-pane glow "$HOME/Documents/CheatSheets"
 
+
 # Reload whkd configuration
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
-alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + o                 : Stop-Process -Name whkd -Force; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + shift + escape    : Stop-Process -Name whkd -Force
 alt + shift + o         : komorebic reload-configuration
 alt + shift + r         : komorebic quick-load-resize
 alt + shift + s         : komorebic quick-save-resize
