@@ -1,11 +1,9 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
@@ -16,8 +14,7 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -25,58 +22,101 @@
             "keys": "ctrl+shift+\\"
         },
         {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+j"
-        },
-        {
             "command": "scrollUpPage",
             "keys": "ctrl+shift+pgup"
         },
         {
             "command": "toggleSplitOrientation",
-            "keys": "alt+shift+\\"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+alt+\\"
         },
         {
             "command": "togglePaneZoom",
-            "keys": "ctrl+shift+z"
+            "keys": "ctrl+alt+enter"
         },
         {
-            "command": 
-            {
-                "action": "clearBuffer",
-                "clear": "all"
+            "command": {
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "keys": "ctrl+shift+l"
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+shift+j"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "ctrl+shift+alt+h"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "keys": "ctrl+shift+alt+l"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "keys": "ctrl+shift+alt+k"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+alt+l"
         },
         {
             "command": "scrollDownPage",
             "keys": "ctrl+shift+pgdn"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveFocus",
-                "direction": "previous"
+                "direction": "up"
             },
-            "keys": "alt+z"
+            "keys": "ctrl+alt+k"
         },
         {
-            "command": 
-            {
+            "command": {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "ctrl+shift+l"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "command": {
                 "action": "moveFocus",
                 "direction": "nextInOrder"
             },
             "keys": "alt+q"
+        },
+        {
+            "command": "toggleFocusMode",
+            "keys": "ctrl+shift+z"
+        },
+        {
+            "command": {
+                "action": "openSettings",
+                "target": "defaultsFile"
+            },
+            "keys": "ctrl+shift+alt+,"
         }
     ],
     "alwaysShowNotificationIcon": false,
@@ -88,28 +128,23 @@
     "disableAnimations": false,
     "focusFollowMouse": false,
     "initialRows": 40,
-    "newTabMenu": 
-    [
+    "launchMode": "maximized",
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
-        "defaults": 
-        {
+    "profiles": {
+        "defaults": {
             "closeOnExit": "always",
-            "colorScheme": 
-            {
+            "colorScheme": {
                 "dark": "Catppuccin Mocha",
                 "light": "Catppuccin Latte"
             },
             "cursorShape": "filledBox",
-            "font": 
-            {
+            "font": {
                 "face": "CaskaydiaCove Nerd Font",
-                "features": 
-                {
+                "features": {
                     "calt": 0
                 },
                 "size": 13.0
@@ -117,8 +152,7 @@
             "padding": "0",
             "scrollbarState": "hidden"
         },
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -144,6 +178,7 @@
                 "name": "Command Prompt"
             },
             {
+                "colorScheme": "Catppuccin Mocha",
                 "guid": "{c5ad8b93-8f13-5aa6-bdba-487b5a95c72f}",
                 "hidden": false,
                 "name": "Debian Unstable",
@@ -176,8 +211,7 @@
             }
         ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
@@ -550,29 +584,24 @@
     "showTerminalTitleInTitlebar": false,
     "snapToGridOnResize": true,
     "tabSwitcherMode": "inOrder",
-    "theme": 
-    {
+    "theme": {
         "dark": "Catppuccin Mocha",
         "light": "Catppuccin Latte"
     },
-    "themes": 
-    [
+    "themes": [
         {
             "name": "Catppuccin Frappe",
-            "tab": 
-            {
+            "tab": {
                 "background": "#303446FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#292C3CFF",
                 "unfocusedBackground": "#232634FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -582,20 +611,17 @@
         },
         {
             "name": "Catppuccin Latte",
-            "tab": 
-            {
+            "tab": {
                 "background": "#EFF1F5FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#E6E9EFFF",
                 "unfocusedBackground": "#DCE0E8FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "light",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -605,20 +631,17 @@
         },
         {
             "name": "Catppuccin Macchiato",
-            "tab": 
-            {
+            "tab": {
                 "background": "#24273AFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#1E2030FF",
                 "unfocusedBackground": "#181926FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -628,20 +651,17 @@
         },
         {
             "name": "Catppuccin Mocha",
-            "tab": 
-            {
+            "tab": {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "system",
                 "experimental.rainbowFrame": false,
                 "frame": null,
