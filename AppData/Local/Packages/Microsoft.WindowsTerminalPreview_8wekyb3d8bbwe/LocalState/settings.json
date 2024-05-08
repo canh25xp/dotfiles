@@ -45,28 +45,28 @@
                 "action": "resizePane",
                 "direction": "down"
             },
-            "keys": "ctrl+alt+shift+j"
+            "keys": "ctrl+alt+shift+minus"
         },
         {
             "command": {
                 "action": "resizePane",
                 "direction": "left"
             },
-            "keys": "ctrl+shift+alt+h"
+            "keys": "ctrl+shift+minus"
         },
         {
             "command": {
                 "action": "resizePane",
                 "direction": "right"
             },
-            "keys": "ctrl+shift+alt+l"
+            "keys": "ctrl+shift+plus"
         },
         {
             "command": {
                 "action": "resizePane",
                 "direction": "up"
             },
-            "keys": "ctrl+shift+alt+k"
+            "keys": "ctrl+shift+alt+plus"
         },
         {
             "command": {
@@ -105,7 +105,7 @@
                 "action": "moveFocus",
                 "direction": "nextInOrder"
             },
-            "keys": "alt+q"
+            "keys": "alt+`"
         },
         {
             "command": "toggleFocusMode",
