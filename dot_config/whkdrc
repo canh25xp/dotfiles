@@ -24,7 +24,7 @@ alt + k                 : komorebic focus up
 alt + l                 : komorebic focus right
 # alt + oem_4             : komorebic cycle-focus previous # [
 # alt + oem_6             : komorebic cycle-focus next # ]
-alt + oem_3             : komorebic cycle-focus next # `
+# alt + oem_3             : komorebic cycle-focus next # `
 
 # Move windows
 alt + shift + h         : komorebic move left
@@ -52,7 +52,8 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 alt + shift + t         : komorebic toggle-float
 alt + shift + f         : komorebic toggle-monocle
 alt + shift + q         : komorebic close
-alt + shift + m         : komorebic minimize
+alt + shift + n         : komorebic minimize
+alt + shift + m         : komorebic toggle-maximize
 alt + shift + a         : komorebic manage
 alt + shift + u         : komorebic unmanage
 
