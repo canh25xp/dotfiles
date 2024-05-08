@@ -117,6 +117,14 @@
                 "target": "defaultsFile"
             },
             "keys": "ctrl+shift+alt+,"
+        },
+        {
+            "command": "scrollDown",
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": "scrollUp",
+            "keys": "ctrl+shift+k"
         }
     ],
     "alwaysShowNotificationIcon": false,
