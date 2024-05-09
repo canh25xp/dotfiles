@@ -23,13 +23,14 @@ alias ll='ls -AlF'
 alias np=notepad
 alias exp=explorer
 alias gvim='neovide --wsl'
+{{ else -}}
+alias gvim='neovide'
 {{ end -}}
 {{ end -}}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
 alias man=batman
 alias cht=cht.sh
-alias gvim='neovide'
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=lvim nvim"
