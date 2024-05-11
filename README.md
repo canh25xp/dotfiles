@@ -52,7 +52,7 @@ chsh -s /bin/bash
 bat cache --build
 ```
 
-### Install tmu packages
+### Install TMU packages
 
 `C-a C-I`
 
