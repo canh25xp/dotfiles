@@ -1,4 +1,4 @@
-# My [dotfiles](https://github.com/canh25xp/dotfiles), manage with [chezmoi](https://github.com/canh25xp/dotfiles)
+# My [dotfiles](https://github.com/canh25xp/dotfiles), manage with [chezmoi](https://github.com/twpayne/chezmoi)
 > [Documentation](https://www.chezmoi.io/)
 
 ## Installation
