@@ -42,7 +42,10 @@
           "background": "p:pink",
           "foreground": "p:text",
           "properties": {
-            "style": "full"
+            "style": "full",
+            "mapped_locations": {
+              "C:/Users/Michael/OneDrive - Hanoi University of Science and Technology/*" : "[HUST]"
+            }
           },
           "template": "  {{ .Path }}"
         },
