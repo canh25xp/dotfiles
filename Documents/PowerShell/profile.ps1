@@ -6,11 +6,11 @@ $Env:PAGER = "less"
 # $Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 # $Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 
-$Env:Path += ';D:\Program Files\pnnx-20230227-windows;'
-$Env:Path += 'D:\Program Files\RePKG;'
-$Env:Path += 'D:\Program Files\gdrive;'
-$Env:Path += 'D:\Program Files\draw.io;'
-$Env:Path += 'D:\Program Files\Inkscape\bin;'
+$Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
+$Env:Path += 'C:\Program Files\RePKG;'
+$Env:Path += 'C:\Program Files\gdrive;'
+$Env:Path += 'C:\Program Files\draw.io;'
+$Env:Path += 'C:\Program Files\Inkscape\bin;'
 # $Env:Path += "$Env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Functions.psm1")) {
