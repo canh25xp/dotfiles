@@ -28,21 +28,13 @@
           "template": " {{ .Icon }} "
         },
         {
-          "type": "session",
-          "style": "diamond",
-          "background": "p:purple",
-          "foreground": "p:text",
-          "powerline_symbol": "",
-          "template": "{{ .UserName }}@{{ .HostName }}"
-        },
-        {
           "type": "path",
           "style": "powerline",
           "powerline_symbol": "",
           "background": "p:pink",
           "foreground": "p:text",
           "properties": {
-            "style": "full",
+            "style": "agnoster",
             "mapped_locations": {
               "C:/Users/Michael/OneDrive - Hanoi University of Science and Technology/*" : "[HUST]"
             }
