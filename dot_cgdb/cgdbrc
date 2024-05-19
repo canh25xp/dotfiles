@@ -1,0 +1,17 @@
+set winsplitorientation=vertical
+set ignorecase
+set executinglinedisplay=shortarrow
+
+# run
+map r <F5>
+# continue
+map <LEFT> <F6>
+# finish
+map <UP> <F7>
+# next
+map <RIGHT> <F8>
+# step
+map <DOWN> <F10>
+
+# exit insert mode
+imap jk <ESC>
