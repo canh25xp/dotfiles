@@ -1,7 +1,0 @@
-# Enable TUI mode by default
-tui enable
-
-# Set default layout to source code
-layout src
-
-set style enabled on
