@@ -31,7 +31,7 @@
         },
         {
             "command": "togglePaneZoom",
-            "keys": "ctrl+alt+enter"
+            "keys": "ctrl+shift+enter"
         },
         {
             "command": {
