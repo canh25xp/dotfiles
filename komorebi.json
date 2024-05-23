@@ -9,7 +9,7 @@
   "default_container_padding": 0,
   "border_width": 0,
   "border_offset": -1,
-  "active_window_border": false,
+  "active_window_border": true,
   "active_window_border_colours": {
     "single": "#42a5f5",
     "stack": "#00a542",
