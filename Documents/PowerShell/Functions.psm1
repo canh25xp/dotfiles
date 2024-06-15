@@ -2,6 +2,11 @@
 # SHELL FUNCTIONS
 # ==============================================
 
+function Open-Telegram {
+  param ()
+  & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
+}
+
 function Open-DefaultDistro {
   wsl --cd ~
 }
