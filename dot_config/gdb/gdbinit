@@ -5,4 +5,7 @@ tui enable
 # src | asm | split | regs
 layout src
 
+# Enable color output
 #set style enabled on
+
+set auto-load safe-path /
