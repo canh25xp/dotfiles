@@ -3,7 +3,7 @@ set ignorecase
 set executinglinedisplay=shortarrow
 
 # run
-map r <F5>
+map <CR> <F5>
 # continue
 map <LEFT> <F6>
 # finish
@@ -15,3 +15,5 @@ map <DOWN> <F10>
 
 # exit insert mode
 imap jk <ESC>
+imap <UP> <C-p>
+imap <DOWN> <C-n>
