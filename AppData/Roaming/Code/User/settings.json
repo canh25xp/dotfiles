@@ -76,7 +76,7 @@
     "gitlens.graph.layout": "editor",
     "workbench.view.alwaysShowHeaderActions": true,
     "scm.defaultViewMode": "tree",
-    "cmake.options.statusBarVisibility": "compact",
+    "cmake.options.statusBarVisibility": "visible",
     "editor.minimap.autohide": true,
     "cmake.configureOnEdit": false,
     "extensions.autoUpdate": "onlyEnabledExtensions",
@@ -118,4 +118,8 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
 }
