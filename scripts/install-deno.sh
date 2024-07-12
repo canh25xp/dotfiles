@@ -4,4 +4,9 @@
 echo "================================================================================"
 echo "[Chezmoi] Installing deno"
 
-curl -fsSL https://deno.land/install.sh | sh
+if command -v deno &>/dev/null; then
+	echo "deno is already installed. Exiting."
+	exit 0
+fi
+
+curl -fsSL https://deno.land/install.sh | bash
