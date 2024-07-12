@@ -22,9 +22,7 @@
     "editor.unicodeHighlight.nonBasicASCII": false,
     "workbench.tree.renderIndentGuides": "always",
     "window.restoreFullscreen": true,
-    "verilog.linting.linter": "modelsim",
     "notebook.diff.ignoreOutputs": true,
-    "verilog.ctags.path": "ctags",
     "C_Cpp.autocompleteAddParentheses": true,
     "cmake.showOptionsMovedNotification": false,
     "git-graph.showStatusBarItem": false,
@@ -114,11 +112,27 @@
     "[latex]": {},
     "workbench.colorTheme": "Catppuccin Mocha",
     "extensions.ignoreRecommendations": true,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
+    "vscode-neovim.useWSL": true,
+    "vscode-neovim.compositeKeys": {
+        "jk": {
+            // Use lua to execute any logic
+            "command": "vscode-neovim.lua",
+            "args": [
+                [
+                    "local code = require('vscode')",
+                    "code.action('vscode-neovim.escape')",
+                    "code.action('workbench.action.files.save')",
+                ],
+            ],
+        },
+    },
+    "editor.lineNumbers": "relative",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.cursorBlinking": "solid",
 }
