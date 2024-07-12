@@ -91,7 +91,6 @@
     "cmake.automaticReconfigure": false,
     "terminal.integrated.smoothScrolling": true,
     "git.enableStatusBarSync": false,
-    "cmake.buildBeforeRun": false,
     "hediet.vscode-drawio.resizeImages": null,
     "hediet.vscode-drawio.theme": "min",
     "diffEditor.ignoreTrimWhitespace": false,
