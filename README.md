@@ -85,6 +85,10 @@ git config --global --add safe.directory '*'
 
 ```sh
 sudo dpkg-reconfigure locales
+
+97
+
+3
 ```
 
 ## FAQ
