@@ -9,4 +9,12 @@ if command -v deno &>/dev/null; then
 	exit 0
 fi
 
+read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+
+if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+	echo "Installation canceled."
+	exit 0
+fi
+
 curl -fsSL https://deno.land/install.sh | bash
