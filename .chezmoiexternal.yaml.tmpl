@@ -43,6 +43,11 @@
   url: https://github.com/canh25xp/lazyVim-config
   refreshPeriod: 168h
 
+.config/nvim-kickstart:
+  type: git-repo
+  url: https://github.com/canh25xp/kickstart.nvim
+  refreshPeriod: 168h
+
 {{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
 .config/alacritty/catppuccin-mocha.toml:
@@ -57,6 +62,11 @@
 Appdata/Local/nvim-lazy:
   type: git-repo
   url: https://github.com/canh25xp/lazyVim-config
+  refreshPeriod: 168h
+
+Appdata/Local/nvim-kickstart:
+  type: git-repo
+  url: https://github.com/canh25xp/kickstart.nvim
   refreshPeriod: 168h
 
 Appdata/Roaming/alacritty/catppuccin-mocha.toml:
