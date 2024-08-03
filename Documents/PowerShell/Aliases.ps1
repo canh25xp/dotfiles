@@ -33,3 +33,4 @@ Set-Alias -Name lgit    -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
 Set-Alias -Name linux   -Value Open-DefaultDistro
+
