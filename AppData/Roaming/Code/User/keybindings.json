@@ -1,35 +1,9 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "alt+enter", // TODO pick something
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "copyFilePath",
-                // "terminal.focus",
-                // {
-                //     "command": "workbench.action.terminal.sendSequence",
-                //     "args": { "text": "start '" }, // or `open` on macOS, or `xdg-open` or `open` on Linux
-                //     // You can be extra fancy once VS Code 1.86 releases, where commands in arguments of `runCommands` can have their own when-clauses (see context keys `isWindows`, `isMac`, `isLinux`).
-                // },
-                "workbench.action.terminal.paste",
-                {
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": { "text": "\r" },
-                },
-            ],
-        },
-        "when": "filesExplorerFocus && isFileSystemResource && listHasSelectionOrFocus && resourceSet",
-    },
-    {
         "key": "alt+enter",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "panelFocus"
-    },
-    {
-        "key": "ctrl+shift+n",
-        "command": "explorer.newFolder",
-        "when": "filesExplorerFocus"
     },
     {
         "key": "ctrl+f5",
@@ -61,23 +35,9 @@
         "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "alt+`",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "!editorFocus"
-    },
-    {
         "key": "ctrl+l",
         "command": "workbench.output.action.clearOutput",
         "when": "workbench.panel.output.active && panelFocus"
-    },
-    {
-        "key": "ctrl+alt+n",
-        "command": "python.execInTerminal-icon",
-        "when": "editorLangId == python"
-    },
-    {
-        "key": "shift+alt+n",
-        "command": "python.debugInTerminal"
     },
     {
         "key": "ctrl+tab",
@@ -141,11 +101,6 @@
         "command": "workbench.action.toggleEditorType"
     },
     {
-        "key": "alt+`",
-        "command": "workbench.explorer.fileView.focus",
-        "when": "!filesExplorerFocus"
-    },
-    {
         "key": "f1",
         "command": "workbench.action.showCommands",
         "when": "!terminalFocus"
@@ -155,14 +110,6 @@
         "command": "-workbench.action.showCommands"
     },
     {
-        "key": "ctrl+alt+l",
-        "command": "vscode-serial-monitor.clearOutput"
-    },
-    {
-        "key": "ctrl+alt+m",
-        "command": "workbench.view.extension.vscode-serial-monitor-tools"
-    },
-    {
         "key": "ctrl+shift+\\",
         "command": "workbench.action.splitEditor",
         "when": "editorFocus"
@@ -170,16 +117,6 @@
     {
         "key": "ctrl+\\",
         "command": "-workbench.action.splitEditor"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "explorer.newFile",
-        "when": "filesExplorerFocus"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.files.newUntitledFile",
-        "when": "editorFocus"
     },
     {
         "key": "ctrl+n",
@@ -194,5 +131,42 @@
         "key": "ctrl+f",
         "command": "-workbench.action.terminal.focusFind",
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+f10",
+        "command": "editor.debug.action.runToCursor"
+    },
+    {
+        "key": "space e",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarFocus && !textInputFocus"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.toggleMaximizeEditorGroup",
+        "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+shift+z",
+        "command": "workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
+    },
+    {
+        "key": "ctrl+shift+z",
+        "command": "-redo"
     }
 ]

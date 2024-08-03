@@ -74,16 +74,14 @@
     "gitlens.graph.layout": "editor",
     "workbench.view.alwaysShowHeaderActions": true,
     "scm.defaultViewMode": "tree",
-    "cmake.options.statusBarVisibility": "visible",
+    "cmake.options.statusBarVisibility": "compact",
     "editor.minimap.autohide": true,
-    "cmake.configureOnEdit": false,
     "extensions.autoUpdate": "onlyEnabledExtensions",
     "git.confirmSync": false,
     "git.showPushSuccessNotification": true,
     "git.supportCancellation": true,
     "cmake.configureOnOpen": false,
     "editor.formatOnType": true,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
     "remote.autoForwardPortsSource": "hybrid",
     "todo-tree.highlights.useColourScheme": true,
     "cmake.automaticReconfigure": false,
@@ -117,22 +115,15 @@
         "workbench.action.tasks.runTask"
     ],
     "vscode-neovim.useWSL": true,
+    "editor.lineNumbers": "relative",
     "vscode-neovim.compositeKeys": {
         "jk": {
-            // Use lua to execute any logic
-            "command": "vscode-neovim.lua",
-            "args": [
-                [
-                    "local code = require('vscode')",
-                    "code.action('vscode-neovim.escape')",
-                    "code.action('workbench.action.files.save')",
-                ],
-            ],
+            "command": "vscode-neovim.escape",
         },
     },
-    "editor.lineNumbers": "relative",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
     "editor.cursorBlinking": "solid",
+    "git.enableSmartCommit": true,
 }

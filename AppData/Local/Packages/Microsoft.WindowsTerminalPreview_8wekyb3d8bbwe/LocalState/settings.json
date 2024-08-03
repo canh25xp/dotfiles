@@ -16,15 +16,15 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "left"
+                "direction": "down"
             },
-            "id": "User.resizePane.2A0DA8E0",
-            "keys": "ctrl+shift+minus"
+            "id": "User.resizePane.F747588A",
+            "keys": "ctrl+alt+shift+minus"
         },
         {
-            "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "command": "scrollUpPage",
+            "id": "User.scrollUpPage",
+            "keys": "ctrl+shift+pgup"
         },
         {
             "command": 
@@ -35,18 +35,18 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command": "scrollUpPage",
-            "id": "User.scrollUpPage",
-            "keys": "ctrl+shift+pgup"
+            "command": "find",
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
+                "direction": "left"
             },
-            "id": "User.resizePane.F747588A",
-            "keys": "ctrl+alt+shift+minus"
+            "id": "User.resizePane.2A0DA8E0",
+            "keys": "ctrl+shift+minus"
         },
         {
             "command": 
@@ -59,11 +59,6 @@
             "keys": "ctrl+shift+\\"
         },
         {
-            "command": "toggleSplitOrientation",
-            "id": "User.toggleSplitOrientation",
-            "keys": "ctrl+alt+shift+\\"
-        },
-        {
             "command": 
             {
                 "action": "openSettings",
@@ -71,6 +66,11 @@
             },
             "id": "User.openSettings.2A0DA8E0",
             "keys": "ctrl+alt+shift+comma"
+        },
+        {
+            "command": "toggleSplitOrientation",
+            "id": "User.toggleSplitOrientation",
+            "keys": "ctrl+alt+shift+\\"
         },
         {
             "command": 
@@ -91,17 +91,17 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command": "togglePaneZoom",
-            "id": "User.togglePaneZoom",
-            "keys": "ctrl+shift+enter"
-        },
-        {
             "command": 
             {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0",
             "keys": "ctrl+shift+k"
+        },
+        {
+            "command": "togglePaneZoom",
+            "id": "User.togglePaneZoom",
+            "keys": "ctrl+shift+enter"
         },
         {
             "command": 
@@ -258,6 +258,18 @@
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": false,
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
