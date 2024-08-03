@@ -22,7 +22,7 @@ mkdir -p ~/projects/lua/
 if [ -d ~/projects/lua/neovim/.git ];then
   echo "neovim already clone. skip"
 else
-  git clone --depth 1 https://github.com/neovim/neovim ~/projects/lua/neovim
+  git clone --depth 1 --branch stable https://github.com/neovim/neovim ~/projects/lua/neovim
 fi
 
 cd ~/projects/lua/neovim
