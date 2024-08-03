@@ -1,7 +1,8 @@
 # Current User All Hosts
 $Env:EDITOR = "nvim"
 $Env:PAGER = "less"
-# $Env:NVIM_APPNAME = "lazyvim"
+$Env:NVIM_APPNAME = "nvim-kickstart"
+
 # $Env:VCPKG_ROOT = "C:\dev\vcpkg"
 # $Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 # $Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
