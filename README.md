@@ -38,12 +38,21 @@ gh auth login
 ### Create Newuser
 
 ```sh
-# As root:
 useradd -m <username>
 passwd <username>
 usermod -a -G sudo <username>
 su - <username>
 chsh -s /bin/bash
+```
+
+a simpler way :
+
+```sh
+# As root:
+apt install adduser sudo
+sudo adduser username
+sudo usermod -aG sudo username
+su - username
 ```
 
 ### Build Bat theme
