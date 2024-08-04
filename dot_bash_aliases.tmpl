@@ -36,6 +36,11 @@ alias cht=cht.sh
 alias lvim="NVIM_APPNAME=nvim-lazy nvim"
 alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
 
+# Open Nvim and enter Neotree
+ntree() {
+	nvim -c "Neotree"
+}
+
 # cd on exit
 cdx() {
 	# `command` is needed in case `lfcd` is aliased to `lf`
