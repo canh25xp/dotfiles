@@ -67,7 +67,7 @@ bat cache --build
 
 ### Install TMU packages
 
-`C-a C-I`
+`C-a I`
 
 ## Troubleshooting
 
