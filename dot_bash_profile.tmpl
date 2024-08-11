@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 
 export EDITOR=nvim
-# export NVIM_APPNAME=nvim-kickstart
+export NVIM_APPNAME=nvim-kickstart
 # export NVIM_APPNAME=nvim-lazy
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
