@@ -126,4 +126,5 @@
     },
     "editor.cursorBlinking": "solid",
     "git.enableSmartCommit": true,
+    "vscode-neovim.NVIM_APPNAME": "nvim-lazy",
 }
