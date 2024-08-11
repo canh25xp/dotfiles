@@ -71,7 +71,7 @@ if vim.g.neovide then
   vim.g.neovide_transparency = 1.0
 end
 
-if not vim.fn.has("win32") or not vim.fn.has("win64") then
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
   vim.opt.shell = "pwsh"
   vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
   vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
