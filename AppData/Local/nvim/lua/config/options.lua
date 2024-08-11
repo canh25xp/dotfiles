@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.have_nerd_font = true
 
--- vim.cmd.colorscheme("sorbet")
-vim.cmd.colorscheme("zaibatsu")
+vim.cmd.colorscheme("sorbet")
+-- vim.cmd.colorscheme("zaibatsu")
 
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 vim.opt.termguicolors = true -- True color support
