@@ -31,6 +31,7 @@ packages=(
 	git-delta
 	tealdeer
 	tree-sitter-cli
+	git-lfs
 )
 
 echo "The following packages will be installed:"

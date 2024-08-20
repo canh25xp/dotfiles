@@ -11,7 +11,7 @@ packages=(
 	man-db
 	unzip
 	zip
-  xclip
+	xclip
 	bash-completion
 	build-essential
 	python3
