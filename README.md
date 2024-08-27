@@ -45,7 +45,7 @@ gh auth login
 ```sh
 useradd -m <username>
 passwd <username>
-usermod -a -G sudo <username>
+usermod -aG sudo <username>
 su - <username>
 chsh -s /bin/bash
 ```
