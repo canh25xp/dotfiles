@@ -22,6 +22,7 @@ winget install chezmoi
 #### Using curl
 
 ```sh
+apt install curl
 sh -c "$(curl -fsLS get.chezmoi.io)"
 ```
 
