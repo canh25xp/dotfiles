@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "linux" -}}
+  {{ include "scripts/install-gh-extensions.sh" -}}
+{{ end -}}
