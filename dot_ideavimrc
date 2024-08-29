@@ -28,14 +28,17 @@ imap jk <ESC>
 map Q gq
 map U <C-R>
 nnoremap <silent> <ESC> :nohlsearch<CR>
-map <leader>cf <Action>(ReformatCode)
-map <leader>cr <Action>(RenameElement)
+nmap za <Action>(CollapseAllRegions)
+nmap zA <Action>(ExpandAllRegions)
+
 nmap <leader>dd <Action>(Debug)
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 nmap <leader>de <Action>(EditBreakpoint)
 nmap <leader>dv <Action>(ViewBreakpoints)
+
 map <leader>e :NERDTreeFocus<CR>
 map <leader>zz <Action>(ToggleDistractionFreeMode)
+"nmap <leader>Z <Action>(ToggleZenMode)
 nmap <leader>k <Action>(ShowHoverInfo)
 nmap <leader>K <Action>(ShowErrorDescription)
 nmap <leader>tt <Action>(ActivateTerminalToolWindow)
@@ -65,20 +68,99 @@ nmap gn <Action>(ShowNavBar)
 "nmap <C-i> <Action>(Back)
 "nmap <C-o> <Action>(Forward)
 
+" buffer
 nmap <leader>bd <Action>(CloseContent)
 nmap <leader>ba <Action>(CloseAllEditors)
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <leader>bu <Action>(CloseAllUnpinnedEditors)
 nmap <leader>bp <Action>(PinActiveEditorTab)
 
-nmap H <Action>(PreviousTab)
-nmap L <Action>(NextTab)
-
+" window
 nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+nmap <leader>ww <Action>(HideAllWindows)
+nmap <leader>wk <Action>(StretchSplitToTop)
+nmap <leader>wj <Action>(StretchSplitToBottom)
+nmap <leader>wh <Action>(StretchSplitToLeft)
+nmap <leader>wl <Action>(StretchSplitToRight)
+nmap <leader>wm <Action>(MaximizeEditorInSplit)
+nmap <leader>wu <Action>(UnsplitAll)
 
+" menu
+nmap <leader>mm <Action>(MainMenu)
+nmap <leader>ma <Action>(AnalyzeMenu)
+nmap <leader>mb <Action>(BuildMenu)
+nmap <leader>mc <Action>(CodeMenu)
+nmap <leader>mf <Action>(FindMenuGroup)
+nmap <leader>mg <Action>(GoToMenu)
+nmap <leader>ms <Action>(ScopeViewPopupMenu)
+nmap <leader>mt <Action>(EditorTabPopupMenu)
+nmap <leader>mw <Action>(ToolWindowsGroup)
+nmap <leader>wb <Action>(BuildMenu)
+
+" tab
+map <leader>- <Action>(SplitHorizontally)
+map <leader>\\ <Action>(SplitVertically)
+"map <leader>sh <Action>(MoveTabLeft)
+"map <leader>sj <Action>(MoveTabDown)
+"map <leader>sk <Action>(MoveTabUp)
+"map <leader>sl <Action>(MoveTabRight)
+
+" file
+nmap <leader>fe <Action>(OpenFile)
+"nmap <leader>yp <Action>(CopyAbsolutePath)
+"nmap <leader>rf <Action>(RecentFiles)
+"nmap <leader>rl <Action>(RecentLocations)
+"nmap <leader>rp <Action>(ManageRecentProjects)
+"nmap <leader>sh <Action>(LocalHistory.ShowHistory)
+"nmap <leader>sf <Action>(ShowFilePath)
+"nmap <leader>si <Action>(SelectIn)
+nmap <leader>sg <Action>(FindInPath)
+"nmap <leader>rp <Action>(ReplaceInPath)
+nmap <leader>sw <Action>($SearchWeb)
+
+" code
+"map <leader>c <Action>(CommentByLineComment)
+"map <leader>C <Action>(CommentByBlockComment)
+"nmap <leader>qf <Action>(ShowIntentionActions)
+"nmap <leader>se <Action>(ShowErrorDescription)
+"nmap <leader>om <Action>(OverrideMethods)
+"nmap <leader>im <Action>(ImplementMethods)
+nmap <leader>cf <Action>(ReformatCode)
+"nmap <leader>ic <Action>(InspectCode)
+"nmap <leader>so <Action>(SelectAllOccurrences)
+"nmap <leader>gc <Action>(Generate)
+"nmap <leader>gt <Action>(GotoTest)
+
+" refactor
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>ca <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>cw <Action>(Unwrap)
+nmap <leader>cs <Action>(SurroundWith)
+nmap <leader>cd <Action>(SafeDelete)
+nmap <leader>co <Action>(OptimizeImports)
+
+" run
+"nmap <leader>rc <Action>(ContextRun)
+"nmap <leader>rx <Action>(chooseRunConfiguration)
+"nmap <leader>rr <Action>(Rerun)
+"nmap <leader>rt <Action>(RunTests)
+"nmap <leader>rs <Action>(Stop)
+
+" tag
+nmap <leader>fu <Action>(FindUsages)
+nmap <leader>fs <Action>(FileStructurePopup)
+nmap <leader>su <Action>(ShowUsages)
+nmap <leader>hl <Action>(HighlightUsagesInFile)
+nmap <leader>qp <Action>(QuickPreview)
+nmap <leader>qd <Action>(QuickDefinition)
+nmap <leader>qD <Action>(QuickTypeDefinition)
+
+" handlers
 sethandler <C-C> n-v:ide i:vim
 sethandler <C-V> n-v:vim i:ide
 sethandler <C-A> n:vim i-x:ide
