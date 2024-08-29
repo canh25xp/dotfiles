@@ -4,13 +4,18 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
 " source ~/.vimrc
+let mapleader=" "
+let g:highlightedyank_highlight_duration = "200"
+let g:highlightedyank_highlight_color = "rgba(255, 105, 180, 155)"
 
+set showmode
 set smartcase
 set ignorecase
 set ideajoin
 set number
 set relativenumber
 set smartcase
+set hlsearch
 set incsearch "Show where search pattern typed so far matches
 set scrolloff=5
 set clipboard=unnamedplus
@@ -18,23 +23,61 @@ set which-key
 set notimeout
 set timeoutlen=5000
 
-let mapleader=" "
+nmap \\v <Action>(VimActions)
 imap jk <ESC>
 map Q gq
 map U <C-R>
+nnoremap <silent> <ESC> :nohlsearch<CR>
 map <leader>cf <Action>(ReformatCode)
 map <leader>cr <Action>(RenameElement)
-map <leader>dd <Action>(Debug)
-map <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dd <Action>(Debug)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>de <Action>(EditBreakpoint)
+nmap <leader>dv <Action>(ViewBreakpoints)
 map <leader>e :NERDTreeFocus<CR>
 map <leader>zz <Action>(ToggleDistractionFreeMode)
+nmap <leader>k <Action>(ShowHoverInfo)
+nmap <leader>K <Action>(ShowErrorDescription)
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>tc <Action>(Terminal.OpenInTerminal)
+
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]e <Action>(GotoNextError)
 nmap [e <Action>(GotoPreviousError)
-nmap gD <Action>(GotoDeclaration)
-nmap gY <Action>(GotoTypeDeclaration)
-nmap <leader>K <Action>(ShowHoverInfo)
+nmap [o <Action>(PreviousOccurence)
+nmap ]o <Action>(NextOccurence)
+
+nmap <leader>a <Action>(GotoAction)
+nmap ga <Action>(GotoAction)
+nmap gc <Action>(GotoClass)
+nmap gf <Action>(GotoFile)
+nmap gs <Action>(GotoSymbol)
+nmap gt <Action>(GotoTest)
+nmap gT <Action>(TextSearchAction)
+nmap go <Action>(GotoSuperMethod)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(QuickImplementations)
+nmap gn <Action>(ShowNavBar)
+
+"nmap <C-i> <Action>(Back)
+"nmap <C-o> <Action>(Forward)
+
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>ba <Action>(CloseAllEditors)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+nmap <leader>bu <Action>(CloseAllUnpinnedEditors)
+nmap <leader>bp <Action>(PinActiveEditorTab)
+
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+
+nmap <C-k> <C-w>k
+nmap <C-j> <C-w>j
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 sethandler <C-C> n-v:ide i:vim
 sethandler <C-V> n-v:vim i:ide
