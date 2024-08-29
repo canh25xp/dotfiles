@@ -1,0 +1,46 @@
+" .ideavimrc is a configuration file for IdeaVim plugin.
+" It uses the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" source ~/.vimrc
+
+set smartcase
+set ignorecase
+set ideajoin
+set number
+set relativenumber
+set smartcase
+set incsearch "Show where search pattern typed so far matches
+set scrolloff=5
+set clipboard=unnamedplus
+set which-key
+set notimeout
+set timeoutlen=5000
+
+let mapleader=" "
+imap jk <ESC>
+map Q gq
+map U <C-R>
+map <leader>cf <Action>(ReformatCode)
+map <leader>cr <Action>(RenameElement)
+map <leader>dd <Action>(Debug)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>e :NERDTreeFocus<CR>
+map <leader>zz <Action>(ToggleDistractionFreeMode)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+nmap gD <Action>(GotoDeclaration)
+nmap gY <Action>(GotoTypeDeclaration)
+nmap <leader>K <Action>(ShowHoverInfo)
+
+sethandler <C-C> n-v:ide i:vim
+sethandler <C-V> n-v:vim i:ide
+sethandler <C-A> n:vim i-x:ide
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
