@@ -2,6 +2,7 @@
 " It uses the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
+" https://github.com/JetBrains/ideavim/discussions/303?sort=top#discussioncomment-7664118
 
 " source ~/.vimrc
 let mapleader=" "
@@ -30,6 +31,7 @@ map U <C-R>
 nnoremap <silent> <ESC> :nohlsearch<CR>
 nmap za <Action>(CollapseAllRegions)
 nmap zA <Action>(ExpandAllRegions)
+nmap <C-\> <Action>(ActivateTerminalToolWindow)
 
 nmap <leader>dd <Action>(Debug)
 nmap <leader>db <Action>(ToggleLineBreakpoint)
