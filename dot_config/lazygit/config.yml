@@ -3,6 +3,7 @@ promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
   showBottomLine: false
+  scrollHeight: 1
   border: single
   spinner:
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
