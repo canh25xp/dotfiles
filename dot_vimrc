@@ -1,0 +1,12 @@
+let mapleader=" "
+imap jk <ESC>
+nmap <ESC> :noh<CR>
+nmap <S-H> :bprevious<CR>
+nmap <S-L> :bnext<CR>
+set clipboard=unnamedplus
+set hlsearch
+set number
+set relativenumber
+set smartcase
+set incsearch
+set scrolloff=5
