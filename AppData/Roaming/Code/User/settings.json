@@ -3,7 +3,6 @@
         "editor.formatOnType": true
     },
     "workbench.tree.expandMode": "doubleClick",
-    // "terminal.integrated.cursorStyle": "line",
     "task.slowProviderWarning": true,
     "settingsSync.ignoredExtensions": [],
     "task.problemMatchers.neverPrompt": false,
@@ -114,17 +113,68 @@
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
-    "vscode-neovim.useWSL": true,
     "editor.lineNumbers": "relative",
+    "vscode-neovim.useWSL": true,
+    "vscode-neovim.NVIM_APPNAME": "nvim-lazy",
     "vscode-neovim.compositeKeys": {
         "jk": {
             "command": "vscode-neovim.escape",
         },
     },
     "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+        "asvetliakov.vscode-neovim": 1,
+        "vscodevim.vim": 1
     },
     "editor.cursorBlinking": "solid",
     "git.enableSmartCommit": true,
-    "vscode-neovim.NVIM_APPNAME": "nvim-lazy",
+    "editor.cursorSurroundingLines": 4,
+    "editor.suggest.insertMode": "replace",
+    /*
+    VSCodeVim settings 
+    */
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 200,
+    "vim.highlightedyank.color": "rgba(255, 105, 180, 155)",
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.vimrc.enable": true,
+    // "vim.insertModeKeyBindings": [
+    //     { "before": [ "j", "k" ], "after": [ "<Esc>" ] }
+    // ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // { "before": ["<ESC>"], "commands": [":noh"] },
+        { "before": ["<S-h>"], "commands": [":bprevious"] },
+        { "before": ["<S-l>"], "commands": [":bnext"] },
+        { "before": [":"], "commands": [ "workbench.action.showCommands", ], "silent": true },
+        { "before": [ "<leader>", "d", "b" ], "commands": [ "editor.debug.action.toggleBreakpoint" ] },
+        { "before": [ "<leader>", "c", "r" ], "commands": [ "editor.action.rename" ] },
+        { "before": [ "<leader>", "c", "f" ], "commands": [ "editor.action.formatDocument" ] },
+        { "before": [ "K" ], "commands": [ "editor.action.showHover" ], "silent": true },
+        { "before": [ "<leader>", "w" ], "commands": [ "workbench.action.splitEditor" ] },
+        { "before": [ "<leader>", "e" ], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
+        { "before": [ "<leader>", "E" ], "commands": [ "revealInExplorer" ] },
+        // LSP
+        { "before": ["g", "d"], "commands": ["editor.action.goToDefinition"] },
+        { "before": ["g", "p", "d"], "commands": ["editor.action.peekDefinition"] },
+        { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
+        { "before": ["g", "I"], "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "p", "i"], "commands": ["editor.action.peekImplementation"] },
+        { "before": ["g", "r"], "commands": ["editor.action.referenceSearch.trigger"] },
+        { "before": ["g", "Y"], "commands": ["editor.action.goToTypeDefinition"] },
+        { "before": ["g", "p", "t"], "commands": ["editor.action.peekTypeDefinition"] },
+
+    ],
+    "vim.visualModeKeyBindings": [
+        { "before": [ ">" ], "commands": [ "editor.action.indentLines" ] },
+        { "before": [ "<" ], "commands": [ "editor.action.outdentLines" ] },
+        { "before": [ "<leader>", "c", "f" ], "commands": [ "editor.action.formatSelection" ] },
+    ],
 }

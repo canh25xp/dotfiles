@@ -1,5 +1,88 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
+    // Windows navigation
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.focusAboveGroup",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.focusBelowGroup",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    },
+    // Select
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    // Toolbar
+    // {
+    //     "key": "space e",
+    //     "command": "workbench.action.toggleSidebarVisibility",
+    //     "when": "!editorTextFocus"
+    // },
+    {
+        "key": "space e",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarFocus && !textInputFocus"
+    },
+    // Hover
+    {
+        "key": "h",
+        "command": "editor.action.scrollLeftHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "j",
+        "command": "editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "k",
+        "command": "editor.action.scrollUpHover",
+        "when": "editorHoveredFocused"
+    },
+    {
+        "key": "l",
+        "command": "editor.action.scrollRightHover",
+        "when": "editorHoverFocused"
+    },
     {
         "key": "alt+enter",
         "command": "workbench.action.toggleMaximizedPanel",
@@ -135,11 +218,6 @@
     {
         "key": "ctrl+f10",
         "command": "editor.debug.action.runToCursor"
-    },
-    {
-        "key": "space e",
-        "command": "workbench.action.closeSidebar",
-        "when": "sideBarFocus && !textInputFocus"
     },
     {
         "key": "ctrl+\\",
