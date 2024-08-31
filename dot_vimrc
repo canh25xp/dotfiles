@@ -16,9 +16,8 @@ set splitright
 set laststatus=2
 
 imap jk <ESC>
-
+nmap <leader>qq :qa<CR>
 nmap <silent> <ESC> :nohlsearch<CR>
-map Q gq
 map U <C-R>
 
 " buffer
@@ -33,4 +32,3 @@ nmap <C-l> <C-w>l
 map <leader>- :split<CR>
 map <leader>\ :vsplit<CR>
 
-nmap <leader>qq :qa<CR>
