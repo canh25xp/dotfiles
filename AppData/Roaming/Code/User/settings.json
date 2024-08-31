@@ -1,7 +1,4 @@
 {
-    "[python]": {
-        "editor.formatOnType": true
-    },
     "workbench.tree.expandMode": "doubleClick",
     "task.slowProviderWarning": true,
     "settingsSync.ignoredExtensions": [],
@@ -151,10 +148,10 @@
     // ],
     "vim.normalModeKeyBindingsNonRecursive": [
         // { "before": ["<ESC>"], "commands": [":noh"] },
-        { "before": ["<S-h>"], "commands": [":bprevious"] },
-        { "before": ["<S-l>"], "commands": [":bnext"] },
-        { "before": [ "<leader>", "\\" ], "commands": [ ":vsplit" ] },
-        { "before": [ "<leader>", "-" ], "commands": [ ":split" ] },
+        // { "before": ["<S-h>"], "commands": [":bprevious"] },
+        // { "before": ["<S-l>"], "commands": [":bnext"] },
+        // { "before": [ "<leader>", "\\" ], "commands": [ ":vsplit" ] },
+        // { "before": [ "<leader>", "-" ], "commands": [ ":split" ] },
         { "before": ["<leader>", "b", "d"], "commands": ["workbench.action.closeActiveEditor"] },
         { "before": [":"], "commands": [ "workbench.action.showCommands", ], "silent": true },
         { "before": [ "<leader>", "d", "b" ], "commands": [ "editor.debug.action.toggleBreakpoint" ] },

@@ -1,56 +1,21 @@
 [
     // Windows navigation
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.focusLeftGroup",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.focusRightGroup",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "workbench.action.focusAboveGroup",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.focusBelowGroup",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
-    },
+    { "key": "ctrl+h", "command": "workbench.action.focusLeftGroup", "when": "editorTextFocus && vim.active && vim.mode != 'Insert'" },
+    { "key": "ctrl+l", "command": "workbench.action.focusRightGroup", "when": "editorTextFocus && vim.active && vim.mode != 'Insert'" },
+    { "key": "ctrl+k", "command": "workbench.action.focusAboveGroup", "when": "editorTextFocus && vim.active && vim.mode != 'Insert'" },
+    { "key": "ctrl+j", "command": "workbench.action.focusBelowGroup", "when": "editorTextFocus && vim.active && vim.mode != 'Insert'" },
     // Select
-    {
-        "key": "ctrl+n",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "selectPrevSuggestion",
-        "when": "suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.quickOpenSelectNext",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "selectNextCodeAction",
-        "when": "codeActionMenuVisible"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "selectPrevCodeAction",
-        "when": "codeActionMenuVisible"
-    },
+    { "key": "ctrl+n", "command": "selectNextSuggestion", "when": "suggestWidgetVisible" },
+    { "key": "ctrl+p", "command": "selectPrevSuggestion", "when": "suggestWidgetVisible" },
+    { "key": "ctrl+n", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
+    { "key": "ctrl+p", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
+    { "key": "ctrl+n", "command": "selectNextCodeAction", "when": "codeActionMenuVisible" },
+    { "key": "ctrl+p", "command": "selectPrevCodeAction", "when": "codeActionMenuVisible" },
+    // Hover
+    { "key": "h", "command": "editor.action.scrollLeftHover", "when": "editorHoverFocused" },
+    { "key": "j", "command": "editor.action.scrollDownHover", "when": "editorHoverFocused" },
+    { "key": "k", "command": "editor.action.scrollUpHover", "when": "editorHoveredFocused" },
+    { "key": "l", "command": "editor.action.scrollRightHover", "when": "editorHoverFocused" },
     // Toolbar
     // {
     //     "key": "space e",
@@ -61,37 +26,6 @@
         "key": "space e",
         "command": "workbench.action.closeSidebar",
         "when": "sideBarFocus && !textInputFocus"
-    },
-    // Hover
-    {
-        "key": "h",
-        "command": "editor.action.scrollLeftHover",
-        "when": "editorHoverFocused"
-    },
-    {
-        "key": "j",
-        "command": "editor.action.scrollDownHover",
-        "when": "editorHoverFocused"
-    },
-    {
-        "key": "k",
-        "command": "editor.action.scrollUpHover",
-        "when": "editorHoveredFocused"
-    },
-    {
-        "key": "l",
-        "command": "editor.action.scrollRightHover",
-        "when": "editorHoverFocused"
-    },
-    {
-        "key": "alt+enter",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "panelFocus"
-    },
-    {
-        "key": "ctrl+f5",
-        "command": "-cmake.debugTarget",
-        "when": "cmake:enableFullFeatureSet && inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
     },
     {
         "key": "ctrl+shift+c",
@@ -128,14 +62,6 @@
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
     {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
-    },
-    {
-        "key": "ctrl+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "ctrl+shift+w",
         "command": "-workbench.action.closeWindow"
     },
@@ -143,21 +69,6 @@
         "key": "ctrl+shift+w",
         "command": "workbench.action.terminal.kill",
         "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.focusNextGroup",
-        "when": "!activeEditorGroupEmpty && multipleEditorGroups"
-    },
-    {
-        "key": "ctrl+alt+v",
-        "command": "markdown.showPreviewToSide",
-        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
-    },
-    {
-        "key": "ctrl+k v",
-        "command": "-markdown.showPreviewToSide",
-        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
     },
     {
         "key": "ctrl+shift+up",
@@ -180,30 +91,8 @@
         "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
     },
     {
-        "key": "alt+\\",
-        "command": "workbench.action.toggleEditorType"
-    },
-    {
-        "key": "f1",
-        "command": "workbench.action.showCommands",
-        "when": "!terminalFocus"
-    },
-    {
         "key": "f1",
         "command": "-workbench.action.showCommands"
-    },
-    {
-        "key": "ctrl+shift+\\",
-        "command": "workbench.action.splitEditor",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+\\",
-        "command": "-workbench.action.splitEditor"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "-workbench.action.files.newUntitledFile"
     },
     {
         "key": "ctrl+shift+f",
@@ -220,28 +109,28 @@
         "command": "editor.debug.action.runToCursor"
     },
     {
+        "key": "ctrl+f5",
+        "command": "-cmake.debugTarget",
+        "when": "cmake:enableFullFeatureSet && inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
         "key": "ctrl+\\",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
     {
-        "key": "ctrl+`",
-        "command": "-workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
-    },
-    {
-        "key": "alt+enter",
+        "key": "ctrl+shift+z",
         "command": "workbench.action.toggleMaximizeEditorGroup",
         "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
     },
     {
-        "key": "ctrl+`",
-        "command": "workbench.action.togglePanel"
-    },
-    {
         "key": "ctrl+shift+z",
-        "command": "workbench.action.toggleZenMode",
-        "when": "!isAuxiliaryWindowFocusedContext"
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelFocus"
     },
     {
         "key": "ctrl+shift+z",

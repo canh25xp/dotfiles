@@ -18,8 +18,8 @@ nmap <leader>db <Action>(ToggleLineBreakpoint)
 nmap <leader>de <Action>(EditBreakpoint)
 nmap <leader>dv <Action>(ViewBreakpoints)
 
-map <leader>e :NERDTreeFocus<CR>
-map <leader>zz <Action>(ToggleDistractionFreeMode)
+nmap <leader>e :NERDTreeFocus<CR>
+nmap <leader>zz <Action>(ToggleDistractionFreeMode)
 "nmap <leader>Z <Action>(ToggleZenMode)
 nmap <leader>k <Action>(ShowHoverInfo)
 nmap <leader>K <Action>(ShowErrorDescription)
@@ -58,12 +58,6 @@ nmap <leader>bu <Action>(CloseAllUnpinnedEditors)
 nmap <leader>bp <Action>(PinActiveEditorTab)
 
 " window
-nmap <C-k> <C-w>k
-nmap <C-j> <C-w>j
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
-nmap H <Action>(PreviousTab)
-nmap L <Action>(NextTab)
 nmap <leader>ww <Action>(HideAllWindows)
 nmap <leader>wk <Action>(StretchSplitToTop)
 nmap <leader>wj <Action>(StretchSplitToBottom)
@@ -85,8 +79,6 @@ nmap <leader>mw <Action>(ToolWindowsGroup)
 nmap <leader>wb <Action>(BuildMenu)
 
 " tab
-map <leader>- <Action>(SplitHorizontally)
-map <leader>\\ <Action>(SplitVertically)
 "map <leader>sh <Action>(MoveTabLeft)
 "map <leader>sj <Action>(MoveTabDown)
 "map <leader>sk <Action>(MoveTabUp)
