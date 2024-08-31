@@ -60,3 +60,8 @@
 
 [mergetool "nvimdiff"]
   layout = "MERGED"
+
+[alias]
+  nuke = reset --hard HEAD
+  # log single line
+  logs = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
