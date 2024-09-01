@@ -1,22 +1,14 @@
 {
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSurroundingLines": 4,
+    "editor.suggest.insertMode": "replace",
+    "editor.unicodeHighlight.nonBasicASCII": "inUntrustedWorkspace",
+    "editor.lineNumbers": "relative",
     "workbench.tree.expandMode": "doubleClick",
-    "task.slowProviderWarning": true,
+    "workbench.tree.renderIndentGuides": "always",
     "settingsSync.ignoredExtensions": [],
-    "task.problemMatchers.neverPrompt": false,
     "workbench.startupEditor": "none",
     "notebook.diff.enablePreview": false,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
-    "manim-sideview.previewLooping": false,
-    "cmake.debugConfig": {
-        "console": "integratedTerminal"
-    },
-    "editor.unicodeHighlight.nonBasicASCII": false,
-    "workbench.tree.renderIndentGuides": "always",
     "window.restoreFullscreen": true,
     "notebook.diff.ignoreOutputs": true,
     "C_Cpp.autocompleteAddParentheses": true,
@@ -58,7 +50,6 @@
         },
     },
     "terminal.integrated.commandsToSkipShell": [
-        // Ensure the toggle sidebar visibility keybinding skips the shell
         "workbench.action.toggleSidebarVisibility",
         "-workbench.action.closeWindow",
         "-workbench.action.quickOpenView",
@@ -103,14 +94,12 @@
     "idf.saveScope": 2,
     "editor.minimap.enabled": false,
     "editor.stickyScroll.enabled": false,
-    "[latex]": {},
     "workbench.colorTheme": "Catppuccin Mocha",
     "extensions.ignoreRecommendations": true,
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
-    "editor.lineNumbers": "relative",
     "vscode-neovim.useWSL": true,
     "vscode-neovim.NVIM_APPNAME": "nvim-lazy",
     "vscode-neovim.compositeKeys": {
@@ -122,10 +111,17 @@
         "asvetliakov.vscode-neovim": 1,
         "vscodevim.vim": 1
     },
-    "editor.cursorBlinking": "solid",
     "git.enableSmartCommit": true,
-    "editor.cursorSurroundingLines": 4,
-    "editor.suggest.insertMode": "replace",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "manim-sideview.previewLooping": false,
+    "cmake.debugConfig": {
+        "console": "integratedTerminal"
+    },
     /*
     VSCodeVim settings 
     */
@@ -143,25 +139,22 @@
         "<C-f>": false
     },
     "vim.vimrc.enable": true,
-    // "vim.insertModeKeyBindings": [
-    //     { "before": [ "j", "k" ], "after": [ "<Esc>" ] }
-    // ],
+    "vim.insertModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
-        // { "before": ["<ESC>"], "commands": [":noh"] },
-        // { "before": ["<S-h>"], "commands": [":bprevious"] },
-        // { "before": ["<S-l>"], "commands": [":bnext"] },
-        // { "before": [ "<leader>", "\\" ], "commands": [ ":vsplit" ] },
-        // { "before": [ "<leader>", "-" ], "commands": [ ":split" ] },
-        { "before": ["<leader>", "b", "d"], "commands": ["workbench.action.closeActiveEditor"] },
-        { "before": [":"], "commands": [ "workbench.action.showCommands", ], "silent": true },
-        { "before": [ "<leader>", "d", "b" ], "commands": [ "editor.debug.action.toggleBreakpoint" ] },
-        { "before": [ "<leader>", "c", "r" ], "commands": [ "editor.action.rename" ] },
-        { "before": [ "<leader>", "c", "f" ], "commands": [ "editor.action.formatDocument" ] },
-        { "before": [ "K" ], "commands": [ "editor.action.showHover" ], "silent": true },
-        { "before": [ "<leader>", "w" ], "commands": [ "workbench.action.splitEditor" ] },
-        { "before": [ "<leader>", "e" ], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
-        { "before": [ "<leader>", "E" ], "commands": [ "revealInExplorer" ] },
+        { "before": ["<leader>", "d", "b"], "commands": ["editor.debug.action.toggleBreakpoint"] },
+        { "before": ["<leader>", "c", "r"], "commands": ["editor.action.rename"] },
+        { "before": ["<leader>", "c", "f"], "commands": ["editor.action.formatDocument"] },
+        { "before": ["<leader>", "e"], "commands": [ "workbench.files.action.focusFilesExplorer" ] },
+        { "before": ["<leader>", "E"], "commands": [ "workbench.files.action.showActiveFileInExplorer" ] },
+        { "before": ["<leader>", "g", "g"], "commands": [ "workbench.view.scm" ] },
+        { "before": ["<leader>", "g", "h", "s"], "commands": [ "git.stageSelectedRanges" ] },
+        { "before": ["<leader>", "g", "h", "S"], "commands": [ "git.stageChange" ] },
+        { "before": ["<leader>", "g", "h", "u"], "commands": [ "git.revertSelectedRanges" ] },
+        { "before": ["<leader>", "g", "h", "U"], "commands": [ "git.clean" ] },
+        { "before": ["<leader>", "g", "h", "x"], "commands": [ "git.cleanAll" ] },
+        { "before": ["<leader>", "g", "h", "d"], "commands": [ "git.openChange" ] },
         // LSP
+        { "before": ["K"], "commands": ["editor.action.showHover"], "silent": true },
         { "before": ["g", "d"], "commands": ["editor.action.goToDefinition"] },
         { "before": ["g", "p", "d"], "commands": ["editor.action.peekDefinition"] },
         { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
@@ -170,11 +163,12 @@
         { "before": ["g", "r"], "commands": ["editor.action.referenceSearch.trigger"] },
         { "before": ["g", "Y"], "commands": ["editor.action.goToTypeDefinition"] },
         { "before": ["g", "p", "t"], "commands": ["editor.action.peekTypeDefinition"] },
-
     ],
     "vim.visualModeKeyBindings": [
-        { "before": [ ">" ], "commands": [ "editor.action.indentLines" ] },
-        { "before": [ "<" ], "commands": [ "editor.action.outdentLines" ] },
         { "before": [ "<leader>", "c", "f" ], "commands": [ "editor.action.formatSelection" ] },
+        { "before": [">"], "commands": [ "editor.action.indentLines" ] },
+        { "before": ["<"], "commands": [ "editor.action.outdentLines" ] },
+        { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+		{ "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
     ],
 }
