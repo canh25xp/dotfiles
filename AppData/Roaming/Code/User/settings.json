@@ -4,6 +4,10 @@
     "editor.suggest.insertMode": "replace",
     "editor.unicodeHighlight.nonBasicASCII": "inUntrustedWorkspace",
     "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "extensions.ignoreRecommendations": true,
     "workbench.tree.expandMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "always",
     "settingsSync.ignoredExtensions": [],
@@ -25,10 +29,6 @@
             "path": [
                 "${env:windir}\\Sysnative\\cmd.exe",
                 "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [
-                "/k",
-                "%USERPROFILE%\\batchrc.bat"
             ],
             "icon": "terminal-cmd"
         },
@@ -92,10 +92,6 @@
     "arduino.clearOutputOnBuild": true,
     "git.useEditorAsCommitInput": false,
     "idf.saveScope": 2,
-    "editor.minimap.enabled": false,
-    "editor.stickyScroll.enabled": false,
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "extensions.ignoreRecommendations": true,
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
@@ -125,7 +121,8 @@
     /*
     VSCodeVim settings 
     */
-    "vim.easymotion": true,
+
+
     "vim.incsearch": true,
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 200,
