@@ -1,8 +1,16 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
 notARepository: skip
+promptToReturnFromSubprocess: false
 gui:
-    nerdFontsVersion: "3"
-    showBottomLine: false
-    border: rounded
+  nerdFontsVersion: "3"
+  showBottomLine: false
+  scrollHeight: 1
+  border: single
+  spinner:
+    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+    rate: 100
 git:
-    parseEmoji: true
+  parseEmoji: true
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
