@@ -11,7 +11,7 @@ $Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'C:\Program Files\RePKG;'
 $Env:Path += 'C:\Program Files\gdrive;'
 $Env:Path += 'C:\Program Files\draw.io;'
-$Env:Path += 'C:\Program Files\Inkscape\bin;'
+$Env:Path += 'C:\Program Files\Inkscape\bin'
 # $Env:Path += "$Env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Functions.psm1")) {

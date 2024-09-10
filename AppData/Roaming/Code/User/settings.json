@@ -144,6 +144,7 @@
         { "before": ["<leader>", "e"], "commands": [ "workbench.files.action.focusFilesExplorer" ] },
         { "before": ["<leader>", "E"], "commands": [ "workbench.files.action.showActiveFileInExplorer" ] },
         { "before": ["<leader>", "g", "g"], "commands": [ "workbench.view.scm" ] },
+        { "before": ["<leader>", "z", "z"], "commands": [ "workbench.action.toggleZenMode" ] },
         { "before": ["<leader>", "g", "h", "s"], "commands": [ "git.stageSelectedRanges" ] },
         { "before": ["<leader>", "g", "h", "S"], "commands": [ "git.stageChange" ] },
         { "before": ["<leader>", "g", "h", "u"], "commands": [ "git.revertSelectedRanges" ] },
