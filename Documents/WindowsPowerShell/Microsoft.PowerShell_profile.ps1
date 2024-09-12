@@ -305,7 +305,7 @@ Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 # Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdi")
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("cdx")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
