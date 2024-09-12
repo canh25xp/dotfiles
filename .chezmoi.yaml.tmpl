@@ -9,7 +9,10 @@ git:
   autoCommit : true
   autoPush : false
 
-{{ if ne .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.os "windows" -}}
+diff:
+  pager: cat
+{{ else }}
 diff:
   command: "delta"
   pager : "delta"
