@@ -9,8 +9,10 @@ git:
   autoCommit : true
   autoPush : false
 
+{{ if ne .chezmoi.os "windows" -}}
 diff:
   pager : "delta"
+{{- end }}
 
 merge:
   command: nvim
