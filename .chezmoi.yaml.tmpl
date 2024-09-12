@@ -11,6 +11,7 @@ git:
 
 {{ if ne .chezmoi.os "windows" -}}
 diff:
+  command: "delta"
   pager : "delta"
 {{- end }}
 
