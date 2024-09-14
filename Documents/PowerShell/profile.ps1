@@ -3,9 +3,9 @@ $Env:EDITOR = "nvim"
 $Env:PAGER = "less"
 $Env:NVIM_APPNAME = "nvim"
 
-# $Env:VCPKG_ROOT = "C:\dev\vcpkg"
-# $Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
-# $Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
+#$Env:VCPKG_ROOT = "C:\dev\vcpkg"
+$Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
+$Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 
 $Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'C:\Program Files\RePKG;'
