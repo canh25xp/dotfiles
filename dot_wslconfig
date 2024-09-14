@@ -6,7 +6,7 @@ networkingMode=mirrored
 memory=4GB
 
 # Turn on default connection to bind WSL 2 localhost to Windows localhost. Setting is ignored when networkingMode=mirrored
-localhostforwarding=true
+# localhostforwarding=true
 
 [experimental]
 sparseVhd=true

@@ -14,11 +14,10 @@ $PSDefaultParameterValues.Add('Get-Command:All', $true)
 # Ignore some of the commands (not add to history)
 Set-PSReadLineOption -AddToHistoryHandler {
     Param([string]$line)
-    # History ignored git commands
+    # Ignored git commands
     # if ($line -match "^git") {
     #     return $false
     # }
-    # History ignored commands
     if (@("exit", "dir", "ls", "la", "pwd", "cd ..", "cls", "clear", "exp .", "pwsh").Contains($line.ToLowerInvariant())) {
         return $false
     }
@@ -26,7 +25,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
 }
 
 # Save history in home directory
-# Set-PSReadLineOption -HistorySavePath "~\.history.txt"
+Set-PSReadLineOption -HistorySavePath "~\.pwsh_history"
 
 # ==============================================
 # KEY BINDINGS
