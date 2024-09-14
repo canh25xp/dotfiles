@@ -1,23 +1,17 @@
-# Current User All Hosts
 $Env:EDITOR = "nvim"
 $Env:PAGER = "less"
 $Env:NVIM_APPNAME = "nvim"
-
-#$Env:VCPKG_ROOT = "C:\dev\vcpkg"
 $Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 $Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 $Env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
+$Env:VCPKG_ROOT = "C:\vcpkg"
 
 $Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'C:\Program Files\RePKG;'
 $Env:Path += 'C:\Program Files\gdrive;'
 $Env:Path += 'C:\Program Files\draw.io;'
-$Env:Path += 'C:\Program Files\Inkscape\bin'
-# $Env:Path += "$Env:VCPKG_ROOT;"
-
-if (Test-Path("$PSScriptRoot\Functions.psm1")) {
-  Import-Module "$PSScriptRoot\Functions.psm1"
-}
+$Env:Path += 'C:\Program Files\Inkscape\bin;'
+$Env:Path += "$Env:VCPKG_ROOT"
 
 if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
   . "$PSScriptRoot\Aliases.ps1"
