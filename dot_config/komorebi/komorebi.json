@@ -61,5 +61,12 @@
         }
       ]
     }
+  ],
+  "float_rules": [
+    {
+      "kind": "Exe",
+      "id": "explorer.exe",
+      "matching_strategy": "Equals"
+    }
   ]
 }
