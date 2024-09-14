@@ -47,10 +47,6 @@ Set-PSReadLineOption -HistorySavePath "~\.pwsh_history"
 # KEY BINDINGS
 # ==============================================
 
-Set-PSReadLineKeyHandler -Chord 'j,k' -ScriptBlock {
-    $PSReadLine::ViCommandMode()
-}
-
 # Kill whole line
 Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 

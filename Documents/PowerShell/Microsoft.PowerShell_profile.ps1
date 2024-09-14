@@ -2,6 +2,9 @@
 # SHELL INIT
 # ==============================================
 
+# Set the cursor to a blinking line.
+Write-Host -NoNewLine "`e[5 q"
+
 # Only enable outside of neovim
 if ($null -eq $Env:NVIM) {
   # Load Oh-my-posh theme https://ohmyposh.dev/docs/themes
