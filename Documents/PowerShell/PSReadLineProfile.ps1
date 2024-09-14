@@ -23,8 +23,8 @@ function OnViModeChange {
     }
 }
 
-Set-PsReadLineOption -EditMode Vi
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
+#Set-PsReadLineOption -EditMode Vi
+#Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 # Ignore some of the commands (not add to history)
