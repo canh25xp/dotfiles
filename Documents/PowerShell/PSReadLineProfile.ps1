@@ -5,21 +5,6 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
-$OnViModeChange = [scriptblock]{
-    if ($args[0] -eq 'Command') {
-        # Set the cursor to a blinking block.
-        Write-Host -NoNewLine "`e[1 q"
-    }
-    else {
-        # Set the cursor to a blinking line.
-        Write-Host -NoNewLine "`e[5 q"
-    }
-}
-
-Set-PsReadLineOption -EditMode Vi
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
-
 $PSReadLine = [Microsoft.PowerShell.PSConsoleReadLine]
 
 # Commands default parameter
@@ -28,6 +13,19 @@ $PSDefaultParameterValues.Add('Format-*:Wrap', $true)
 $PSDefaultParameterValues.Add('Receive-Job:Keep', $true)
 $PSDefaultParameterValues.Add('Get-Command:All', $true)
 
+function OnViModeChange {
+    if ($args[0] -eq 'Command') {
+        # Set the cursor to a blinking block.
+        Write-Host -NoNewLine "`e[1 q"
+    } else {
+        # Set the cursor to a blinking line.
+        Write-Host -NoNewLine "`e[5 q"
+    }
+}
+
+Set-PsReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 # Ignore some of the commands (not add to history)
 Set-PSReadLineOption -AddToHistoryHandler {
