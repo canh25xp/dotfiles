@@ -1,5 +1,6 @@
 README.md
 scripts/
+.profile
 
 {{ if eq .chezmoi.os "linux" }}
 
@@ -19,12 +20,14 @@ AppData/Roaming/
 .config/winfetch/
 .config/whkd/
 .config/komorebi/
-.profile
 .wslconfig
 
 {{ else if eq .chezmoi.os "windows" }}
 
+.condarc
+.arduinoIDE/
 .cgdb/
+.config/mimeapps.list
 .config/gdb/
 .config/pudb/
 .config/alacritty/
@@ -36,12 +39,9 @@ AppData/Roaming/
 .config/xplr/
 .config/tmux/
 .config/neomutt/
-.condarc
-.profile
 .config/lazygit/
 .config/neofetch/
 .config/bat/
-.config/mimeapps.list
 .config/glow/
 
 {{ end }}
