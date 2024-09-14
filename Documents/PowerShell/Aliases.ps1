@@ -34,6 +34,11 @@ Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
 Set-Alias -Name linux   -Value Open-DefaultDistro
 
+
+# ==============================================
+# FUNTIONS
+# ==============================================
+
 function Start-AdminSession {
     <#
     .SYNOPSIS

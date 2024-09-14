@@ -13,6 +13,10 @@ $PSDefaultParameterValues.Add('Format-*:Wrap', $true)
 $PSDefaultParameterValues.Add('Receive-Job:Keep', $true)
 $PSDefaultParameterValues.Add('Get-Command:All', $true)
 
+# Set-PSReadLineOption -EditMode Vi
+#
+# Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
+
 # Ignore some of the commands (not add to history)
 Set-PSReadLineOption -AddToHistoryHandler {
     Param([string]$line)
@@ -389,7 +393,6 @@ Set-PSReadLineKeyHandler -Key "Alt+%" `
     }
 }
 
-
 # Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line
 Set-PSReadLineKeyHandler -Key RightArrow `
                          -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
@@ -405,5 +408,19 @@ Set-PSReadLineKeyHandler -Key RightArrow `
         $PSReadLine::ForwardChar($key, $arg)
     } else {
         $PSReadLine::AcceptNextSuggestionWord($key, $arg)
+    }
+}
+
+# ==============================================
+# FUNTIONS
+# ==============================================
+
+function OnViModeChange {
+    if ($args[0] -eq 'Command') {
+        # Set the cursor to a blinking block.
+        Write-Host -NoNewLine "`e[1 q"
+    } else {
+        # Set the cursor to a blinking line.
+        Write-Host -NoNewLine "`e[5 q"
     }
 }
