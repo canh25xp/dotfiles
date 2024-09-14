@@ -6,6 +6,7 @@ $Env:NVIM_APPNAME = "nvim"
 #$Env:VCPKG_ROOT = "C:\dev\vcpkg"
 $Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 $Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
+$Env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
 
 $Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
 $Env:Path += 'C:\Program Files\RePKG;'
