@@ -32,7 +32,6 @@ Set-Alias -Name edit    -Value $env:EDITOR
 Set-Alias -Name lgit    -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
-Set-Alias -Name linux   -Value Open-DefaultDistro
 Set-Alias -Name wm      -Value Start-Komorebi
 
 # ==============================================
@@ -62,18 +61,14 @@ function Open-Telegram {
   & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
 }
 
-function Open-DefaultDistro {
-  wsl --cd ~
-}
-
 function Open-ListFile {
   param ()
   lf -print-last-dir $args | Set-Location
 }
 
 function Open-WinWord(){
-	param()
-	& "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" $args
+  param()
+    & "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" $args
 }
 
 function Get-DirectorySummary($dir=".") {
