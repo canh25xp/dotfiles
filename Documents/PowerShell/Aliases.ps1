@@ -33,11 +33,21 @@ Set-Alias -Name lgit    -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
 Set-Alias -Name linux   -Value Open-DefaultDistro
-
+Set-Alias -Name wm      -Value Start-Komorebi
 
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Start-Komorebi {
+  $process = Get-Process -Name komorebi -ErrorAction SilentlyContinue
+
+  if (!$process) {
+    komorebic start --whkd
+  } else {
+    Write-Host "komorebi is already running."
+  }
+}
 
 function Start-AdminSession {
     <#
