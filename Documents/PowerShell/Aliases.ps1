@@ -84,7 +84,7 @@ function Start-GitBash {
 }
 
 function Open-Profile{
-	Set-Location $HOME\Documents\PowerShell
+  Set-Location $HOME\Documents\PowerShell
 }
 
 function Get-Path {
