@@ -57,17 +57,14 @@ function Start-AdminSession {
 }
 
 function Open-Telegram {
-  param ()
   & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
 }
 
 function Open-ListFile {
-  param ()
   lf -print-last-dir $args | Set-Location
 }
 
 function Open-WinWord(){
-  param()
     & "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" $args
 }
 
@@ -92,7 +89,6 @@ function Get-Path {
 }
 
 function Get-Wifi {
-    param ()
     netsh wlan show profile key=clear $args
 }
 
@@ -110,12 +106,7 @@ function Show-Meme {
 }
 
 function Get-ChildItemPretty {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        [string]$Path = $PWD
-    )
-    eza --icons -1 --hyperlink --time-style relative $Path
+    eza --icons -1 --hyperlink --time-style relative $args
 }
 
 function Get-ChildItemPrettyAll {
