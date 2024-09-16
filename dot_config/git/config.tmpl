@@ -22,6 +22,10 @@
 [credential "https://huggingface.co"]
   provider = generic
 
+[credential "https://github.sec.samsung.net"]
+  helper =
+  helper = !gh auth git-credential
+
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
