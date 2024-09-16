@@ -30,6 +30,8 @@ Set-Alias -Name vi      -Value nvim
 Set-Alias -Name vim     -Value nvim
 Set-Alias -Name edit    -Value $env:EDITOR
 Set-Alias -Name lgit    -Value lazygit
+Set-Alias -Name g       -Value git
+Set-Alias -Name lg      -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
 Set-Alias -Name wm      -Value Start-Komorebi
