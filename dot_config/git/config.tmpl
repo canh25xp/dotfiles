@@ -71,7 +71,7 @@
   layout = "MERGED"
 
 [alias]
-  s = status --short
+  s = status --verbose
   a = add
   c = commit --verbose
   ca = commit --all --verbose
@@ -79,8 +79,10 @@
   d = diff
   ds = diff --stat
   dc = diff --cached
+  r = remote --verbose
   nuke = "!git reset --hard HEAD && git clean -fd"
   logs = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  graph = log --graph --all --oneline --decorate
   list = ls-tree --full-tree --name-only -r HEAD
   edit = "!git ls-files | fzf | xargs -r ${EDITOR:-vim}"
   alias = "!git config -l | grep alias | cut -c 7-"
