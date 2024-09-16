@@ -173,7 +173,7 @@
                 "name": "Windows PowerShell",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "hidden": false
+                "hidden": true
             },
             {
                 "name": "Command Prompt",
@@ -182,10 +182,10 @@
                 "hidden": false
             },
             {
-                "name": "PowerShell 7 Preview",
+                "name": "PowerShell Preview",
                 "guid": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
                 "source": "Windows.Terminal.PowershellCore",
-                "hidden": false
+                "hidden": true
             },
             {
                 "name": "Debian",
@@ -194,7 +194,7 @@
                 "hidden": false
             },
             {
-                "name": "DebianUnstable",
+                "name": "Debian Unstable",
                 "guid": "{c5ad8b93-8f13-5aa6-bdba-487b5a95c72f}",
                 "source": "Windows.Terminal.Wsl",
                 "hidden": false
@@ -203,7 +203,7 @@
                 "name": "Ubuntu",
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "hidden": false
+                "hidden": true
             },
             {
                 "name": "Visual Studio Debug Console",
@@ -227,8 +227,8 @@
             },
             {
                 "name": "Developer Command Prompt for VS 2022 [Preview]",
-                "source": "Windows.Terminal.VisualStudio",
                 "guid": "{527f2af4-96ca-5097-9b4f-d3b1768fd3e3}",
+                "source": "Windows.Terminal.VisualStudio",
                 "hidden": false
             },
             {
@@ -245,8 +245,8 @@
             },
             {
                 "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure",
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "source": "Windows.Terminal.Azure",
                 "hidden": true
             }
         ]
