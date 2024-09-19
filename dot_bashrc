@@ -134,5 +134,8 @@ fi
 # zoxide integration
 eval "$(zoxide init bash --cmd j)"
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=/home/canh25xp/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
