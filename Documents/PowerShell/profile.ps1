@@ -5,7 +5,7 @@ $env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 $env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 $env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
 $env:VCPKG_ROOT = "C:\vcpkg"
-$env:FZF_DEFAULT_OPTS = '--layout=reverse --preview="bat --style=numbers --color=always {}"'
+$env:FZF_DEFAULT_OPTS = '--layout=reverse --preview="bat --color=always {}"'
 
 $env:Path += ';C:\Program Files\pnnx-20230227-windows;'
 $env:Path += 'C:\Program Files\RePKG;'
