@@ -24,6 +24,8 @@ Set-Alias -Name pro     -Value Open-Profile
 Set-Alias -Name word    -Value Open-WinWord
 Set-Alias -Name cdi     -Value Open-ListFile
 Set-Alias -Name cfg     -Value Edit-Config
+Set-Alias -Name cze     -Value Edit-Chezmoi
+Set-Alias -Name wm      -Value Start-Komorebi
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
@@ -36,7 +38,6 @@ Set-Alias -Name g       -Value git
 Set-Alias -Name lg      -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
-Set-Alias -Name wm      -Value Start-Komorebi
 
 # ==============================================
 # FUNTIONS
@@ -45,6 +46,17 @@ Set-Alias -Name wm      -Value Start-Komorebi
 function Edit-Config {
   # Get the list of files managed by chezmoi
   $chezmoiFiles = chezmoi managed -p absolute -i files
+
+  # Use fzf to allow the user to select a file interactively
+  $selectedFile = $chezmoiFiles | fzf --preview="bat --color=always {}"
+  if ($selectedFile) {
+    & $env:EDITOR $selectedFile
+  }
+}
+
+function Edit-Chezmoi {
+  # Get the list of files managed by chezmoi
+  $chezmoiFiles = chezmoi managed -p source-absolute -i files
 
   # Use fzf to allow the user to select a file interactively
   $selectedFile = $chezmoiFiles | fzf --preview="bat --color=always {}"
