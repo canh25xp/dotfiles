@@ -33,7 +33,8 @@ alias man=batman
 alias cht=cht.sh
 
 # dotfiles manage
-alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfg='chezmoi managed -p absolute -i files | fzf | xargs -r ${EDITOR:-nvim}'
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=nvim-lazy nvim"
@@ -41,19 +42,19 @@ alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
 
 # Open Nvim and enter Neotree
 ntree() {
-	nvim -c "Neotree position=current"
+  nvim -c "Neotree position=current"
 }
 
 # cd on exit
 cdx() {
-	# `command` is needed in case `lfcd` is aliased to `lf`
-	cd "$(command lf -print-last-dir "$@")"
+  # `command` is needed in case `lfcd` is aliased to `lf`
+  cd "$(command lf -print-last-dir "$@")"
 }
 
 # bat help
 alias bathelp='bat --plain --language=help'
 help() {
-	"$@" --help 2>&1 | bathelp
+  "$@" --help 2>&1 | bathelp
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -63,16 +64,16 @@ help() {
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	if [ -x "$(command -v eza)" ]; then
-		alias ls='eza --icons -1 --hyperlink --time-style relative'
-	else
-		alias ls='ls --color=auto -1'
-	fi
-	alias dir='dir --color=auto'
-	alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  if [ -x "$(command -v eza)" ]; then
+    alias ls='eza --icons -1 --hyperlink --time-style relative'
+  else
+    alias ls='ls --color=auto -1'
+  fi
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
