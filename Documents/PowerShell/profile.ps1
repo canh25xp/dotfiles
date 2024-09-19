@@ -1,17 +1,18 @@
-$Env:EDITOR = "nvim"
-$Env:PAGER = "less"
-$Env:NVIM_APPNAME = "nvim"
-$Env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
-$Env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
-$Env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
-$Env:VCPKG_ROOT = "C:\vcpkg"
+$env:EDITOR = "nvim"
+$env:PAGER = "less"
+$env:NVIM_APPNAME = "nvim"
+$env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
+$env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
+$env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
+$env:VCPKG_ROOT = "C:\vcpkg"
+$env:FZF_DEFAULT_OPTS = '--layout=reverse --preview="bat --style=numbers --color=always {}"'
 
-$Env:Path += ';C:\Program Files\pnnx-20230227-windows;'
-$Env:Path += 'C:\Program Files\RePKG;'
-$Env:Path += 'C:\Program Files\gdrive;'
-$Env:Path += 'C:\Program Files\draw.io;'
-$Env:Path += 'C:\Program Files\Inkscape\bin;'
-$Env:Path += "$Env:VCPKG_ROOT"
+$env:Path += ';C:\Program Files\pnnx-20230227-windows;'
+$env:Path += 'C:\Program Files\RePKG;'
+$env:Path += 'C:\Program Files\gdrive;'
+$env:Path += 'C:\Program Files\draw.io;'
+$env:Path += 'C:\Program Files\Inkscape\bin;'
+$env:Path += "$Env:VCPKG_ROOT"
 
 if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
   . "$PSScriptRoot\Aliases.ps1"

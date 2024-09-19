@@ -43,7 +43,7 @@ Set-Alias -Name wm      -Value Start-Komorebi
 
 function Edit-Config {
   # Get the list of files managed by chezmoi
-  $chezmoiFiles = chezmoi managed
+  $chezmoiFiles = chezmoi managed -p absolute -i files
 
   # Use fzf to allow the user to select a file interactively
   $selectedFile = $chezmoiFiles | fzf
