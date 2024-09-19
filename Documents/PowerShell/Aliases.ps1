@@ -12,6 +12,7 @@ Set-Alias -Name ls      -Value Get-ChildItemPretty
 Set-Alias -Name la      -Value Get-ChildItemPrettyAll
 Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
 Set-Alias -Name du      -Value Get-DirectorySummary
+Set-Alias -Name cat     -Value bat
 
 # Helpful aliases
 Set-Alias -Name wifi    -Value Get-Wifi
