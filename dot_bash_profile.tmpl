@@ -3,7 +3,17 @@
 export EDITOR=nvim
 export PAGER=less
 export NVIM_APPNAME=nvim
-export FZF_DEFAULT_OPTS='--layout=reverse --preview="bat --color=always {}"'
+
+# https://github.com/catppuccin/fzf
+export FZF_DEFAULT_OPTS='
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+--color=selected-bg:#45475a
+--multi
+--layout=reverse
+--preview="bat --color=always {}"
+'
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 export FIGNORE=".dll:.DLL"
@@ -25,24 +35,24 @@ export PATH="$PATH:/mnt/c/Windows/System32"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-	PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-	PATH="$HOME/.local/bin:$PATH"
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-		. "$HOME/.bashrc"
-	fi
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
 fi
 
 if [ -d "$HOME/.cargo/bin" ]; then
-  export PATH="$PATH:$HOME/.cargo/bin"
+    export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 {{ else if eq .chezmoi.os "windows" -}}
