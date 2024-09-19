@@ -14,7 +14,6 @@ $env:FZF_DEFAULT_OPTS = @"
 --color=selected-bg:#45475a
 --multi
 --layout=reverse
---preview="bat --color=always {}"
 "@
 
 $env:Path += ';C:\Program Files\pnnx-20230227-windows;'
