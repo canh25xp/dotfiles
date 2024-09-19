@@ -3,6 +3,7 @@
 export EDITOR=nvim
 export PAGER=less
 export NVIM_APPNAME=nvim
+export FZF_DEFAULT_OPTS='--layout=reverse --preview="bat --color=always {}"'
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 export FIGNORE=".dll:.DLL"
