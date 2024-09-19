@@ -34,7 +34,7 @@ alias cht=cht.sh
 
 # dotfiles manage
 # alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfg='chezmoi managed -p absolute -i files | fzf | xargs -r ${EDITOR:-nvim}'
+alias cfg='chezmoi managed -p absolute -i files | fzf --preview="bat --color=always {}" | xargs -r ${EDITOR:-nvim}'
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=nvim-lazy nvim"
