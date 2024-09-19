@@ -22,6 +22,7 @@ Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro     -Value Open-Profile
 Set-Alias -Name word    -Value Open-WinWord
 Set-Alias -Name cdi     -Value Open-ListFile
+Set-Alias -Name cfg     -Value Edit-Config
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
@@ -39,6 +40,17 @@ Set-Alias -Name wm      -Value Start-Komorebi
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Edit-Config {
+  # Get the list of files managed by chezmoi
+  $chezmoiFiles = chezmoi managed
+
+  # Use fzf to allow the user to select a file interactively
+  $selectedFile = $chezmoiFiles | fzf
+  if ($selectedFile) {
+    & $env:EDITOR $selectedFile
+  }
+}
 
 function Start-Komorebi {
   $process = Get-Process -Name komorebi -ErrorAction SilentlyContinue
