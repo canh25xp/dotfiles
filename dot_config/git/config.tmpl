@@ -87,7 +87,7 @@
   logs = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   graph = log --graph --all --oneline --decorate
   list = ls-tree --full-tree --name-only -r HEAD
-  edit = "!git ls-files | fzf | xargs -r ${EDITOR:-vim}"
+  fzf = "!git ls-files | fzf | xargs -r ${EDITOR:-nvim}"
   alias = "!git config -l | grep alias | cut -c 7-"
   diff-file-last-commit = "!f() { \
     project_root_dir=$(git rev-parse --show-toplevel); \
