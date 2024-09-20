@@ -2,10 +2,20 @@
 # Note: if scheduling this script, you may need to check 
 # that the powershell session is logged in as the user
 
+Write-Host "================================================================================"
+Write-Host "[Chezmoi] Set Wallpaper"
+
 $path = if ($args.Count -eq 0) {
   "$HOME\Pictures\Wallpapers\YorForger.jpg"
 } else {
   $args[0]
+}
+
+$confirmation = Read-Host "Do you want to set the wallpaper to '$path'? (Y/n)"
+
+if ($confirmation -eq 'n') {
+    Write-Host "Wallpaper change cancelled."
+    exit
 }
 
 $setwallpapersrc = @"
