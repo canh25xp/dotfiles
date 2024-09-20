@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "windows" -}}
+  {{ include "scripts/set-wallpapers.ps1" -}}
+{{ end -}}
