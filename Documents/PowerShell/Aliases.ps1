@@ -40,6 +40,8 @@ Set-Alias -Name lg      -Value lazygit
 Set-Alias -Name cz      -Value chezmoi
 Set-Alias -Name gvim    -Value neovide
 
+Remove-Alias -Name where -Force
+
 # ==============================================
 # FUNTIONS
 # ==============================================
