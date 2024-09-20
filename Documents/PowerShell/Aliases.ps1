@@ -14,11 +14,12 @@ Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
 Set-Alias -Name du      -Value Get-DirectorySummary
 Set-Alias -Name cat     -Value bat
 
-# Helpful aliases
+# Funtion aliases
 Set-Alias -Name wifi    -Value Get-Wifi
 Set-Alias -Name meme    -Value Show-Meme # Maybe not so helpful :v
 Set-Alias -Name wtf     -Value Get-Command
 Set-Alias -Name path    -Value Get-Path
+Set-Alias -Name env     -Value Edit-EnvironmentVariables
 Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro     -Value Open-Profile
 Set-Alias -Name word    -Value Open-WinWord
@@ -42,6 +43,10 @@ Set-Alias -Name gvim    -Value neovide
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Edit-EnvironmentVariables {
+  rundll32.exe sysdm.cpl,EditEnvironmentVariables
+}
 
 function Set-Wallpaper {
   param (
