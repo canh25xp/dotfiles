@@ -1,4 +1,5 @@
 # https://gist.github.com/s7ephen/714023
+# https://forums.powershell.org/t/powershell-to-set-second-monitor-wallpaper/17949
 # Note: if scheduling this script, you may need to check 
 # that the powershell session is logged in as the user
 
