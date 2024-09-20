@@ -16,7 +16,7 @@ Set-Alias -Name cat     -Value bat
 
 # Funtion aliases
 Set-Alias -Name wifi    -Value Get-Wifi
-Set-Alias -Name meme    -Value Show-Meme # Maybe not so helpful :v
+Set-Alias -Name meme    -Value Show-Meme
 Set-Alias -Name wtf     -Value Get-Command
 Set-Alias -Name path    -Value Get-Path
 Set-Alias -Name env     -Value Edit-EnvironmentVariables
