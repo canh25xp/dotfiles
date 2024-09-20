@@ -146,6 +146,8 @@
     ],
     "profiles": {
         "defaults": {
+            "backgroundImage": "desktopWallpaper",
+            "backgroundImageOpacity": 0.15,
             "closeOnExit": "always",
             "colorScheme": {
                 "dark": "Catppuccin Mocha",
