@@ -146,7 +146,7 @@
     ],
     "profiles": {
         "defaults": {
-            "backgroundImage": "~/Pictures/Assets/YOR2.jpg",
+            "backgroundImage": "%USERPROFILE%/Pictures/Assets/YOR2.jpg",
             "backgroundImageOpacity": 0.15,
             "closeOnExit": "always",
             "colorScheme": {
