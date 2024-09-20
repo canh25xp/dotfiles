@@ -16,7 +16,7 @@ $env:FZF_DEFAULT_OPTS = @"
 --layout=reverse
 "@
 
-$env:Path += ';C:\Program Files\pnnx-20230227-windows;'
+$env:Path += 'C:\Program Files\pnnx-20230227-windows;'
 $env:Path += 'C:\Program Files\RePKG;'
 $env:Path += 'C:\Program Files\gdrive;'
 $env:Path += 'C:\Program Files\draw.io;'
