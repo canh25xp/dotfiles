@@ -146,7 +146,7 @@
     ],
     "profiles": {
         "defaults": {
-            "backgroundImage": "%USERPROFILE%/Pictures/Assets/YOR2.jpg",
+            "backgroundImage": "%USERPROFILE%/Pictures/Wallpaper/YorForger.jpg",
             "backgroundImageOpacity": 0.15,
             "closeOnExit": "always",
             "colorScheme": {
