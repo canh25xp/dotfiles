@@ -27,6 +27,9 @@ Set-Alias -Name cdi     -Value Open-ListFile
 Set-Alias -Name cfg     -Value Edit-Config
 Set-Alias -Name cze     -Value Edit-Chezmoi
 Set-Alias -Name wm      -Value Start-Komorebi
+Set-Alias -Name trash   -Value Open-RecycleBin
+Set-Alias -Name unins   -Value Open-Uninstall
+Set-Alias -Name rc      -Value Run-Command
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
@@ -45,6 +48,21 @@ Remove-Alias -Name where -Force
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Run-Command {
+  $cmd = Get-Content ~/.commands | fzf --prompt="Select command: "
+  if ($cmd) {
+    Invoke-Expression $cmd
+  }
+}
+
+function Open-Uninstall {
+  appwiz.cpl
+}
+
+function Open-RecycleBin {
+  start shell:RecycleBinFolder
+}
 
 function Edit-EnvironmentVariables {
   rundll32.exe sysdm.cpl,EditEnvironmentVariables
