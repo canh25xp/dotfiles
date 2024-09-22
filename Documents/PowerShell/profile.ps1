@@ -4,7 +4,13 @@ $env:NVIM_APPNAME = "nvim"
 $env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 $env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 $env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
+$env:CARGO_HOME = "$HOME\.cargo"
+$env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"
+$env:JAVA_HOME = "$env:PROGRAMFILES\Java\jdk-22"
+$env:GRADLE_HOME = "C:\Gradle\gradle-8.10"
+$env:MAVEN_HOME = "C:\Maven\apache-maven-3.9.9"
 $env:VCPKG_ROOT = "C:\vcpkg"
+$env:NVM_HOME = "$env:APPDATA\nvm"
 
 # https://github.com/catppuccin/fzf
 $env:FZF_DEFAULT_OPTS = @"
@@ -16,12 +22,18 @@ $env:FZF_DEFAULT_OPTS = @"
 --layout=reverse
 "@
 
-$env:Path += 'C:\Program Files\pnnx-20230227-windows;'
-$env:Path += 'C:\Program Files\RePKG;'
-$env:Path += 'C:\Program Files\gdrive;'
-$env:Path += 'C:\Program Files\draw.io;'
-$env:Path += 'C:\Program Files\Inkscape\bin;'
-$env:Path += "$Env:VCPKG_ROOT"
+$env:Path += "$HOME\Documents\PowerShell\Scripts;"
+$env:Path += "$env:PROGRAMFILES\gdrive;"
+$env:Path += "$env:PROGRAMFILES\draw.io;"
+$env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
+$env:Path += "$env:ANDROID_HOME\cmdline-tools\latest\bin;"
+$env:Path += "$env:ANDROID_HOME\platform-tools;"
+$env:Path += "$env:JAVA_HOME\bin;"
+$env:Path += "$env:GRADLE_HOME\bin;"
+$env:Path += "$env:MAVEN_HOME\bin;"
+$env:Path += "$env:CARGO_HOME\bin;"
+$env:Path += "$env:NVM_HOME;"
+$env:Path += "$env:VCPKG_ROOT;"
 
 if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
   . "$PSScriptRoot\Aliases.ps1"
