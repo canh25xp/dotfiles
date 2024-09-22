@@ -29,7 +29,9 @@ Set-Alias -Name cze     -Value Edit-Chezmoi
 Set-Alias -Name wm      -Value Start-Komorebi
 Set-Alias -Name trash   -Value Open-RecycleBin
 Set-Alias -Name unins   -Value Open-Uninstall
-Set-Alias -Name rc      -Value Run-Command
+Set-Alias -Name huh     -Value Search-Command
+Set-Alias -Name bhis    -Value Search-BrowerHistory
+Set-Alias -Name bmark   -Value Search-BrowerBookmarks
 
 # Abbreviated aliases
 Set-Alias -Name np      -Value notepad
@@ -49,7 +51,39 @@ Remove-Alias -Name where -Force
 # FUNTIONS
 # ==============================================
 
-function Run-Command {
+Function Search-BrowerHistory() {
+    $Columns = [int]((get-host).ui.rawui.WindowSize.Width / 3)
+    $Separator ='{::}'
+    $History = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\History"
+    $TempFile = New-TemporaryFile
+    $Query = "select substr(title, 1, $Columns), url from urls order by last_visit_time desc"
+    Copy-Item $History -Destination $TempFile
+    @(sqlite3 -separator "$Separator" "$TempFile" "$Query") |
+        ForEach-Object {
+            $Title, $Url = ($_ -split $Separator)[0, 1]
+            "$($Title.PadRight($Columns))  `e[36m$Url`e[0m"
+        } | fzf --ansi --multi | ForEach-Object{Start-Process "chrome.exe" ($_ -replace '.*(https*://)', '$1'),'--profile-directory="Default"'}
+}
+
+#BUG: jq: error: syntax error, unexpected INVALID_CHARACTER, expecting end of file (Windows cmd shell quoting issues?) at <top-level>, line 1
+Function Search-BrowerBookmarks() {
+    $Bookmarks = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Bookmarks"
+
+    $JqScript=@"
+     def ancestors: while(. | length >= 2; del(.[-1,-2]));
+     . as `$in | paths(.url?) as `$key | `$in | getpath(`$key) | {name,url, path: [`$key[0:-2] | ancestors as `$a | `$in | getpath(`$a) | .name?] | reverse | join(\`"/\`") } | .path + \`"/\`" + .name + \`"|\`" + .url
+"@
+    Get-Content "$Bookmarks" | jq -r "$JqScript" `
+    | ForEach-Object { 
+        $_ -replace "(.*)\|(.*)", "`$1`t`e[36m`$2`e[0m"
+    } `
+    | fzf --ansi `
+    | ForEach-Object {
+        start-process "chrome.exe" ($_ -split "`t")[1],'--profile-directory="Default"'
+    }
+}
+
+function Search-Command {
   $cmd = Get-Content ~/.commands | fzf --prompt="Select command: "
   if ($cmd) {
     Invoke-Expression $cmd
@@ -61,7 +95,7 @@ function Open-Uninstall {
 }
 
 function Open-RecycleBin {
-  start shell:RecycleBinFolder
+  Start-Process shell:RecycleBinFolder
 }
 
 function Edit-EnvironmentVariables {
