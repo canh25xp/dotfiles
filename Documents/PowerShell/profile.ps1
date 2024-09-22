@@ -33,7 +33,7 @@ $env:Path += "$env:GRADLE_HOME\bin;"
 $env:Path += "$env:MAVEN_HOME\bin;"
 $env:Path += "$env:CARGO_HOME\bin;"
 $env:Path += "$env:NVM_HOME;"
-$env:Path += "$env:VCPKG_ROOT;"
+$env:Path += "$env:VCPKG_ROOT"
 
 if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
   . "$PSScriptRoot\Aliases.ps1"
