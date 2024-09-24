@@ -155,6 +155,7 @@
             },
             "cursorShape": "filledBox",
             "font": {
+                "cellHeight": "1.0",
                 "face": "CaskaydiaCove Nerd Font",
                 "features": {
                     "calt": 0
