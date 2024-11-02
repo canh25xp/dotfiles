@@ -25,6 +25,8 @@ export PATH="$PATH:$HOME/go/bin"
 
 export PATH="$PATH:$HOME/.deno/bin"
 
+export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
+
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$USERPROFILE/AppData/Local/Microsoft/WinGet/Packages/ahrm.sioyek_Microsoft.Winget.Source_8wekyb3d8bbwe/sioyek-release-windows"
