@@ -60,7 +60,7 @@
       ]
     }
   ],
-  "float_override": true,
+  "float_override": false,
   "ignore_rules": [
     {
       "kind": "Exe",

@@ -16,7 +16,7 @@
     "name": "Mocha",
     "accent": "Pink"
   },
-  "max_label_width": 400,
+  "max_label_width": 300,
   "left_widgets": [
     {
       "Komorebi": {
