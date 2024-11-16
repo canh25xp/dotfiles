@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.yaml",
+  "app_specific_configuration_path": "$env:KOMOREBI_CONFIG_HOME/applications.yaml",
   "window_hiding_behaviour": "Cloak",
   "mouse_follows_focus": true,
   "border_style": "System",
