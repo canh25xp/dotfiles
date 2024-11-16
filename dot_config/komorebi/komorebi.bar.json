@@ -9,12 +9,14 @@
       "bottom": 40
     }
   },
-  "font_family": "JetBrains Mono",
+  "font_family": "Cascadia Code",
+  "font_size": 12,
   "theme": {
-    "palette": "Base16",
-    "name": "CatppuccinMocha",
-    "accent": "Base0D"
+    "palette": "Catppuccin",
+    "name": "Mocha",
+    "accent": "Pink"
   },
+  "max_label_width": 400,
   "left_widgets": [
     {
       "Komorebi": {
@@ -40,30 +42,34 @@
     },
     {
       "Storage": {
-        "enable": true
+        "enable": false
       }
     },
     {
       "Memory": {
-        "enable": true
+        "enable": true,
+        "label_prefix": "IconAndText",
+        "data_refresh_interval": 10
       }
     },
     {
       "Network": {
         "enable": true,
         "show_total_data_transmitted": true,
-        "show_network_activity": true
+        "show_network_activity": true,
+        "label_prefix": "Icon",
+        "data_refresh_interval": 10
       }
     },
     {
       "Date": {
-        "enable": true,
+        "enable": false,
         "format": "DayDateMonthYear"
       }
     },
     {
       "Time": {
-        "enable": true,
+        "enable": false,
         "format": "TwentyFourHour"
       }
     },
