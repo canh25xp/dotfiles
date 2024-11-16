@@ -1,13 +1,13 @@
 {
   "$schema": "./schema.json",
-  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.yaml",
+  "animation": {
+    "enabled": false
+  },
+  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
   "window_hiding_behaviour": "Cloak",
   "mouse_follows_focus": true,
   "border_style": "System",
   "cross_monitor_move_behaviour": "Insert",
-  "animation": {
-    "enabled": false
-  },
   "default_workspace_padding": 0,
   "default_container_padding": 0,
   "border_width": 0,
@@ -61,7 +61,7 @@
     }
   ],
   "float_override": true,
-  "float_rules": [
+  "ignore_rules": [
     {
       "kind": "Exe",
       "id": "explorer.exe",
