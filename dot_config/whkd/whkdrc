@@ -1,4 +1,6 @@
-.shell pwsh
+.shell pwsh # pwsh | powershell | cmd
+
+# https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 
 # Open cheatsheets
 win + oem_2             : wt split-pane glow "$HOME/Documents/CheatSheets"
