@@ -152,6 +152,10 @@
         { "before": ["<leader>", "g", "h", "U"], "commands": [ "git.clean" ] },
         { "before": ["<leader>", "g", "h", "x"], "commands": [ "git.cleanAll" ] },
         { "before": ["<leader>", "g", "h", "d"], "commands": [ "git.openChange" ] },
+        { "before": ["<leader>","<leader>"], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["<leader>","k"], "commands": ["editor.action.showContextMenu"], "silent": true },
+        { "before": ["]", "b"], "commands": ["editor.debug.action.goToNextBreakpoint"] },
+        { "before": ["[", "b"], "commands": ["editor.debug.action.goToPreviousBreakpoint"] },
         // LSP
         { "before": ["K"], "commands": ["editor.action.showHover"], "silent": true },
         { "before": ["g", "d"], "commands": ["editor.action.goToDefinition"] },
