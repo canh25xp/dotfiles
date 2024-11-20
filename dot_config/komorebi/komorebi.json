@@ -3,6 +3,9 @@
   "animation": {
     "enabled": false
   },
+  "bar_configurations": [
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.json"
+  ],
   "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
   "window_hiding_behaviour": "Cloak",
   "mouse_follows_focus": false,
