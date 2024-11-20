@@ -37,46 +37,27 @@ $env:Path += "$env:CARGO_HOME\bin;"
 $env:Path += "$env:NVM_HOME;"
 $env:Path += "$env:VCPKG_ROOT"
 
-if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
-  . "$PSScriptRoot\Aliases.ps1"
-}
-
-if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
-  . "$PSScriptRoot\PSReadLineProfile.ps1"
-}
-
-
-# Tab-copletions for winget
-# Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
-#     param($wordToComplete, $commandAst, $cursorPosition)
-#         [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
-#         $Local:word = $wordToComplete.Replace('"', '""')
-#         $Local:ast = $commandAst.ToString().Replace('"', '""')
-#         winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
-#             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-#         }
-# }
-
-# Tab-completions for `git`
-# Import-Module -Name posh-git
-# $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-# $GitPromptSettings.DefaultPromptEnableTiming = $true
-# $GitPromptSettings.DefaultPromptPath.ForegroundColor = 'Orange'
-# $GitPromptSettings.DefaultPromptTimingFormat.Text = " [{0}ms]"
-
-# Shell Prompt
-# function Prompt {
-#     $prompt = Write-Prompt "$env:USERNAME@$env:COMPUTERNAME" -ForegroundColor ([ConsoleColor]::Green)
-#     $prompt += ":"
-#     $prompt += & $GitPromptScriptBlock
-#     $prompt
-# }
-
-# Tab-completions for `vcpkg`
-# Import-Module "$env:VCPKG_ROOT\scripts\posh-vcpkg"
-
-# Tab-completions for `choco` (https://ch0.co/tab-completion)
-# $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-# if (Test-Path($ChocolateyProfile)) {
-#   Import-Module "$ChocolateyProfile"
-# }
+#$env:Path += "D:\Program Files\alacritty;"
+#$env:Path += "D:\Program Files\bat;"
+#$env:Path += "D:\Program Files\bottom;"
+#$env:Path += "D:\Program Files\chezmoi;"
+#$env:Path += "D:\Program Files\eza;"
+#$env:Path += "D:\Program Files\fd;"
+#$env:Path += "D:\Program Files\fzf;"
+#$env:Path += "D:\Program Files\gh\bin;"
+#$env:Path += "D:\Program Files\komorebi;"
+#$env:Path += "D:\Program Files\lazygit;"
+#$env:Path += "D:\Program Files\less;"
+#$env:Path += "D:\Program Files\lf;"
+#$env:Path += "D:\Program Files\mingw64\bin;"
+#$env:Path += "D:\Program Files\neovide;"
+#$env:Path += "D:\Program Files\neovim\bin;"
+#$env:Path += "D:\Program Files\odin;"
+#$env:Path += "D:\Program Files\oh-my-posh;"
+#$env:Path += "D:\Program Files\ripgrep;"
+#$env:Path += "D:\Program Files\tealdeer;"
+#$env:Path += "D:\Program Files\terminal;"
+#$env:Path += "D:\Program Files\whkd;"
+#$env:Path += "D:\Program Files\zoxide;"
+#$env:Path += "D:\Program Files\ffmpeg-7.1-essentials_build\bin;"
+#$env:Path += "D:\Program Files\DumpstateViewer-3.5.2"
