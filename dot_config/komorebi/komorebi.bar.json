@@ -4,9 +4,9 @@
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": 70,
+      "top": 40,
       "right": 0,
-      "bottom": 70
+      "bottom": 40
     }
   },
   "font_family": "Cascadia Code",
