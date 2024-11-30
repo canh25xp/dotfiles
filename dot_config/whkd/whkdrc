@@ -17,16 +17,16 @@ ctrl + alt + shift + r      : komorebic reload-configuration
 ctrl + alt + shift + p      : komorebic toggle-pause
 alt + shift + r             : komorebic quick-load-resize
 alt + shift + s             : komorebic quick-save-resize
-alt + shift + e             : komorebic retile
+alt + shift + e             : komorebic retile # rEtile
 
 # Manipulate windows
-alt + shift + f             : komorebic toggle-float
+alt + shift + f             : komorebic toggle-float # Float
 alt + shift + return        : komorebic toggle-monocle
-alt + shift + m             : komorebic toggle-maximize
-alt + shift + n             : komorebic minimize
-alt + shift + q             : komorebic close
-alt + shift + a             : komorebic manage
-alt + shift + c             : komorebic unmanage
+alt + shift + m             : komorebic toggle-maximize # Maximize
+alt + shift + n             : komorebic minimize # miNimize
+alt + shift + q             : komorebic close # Quit
+alt + shift + a             : komorebic manage # Add
+alt + shift + i             : komorebic unmanage # Ignore
 
 # Focus windows
 alt + h                     : komorebic focus left
@@ -41,7 +41,7 @@ alt + shift + h             : komorebic move left
 alt + shift + j             : komorebic move down
 alt + shift + k             : komorebic move up
 alt + shift + l             : komorebic move right
-alt + shift + t             : komorebic promote     # top
+alt + shift + t             : komorebic promote # top
 
 # Stack windows
 alt + shift + left          : komorebic stack left
