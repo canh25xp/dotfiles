@@ -53,6 +53,13 @@ Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 # Dynamic help (like F1)
 Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
+# start whkd
+Set-PSReadLineKeyHandler -Chord Alt+W -ScriptBlock {
+    $PSReadLine::RevertLine()
+    $PSReadLine::Insert("Start-Process whkd -WindowStyle hidden")
+    $PSReadLine::AcceptLine()
+}
+
 # Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     $PSReadLine::RevertLine()
@@ -74,10 +81,7 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+h" `
     $PSReadLine::AcceptLine()
 }
 
-# Smart Insert/Delete
-
 # Matching quotes parens, and braces 
-
 Set-PSReadLineKeyHandler -Key '"',"'" `
                          -BriefDescription SmartInsertQuote `
                          -LongDescription "Insert paired quotes if not already on a quote" `
