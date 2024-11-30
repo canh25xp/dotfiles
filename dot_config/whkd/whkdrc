@@ -1,11 +1,12 @@
 .shell pwsh # pwsh | powershell | cmd
 
 # Open cheatsheets
-win + oem_2             : wt split-pane glow "$HOME/Documents/CheatSheets"
+win + oem_2             : wt -w 0 split-pane glow "$HOME/Documents/CheatSheets"
 
 # Reload whkd configuration
-# alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
-alt + o                 : Stop-Process -Name whkd -Force; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + shift + w           : Stop-Process -Name whkd -Force; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+# alt + shift + w         : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
+
 alt + shift + escape    : Stop-Process -Name whkd -Force
 alt + shift + o         : komorebic reload-configuration
 alt + shift + x         : komorebic quick-load-resize
@@ -21,9 +22,8 @@ alt + h                 : komorebic focus left
 alt + j                 : komorebic focus down
 alt + k                 : komorebic focus up
 alt + l                 : komorebic focus right
-# alt + oem_4             : komorebic cycle-focus previous
-# alt + oem_6             : komorebic cycle-focus next
-# alt + oem_3             : komorebic cycle-focus next
+alt + p                 : komorebic cycle-focus previous
+alt + n                 : komorebic cycle-focus next
 
 # Move windows
 alt + shift + h         : komorebic move left
