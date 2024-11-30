@@ -1,10 +1,7 @@
 .shell pwsh # pwsh | powershell | cmd
 
-# https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
-
 # Open cheatsheets
 win + oem_2             : wt split-pane glow "$HOME/Documents/CheatSheets"
-
 
 # Reload whkd configuration
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
@@ -24,9 +21,9 @@ alt + h                 : komorebic focus left
 alt + j                 : komorebic focus down
 alt + k                 : komorebic focus up
 alt + l                 : komorebic focus right
-# alt + oem_4             : komorebic cycle-focus previous # [
-# alt + oem_6             : komorebic cycle-focus next # ]
-# alt + oem_3             : komorebic cycle-focus next # `
+# alt + oem_4             : komorebic cycle-focus previous
+# alt + oem_6             : komorebic cycle-focus next
+# alt + oem_3             : komorebic cycle-focus next
 
 # Move windows
 alt + shift + h         : komorebic move left
@@ -40,9 +37,9 @@ alt + shift + left      : komorebic stack left
 alt + shift + down      : komorebic stack down
 alt + shift + up        : komorebic stack up
 alt + shift + right     : komorebic stack right
-alt + shift + oem_1     : komorebic unstack               # ;
-alt + oem_4             : komorebic cycle-stack previous  # [
-alt + oem_6             : komorebic cycle-stack next      # ]
+alt + shift + oem_1     : komorebic unstack
+alt + oem_4             : komorebic cycle-stack previous
+alt + oem_6             : komorebic cycle-stack next
 
 # Resize
 alt + oem_plus          : komorebic resize-axis horizontal increase
@@ -76,8 +73,8 @@ alt + 4                 : komorebic focus-workspace 3
 alt + 5                 : komorebic focus-workspace 4
 alt + 6                 : komorebic focus-workspace 5
 alt + 7                 : komorebic focus-workspace 6
-win + oem_4             : komorebic cycle-workspace previous  # [
-win + oem_6             : komorebic cycle-workspace next      # ]
+win + oem_4             : komorebic cycle-workspace previous
+win + oem_6             : komorebic cycle-workspace next
 
 # Move windows across workspaces
 alt + shift + 1         : komorebic move-to-workspace 0
@@ -89,6 +86,55 @@ alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
 
 # Change Layouts
-alt + shift + oem_5     : komorebic cycle-layout next         # \
+alt + shift + oem_5     : komorebic cycle-layout next
 
 
+# Keycodes
+#
+# https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+# https://github.com/LGUG2Z/komorebi/wiki/%60WHKD%60-Key-codes
+#
+# LBUTTON             Left mouse button
+# RBUTTON             Right mouse button
+# MBUTTON             Middle mouse button (three-button mouse)
+# XBUTTON1            X1 mouse button
+# XBUTTON2            X2 mouse button
+#
+# BACK                BACKSPACE
+# TAB                 TAB
+# RETURN              ENTER
+# SHIFT               SHIFT
+# CONTROL             CTRL
+# MENU                ALT
+# PAUSE               PAUSE
+# CAPITAL             CAPS LOCK
+# ESCAPE              ESC
+# SPACE               SPACEBAR
+# PRIOR               PAGE UP
+# NEXT                PAGE DOWN
+# END                 END
+# HOME                HOME
+# LEFT                LEFT ARROW
+# UP                  UP ARROW
+# RIGHT               RIGHT ARROW
+# DOWN                DOWN ARROW
+# INSERT              INSert
+# DELETE              DEL
+# LSHIFT              Left SHIFT
+# RSHIFT              Right SHIFT
+# LCONTROL            Left CONTROL
+# RCONTROL            Right CONTROL
+# LMENU               Left ALT
+# RMENU               Right ALT
+#
+# OEM_1               ;:
+# OEM_2               /?
+# OEM_3               `~
+# OEM_4               [{
+# OEM_5               |
+# OEM_6               ]}
+# OEM_7               "
+# OEM_PLUS            +
+# OEM_COMMA           ,
+# OEM_MINUS           -
+# OEM_PERIOD          .
