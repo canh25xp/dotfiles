@@ -16,78 +16,73 @@ ctrl + alt + shift + k      : komorebic start --whkd --bar
 ctrl + alt + shift + r      : komorebic reload-configuration
 alt + shift + r             : komorebic quick-load-resize
 alt + shift + s             : komorebic quick-save-resize
-alt + shift + r         : komorebic retile
-alt + shift + p         : komorebic toggle-pause
-
-# App shortcuts - these require shell to be pwsh / powershell
-# The apps will be focused if open, or launched if not open
-# alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
-# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+alt + shift + r             : komorebic retile
+alt + shift + p             : komorebic toggle-pause
 
 # Focus windows
-alt + h                 : komorebic focus left
-alt + j                 : komorebic focus down
-alt + k                 : komorebic focus up
-alt + l                 : komorebic focus right
-alt + p                 : komorebic cycle-focus previous
-alt + n                 : komorebic cycle-focus next
+alt + h                     : komorebic focus left
+alt + j                     : komorebic focus down
+alt + k                     : komorebic focus up
+alt + l                     : komorebic focus right
+alt + p                     : komorebic cycle-focus previous
+alt + n                     : komorebic cycle-focus next
 
 # Move windows
-alt + shift + h         : komorebic move left
-alt + shift + j         : komorebic move down
-alt + shift + k         : komorebic move up
-alt + shift + l         : komorebic move right
-alt + shift + return    : komorebic promote
+alt + shift + h             : komorebic move left
+alt + shift + j             : komorebic move down
+alt + shift + k             : komorebic move up
+alt + shift + l             : komorebic move right
+alt + shift + return        : komorebic promote
 
 # Stack windows
-alt + shift + left      : komorebic stack left
-alt + shift + down      : komorebic stack down
-alt + shift + up        : komorebic stack up
-alt + shift + right     : komorebic stack right
-alt + shift + u         : komorebic unstack
-alt + shift + p         : komorebic cycle-stack previous
-alt + shift + n         : komorebic cycle-stack next
+alt + shift + left          : komorebic stack left
+alt + shift + down          : komorebic stack down
+alt + shift + up            : komorebic stack up
+alt + shift + right         : komorebic stack right
+alt + shift + u             : komorebic unstack
+alt + shift + p             : komorebic cycle-stack previous
+alt + shift + n             : komorebic cycle-stack next
 
 # Resize windows
-alt + oem_plus          : komorebic resize-axis horizontal increase
-alt + oem_minus         : komorebic resize-axis horizontal decrease
-alt + shift + oem_plus  : komorebic resize-axis vertical increase
-alt + shift + oem_minus : komorebic resize-axis vertical decrease
+alt + oem_plus              : komorebic resize-axis horizontal increase
+alt + oem_minus             : komorebic resize-axis horizontal decrease
+alt + shift + oem_plus      : komorebic resize-axis vertical increase
+alt + shift + oem_minus     : komorebic resize-axis vertical decrease
 
 # Manipulate windows
-alt + shift + t         : komorebic toggle-float
-alt + shift + f         : komorebic toggle-monocle
-alt + shift + q         : komorebic close
-alt + shift + n         : komorebic minimize
-alt + shift + m         : komorebic toggle-maximize
-alt + shift + a         : komorebic manage
-alt + shift + u         : komorebic unmanage
+alt + shift + t             : komorebic toggle-float
+alt + shift + f             : komorebic toggle-monocle
+alt + shift + q             : komorebic close
+alt + shift + n             : komorebic minimize
+alt + shift + m             : komorebic toggle-maximize
+alt + shift + a             : komorebic manage
+alt + shift + u             : komorebic unmanage
 
 # Change Layouts
-alt + shift + x         : komorebic flip-layout horizontal
-alt + shift + y         : komorebic flip-layout vertical
-alt + shift + oem_5     : komorebic cycle-layout next
+alt + shift + x             : komorebic flip-layout horizontal
+alt + shift + y             : komorebic flip-layout vertical
+alt + shift + oem_5         : komorebic cycle-layout next
 
 # Focus Workspaces
-alt + oem_3             : komorebic focus-last-workspace
-alt + 1                 : komorebic focus-workspace 0
-alt + 2                 : komorebic focus-workspace 1
-alt + 3                 : komorebic focus-workspace 2
-alt + 4                 : komorebic focus-workspace 3
-alt + 5                 : komorebic focus-workspace 4
-alt + 6                 : komorebic focus-workspace 5
-alt + 7                 : komorebic focus-workspace 6
-win + oem_4             : komorebic cycle-workspace previous
-win + oem_6             : komorebic cycle-workspace next
+alt + oem_3                 : komorebic focus-last-workspace
+alt + 1                     : komorebic focus-workspace 0
+alt + 2                     : komorebic focus-workspace 1
+alt + 3                     : komorebic focus-workspace 2
+alt + 4                     : komorebic focus-workspace 3
+alt + 5                     : komorebic focus-workspace 4
+alt + 6                     : komorebic focus-workspace 5
+alt + 7                     : komorebic focus-workspace 6
+win + oem_4                 : komorebic cycle-workspace previous
+win + oem_6                 : komorebic cycle-workspace next
 
 # Move to workspaces
-alt + shift + 1         : komorebic move-to-workspace 0
-alt + shift + 2         : komorebic move-to-workspace 1
-alt + shift + 3         : komorebic move-to-workspace 2
-alt + shift + 4         : komorebic move-to-workspace 3
-alt + shift + 5         : komorebic move-to-workspace 4
-alt + shift + 6         : komorebic move-to-workspace 5
-alt + shift + 7         : komorebic move-to-workspace 6
+alt + shift + 1             : komorebic move-to-workspace 0
+alt + shift + 2             : komorebic move-to-workspace 1
+alt + shift + 3             : komorebic move-to-workspace 2
+alt + shift + 4             : komorebic move-to-workspace 3
+alt + shift + 5             : komorebic move-to-workspace 4
+alt + shift + 6             : komorebic move-to-workspace 5
+alt + shift + 7             : komorebic move-to-workspace 6
 
 # ================================== Keycodes ==================================
 #
