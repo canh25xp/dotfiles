@@ -41,7 +41,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
 }
 
 # Save history in home directory
-Set-PSReadLineOption -HistorySavePath "~\.pwsh_history"
+Set-PSReadLineOption -HistorySavePath "$HOME\.pwsh_history"
 
 # ==============================================
 # KEY BINDINGS
