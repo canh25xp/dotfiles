@@ -27,14 +27,15 @@ alt + shift + n             : komorebic minimize # miNimize
 alt + shift + q             : komorebic close # Quit
 alt + shift + a             : komorebic manage # Add
 alt + shift + i             : komorebic unmanage # Ignore
+alt + shift + z             : komorebic remove-title-bar
 
 # Focus windows
 alt + h                     : komorebic focus left
 alt + j                     : komorebic focus down
 alt + k                     : komorebic focus up
 alt + l                     : komorebic focus right
-alt + p                     : komorebic cycle-focus previous
-alt + n                     : komorebic cycle-focus next
+alt + oem_4                 : komorebic cycle-focus previous
+alt + oem_6                 : komorebic cycle-focus next
 
 # Move windows
 alt + shift + h             : komorebic move left
@@ -49,8 +50,8 @@ alt + shift + down          : komorebic stack down
 alt + shift + up            : komorebic stack up
 alt + shift + right         : komorebic stack right
 alt + shift + u             : komorebic unstack
-alt + oem_4                 : komorebic cycle-stack previous
-alt + oem_6                 : komorebic cycle-stack next
+alt + p                     : komorebic cycle-stack previous
+alt + n                     : komorebic cycle-stack next
 
 # Resize windows
 alt + oem_plus              : komorebic resize-axis horizontal increase
