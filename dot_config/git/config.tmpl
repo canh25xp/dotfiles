@@ -71,6 +71,9 @@
   layout = "MERGED"
 
 [alias]
+{{- if eq .chezmoi.os "windows" }}
+  p4 = !python.exe 'C:\\Program Files\\Git\\mingw64\\libexec\\git-core\\git-p4'
+{{- end }}
   s = status --verbose
   a = add
   a = add --all
@@ -98,3 +101,9 @@
     echo last commit file modified $last_modified_commit_hash; \
     git difftool $last_modified_commit_hash^ $filepath; \
   }; f"
+
+[git-p4]
+  user = {{ .knoxID }}
+  password = {{ .knoxPW }}
+  port = {{ .p4Port }}
+  client = {{ .p4Client }}
