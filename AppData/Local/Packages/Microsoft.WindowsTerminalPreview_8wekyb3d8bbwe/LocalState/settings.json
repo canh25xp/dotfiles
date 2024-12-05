@@ -252,8 +252,7 @@
             "padding": "0",
             "scrollbarState": "hidden"
         },
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -317,29 +316,24 @@
     "showTerminalTitleInTitlebar": false,
     "snapToGridOnResize": true,
     "tabSwitcherMode": "inOrder",
-    "theme": 
-    {
+    "theme": {
         "dark": "Catppuccin Mocha",
         "light": "Catppuccin Latte"
     },
-    "themes": 
-    [
+    "themes": [
         {
             "name": "Catppuccin Frappe",
-            "tab": 
-            {
+            "tab": {
                 "background": "#303446FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#292C3CFF",
                 "unfocusedBackground": "#232634FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -349,20 +343,17 @@
         },
         {
             "name": "Catppuccin Latte",
-            "tab": 
-            {
+            "tab": {
                 "background": "#EFF1F5FF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#E6E9EFFF",
                 "unfocusedBackground": "#DCE0E8FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "light",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -372,20 +363,17 @@
         },
         {
             "name": "Catppuccin Macchiato",
-            "tab": 
-            {
+            "tab": {
                 "background": "#24273AFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#1E2030FF",
                 "unfocusedBackground": "#181926FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,
@@ -395,20 +383,17 @@
         },
         {
             "name": "Catppuccin Mocha",
-            "tab": 
-            {
+            "tab": {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "system",
                 "experimental.rainbowFrame": false,
                 "frame": null,
