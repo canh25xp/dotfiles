@@ -28,7 +28,8 @@ set completion-map-case on
 set bell-style none
 
 # Open file explorer
-Control-o:"cdx\C-m"
+# Control-o:"cdx\C-m"
+Control-o:"y\C-m"
 
 # Open man page for the what ever typed in the terminal
 "\eh":"\C-aman \C-m" # Alt-h
