@@ -20,14 +20,14 @@ alt + shift + s             : komorebic quick-save-resize
 alt + shift + e             : komorebic retile # rEtile
 
 # Manipulate windows
-alt + shift + f             : komorebic toggle-float # Float
-alt + shift + return        : komorebic toggle-monocle
-alt + shift + m             : komorebic toggle-maximize # Maximize
+alt + shift + space         : komorebic toggle-float # Float
+alt + shift + return        : komorebic toggle-maximize # Maximize
+alt + shift + z             : komorebic toggle-monocle # Zen mode
 alt + shift + n             : komorebic minimize # miNimize
 alt + shift + q             : komorebic close # Quit
 alt + shift + a             : komorebic manage # Add
 alt + shift + i             : komorebic unmanage # Ignore
-alt + shift + z             : komorebic remove-title-bar
+alt + shift + t             : komorebic remove-title-bar
 
 # Focus windows
 alt + h                     : komorebic focus left
@@ -42,7 +42,7 @@ alt + shift + h             : komorebic move left
 alt + shift + j             : komorebic move down
 alt + shift + k             : komorebic move up
 alt + shift + l             : komorebic move right
-alt + shift + t             : komorebic promote # top
+alt + shift + m             : komorebic promote # main
 
 # Stack windows
 alt + shift + left          : komorebic stack left
