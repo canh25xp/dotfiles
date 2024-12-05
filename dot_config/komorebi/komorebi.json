@@ -64,11 +64,5 @@
     }
   ],
   "float_override": false,
-  "ignore_rules": [
-    {
-      "kind": "Exe",
-      "id": "explorer.exe",
-      "matching_strategy": "Equals"
-    }
-  ]
+  "ignore_rules": []
 }
