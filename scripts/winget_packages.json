@@ -108,6 +108,7 @@
         { "PackageIdentifier": "rocksdanister.LivelyWallpaper" },
         { "PackageIdentifier": "sharkdp.bat" },
         { "PackageIdentifier": "sharkdp.fd" },
+        { "PackageIdentifier": "sxyazi.yazi" },
         { "PackageIdentifier": "twpayne.chezmoi" },
         { "PackageIdentifier": "yt-dlp.yt-dlp" }
       ],
