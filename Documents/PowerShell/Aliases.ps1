@@ -24,6 +24,7 @@ Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro     -Value Open-Profile
 Set-Alias -Name word    -Value Open-WinWord
 Set-Alias -Name cdi     -Value Open-ListFile
+Set-Alias -Name y       -Value Open-Yazi
 Set-Alias -Name cfg     -Value Edit-Config
 Set-Alias -Name cze     -Value Edit-Chezmoi
 Set-Alias -Name wm      -Value Start-Komorebi
@@ -50,6 +51,16 @@ Remove-Alias -Name where -Force
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Open-Yazi {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}
 
 Function Search-BrowerHistory() {
     $Columns = [int]((get-host).ui.rawui.WindowSize.Width / 3)
