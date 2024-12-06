@@ -20,8 +20,11 @@
     "cmake.showOptionsMovedNotification": false,
     "git-graph.showStatusBarItem": false,
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "terminal.integrated.profiles.windows": {
+        "Windows PowerShell":{
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        },
         "PowerShell": {
             "source": "PowerShell",
             "icon": "terminal-powershell"
@@ -142,6 +145,7 @@
         { "before": ["<leader>", "d", "b"], "commands": ["editor.debug.action.toggleBreakpoint"] },
         { "before": ["<leader>", "c", "r"], "commands": ["editor.action.rename"] },
         { "before": ["<leader>", "c", "f"], "commands": ["editor.action.formatDocument"] },
+        { "before": ["<leader>", "b", "m"], "commands": [ "bookmarks.toggle" ] },
         { "before": ["<leader>", "e"], "commands": [ "workbench.files.action.focusFilesExplorer" ] },
         { "before": ["<leader>", "E"], "commands": [ "workbench.files.action.showActiveFileInExplorer" ] },
         { "before": ["<leader>", "g", "g"], "commands": [ "workbench.view.scm" ] },
@@ -156,6 +160,8 @@
         { "before": ["<leader>","k"], "commands": ["editor.action.showContextMenu"], "silent": true },
         { "before": ["]", "b"], "commands": ["editor.debug.action.goToNextBreakpoint"] },
         { "before": ["[", "b"], "commands": ["editor.debug.action.goToPreviousBreakpoint"] },
+        { "before": ["]", "m"], "commands": ["bookmarks.jumpToNext"] },
+        { "before": ["[", "m"], "commands": ["bookmarks.jumpToPrevious"] },
         // LSP
         { "before": ["K"], "commands": ["editor.action.showHover"], "silent": true },
         { "before": ["g", "d"], "commands": ["editor.action.goToDefinition"] },
@@ -175,4 +181,5 @@
 		{ "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
     ],
     "bookmarks.saveBookmarksInProject": true,
+    "codegrok.settings.codegrokToken": "98d094c8ab824f1db0bc61fe949ef559760447d573e14180a6c4fae5a10ded47",
 }

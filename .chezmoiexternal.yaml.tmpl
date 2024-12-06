@@ -1,9 +1,9 @@
+{{ if eq .chezmoi.os "linux" }}
+
 .config/yazi/theme.toml:
   type: file
   url: https://github.com/catppuccin/yazi/raw/main/themes/mocha/catppuccin-mocha-blue.toml
   refreshPeriod: 168h
-
-{{ if eq .chezmoi.os "linux" }}
 
 # Tmux Plugins Manager
 .config/tmux/plugins/tpm:

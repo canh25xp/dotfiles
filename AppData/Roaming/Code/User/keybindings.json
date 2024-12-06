@@ -26,11 +26,11 @@
     //     "command": "workbench.action.toggleSidebarVisibility",
     //     "when": "!editorTextFocus"
     // },
-    {
-        "key": "space e",
-        "command": "workbench.action.closeSidebar",
-        "when": "sideBarFocus && !textInputFocus"
-    },
+    // {
+    //     "key": "space e",
+    //     "command": "workbench.action.closeSidebar",
+    //     "when": "sideBarFocus && !textInputFocus"
+    // },
     {
         "key": "ctrl+shift+c",
         "command": "-workbench.action.terminal.openNativeConsole",
