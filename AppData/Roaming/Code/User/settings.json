@@ -1,5 +1,5 @@
 {
-    "editor.cursorBlinking": "smooth",
+    "editor.cursorBlinking": "phase",
     "editor.cursorSurroundingLines": 4,
     "editor.suggest.insertMode": "replace",
     "editor.unicodeHighlight.nonBasicASCII": "inUntrustedWorkspace",
