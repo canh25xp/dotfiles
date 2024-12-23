@@ -18,6 +18,7 @@ $env:FZF_DEFAULT_OPTS = @"
 "@
 
 $env:Path += "D:\Program Files\alacritty;"
+$env:Path += "D:\Program Files\yazi-x86_64-pc-windows-msvc;"
 $env:Path += "D:\Program Files\bat;"
 $env:Path += "D:\Program Files\bottom;"
 $env:Path += "D:\Program Files\chezmoi;"
