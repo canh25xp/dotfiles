@@ -44,9 +44,9 @@ data:
   p4Port : "107.113.53.156{{ ":" }}1716"
   p4Client : "SRV_WIFI_PC_VAN_CANH_NGO_1716"
   defaultShell : {{ if eq .chezmoi.hostname "vancanh-ng02" -}} "powershell" {{- else -}} "pwsh" {{- end }}
-  barOffset : 70
+  barOffset : {{ if eq .chezmoi.hostname "vancanh-ng02" -}} 70 {{- else -}} 40 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
 cd:
-  command: {{ .defaultShell }}
+  command: {{ if eq .chezmoi.hostname "vancanh-ng02" -}} "powershell" {{- else -}} "pwsh" {{- end }}
 {{- end }}
