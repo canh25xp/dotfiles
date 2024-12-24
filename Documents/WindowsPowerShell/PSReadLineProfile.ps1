@@ -56,7 +56,7 @@ Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 # Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     $PSReadLine::RevertLine()
-    $PSReadLine::Insert("cdi")
+    $PSReadLine::Insert("y")
     $PSReadLine::AcceptLine()
 }
 
