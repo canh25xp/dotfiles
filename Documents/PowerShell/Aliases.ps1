@@ -12,7 +12,6 @@ Set-Alias -Name ls      -Value Get-ChildItemPretty
 Set-Alias -Name la      -Value Get-ChildItemPrettyAll
 Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
 Set-Alias -Name du      -Value Get-DirectorySummary
-Set-Alias -Name cat     -Value bat
 
 # Funtion aliases
 Set-Alias -Name wifi    -Value Get-Wifi
@@ -32,6 +31,7 @@ Set-Alias -Name trash   -Value Open-RecycleBin
 Set-Alias -Name unins   -Value Open-Uninstall
 Set-Alias -Name huh     -Value Search-Command
 Set-Alias -Name bhis    -Value Search-BrowerHistory
+Set-Alias -Name his     -Value Open-History
 Set-Alias -Name bmark   -Value Search-BrowerBookmarks
 
 # Abbreviated aliases
@@ -51,6 +51,10 @@ Remove-Alias -Name where -Force
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+Function Open-History() {
+  Get-Content (Get-PSReadlineOption).HistorySavePath | less
+}
 
 function Open-Yazi {
     $tmp = [System.IO.Path]::GetTempFileName()
