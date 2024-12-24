@@ -49,7 +49,8 @@
 
 [diff]
   colorMoved = default
-{{ if ne .chezmoi.os "windows" }}
+
+{{- if ne .chezmoi.os "windows" }}
 [interactive]
   diffFilter = delta --color-only
 
