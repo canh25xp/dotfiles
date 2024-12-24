@@ -5,7 +5,11 @@
 
 [user]
   name = {{ .fullName }}
-  email = {{ .email | quote }}
+  email = {{ if eq .chezmoi.hostname "vancanh-ng02" }}
+            {{- .knoxEmail | quote }}
+          {{- else}}
+            {{- .email | quote }}
+          {{- end }}
 
 [credential]
   helper = store
