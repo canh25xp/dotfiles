@@ -10,14 +10,16 @@ git:
   autoCommit : true
   autoPush : false
 
-{{ if eq .chezmoi.os "windows" -}}
 diff:
+{{- if eq .chezmoi.os "windows" }}
   pager: cat
-{{ else }}
-diff:
+{{- else }}
   command: "delta"
   pager : "delta"
 {{- end }}
+  args:
+    - "{{ "{{" }} .Destination {{ "}}" }}"
+    - "{{ "{{" }} .Target {{ "}}" }}"
 
 merge:
   command: nvim
@@ -46,5 +48,5 @@ data:
 
 {{- if eq .chezmoi.os "windows" }}
 cd:
-  command: "pwsh"
+  command: {{ .defaultShell }}
 {{- end }}
