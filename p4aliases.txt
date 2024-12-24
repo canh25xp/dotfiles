@@ -1,5 +1,4 @@
 pull = -I sync -q
-s = status && sync -n
 checkout = sync
 commit = submit
 purge = clean
@@ -13,3 +12,20 @@ halt = admin shutdown
 active-users = changes -m 3 && monitor show && lockstat
 kill-shelf $(cl) = shelve -d -c $(cl) && change -d $(cl)
 clone $(p4port) $(path) $(dir) = -d $(dir) -u bruges clone -p $(p4port) -f $(path)
+cherry-pick-change $(cl) $(s) $(t) = integrate //depot/$(s)/...@$(cl),$(cl) //depot/$(t)/...
+newStreamsDepot $(dpt) = depot -o -t stream $(dpt) > $(depotSpec) && depot -i < $(depotSpec)
+mergedown $(b) = fetch &&
+                 switch $(b) &&
+                 merge &&
+                 resolve -am &&
+                 submit -d "Merged down from main"
+
+copyup $(b)    = switch dev &&
+                 merge --from $(b) &&
+                 resolve -as &&
+                 submit -d "Copied up from $(b)" &&
+                 push
+
+s = status
+co  = checkout
+c = commit

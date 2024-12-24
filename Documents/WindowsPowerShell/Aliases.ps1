@@ -39,6 +39,7 @@ Set-Alias -Name trash   -Value Open-RecycleBin
 Set-Alias -Name unins   -Value Open-Uninstall
 Set-Alias -Name huh     -Value Search-Command
 Set-Alias -Name bhis    -Value Search-BrowerHistory
+Set-Alias -Name his     -Value Open-History
 Set-Alias -Name bmark   -Value Search-BrowerBookmarks
 
 # Abbreviated aliases
@@ -56,6 +57,10 @@ Set-Alias -Name gvim    -Value neovide
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+Function Open-History() {
+  Get-Content (Get-PSReadlineOption).HistorySavePath | less
+}
 
 Function Search-BrowerHistory() {
     $Columns = [int]((get-host).ui.rawui.WindowSize.Width / 3)
