@@ -1,13 +1,14 @@
 pull = -I sync -q
+du = sizes -s -H //$(P4CLIENT)/...
 checkout = sync
 commit = submit
 purge = clean
 stash = shelve
 stash-list = changes -s shelved
-view = client
 annotate = annotate -u
 grep = grep -i
 changes = changes -u $(P4USER)
+clients = clients -u $(P4USER)
 halt = admin shutdown
 active-users = changes -m 3 && monitor show && lockstat
 kill-shelf $(cl) = shelve -d -c $(cl) && change -d $(cl)
