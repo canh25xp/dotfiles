@@ -118,39 +118,43 @@ function Edit-EnvironmentVariables {
 }
 
 function Set-Wallpaper {
-  param (
-      [Parameter(Mandatory = $true, Position = 0)]
-      [string]$path
-  )
-  $setwallpapersrc = @"
-  using System.Runtime.InteropServices;
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$path
+    )
+    $setwallpapersrc = @"
+    using System.Runtime.InteropServices;
 
-  public class Wallpaper {
-    public const int SetDesktopWallpaper = 20;
-    public const int UpdateIniFile = 0x01;
-    public const int SendWinIniChange = 0x02;
-    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-    private static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-    public static void SetWallpaper(string path) {
-      SystemParametersInfo(SetDesktopWallpaper, 0, path, UpdateIniFile | SendWinIniChange);
+    public class Wallpaper {
+        public const int SetDesktopWallpaper = 20;
+        public const int UpdateIniFile = 0x01;
+        public const int SendWinIniChange = 0x02;
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+        public static void SetWallpaper(string path) {
+            SystemParametersInfo(SetDesktopWallpaper, 0, path, UpdateIniFile | SendWinIniChange);
+        }
     }
-  }
 "@
 
-Add-Type -TypeDefinition $setwallpapersrc
+    Add-Type -TypeDefinition $setwallpapersrc
 
-[Wallpaper]::SetWallpaper($path)
+    [Wallpaper]::SetWallpaper($path)
 }
 
 function Edit-Config {
-  # Get the list of files managed by chezmoi
-  $chezmoiFiles = chezmoi managed -p absolute -i files
+    param (
+        [Parameter(Mandatory = $false, Position = 0)]
+        [string]$query = ""
+    )
+    # Get the list of files managed by chezmoi
+    $chezmoiFiles = chezmoi managed -p absolute -i files
 
-  # Use fzf to allow the user to select a file interactively
-  $selectedFile = $chezmoiFiles | fzf --preview="bat --color=always {}"
-  if ($selectedFile) {
-    & $env:EDITOR $selectedFile
-  }
+    # Use fzf to allow the user to select a file interactively
+    $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query
+    if ($selectedFile) {
+        & $env:EDITOR $selectedFile
+    }
 }
 
 function Edit-Chezmoi {
