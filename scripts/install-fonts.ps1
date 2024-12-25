@@ -1,9 +1,5 @@
 Write-Host "================================================================================"
-Write-Host "[Chezmoi] Install base winget packages"
-
-$sourcePath = chezmoi source-path
-
-winget import -i $sourcePath/scripts/winget_packages_base.json --no-upgrade
+Write-Host "[Chezmoi] Install fonts"
 
 $confirmation = Read-Host "Do you want to install fonts? (Y/n)"
 
@@ -12,7 +8,7 @@ if ($confirmation -eq 'n') {
     exit
 }
 
-$script = [scriptblock]::Create((iwr 'https://to.loredo.me/Install-NerdFont.ps1'))
+$script = [scriptblock]::Create((Invoke-WebRequest 'https://to.loredo.me/Install-NerdFont.ps1'))
 
 $fontList = & $script -List All
 
