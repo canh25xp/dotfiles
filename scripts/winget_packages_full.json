@@ -5,6 +5,8 @@
     {
       "Packages": [
         { "PackageIdentifier": "7zip.7zip" },
+        { "PackageIdentifier": "Msys2.Msys2" },
+        { "PackageIdentifier": "Spotify.Spotify" },
         { "PackageIdentifier": "Alacritty.Alacritty" },
         { "PackageIdentifier": "Apple.iTunes" },
         { "PackageIdentifier": "ArduinoSA.CLI" },

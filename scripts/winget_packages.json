@@ -25,6 +25,7 @@
         { "PackageIdentifier": "Microsoft.VisualStudioCode" },
         { "PackageIdentifier": "Microsoft.WindowsTerminal" },
         { "PackageIdentifier": "Microsoft.WindowsTerminal.Preview" },
+        { "PackageIdentifier": "Msys2.Msys2" },
         { "PackageIdentifier": "Neovide.Neovide" },
         { "PackageIdentifier": "Neovim.Neovim" },
         { "PackageIdentifier": "Oracle.JavaRuntimeEnvironment" },
