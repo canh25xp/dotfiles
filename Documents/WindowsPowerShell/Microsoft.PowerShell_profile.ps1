@@ -18,7 +18,7 @@ if (!$Env:NVIM -and $has_oh_my_posh) {
 # Init zoxide
 $has_zoxide = [bool](Get-Command -Name "zoxide.exe" -ErrorAction SilentlyContinue)
 if ($has_zoxide) {
-   zoxide init --cmd j powershell | Out-String | Invoke-Expression
+  zoxide init --cmd j powershell | Out-String | Invoke-Expression
 }
 
 if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
