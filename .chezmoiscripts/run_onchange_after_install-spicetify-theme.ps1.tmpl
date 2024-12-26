@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.os "windows" -}}
+  {{ include "scripts/install-spicetify-theme.ps1" -}}
+{{ end -}}

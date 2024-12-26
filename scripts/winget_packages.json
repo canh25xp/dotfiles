@@ -52,7 +52,8 @@
         { "PackageIdentifier": "sharkdp.fd" },
         { "PackageIdentifier": "sxyazi.yazi" },
         { "PackageIdentifier": "twpayne.chezmoi" },
-        { "PackageIdentifier": "yt-dlp.yt-dlp" }
+        { "PackageIdentifier": "yt-dlp.yt-dlp" },
+        { "PackageIdentifier": "Spicetify.Spicetify" }
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
