@@ -2,6 +2,12 @@
 # SHELL INIT
 # ==============================================
 
+$profileRoot = $PROFILE | Split-Path
+
+. $profileRoot\Aliases.ps1
+
+. $profileRoot\PSReadLineProfile.ps1
+
 # Init oh-my-posh outside of neovim
 $has_oh_my_posh = [bool](Get-Command -Name "oh-my-posh.exe" -ErrorAction SilentlyContinue)
 if (!$Env:NVIM -and $has_oh_my_posh) {
@@ -19,14 +25,6 @@ if (!$Env:NVIM -and $has_oh_my_posh) {
 $has_zoxide = [bool](Get-Command -Name "zoxide.exe" -ErrorAction SilentlyContinue)
 if ($has_zoxide) {
   zoxide init --cmd j powershell | Out-String | Invoke-Expression
-}
-
-if (Test-Path("$PSScriptRoot\Aliases.ps1")) {
-  . "$PSScriptRoot\Aliases.ps1"
-}
-
-if (Test-Path("$PSScriptRoot\PSReadLineProfile.ps1")) {
-  . "$PSScriptRoot\PSReadLineProfile.ps1"
 }
 
 # Terminal-Icons theme (https://github.com/devblackops/Terminal-Icons)
