@@ -18,6 +18,7 @@
         { "PackageIdentifier": "JanDeDobbeleer.OhMyPosh" },
         { "PackageIdentifier": "JesseDuffield.lazygit" },
         { "PackageIdentifier": "Kitware.CMake" },
+        { "PackageIdentifier": "LGUG2Z.komorebi" },
         { "PackageIdentifier": "Microsoft.OpenJDK.11" },
         { "PackageIdentifier": "Microsoft.PowerShell" },
         { "PackageIdentifier": "Microsoft.PowerShell.Preview" },
@@ -35,6 +36,7 @@
         { "PackageIdentifier": "Python.Python.3.13" },
         { "PackageIdentifier": "RARLab.WinRAR" },
         { "PackageIdentifier": "Rustlang.Rustup" },
+        { "PackageIdentifier": "Spicetify.Spicetify" }
         { "PackageIdentifier": "UniKey.UniKey" },
         { "PackageIdentifier": "Valve.Steam" },
         { "PackageIdentifier": "VideoLAN.VLC" },
@@ -53,7 +55,6 @@
         { "PackageIdentifier": "sxyazi.yazi" },
         { "PackageIdentifier": "twpayne.chezmoi" },
         { "PackageIdentifier": "yt-dlp.yt-dlp" },
-        { "PackageIdentifier": "Spicetify.Spicetify" }
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
