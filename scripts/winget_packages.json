@@ -19,6 +19,7 @@
         { "PackageIdentifier": "JesseDuffield.lazygit" },
         { "PackageIdentifier": "Kitware.CMake" },
         { "PackageIdentifier": "LGUG2Z.komorebi" },
+        { "PackageIdentifier": "LGUG2Z.whkd" },
         { "PackageIdentifier": "Microsoft.OpenJDK.11" },
         { "PackageIdentifier": "Microsoft.PowerShell" },
         { "PackageIdentifier": "Microsoft.PowerShell.Preview" },
