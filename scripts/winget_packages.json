@@ -45,6 +45,7 @@
         { "PackageIdentifier": "bootandy.dust" },
         { "PackageIdentifier": "charmbracelet.glow" },
         { "PackageIdentifier": "dandavison.delta" },
+        { "PackageIdentifier": "dbrgn.tealdeer" },
         { "PackageIdentifier": "dundee.gdu" },
         { "PackageIdentifier": "eza-community.eza" },
         { "PackageIdentifier": "gokcehan.lf" },
