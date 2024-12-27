@@ -1,5 +1,30 @@
-format : yaml
+{{/* boolean feature tags */}}
+{{- $work := false -}}{{/* true if this machine is a work machine */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $wsl := false -}}
 
+{{- $hostname := .chezmoi.hostname -}}
+{{- if ($hostname | lower | contains "vancanh-ng") -}}
+{{-   $work = true -}}
+{{- else if ($hostname | lower | contains "canh25xp") -}}
+{{-   $personal = true -}}
+{{- end -}}
+
+{{- $email := "canh25xp@gmail.com" -}}
+{{- if $work -}}
+{{-   $email = "vancanh-ng@samsung.com" -}}
+{{- end -}}
+
+{{- $shell := "pwsh" -}}
+{{- if $work -}}
+{{-   $shell = "powershell" -}}
+{{- end -}}
+
+{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-   $wsl = true -}}
+{{- end -}}
+
+format : "yaml"
 progress : true
 
 edit:
@@ -21,7 +46,7 @@ diff:
 {{- end }}
 
 merge:
-  command: nvim
+  command: "nvim"
   args:
     - -d
     - "{{ "{{" }} .Destination {{ "}}" }}"
@@ -29,23 +54,16 @@ merge:
     - "{{ "{{" }} .Target {{ "}}" }}"
 
 data:
-{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-  wsl : true
-{{- else }}
-  wsl : false
-{{- end}}
+  wsl : {{ $wsl }}
+  work : {{ $work }}
+  personal : {{ $personal }}
   fullName : "Ngô Văn Cảnh"
   nickName : "Michael"
-  email : "canh25xp@gmail.com"
-  knoxEmail : "vancanh.ng@samsung.com"
-  knoxID : "vancanh.ng"
-  knoxPW : "********"
-  p4Port : "107.113.53.156{{ ":" }}1716"
-  p4Client : "SRV_WIFI_PC_VAN_CANH_NGO_1716"
-  defaultShell : {{ if eq .chezmoi.hostname "vancanh-ng02" -}} "powershell" {{- else -}} "pwsh" {{- end }}
-  barOffset : {{ if eq .chezmoi.hostname "vancanh-ng02" -}} 70 {{- else -}} 40 {{- end }}
+  email : {{ $email | quote }}
+  defaultShell : {{ $shell | quote }}
+  barOffset : {{ if $work -}} 70 {{- else -}} 40 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
 cd:
-  command: {{ if eq .chezmoi.hostname "vancanh-ng02" -}} "powershell" {{- else -}} "pwsh" {{- end }}
+  command: {{ $shell | quote }}
 {{- end }}

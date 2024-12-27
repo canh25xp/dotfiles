@@ -103,9 +103,3 @@
     echo last commit file modified $last_modified_commit_hash; \
     git difftool $last_modified_commit_hash^ $filepath; \
   }; f"
-
-[git-p4]
-  user = {{ .knoxID }}
-  password = {{ .knoxPW }}
-  port = {{ .p4Port }}
-  client = {{ .p4Client }}
