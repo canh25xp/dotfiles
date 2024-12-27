@@ -2,6 +2,8 @@
 {{- $work := false -}}{{/* true if this machine is a work machine */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
 {{- $wsl := false -}}
+{{- $linux := false -}}
+{{- $windows := false -}}
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if ($hostname | lower | contains "vancanh-ng") -}}
@@ -20,50 +22,61 @@
 {{-   $shell = "powershell" -}}
 {{- end -}}
 
+{{- if eq .chezmoi.os "linux" -}}
+{{-   $linux = true -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $windows = true -}}
+{{- end -}}
+
 {{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 {{-   $wsl = true -}}
 {{- end -}}
 
-format : "yaml"
-progress : true
+format: "yaml"
+progress: true
 
 edit:
-  apply : true
-  watch : true
+  apply: true
+  watch: true
 
 git:
-  autoCommit : true
-  autoPush : false
+  autoCommit: true
+  autoPush: false
 
 diff:
   reverse: true
 {{- if eq .chezmoi.os "windows" }}
   command: "delta"
-  pager : "delta"
+  pager: "delta"
 {{- else }}
   command: "delta"
-  pager : "delta"
+  pager: "delta"
 {{- end }}
 
 merge:
   command: "nvim"
   args:
-    - -d
+    - "-d"
     - "{{ "{{" }} .Destination {{ "}}" }}"
     - "{{ "{{" }} .Source {{ "}}" }}"
     - "{{ "{{" }} .Target {{ "}}" }}"
 
 data:
-  wsl : {{ $wsl }}
-  work : {{ $work }}
-  personal : {{ $personal }}
-  fullName : "Ngô Văn Cảnh"
-  nickName : "Michael"
-  email : {{ $email | quote }}
-  defaultShell : {{ $shell | quote }}
-  barOffset : {{ if $work -}} 70 {{- else -}} 40 {{- end }}
+  wsl: {{ $wsl }}
+  linux: {{ $linux }}
+  windows: {{ $windows }}
+  work: {{ $work }}
+  personal: {{ $personal }}
+  email: {{ $email | quote }}
+  fullName: "Ngô Văn Cảnh"
+  nickName: "Michael"
+  defaultShell: {{ $shell | quote }}
+  barOffset: {{ if $work -}} 70 {{- else -}} 40 {{- end }}
 
-{{- if eq .chezmoi.os "windows" }}
+{{- if $windows }}
+
 cd:
   command: {{ $shell | quote }}
 {{- end }}
