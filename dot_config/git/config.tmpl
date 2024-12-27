@@ -1,7 +1,8 @@
 {{- if ne .chezmoi.os "windows" -}}
 [include]
   path = catppuccin.gitconfig
-{{- end }}
+{{- end -}}
+{{- "" -}}
 
 [user]
   name = {{ .fullName }}
