@@ -27,6 +27,7 @@
         { "PackageIdentifier": "Microsoft.VisualStudioCode" },
         { "PackageIdentifier": "Microsoft.WindowsTerminal" },
         { "PackageIdentifier": "Microsoft.WindowsTerminal.Preview" },
+        { "PackageIdentifier": "microsoft.VisualStudio.2022.Community" },
         { "PackageIdentifier": "Msys2.Msys2" },
         { "PackageIdentifier": "Neovide.Neovide" },
         { "PackageIdentifier": "Neovim.Neovim" },
@@ -37,7 +38,7 @@
         { "PackageIdentifier": "Python.Python.3.13" },
         { "PackageIdentifier": "RARLab.WinRAR" },
         { "PackageIdentifier": "Rustlang.Rustup" },
-        { "PackageIdentifier": "Spicetify.Spicetify" }
+        { "PackageIdentifier": "Spicetify.Spicetify" },
         { "PackageIdentifier": "UniKey.UniKey" },
         { "PackageIdentifier": "Valve.Steam" },
         { "PackageIdentifier": "VideoLAN.VLC" },
