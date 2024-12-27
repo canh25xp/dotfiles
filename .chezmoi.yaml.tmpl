@@ -11,15 +11,14 @@ git:
   autoPush : false
 
 diff:
+  reverse: true
 {{- if eq .chezmoi.os "windows" }}
-  pager: cat
+  command: "delta"
+  pager : "delta"
 {{- else }}
   command: "delta"
   pager : "delta"
 {{- end }}
-  args:
-    - "{{ "{{" }} .Destination {{ "}}" }}"
-    - "{{ "{{" }} .Target {{ "}}" }}"
 
 merge:
   command: nvim
