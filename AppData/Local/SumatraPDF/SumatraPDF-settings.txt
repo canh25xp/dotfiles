@@ -6,22 +6,8 @@ FixedPageUI [
 	SelectionColor = #585b70
 	WindowMargin = 2 4 2 4
 	PageSpacing = 4 4
-    HideScrollbars = false
-]
-FixedPageUI [
-	TextColor = #cdd6f4
-	BackgroundColor = #1e1e2e
-	SelectionColor = #585b70
-	WindowMargin = 2 4 2 4
-	PageSpacing = 4 4
-    HideScrollbars = false
-]
-EbookUI [
-	FontName = Georgia
-	FontSize = 12.5
-	TextColor = #cdd6f4
-	BackgroundColor = #1e1e2e
-	UseFixedPageUI = false
+	InvertColors = false
+	HideScrollbars = true
 ]
 ComicBookUI [
 	WindowMargin = 0 0 0 0
@@ -71,6 +57,54 @@ EnableTeXEnhancements = true
 DefaultDisplayMode = automatic
 DefaultZoom = fit page
 Shortcuts [
+	[
+		Cmd = CmdScrollUpHalfPage
+		Key = K
+	]
+	[
+		Cmd = CmdScrollDownHalfPage
+		Key = J
+	]
+	[
+		Cmd = CmdScrollUpPage
+		Key = Ctrl + u
+	]
+	[
+		Cmd = CmdScrollDownPage
+		Key = Ctrl + d
+	]
+	[
+		Cmd = CmdZoomFitWidthAndContinuous
+		Key = W
+	]
+	[
+		Cmd = CmdZoomFitPage
+		Key = H
+	]
+	[
+		Cmd = CmdCommandPalette
+		Key = :
+	]
+	[
+		Cmd = CmdCommandPalette
+		Key = Shift + Ctrl + P
+	]
+	[
+		Cmd = CmdSelectNextTheme
+		Key = T
+	]
+	[
+		Cmd = CmdToggleToolbar
+		Key = Z
+	]
+	[
+		Cmd = CmdToggleScrollbars
+		Key = B
+	]
+	[
+		Cmd = CmdToggleFullscreen
+		Key = F
+	]
 ]
 EscToExit = false
 ReuseInstance = false
@@ -79,9 +113,9 @@ ReloadModifiedDocuments = true
 MainWindowBackground = #11111b
 FullPathInTitle = false
 ShowMenubar = true
-ShowToolbar = true
+ShowToolbar = false
 ShowFavorites = false
-ShowToc = true
+ShowToc = false
 NoHomeTab = false
 TocDy = 0
 SidebarDx = 204
@@ -100,47 +134,25 @@ UseSysColors = false
 CustomScreenDPI = 0
 
 FileStates [
-	[
-		FilePath = D:\projects\tex\ProSta\build\main.pdf
-		Favorites [
-		]
-		IsPinned = false
-		IsMissing = false
-		OpenCount = 11
-		UseDefaultState = false
-		DisplayMode = single page
-		ScrollPos = -1 -1
-		PageNo = 19
-		Zoom = fit page
-		Rotation = 0
-		WindowState = 1
-		WindowPos = 951 39 978 1050
-		ShowToc = false
-		SidebarDx = 204
-		DisplayR2L = false
-		ReparseIdx = 0
-	]
 ]
 SessionData [
-	[
-		TabStates [
-			[
-				FilePath = D:\projects\tex\ProSta\build\main.pdf
-				DisplayMode = single page
-				PageNo = 19
-				Zoom = fit page
-				Rotation = 0
-				ScrollPos = -1 -1
-				ShowToc = false
-			]
-		]
-		TabIndex = 1
-		WindowState = 1
-		WindowPos = 951 39 978 1050
-		SidebarDx = 204
-	]
 ]
 TimeOfLastUpdateCheck = 0 0
 OpenCountWeek = 729
 
 # Settings below are not recognized by the current version
+FixedPageUI [
+	TextColor = #cdd6f4
+	BackgroundColor = #1e1e2e
+	SelectionColor = #585b70
+	WindowMargin = 2 4 2 4
+	PageSpacing = 4 4
+	HideScrollbars = false
+]
+EbookUI [
+	FontName = Georgia
+	FontSize = 12.5
+	TextColor = #cdd6f4
+	BackgroundColor = #1e1e2e
+	UseFixedPageUI = false
+]
