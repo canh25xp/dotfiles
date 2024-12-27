@@ -66,6 +66,23 @@ su - username
 bat cache --build
 ```
 
+### Install ndoe
+
+```sh
+nvm install latest
+nvm use latest
+node --version
+npm --version
+```
+
+### Install treesitter
+
+Install visual studio and c++ build tools, open "Developer Powershell for vVsual Studio 2022"
+
+```sh
+cargo install tree-sitter-cli
+```
+
 ### Install TMU packages
 
 `C-a I`
