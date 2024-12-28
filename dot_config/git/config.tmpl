@@ -1,8 +1,5 @@
-{{- if ne .chezmoi.os "windows" }}
 [include]
   path = catppuccin.gitconfig
-
-{{- end -}}
 
 [user]
   name = {{ .fullName }}
@@ -53,7 +50,7 @@
   diffFilter = delta --color-only
 
 [delta]
-  features = decorations
+  features = decorations catppuccin-mocha
   line-numbers = true
   navigate = true
 
