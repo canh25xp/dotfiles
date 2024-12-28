@@ -8,7 +8,11 @@
   url: https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig
   refreshPeriod: 0h
 
+{{- if .windows }}
+Appdata/Roaming/bat/themes/Catppuccin Mocha.tmTheme:
+{{- else }}
 .config/bat/themes/Catppuccin Mocha.tmTheme:
+{{- end }}
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
   refreshPeriod: 0h
