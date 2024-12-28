@@ -6,7 +6,7 @@
 
 [user]
   name = {{ .fullName }}
-  email = {{ if eq .chezmoi.hostname "vancanh-ng02" -}} {{ .knoxEmail | quote }} {{- else -}} {{ .email | quote }} {{- end }}
+  email = {{ .email | quote }}
 
 [credential]
   helper = store
@@ -34,9 +34,7 @@
   process = git-lfs filter-process --skip
 
 [core]
-{{- if ne .chezmoi.os "windows" }}
   pager = delta
-{{- end }}
   editor = nvim
 
 [init]
@@ -51,7 +49,6 @@
 [diff]
   colorMoved = default
 
-{{- if ne .chezmoi.os "windows" }}
 [interactive]
   diffFilter = delta --color-only
 
@@ -59,7 +56,6 @@
   features = decorations
   line-numbers = true
   navigate = true
-{{- end }}
 
 [merge]
   tool = nvimdiff
