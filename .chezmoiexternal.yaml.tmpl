@@ -1,104 +1,53 @@
-{{ if eq .chezmoi.os "linux" }}
-
 .config/yazi/theme.toml:
   type: file
   url: https://github.com/catppuccin/yazi/raw/main/themes/mocha/catppuccin-mocha-blue.toml
-  refreshPeriod: 168h
+  refreshPeriod: 0h
 
-# Tmux Plugins Manager
-.config/tmux/plugins/tpm:
-  type: git-repo
-  url: https://github.com/tmux-plugins/tpm
-  refreshPeriod: 168h
-
-# Bat theme
-.config/bat/themes/Catppuccin Mocha.tmTheme:
-  type: file
-  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-  refreshPeriod: 168h
-
-.config/bat/themes/Catppuccin Frappe.tmTheme:
-  type: file
-  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
-  refreshPeriod: 168h
-
-.config/bat/themes/Catppuccin Macchiato.tmTheme:
-  type: file
-  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
-  refreshPeriod: 168h
-
-.config/bat/themes/Catppuccin Latte.tmTheme:
-  type: file
-  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
-  refreshPeriod: 168h
-
-# Git Delta theme
 .config/git/catppuccin.gitconfig:
   type: file
   url: https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig
-  refreshPeriod: 168h
+  refreshPeriod: 0h
 
-# Neomutt theme
+.config/bat/themes/Catppuccin Mocha.tmTheme:
+  type: file
+  url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+  refreshPeriod: 0h
+
+{{- if not .windows }}
 .config/neomutt/catppuccin.neomutt:
   type: file
   url: https://github.com/catppuccin/neomutt/raw/main/neomuttrc
-  refreshPeriod: 168h
+  refreshPeriod: 0h
+{{- end }}
 
-# Lazyvim config
-.config/nvim-lazy:
-  type: git-repo
-  url: https://github.com/canh25xp/lazyVim-config
-  refreshPeriod: 168h
-
-# Kickstart.nvim config
-.config/nvim:
-  type: git-repo
-  url: https://github.com/canh25xp/kickstart.nvim
-  refreshPeriod: 168h
-
-{{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-
-# Alacritty theme
+{{- if .windows }}
+Appdata/Roaming/alacritty/catppuccin-mocha.toml:
+{{- else }}
 .config/alacritty/catppuccin-mocha.toml:
+{{- end }}
   type: file
   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-  refreshPeriod: 168h
+  refreshPeriod: 0h
 
-{{ end }}
+{{- if not .windows }}
+.config/tmux/plugins/tpm:
+  type: git-repo
+  url: https://github.com/tmux-plugins/tpm
+  refreshPeriod: 0h
+{{- end }}
 
-{{ else if eq .chezmoi.os "windows" }}
-
-# Kickstart.nvim config
+{{- if .windows }}
 Appdata/Local/nvim:
+{{- else }}
+.config/nvim:
+{{- end }}
   type: git-repo
   url: https://github.com/canh25xp/kickstart.nvim
-  refreshPeriod: 168h
+  refreshPeriod: 0h
 
-# Kickstart.nvim config
+{{- if .windows }}
 Documents/PowerShell/Modules/cmatrix:
   type: git-repo
   url: https://github.com/matriex/cmatrix
   refreshPeriod: 0h
-
-# Alacritty theme
-# Appdata/Roaming/alacritty/catppuccin-mocha.toml:
-#   type: file
-#   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-#   refreshPeriod: 168h
-#
-# Appdata/Roaming/alacritty/catppuccin-macchiato.toml:
-#   type: file
-#   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
-#   refreshPeriod: 168h
-#
-# Appdata/Roaming/alacritty/catppuccin-latte.toml:
-#   type: file
-#   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml
-#   refreshPeriod: 168h
-#
-# Appdata/Roaming/alacritty/catppuccin-frappe.toml:
-#   type: file
-#   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
-#   refreshPeriod: 168h
-
-{{ end }}
+{{- end }}
