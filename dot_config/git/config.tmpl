@@ -1,8 +1,8 @@
-{{- if ne .chezmoi.os "windows" -}}
+{{- if ne .chezmoi.os "windows" }}
 [include]
   path = catppuccin.gitconfig
+
 {{- end -}}
-{{- "" -}}
 
 [user]
   name = {{ .fullName }}
@@ -13,7 +13,7 @@
 
 [credential "https://github.com"]
   helper =
-  username = canh25xp
+  username = {{ .userName }}
   helper = !gh auth git-credential
 
 [credential "https://gist.github.com"]
