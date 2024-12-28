@@ -1,14 +1,12 @@
 # pwsh-like aliases
 alias cls=clear
 alias where=which
-{{ if eq .chezmoi.os "linux" -}}
-{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- if .wsl }}
 alias explorer=explorer.exe
 alias notepad=notepad.exe
 alias pwsh=pwsh.exe
 alias neovide='neovide.exe'
-{{ end -}}
-{{ end -}}
+{{- end }}
 
 # Shorten aliases, convenient aliases
 alias lgit=lazygit
@@ -18,15 +16,14 @@ alias nmutt=neomutt
 alias mail=neomutt
 alias la='ls -A' # Include hidden files
 alias ll='ls -AlF'
-{{ if eq .chezmoi.os "linux" -}}
-{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- if .wsl }}
 alias np=notepad
 alias exp=explorer
 alias gvim='neovide --wsl'
-{{ else -}}
+{{- end }}
+{{- if .linux }}
 alias gvim='neovide'
-{{ end -}}
-{{ end -}}
+{{- end }}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
 alias man=batman
@@ -66,10 +63,10 @@ help() {
   "$@" --help 2>&1 | bathelp
 }
 
-# Add an "alert" alias for long running commands.  Use like so:
+# Add an "alert" alias for long running commands (Useless in WSL)
+# Use like so:
 #   sleep 10; alert
-# Useless in WSL
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
