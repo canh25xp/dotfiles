@@ -2,16 +2,13 @@ README.md
 scripts/
 .profile
 
-{{ if eq .chezmoi.os "linux" }}
-
 {{ if .wsl }}
 .config/alacritty/
 .config/neovide/
 Pictures/
-{{ else }}
-# .config/mimeapps.list
 {{ end }}
 
+{{ if .linux }}
 Documents/
 Arts/
 AppData/
@@ -22,9 +19,9 @@ AppData/Roaming/
 .config/komorebi/
 .wslconfig
 p4aliases.txt
+{{ end }}
 
-{{ else if eq .chezmoi.os "windows" }}
-
+{{ if .windows }}
 .arduinoIDE/
 .cgdb/
 .config/mimeapps.list
@@ -43,5 +40,4 @@ p4aliases.txt
 .config/neofetch/
 .config/bat/
 .config/glow/
-
 {{ end }}
