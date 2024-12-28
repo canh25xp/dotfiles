@@ -1,5 +1,5 @@
 $env:EDITOR = "nvim"
-$env:PAGER = "less"
+$env:PAGER = "less -R"
 $env:NVIM_APPNAME = "nvim"
 $env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
 $env:YAZI_CONFIG_HOME = "$HOME\.config\yazi"
