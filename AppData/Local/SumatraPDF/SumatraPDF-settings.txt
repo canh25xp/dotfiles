@@ -91,7 +91,7 @@ Shortcuts [
 	]
 	[
 		Cmd = CmdSelectNextTheme
-		Key = T
+		Key = I
 	]
 	[
 		Cmd = CmdToggleToolbar
@@ -104,6 +104,22 @@ Shortcuts [
 	[
 		Cmd = CmdToggleFullscreen
 		Key = F
+	]
+	[
+		Cmd = CmdNavigateBack
+		Key = Ctrl + o
+	]
+	[
+		Cmd = CmdGoToFirstPage
+		Key = g
+	]
+	[
+		Cmd = CmdGoToLastPage
+		Key = G
+	]
+	[
+		Cmd = CmdTogglePageInfo
+		Key = i
 	]
 ]
 EscToExit = false
