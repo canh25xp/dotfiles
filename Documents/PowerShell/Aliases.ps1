@@ -3,54 +3,63 @@
 # ==============================================
 
 # Bash like aliases
-Set-Alias -Name su      -Value Start-AdminSession
+Set-Alias -Name df      -Value Get-Volume
+Set-Alias -Name du      -Value Get-DirectorySummary
 Set-Alias -Name ff      -Value Find-File
 Set-Alias -Name grep    -Value Find-String
-Set-Alias -Name df      -Value Get-Volume
-Set-Alias -Name which   -Value Show-Command
-Set-Alias -Name ls      -Value Get-ChildItemPretty
 Set-Alias -Name la      -Value Get-ChildItemPrettyAll
 Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
-Set-Alias -Name du      -Value Get-DirectorySummary
+Set-Alias -Name ls      -Value Get-ChildItemPretty
+Set-Alias -Name su      -Value Start-AdminSession
+Set-Alias -Name which   -Value Show-Command
 
 # Funtion aliases
-Set-Alias -Name wifi    -Value Get-Wifi
-Set-Alias -Name meme    -Value Show-Meme
-Set-Alias -Name wtf     -Value Get-Command
-Set-Alias -Name path    -Value Get-Path
-Set-Alias -Name env     -Value Edit-EnvironmentVariables
-Set-Alias -Name doc     -Value Show-Documents
-Set-Alias -Name pro     -Value Open-Profile
-Set-Alias -Name word    -Value Open-WinWord
+Set-Alias -Name bhis    -Value Search-BrowerHistory
+Set-Alias -Name bmark   -Value Search-BrowerBookmarks
 Set-Alias -Name cdi     -Value Open-ListFile
-Set-Alias -Name y       -Value Open-Yazi
 Set-Alias -Name cfg     -Value Edit-Config
 Set-Alias -Name cze     -Value Edit-Chezmoi
-Set-Alias -Name wm      -Value Start-Komorebi
+Set-Alias -Name doc     -Value Show-Documents
+Set-Alias -Name env     -Value Edit-EnvironmentVariables
+Set-Alias -Name his     -Value Open-History
+Set-Alias -Name huh     -Value Search-Command
+Set-Alias -Name meme    -Value Show-Meme
+Set-Alias -Name path    -Value Get-Path
+Set-Alias -Name pro     -Value Open-Profile
+Set-Alias -Name sci     -Value Save-ClipboardImage
 Set-Alias -Name trash   -Value Open-RecycleBin
 Set-Alias -Name unins   -Value Open-Uninstall
-Set-Alias -Name huh     -Value Search-Command
-Set-Alias -Name bhis    -Value Search-BrowerHistory
-Set-Alias -Name his     -Value Open-History
-Set-Alias -Name bmark   -Value Search-BrowerBookmarks
+Set-Alias -Name wifi    -Value Get-Wifi
+Set-Alias -Name wm      -Value Start-Komorebi
+Set-Alias -Name word    -Value Open-WinWord
+Set-Alias -Name wtf     -Value Get-Command
+Set-Alias -Name y       -Value Open-Yazi
 
 # Abbreviated aliases
-Set-Alias -Name np      -Value notepad
+Set-Alias -Name cz      -Value chezmoi
+Set-Alias -Name edit    -Value $env:EDITOR
 Set-Alias -Name exp     -Value explorer
+Set-Alias -Name g       -Value git
+Set-Alias -Name gvim    -Value neovide
+Set-Alias -Name lg      -Value lazygit
+Set-Alias -Name lgit    -Value lazygit
+Set-Alias -Name np      -Value notepad
 Set-Alias -Name vi      -Value nvim
 Set-Alias -Name vim     -Value nvim
-Set-Alias -Name edit    -Value $env:EDITOR
-Set-Alias -Name lgit    -Value lazygit
-Set-Alias -Name g       -Value git
-Set-Alias -Name lg      -Value lazygit
-Set-Alias -Name cz      -Value chezmoi
-Set-Alias -Name gvim    -Value neovide
 
 Remove-Alias -Name where -Force
 
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Save-ClipboardImage {
+  param(
+    [string]$OutputPath = "out.png"
+  )
+  nircmd clipboard saveimage $OutputPath
+  Write-Host "Clipboard image saved to $OutputPath"
+}
 
 Function Open-History() {
   Get-Content (Get-PSReadlineOption).HistorySavePath | less
