@@ -138,7 +138,7 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "disableAnimations": true,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": {{ if .work -}} "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}" {{- else -}} "{a3a2e83a-884a-5379-baa8-16f193a13b21}" {{- end }},
     "newTabMenu": [
         {
             "type": "remainingProfiles"
