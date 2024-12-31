@@ -1,6 +1,13 @@
 Write-Host "================================================================================"
 Write-Host "[Chezmoi] Install Spicetify theme"
 
+$confirmation = Read-Host "Do you want to install Spicetify theme? (Y/n)"
+
+if ($confirmation -eq 'n') {
+    Write-Host "Skip Spicetify theme"
+    exit
+}
+
 git clone --depth=1 https://github.com/spicetify/spicetify-themes $HOME/spicetify-themes
 git clone --depth=1 https://github.com/catppuccin/spicetify $HOME/spicetify
 
