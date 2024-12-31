@@ -1,5 +1,5 @@
 {
-  "$schema": "./schema.bar.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json",
   "monitor": {
     "index": 1,
     "work_area_offset": {
