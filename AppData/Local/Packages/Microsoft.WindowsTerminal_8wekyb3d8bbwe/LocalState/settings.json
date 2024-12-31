@@ -1,6 +1,6 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "./settings.schema.json",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [
         {
             "command": "unbound",
