@@ -1,5 +1,7 @@
+{{- if not .work }}
 [include]
   path = catppuccin.gitconfig
+{{- end }}
 
 [user]
   name = {{ .fullName }}
@@ -31,7 +33,9 @@
   process = git-lfs filter-process --skip
 
 [core]
+{{- if not .work }}
   pager = delta
+{{- end }}
   editor = nvim
 
 [init]
@@ -46,15 +50,19 @@
 [diff]
   colorMoved = default
 
+{{- if not .work }}
 [interactive]
   diffFilter = delta --color-only
+{{- end }}
 
+{{- if not .work }}
 [delta]
   features = decorations catppuccin-mocha
   line-numbers = true
   navigate = true
   hyperlinks = true
   hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+{{- end }}
 
 [merge]
   tool = nvimdiff

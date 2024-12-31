@@ -46,9 +46,13 @@ git:
   autoPush: false
 
 diff:
-  reverse: true
-  command: "delta"
+{{- if $work }}
+  pager: "cat"
+{{- else }}
   pager: "delta"
+  command: "delta"
+{{- end }}
+  reverse: true
 
 merge:
   command: "nvim"
