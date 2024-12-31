@@ -1,6 +1,13 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
+    "centerOnLaunch": true,
+    "confirmCloseAllTabs": false,
+    "initialRows": 40,
+    "launchMode": "maximized",
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "disableAnimations": false,
     "actions": [
         { "command": "unbound", "keys": "ctrl+v" },
         { "command": "unbound", "keys": "ctrl+c" },
@@ -36,13 +43,6 @@
         { "command": { "action": "openSettings", "target": "defaultsFile" }, "keys": "ctrl+alt+shift+comma" },
         { "command": { "action": "clearBuffer", "clear": "all" }, "keys": "ctrl+shift+l" }
     ],
-    "centerOnLaunch": true,
-    "confirmCloseAllTabs": false,
-    "initialRows": 40,
-    "launchMode": "maximized",
-    "copyFormatting": "none",
-    "copyOnSelect": true,
-    "disableAnimations": false,
     "defaultProfile": {{ if .work -}} "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}" {{- else -}} "{a3a2e83a-884a-5379-baa8-16f193a13b21}" {{- end }},
     "profiles": {
         "defaults": {
@@ -171,18 +171,18 @@
     },
     "themes": [
         {
-            "name": "Catppuccin Frappe",
+            "name": "Catppuccin Mocha",
             "tab": {
-                "background": "#303446FF",
-                "showCloseButton": "always",
+                "background": "#1E1E2EFF",
+                "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
             "tabRow": {
-                "background": "#292C3CFF",
-                "unfocusedBackground": "#232634FF"
+                "background": "#181825FF",
+                "unfocusedBackground": "#11111BFF"
             },
             "window": {
-                "applicationTheme": "dark",
+                "applicationTheme": "system",
                 "experimental.rainbowFrame": false,
                 "frame": null,
                 "unfocusedFrame": null,
@@ -209,6 +209,25 @@
             }
         },
         {
+            "name": "Catppuccin Frappe",
+            "tab": {
+                "background": "#303446FF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": {
+                "background": "#292C3CFF",
+                "unfocusedBackground": "#232634FF"
+            },
+            "window": {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
             "name": "Catppuccin Macchiato",
             "tab": {
                 "background": "#24273AFF",
@@ -221,25 +240,6 @@
             },
             "window": {
                 "applicationTheme": "dark",
-                "experimental.rainbowFrame": false,
-                "frame": null,
-                "unfocusedFrame": null,
-                "useMica": false
-            }
-        },
-        {
-            "name": "Catppuccin Mocha",
-            "tab": {
-                "background": "#1E1E2EFF",
-                "showCloseButton": "hover",
-                "unfocusedBackground": null
-            },
-            "tabRow": {
-                "background": "#181825FF",
-                "unfocusedBackground": "#11111BFF"
-            },
-            "window": {
-                "applicationTheme": "system",
                 "experimental.rainbowFrame": false,
                 "frame": null,
                 "unfocusedFrame": null,
