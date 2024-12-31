@@ -1,65 +1,30 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "$schema": "https://aka.ms/terminal-profiles-schema-preview",
     "actions": [
-        {
-            "command": "unbound",
-            "keys": "ctrl+v"
-        },
         {
             "command": {
                 "action": "copy",
                 "singleLine": false
             },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+plus"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+minus"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+shift+plus"
+            "id": "User.copy.644BA8F2"
         },
         {
             "command": {
                 "action": "resizePane",
                 "direction": "down"
             },
-            "keys": "ctrl+alt+shift+minus"
-        },
-        {
-            "command": "scrollDownPage",
-            "keys": "ctrl+shift+pgdn"
+            "id": "User.resizePane.F747588A"
         },
         {
             "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
+            "id": "User.scrollUpPage"
         },
         {
-            "command": "scrollDown",
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": "scrollUp",
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": {
+                "action": "scrollDown"
+            },
+            "id": "User.scrollDown.0"
         },
         {
             "command": {
@@ -67,78 +32,201 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "keys": "ctrl+shift+\\"
+            "id": "User.splitPane.A6751878"
         },
         {
-            "command": "toggleSplitOrientation",
-            "keys": "ctrl+alt+shift+\\"
+            "command": {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "id": "User.resizePane.2A0DA8E0"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": {
                 "action": "openSettings",
                 "target": "defaultsFile"
             },
-            "keys": "ctrl+alt+shift+comma"
+            "id": "User.openSettings.2A0DA8E0"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "id": "User.resizePane.87C324ED"
+        },
+        {
+            "command": "toggleSplitOrientation",
+            "id": "User.toggleSplitOrientation"
         },
         {
             "command": {
                 "action": "moveFocus",
                 "direction": "left"
             },
-            "keys": "ctrl+alt+h"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+alt+l"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+k"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "nextInOrder"
-            },
-            "keys": "alt+`"
+            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": {
                 "action": "clearBuffer",
                 "clear": "all"
             },
-            "keys": "ctrl+shift+l"
+            "id": "User.clearBuffer.87C324ED"
+        },
+        {
+            "command": {
+                "action": "scrollUp"
+            },
+            "id": "User.scrollUp.0"
         },
         {
             "command": "togglePaneZoom",
-            "keys": "ctrl+shift+enter"
+            "id": "User.togglePaneZoom"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "id": "User.resizePane.6CD791B"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "id": "User.moveFocus.87C324ED"
+        },
+        {
+            "command": "scrollDownPage",
+            "id": "User.scrollDownPage"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "id": "User.moveFocus.6CD791B"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.moveFocus.F747588A"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "nextInOrder"
+            },
+            "id": "User.moveFocus.D7681B66"
         },
         {
             "command": "toggleFocusMode",
-            "keys": "ctrl+shift+z"
+            "id": "User.toggleFocusMode"
         }
     ],
+    "alwaysShowNotificationIcon": false,
     "centerOnLaunch": true,
     "confirmCloseAllTabs": false,
-    "initialRows": 40,
-    "launchMode": "maximized",
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "disableAnimations": true,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "disableAnimations": false,
+    "focusFollowMouse": false,
+    "initialRows": 40,
+    "keybindings": [
+        {
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.togglePaneZoom",
+            "keys": "ctrl+shift+enter"
+        },
+        {
+            "id": "User.openSettings.2A0DA8E0",
+            "keys": "ctrl+alt+shift+comma"
+        },
+        {
+            "id": "User.resizePane.F747588A",
+            "keys": "ctrl+alt+shift+minus"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "ctrl+shift+\\"
+        },
+        {
+            "id": "User.scrollDownPage",
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "id": "User.scrollUpPage",
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": "User.scrollDown.0",
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "id": "User.toggleFocusMode",
+            "keys": "ctrl+shift+z"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.resizePane.2A0DA8E0",
+            "keys": "ctrl+shift+minus"
+        },
+        {
+            "id": "User.resizePane.87C324ED",
+            "keys": "ctrl+shift+plus"
+        },
+        {
+            "id": "User.toggleSplitOrientation",
+            "keys": "ctrl+alt+shift+\\"
+        },
+        {
+            "id": "User.moveFocus.2A0DA8E0",
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "id": "User.clearBuffer.87C324ED",
+            "keys": "ctrl+shift+l"
+        },
+        {
+            "id": "User.resizePane.6CD791B",
+            "keys": "ctrl+alt+shift+plus"
+        },
+        {
+            "id": "User.moveFocus.6CD791B",
+            "keys": "ctrl+alt+k"
+        },
+        {
+            "id": "User.moveFocus.87C324ED",
+            "keys": "ctrl+alt+l"
+        },
+        {
+            "id": "User.moveFocus.F747588A",
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "id": "User.moveFocus.D7681B66",
+            "keys": "alt+`"
+        }
+    ],
+    "launchMode": "maximized",
     "newTabMenu": [
         {
             "type": "remainingProfiles"
@@ -155,12 +243,11 @@
             },
             "cursorShape": "filledBox",
             "font": {
-                "cellHeight": "1.0",
                 "face": "CaskaydiaCove Nerd Font",
                 "features": {
                     "calt": 0
                 },
-                "size": 13
+                "size": {{ .fontSize }}
             },
             "padding": "0",
             "scrollbarState": "hidden"
@@ -267,6 +354,9 @@
         ]
     },
     "schemes": [],
+    "showTerminalTitleInTitlebar": false,
+    "snapToGridOnResize": true,
+    "tabSwitcherMode": "inOrder",
     "theme": {
         "dark": "Catppuccin Mocha",
         "light": "Catppuccin Latte"
@@ -276,6 +366,7 @@
             "name": "Catppuccin Frappe",
             "tab": {
                 "background": "#303446FF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
@@ -295,6 +386,7 @@
             "name": "Catppuccin Latte",
             "tab": {
                 "background": "#EFF1F5FF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
@@ -314,6 +406,7 @@
             "name": "Catppuccin Macchiato",
             "tab": {
                 "background": "#24273AFF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
@@ -333,6 +426,7 @@
             "name": "Catppuccin Mocha",
             "tab": {
                 "background": "#1E1E2EFF",
+                "iconStyle": "default",
                 "showCloseButton": "hover",
                 "unfocusedBackground": null
             },
@@ -348,5 +442,7 @@
                 "useMica": false
             }
         }
-    ]
+    ],
+    "useAcrylicInTabRow": false,
+    "windowingBehavior": "useExisting"
 }
