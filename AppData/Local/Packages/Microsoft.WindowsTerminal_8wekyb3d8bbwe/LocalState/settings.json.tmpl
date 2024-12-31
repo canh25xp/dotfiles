@@ -2,134 +2,39 @@
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [
-        {
-            "command": "unbound",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+plus"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+minus"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+shift+plus"
-        },
-        {
-            "command": {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+shift+minus"
-        },
-        {
-            "command": "scrollDownPage",
-            "keys": "ctrl+shift+pgdn"
-        },
-        {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+pgup"
-        },
-        {
-            "command": "scrollDown",
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": "scrollUp",
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "ctrl+shift+\\"
-        },
-        {
-            "command": "toggleSplitOrientation",
-            "keys": "ctrl+alt+shift+\\"
-        },
-        {
-            "command": {
-                "action": "openSettings",
-                "target": "defaultsFile"
-            },
-            "keys": "ctrl+alt+shift+comma"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "ctrl+alt+h"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+alt+l"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+k"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "nextInOrder"
-            },
-            "keys": "alt+`"
-        },
-        {
-            "command": {
-                "action": "clearBuffer",
-                "clear": "all"
-            },
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "command": "togglePaneZoom",
-            "keys": "ctrl+shift+enter"
-        },
-        {
-            "command": "toggleFocusMode",
-            "keys": "ctrl+shift+z"
-        }
+        { "command": "unbound", "keys": "ctrl+v" },
+        { "command": "unbound", "keys": "ctrl+c" },
+        { "command": "unbound", "keys": "alt+left" },
+        { "command": "unbound", "keys": "alt+right" },
+        { "command": "unbound", "keys": "alt+up" },
+        { "command": "unbound", "keys": "alt+down" },
+
+        { "command": "find",    "keys": "ctrl+shift+f" },
+
+        { "command": { "action": "resizePane", "direction": "left" },   "keys": "ctrl+shift+minus" },
+        { "command": { "action": "resizePane", "direction": "right" },  "keys": "ctrl+shift+plus" },
+        { "command": { "action": "resizePane", "direction": "up" },     "keys": "ctrl+alt+shift+plus" },
+        { "command": { "action": "resizePane", "direction": "down" },   "keys": "ctrl+alt+shift+minus" },
+
+        { "command": { "action": "moveFocus", "direction": "left" },        "keys": "ctrl+alt+h" },
+        { "command": { "action": "moveFocus", "direction": "right" },       "keys": "ctrl+alt+l" },
+        { "command": { "action": "moveFocus", "direction": "up" },          "keys": "ctrl+alt+k" },
+        { "command": { "action": "moveFocus", "direction": "down" },        "keys": "ctrl+alt+j" },
+        { "command": { "action": "moveFocus", "direction": "nextInOrder" }, "keys": "alt+`" },
+
+        { "command": "scrollUp",        "keys": "ctrl+shift+k" },
+        { "command": "scrollDown",      "keys": "ctrl+shift+j" },
+        { "command": "scrollUpPage",    "keys": "ctrl+shift+pgup" },
+        { "command": "scrollDownPage",  "keys": "ctrl+shift+pgdn" },
+
+        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" },  "keys": "ctrl+shift+\\" },
+        { "command": "toggleSplitOrientation",                                              "keys": "ctrl+alt+shift+\\" },
+
+        { "command": "togglePaneZoom",  "keys": "ctrl+shift+enter" },
+        { "command": "toggleFocusMode", "keys": "ctrl+shift+z" },
+
+        { "command": { "action": "openSettings", "target": "defaultsFile" }, "keys": "ctrl+alt+shift+comma" },
+        { "command": { "action": "clearBuffer", "clear": "all" }, "keys": "ctrl+shift+l" }
     ],
     "centerOnLaunch": true,
     "confirmCloseAllTabs": false,
