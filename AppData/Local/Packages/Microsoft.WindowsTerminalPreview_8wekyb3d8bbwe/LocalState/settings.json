@@ -136,7 +136,7 @@
     "confirmCloseAllTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
     "disableAnimations": false,
     "focusFollowMouse": false,
     "initialRows": 40,
@@ -247,7 +247,7 @@
                 "features": {
                     "calt": 0
                 },
-                "size": 12
+                "size": 13
             },
             "padding": "0",
             "scrollbarState": "hidden"
@@ -259,7 +259,7 @@
                 "commandline": "C:\\Program Files\\powershell\\7\\pwsh.exe",
                 "icon": "C:\\Program Files\\powershell\\7\\assets\\Powershell_black.ico",
                 "startingDirectory": "%USERPROFILE%",
-                "hidden": true
+                "hidden": false
             },
             {
                 "name": "PowerShell Preview",

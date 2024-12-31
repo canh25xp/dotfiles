@@ -175,6 +175,12 @@
                 "hidden": false
             },
             {
+                "name": "PowerShell Preview",
+                "guid": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
+                "source": "Windows.Terminal.PowershellCore",
+                "hidden": false
+            },
+            {
                 "name": "Windows PowerShell",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -185,12 +191,6 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "hidden": false
-            },
-            {
-                "name": "PowerShell Preview",
-                "guid": "{a3a2e83a-884a-5379-baa8-16f193a13b21}",
-                "source": "Windows.Terminal.PowershellCore",
-                "hidden": true
             },
             {
                 "name": "Debian",
