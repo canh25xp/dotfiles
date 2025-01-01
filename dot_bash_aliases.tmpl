@@ -28,6 +28,7 @@ alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
 alias man=batman
 alias cht=cht.sh
+alias sci='nircmd.exe clipboard saveimage'
 
 # dotfiles manage
 # alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -48,7 +49,7 @@ cdi() {
   cd "$(command lf -print-last-dir "$@")"
 }
 
-function y() {
+y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
