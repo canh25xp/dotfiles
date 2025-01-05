@@ -4,9 +4,19 @@
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": {{ .barOffset }},
+      "top": {{ .barHeight }},
       "right": 0,
-      "bottom": {{ .barOffset }}
+      "bottom": {{ .barHeight }}
+    }
+  },
+  "position": {
+    "start": {
+      "x": 0,
+      "y": 0
+    },
+    "end": {
+      "x": {{ .screenWidth }},
+      "y": {{ .barHeight }}
     }
   },
   "font_family": "Cascadia Code",

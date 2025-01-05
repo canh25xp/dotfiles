@@ -70,8 +70,11 @@ data:
   personal: {{ $personal }}
   email: {{ $email | quote }}
   defaultShell: {{ $shell | quote }}
-  barOffset: {{ if $work -}} 70 {{- else -}} 40 {{- end }}
   fontSize: 13
+  screenWidth: 1920
+  screenHeight: 1080
+  barHeight: 40
+
 
 {{- if $windows }}
 
