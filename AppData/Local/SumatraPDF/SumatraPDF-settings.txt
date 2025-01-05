@@ -58,8 +58,12 @@ DefaultDisplayMode = automatic
 DefaultZoom = fit page
 Shortcuts [
 	[
-		Cmd = CmdScrollUpHalfPage
-		Key = K
+		Cmd = CmdNextTab
+		Key = L
+	]
+	[
+		Cmd = CmdPrevTab
+		Key = H
 	]
 	[
 		Cmd = CmdScrollDownHalfPage
@@ -76,10 +80,6 @@ Shortcuts [
 	[
 		Cmd = CmdZoomFitWidthAndContinuous
 		Key = W
-	]
-	[
-		Cmd = CmdZoomFitPage
-		Key = H
 	]
 	[
 		Cmd = CmdCommandPalette
