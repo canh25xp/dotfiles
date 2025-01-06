@@ -1,9 +1,10 @@
 {{/* boolean feature tags */}}
 {{- $work := false -}}{{/* true if this machine is a work machine */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
-{{- $wsl := false -}}
 {{- $linux := false -}}
 {{- $windows := false -}}
+{{- $wsl := false -}}
+{{- $termux := false -}}
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if ($hostname | lower | contains "vancanh-ng") -}}
@@ -22,7 +23,12 @@
 {{-   $shell = "powershell" -}}
 {{- end -}}
 
-{{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "android") -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   $linux = true -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "android" -}}
+{{-   $termux = true -}}
 {{-   $linux = true -}}
 {{- end -}}
 
