@@ -76,11 +76,11 @@ data:
   personal: {{ $personal }}
   email: {{ $email | quote }}
   defaultShell: {{ $shell | quote }}
+  scale: {{ if $work -}} 2 {{- else -}} 1.25 {{- end}}
+  screenWidth: {{ if $work -}} 2880 {{- else -}} 1920 {{- end}}
+  screenHeight: {{ if $work -}} 1800 {{- else -}} 1080 {{- end}}
   fontSize: 13
-  screenWidth: 1920
-  screenHeight: 1080
   barHeight: 40
-
 
 {{- if $windows }}
 
