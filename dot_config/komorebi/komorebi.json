@@ -11,15 +11,15 @@
   "mouse_follows_focus": false,
   "border_style": "System",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 0,
-  "default_container_padding": 0,
-  "border_width": 0,
-  "border_offset": -1,
-  "border": false,
+  "default_workspace_padding": 10,
+  "default_container_padding": 10,
+  "border_width": 4,
+  "border_offset": 0,
+  "border": true,
   "theme": {
     "palette": "Catppuccin",
     "name": "Mocha",
-    "unfocused_border": "Rosewater",
+    "unfocused_border": "Pink",
     "bar_accent": "Pink"
   },
   "stackbar": {
