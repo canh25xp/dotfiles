@@ -25,6 +25,11 @@ alias gvim='neovide --wsl'
 {{- end }}
 {{- if .linux }}
 alias gvim='neovide'
+
+# Neovim profiles
+alias lvim="NVIM_APPNAME=nvim-lazy nvim"
+alias chad="NVIM_APPNAME=nvchad nvim"
+alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
 {{- end }}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
@@ -35,10 +40,6 @@ alias sci='nircmd.exe clipboard saveimage'
 # dotfiles manage
 # alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfg='chezmoi managed -p absolute -i files | fzf --preview="bat --color=always {}" | xargs -r ${EDITOR:-nvim}'
-
-# Neovim profiles
-alias lvim="NVIM_APPNAME=nvim-lazy nvim"
-alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
 
 # Open Nvim and enter Neotree
 ntree() {
