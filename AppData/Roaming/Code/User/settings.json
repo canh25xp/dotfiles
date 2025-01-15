@@ -182,8 +182,11 @@
 		{ "before": ["Y"], "commands": ["editor.action.clipboardCopyAction"] },
     ],
     "bookmarks.saveBookmarksInProject": true,
-    "codegrok.settings.codegrokToken": "98d094c8ab824f1db0bc61fe949ef559760447d573e14180a6c4fae5a10ded47",
     "editor.cursorSmoothCaretAnimation": "on",
     "workbench.list.smoothScrolling": true,
     "editor.smoothScrolling": true,
+    "bookmarks.wrapNavigation": false,
+    "codegrok.settings.customBrowser": "system-default",
+    "codegrok.settings.numSearchHistory": 15,
+    "editor.find.loop": false,
 }
