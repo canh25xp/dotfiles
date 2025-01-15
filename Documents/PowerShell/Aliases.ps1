@@ -2,16 +2,18 @@
 # SHELL ALIASES
 # ==============================================
 
-# Bash like aliases
-Set-Alias -Name df      -Value Get-Volume
-Set-Alias -Name du      -Value Get-DirectorySummary
-Set-Alias -Name ff      -Value Find-File
-Set-Alias -Name grep    -Value Find-String
-Set-Alias -Name la      -Value Get-ChildItemPrettyAll
-Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
-Set-Alias -Name ls      -Value Get-ChildItemPretty
-Set-Alias -Name su      -Value Start-AdminSession
-Set-Alias -Name which   -Value Show-Command
+# unix-like aliases
+Set-Alias -Name df          -Value Get-Volume
+Set-Alias -Name du          -Value Get-DirectorySummary
+Set-Alias -Name ff          -Value Find-File
+Set-Alias -Name grep        -Value Find-String
+Set-Alias -Name la          -Value Get-ChildItemPrettyAll
+Set-Alias -Name ll          -Value Get-ChildItemPrettyLong
+Set-Alias -Name ls          -Value Get-ChildItemPretty
+Set-Alias -Name su          -Value Start-AdminSession
+Set-Alias -Name which       -Value Show-Command
+Set-Alias -Name neofetch    -Value winfetch
+
 
 # Funtion aliases
 Set-Alias -Name bhis    -Value Search-BrowerHistory
