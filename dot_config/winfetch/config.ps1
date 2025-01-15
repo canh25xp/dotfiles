@@ -1,4 +1,4 @@
-# ===== WINFETCH CONFIGURATION =====
+﻿# ===== WINFETCH CONFIGURATION =====
 
 # $image = "~/winfetch.png"
 # $noimage = $true
@@ -47,7 +47,7 @@
 # }
 
 # Configure which disks are shown
-# $ShowDisks = @("C:", "D:")
+$ShowDisks = @("C:","D:", "E:")
 # Show all available disks
 # $ShowDisks = @("*")
 
@@ -81,30 +81,30 @@
 # the following to **enable** their output.
 
 @(
-    "title"
-    "dashes"
-    "os"
-    "computer"
-    "kernel"
-    "motherboard"
-    # "custom_time"  # use custom info line
-    "uptime"
-    # "ps_pkgs"  # takes some time
-    "pkgs"
-    "pwsh"
-    "resolution"
-    "terminal"
-    # "theme"
-    "cpu"
-    "gpu"
-    # "cpu_usage"
-    "memory"
-    "disk"
-    # "battery"
-    # "locale"
-    # "weather"
-    # "local_ip"
-    # "public_ip"
-    "blank"
-    "colorbar"
+  "title"
+  "dashes"
+  "os"
+  "computer"
+  "kernel"
+  "motherboard"
+  # "custom_time"  # use custom info line
+  "uptime"
+  # "ps_pkgs"  # takes some time
+  "pkgs"
+  "pwsh"
+  "resolution"
+  "terminal"
+  # "theme"
+  "cpu"
+  "gpu"
+  "cpu_usage"
+  "memory"
+  "battery"
+  "disk"
+  # "locale"
+  # "weather"
+  # "local_ip"
+  # "public_ip"
+  "blank"
+  "colorbar"
 )
