@@ -183,7 +183,7 @@ function Start-Komorebi {
   $process = Get-Process -Name komorebi -ErrorAction SilentlyContinue
 
   if (!$process) {
-    komorebic start --whkd
+    komorebic start --whkd --bar
   } else {
     Write-Host "komorebi is already running."
   }
