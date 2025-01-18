@@ -1,4 +1,12 @@
+channels:
+  - conda-forge
+  - defaults
+
 # auto_activate_base (bool)
 #   Automatically activate the base environment during shell
 #   initialization. for `conda init`
 auto_activate_base: false
+
+# Show channel URLs when displaying what is going to be downloaded and in 'conda list'.
+show_channel_urls: True
+
