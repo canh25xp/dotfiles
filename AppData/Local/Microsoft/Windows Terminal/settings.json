@@ -270,6 +270,18 @@
                 "startingDirectory": "C:/msys64/home/%USERNAME%",
                 "icon": "C:/msys64/msys2.ico",
                 "hidden": false
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\Michael\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\Michael\\anaconda3' \"",
+                "name": "Anaconda PowerShell Prompt (anaconda3)",
+                "icon": "C:\\Users\\Michael\\anaconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "startingDirectory": "C:\\Users\\Michael"
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" C:\\Users\\Michael\\anaconda3\\Scripts\\activate.bat C:\\Users\\Michael\\anaconda3",
+                "name": "Anaconda Prompt (anaconda3)",
+                "icon": "C:\\Users\\Michael\\anaconda3\\Menu\\anaconda_prompt.ico",
+                "startingDirectory": "C:\\Users\\Michael"
             }
         ]
     },
