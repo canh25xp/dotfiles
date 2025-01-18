@@ -10,3 +10,5 @@ auto_activate_base: false
 # Show channel URLs when displaying what is going to be downloaded and in 'conda list'.
 show_channel_urls: True
 
+# Dont show the name of the active environment
+changeps1: false
