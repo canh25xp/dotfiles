@@ -51,8 +51,8 @@ $env:FZF_DEFAULT_OPTS = @"
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-If (Test-Path "C:\Users\Michael\miniforge3\Scripts\conda.exe") {
-    (& "C:\Users\Michael\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+If (Test-Path "$HOME\miniforge3\Scripts\conda.exe") {
+    (& "$HOME\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
 }
 #endregion
 
