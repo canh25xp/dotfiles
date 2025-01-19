@@ -4,7 +4,7 @@
 {{- $linux := false -}}
 {{- $windows := false -}}
 {{- $wsl := false -}}
-{{- $termux := false -}}
+{{- $android := false -}}
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if ($hostname | lower | contains "vancanh-ng") -}}
@@ -28,7 +28,7 @@
 {{- end -}}
 
 {{- if eq .chezmoi.os "android" -}}
-{{-   $termux = true -}}
+{{-   $android = true -}}
 {{-   $linux = true -}}
 {{- end -}}
 
@@ -72,6 +72,7 @@ data:
   wsl: {{ $wsl }}
   linux: {{ $linux }}
   windows: {{ $windows }}
+  android: {{ $android }}
   work: {{ $work }}
   personal: {{ $personal }}
   email: {{ $email | quote }}

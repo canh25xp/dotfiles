@@ -2,6 +2,10 @@ README.md
 scripts/
 .profile
 
+{{ if not .android }}
+.termux/
+{{ end }}
+
 {{ if .wsl }}
 .config/alacritty/
 .config/neovide/
