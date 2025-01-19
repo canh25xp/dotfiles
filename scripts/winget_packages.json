@@ -7,6 +7,7 @@
         { "PackageIdentifier": "7zip.7zip" },
         { "PackageIdentifier": "BurntSushi.ripgrep.MSVC" },
         { "PackageIdentifier": "Clement.bottom" },
+        { "PackageIdentifier": "CondaForge.Miniforge3" },
         { "PackageIdentifier": "CoreyButler.NVMforWindows" },
         { "PackageIdentifier": "DenoLand.Deno" },
         { "PackageIdentifier": "Docker.DockerDesktop" },
@@ -59,7 +60,7 @@
         { "PackageIdentifier": "sharkdp.fd" },
         { "PackageIdentifier": "sxyazi.yazi" },
         { "PackageIdentifier": "twpayne.chezmoi" },
-        { "PackageIdentifier": "yt-dlp.yt-dlp" },
+        { "PackageIdentifier": "yt-dlp.yt-dlp" }
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
