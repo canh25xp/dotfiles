@@ -48,3 +48,11 @@ $env:FZF_DEFAULT_OPTS = @"
 #$env:Path += "D:\Program Files\zoxide;"
 #$env:Path += "D:\Program Files\ffmpeg\bin;"
 #$env:Path += "D:\Program Files\DumpstateViewer"
+
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "C:\Users\Michael\miniforge3\Scripts\conda.exe") {
+    (& "C:\Users\Michael\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion
+

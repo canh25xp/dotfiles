@@ -13,7 +13,6 @@ $env:GRADLE_HOME = "C:\Gradle\gradle-8.10"
 $env:MAVEN_HOME = "C:\Maven\apache-maven-3.9.9"
 $env:VCPKG_ROOT = "C:\vcpkg"
 $env:SCOOP_HOME = "$HOME\scoop"
-$env:CONDA_BIN = "$HOME\miniforge3\condabin"
 #$env:NVM_HOME = "$env:APPDATA\nvm"
 
 # https://github.com/catppuccin/fzf
@@ -41,6 +40,13 @@ $env:Path += "$env:GRADLE_HOME\bin;"
 $env:Path += "$env:MAVEN_HOME\bin;"
 $env:Path += "$env:CARGO_HOME\bin;"
 $env:Path += "$env:SCOOP_HOME\shims;"
-$env:Path += "$env:CONDA_BIN;"
 #$env:Path += "$env:NVM_HOME;"
 $env:Path += "$env:VCPKG_ROOT;"
+
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "$HOME\miniforge3\Scripts\conda.exe") {
+    (& "$HOME\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion
+
