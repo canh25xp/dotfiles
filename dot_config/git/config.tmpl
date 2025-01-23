@@ -103,3 +103,7 @@
     echo last commit file modified $last_modified_commit_hash; \
     git difftool $last_modified_commit_hash^ $filepath; \
   }; f"
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
+  unhide-all = ! git ls-files -v | grep '^[a-z]' | cut -c3- | xargs git unhide --
+  hiddens = ! git ls-files -v | grep '^[a-z]' | cut -c3-
