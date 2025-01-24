@@ -1,16 +1,24 @@
+# UNIX common
 $env:EDITOR = "nvim"
 $env:PAGER = "less -R"
-$env:NVIM_APPNAME = "nvim"
+
+# Perforce
 $env:P4ENVIRO = "$HOME\.config\p4\p4enviro.txt"
-$env:P4ALIASES  = "$HOME\.config\p4\p4aliases.txt"
-$env:P4TICKETS  = "$HOME\.p4tickets.txt"
+$env:P4ALIASES = "$HOME\.config\p4\p4aliases.txt"
+$env:P4TICKETS = "$HOME\.p4tickets.txt"
+
+# Komorebi & whkd
 $env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
-$env:YAZI_CONFIG_HOME = "$HOME\.config\yazi"
-$env:YAZI_FILE_ONE  = "$env:PROGRAMFILES\Git\usr\bin\file.exe"
 $env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
+
+# yazi
+$env:YAZI_CONFIG_HOME = "$HOME\.config\yazi"
+$env:YAZI_FILE_ONE = "$env:PROGRAMFILES\Git\usr\bin\file.exe"
+
+# tealdeer
 $env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
 
-# https://github.com/catppuccin/fzf
+# FZF config & theme https://github.com/catppuccin/fzf
 $env:FZF_DEFAULT_OPTS = @"
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
@@ -22,37 +30,65 @@ $env:FZF_DEFAULT_OPTS = @"
 --info=inline
 "@
 
-#$env:Path += "D:\Program Files\alacritty;"
-#$env:Path += "D:\Program Files\delta;"
-#$env:Path += "D:\Program Files\yazi;"
-#$env:Path += "D:\Program Files\bat;"
-#$env:Path += "D:\Program Files\bottom;"
-#$env:Path += "D:\Program Files\chezmoi;"
-#$env:Path += "D:\Program Files\eza;"
-#$env:Path += "D:\Program Files\fd;"
-#$env:Path += "D:\Program Files\fzf;"
-#$env:Path += "D:\Program Files\gh\bin;"
-#$env:Path += "D:\Program Files\komorebi;"
-#$env:Path += "D:\Program Files\lazygit;"
-#$env:Path += "D:\Program Files\less;"
-#$env:Path += "D:\Program Files\lf;"
-#$env:Path += "D:\Program Files\mingw64\bin;"
-#$env:Path += "D:\Program Files\neovide;"
-#$env:Path += "D:\Program Files\neovim\bin;"
-#$env:Path += "D:\Program Files\odin;"
-#$env:Path += "D:\Program Files\oh-my-posh;"
-#$env:Path += "D:\Program Files\ripgrep;"
-#$env:Path += "D:\Program Files\tealdeer;"
-#$env:Path += "D:\Program Files\terminal;"
-#$env:Path += "D:\Program Files\whkd;"
-#$env:Path += "D:\Program Files\zoxide;"
-#$env:Path += "D:\Program Files\ffmpeg\bin;"
-#$env:Path += "D:\Program Files\DumpstateViewer"
+# SDKs & package managers
+if (Test-Path "$HOME\.cargo") {
+  $env:CARGO_HOME = "$HOME\.cargo"
+  $env:Path += "$env:CARGO_HOME\bin;"
+}
+
+if (Test-Path "$HOME\vcpkg") {
+  $env:VCPKG_ROOT = "$HOME\vcpkg"
+  $env:Path += "$env:VCPKG_ROOT;"
+}
+
+if (Test-Path "$HOME\scoop") {
+  $env:SCOOP_HOME = "$HOME\scoop"
+  $env:Path += "$env:SCOOP_HOME\shims;"
+}
+
+if (Test-Path "$env:APPDATA\nvm") {
+  $env:NVM_HOME = "$env:APPDATA\nvm"
+  $env:Path += "$env:NVM_HOME;"
+}
+
+if (Test-Path "$env:PROGRAMFILES\Java\jdk-22") {
+  $env:JAVA_HOME = "$env:PROGRAMFILES\Java\jdk-22"
+  $env:Path += "$env:JAVA_HOME\bin;"
+}
+
+if (Test-Path "$env:LOCALAPPDATA\Android\Sdk") {
+  $env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"
+  $env:Path += "$env:ANDROID_HOME\cmdline-tools\latest\bin;"
+  $env:Path += "$env:ANDROID_HOME\platform-tools;"
+}
+
+if (Test-Path "C:\Gradle\gradle-8.10") {
+  $env:GRADLE_HOME = "C:\Gradle\gradle-8.10"
+  $env:Path += "$env:GRADLE_HOME\bin;"
+}
+
+if (Test-Path "C:\Maven\apache-maven-3.9.9") {
+  $env:MAVEN_HOME = "C:\Maven\apache-maven-3.9.9"
+  $env:Path += "$env:MAVEN_HOME\bin;"
+}
+
+if (Test-Path "$HOME\miniforge3") {
+  $env:CONDA_ROOT = "$HOME\miniforge3"
+  $env:Path += "$env:CONDA_ROOT\Scripts;"
+}
+
+# User programs
+$env:Path += "$HOME\Documents\PowerShell\Scripts;"
+$env:Path += "$env:LOCALAPPDATA\SumatraPDF;"
+$env:Path += "$env:PROGRAMFILES\gdrive;"
+$env:Path += "$env:PROGRAMFILES\NirCmd;"
+$env:Path += "$env:PROGRAMFILES\draw.io;"
+$env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-If (Test-Path "$HOME\miniforge3\Scripts\conda.exe") {
-    (& "$HOME\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
-}
+#if (Test-Path "$HOME\miniforge3\Scripts\conda.exe") {
+#  (& "$HOME\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Where-Object { $_ } | Invoke-Expression
+#}
 #endregion
 
