@@ -66,7 +66,7 @@ su - username
 bat cache --build
 ```
 
-### Install ndoe
+### Install node
 
 ```sh
 nvm install latest
@@ -75,7 +75,15 @@ node --version
 npm --version
 ```
 
-### Install treesitter
+### Install Microsoft Fonts
+
+```sh
+echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt/sources.list.d/contrib.list
+sudo apt install ttf-mscorefonts-installer
+fc-list | grep "Times_New_Roman"
+```
+
+### Install tree-sitter
 
 Install visual studio and c++ build tools, open "Developer Powershell for vVsual Studio 2022"
 
