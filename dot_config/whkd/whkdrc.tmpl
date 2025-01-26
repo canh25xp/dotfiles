@@ -1,5 +1,15 @@
 .shell {{ .defaultShell }} # pwsh | powershell | cmd
 
+# Specify different behaviour depending on the app
+# These "app : command" style bindings MUST come immediately below the .shell directive
+alt + q [
+  # ProcessName as shown by `Get-Process`
+  Firefox : echo "hello firefox"
+  Google Chrome : echo "hello chrome"
+  Microsoft Edge: echo "hello edge"
+  WindowsTerminal : echo "hello terminal"
+]
+
 # Open cheatsheets
 win + oem_2             : wt -w 0 split-pane glow "$HOME/Documents/CheatSheets"
 
