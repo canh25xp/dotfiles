@@ -22,7 +22,7 @@ export FIGNORE=".dll:.DLL"
 
 # export PATH="$PATH:$VCPKG_ROOT"
 export PATH="$PATH:$HOME/go/bin"
-
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.deno/bin"
 
 export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
@@ -55,10 +55,6 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
-fi
-
-if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 {{ else if .windows -}}
