@@ -48,6 +48,7 @@ Set-Alias -Name lgit    -Value lazygit
 Set-Alias -Name np      -Value notepad
 Set-Alias -Name vi      -Value nvim
 Set-Alias -Name vim     -Value nvim
+Set-Alias -Name sumatra -Value sumatraPDF
 
 Remove-Alias -Name where -Force
 
