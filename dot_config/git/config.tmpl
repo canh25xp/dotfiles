@@ -76,6 +76,7 @@
 {{- if eq .chezmoi.os "windows" }}
   p4 = !python.exe 'C:\\Program Files\\Git\\mingw64\\libexec\\git-core\\git-p4'
 {{- end }}
+  ff = merge --ff-only origin/HEAD
   s = status --verbose
   a = add
   a = add --all
