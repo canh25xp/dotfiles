@@ -5,6 +5,13 @@
   url: https://github.com/catppuccin/yazi/raw/main/themes/mocha/catppuccin-mocha-blue.toml
   refreshPeriod: 0h
 
+{{- if .android }}
+.termux/colors.properties:
+  type: file
+  url: https://github.com/catppuccin/termux/raw/main/themes/catppuccin-mocha.properties
+  refreshPeriod: 0h
+{{- end }}
+
 {{- if .windows }}
 Appdata/Roaming/bat/themes/Catppuccin Mocha.tmTheme:
 {{- else }}
