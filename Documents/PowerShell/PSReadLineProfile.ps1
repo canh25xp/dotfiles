@@ -47,6 +47,7 @@ Set-PSReadLineOption -HistorySavePath "$HOME\.pwsh_history.txt"
 
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardDeleteWord
 
 # Kill whole line
 Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
