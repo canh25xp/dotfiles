@@ -46,6 +46,8 @@ TAB:menu-complete
 # Cycle through history based on characters already typed on the line
 "\e[A":history-search-backward
 "\e[B":history-search-forward
+"\C-p":history-search-backward
+"\C-n":history-search-forward
 
 # Keep Ctrl-Left and Ctrl-Right working when the above are used
 "\e[1;5C":forward-word
@@ -62,8 +64,7 @@ $if Bash
 # and move to just after the open quote
 "\C-x\"": "\"\"\C-b"
 
-# insert a backslash (testing backslash escapes
-# in sequences and macros)
+# insert a backslash (testing backslash escapes in sequences and macros)
 "\C-x\\": "\\"
 
 # Quote the current or previous word
