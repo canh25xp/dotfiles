@@ -45,6 +45,9 @@ Set-PSReadLineOption -HistorySavePath "$HOME\.pwsh_history.txt"
 # KEY BINDINGS
 # ==============================================
 
+Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
+
 # Kill whole line
 Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 
