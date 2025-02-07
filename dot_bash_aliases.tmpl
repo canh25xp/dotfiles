@@ -33,7 +33,9 @@ alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
 {{- end }}
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 alias cz=chezmoi
+if [ -x "$(command -v batman)" ]; then
 alias man=batman
+fi
 alias cht=cht.sh
 alias sci='nircmd.exe clipboard saveimage'
 
