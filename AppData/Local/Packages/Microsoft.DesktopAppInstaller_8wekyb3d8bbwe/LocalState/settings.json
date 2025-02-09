@@ -1,20 +1,17 @@
 {
-    // For documentation on these settings, see: https://aka.ms/winget-settings
     "$schema": "https://aka.ms/winget-settings.schema.json",
-    
     "experimentalFeatures": {
-	  "dependencies": true,
-	  "directMSI": false,
-	  "zipInstall": false
+        "dependencies": true,
+        "directMSI": false,
+        "zipInstall": false
     },
     "visual": {
         "progressBar": "rainbow"
     },
     "source": {
-        "autoUpdateIntervalInMinutes": 5
+        "autoUpdateIntervalInMinutes": 60
     },
     "installBehavior": {
-        // "defaultInstallRoot": "D:/Program Files"
         "preferences": {
             "scope": "user"
         }
@@ -23,6 +20,6 @@
         "purgePortablePackage": true
     },
     "logging": {
-        "level": "info"
+        "level": "verbose"
     }
 }
