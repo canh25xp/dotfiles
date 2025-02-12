@@ -6,6 +6,12 @@
 
 ### Install chezmoi
 
+#### Using pkg (termux)
+
+```sh
+pkg install chezmoi
+```
+
 #### Using snap (linux)
 
 ```sh
