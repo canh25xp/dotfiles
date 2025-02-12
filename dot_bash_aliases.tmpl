@@ -23,7 +23,7 @@ alias np=notepad
 alias exp=explorer
 alias gvim='neovide --wsl'
 {{- end }}
-{{- if .linux }}
+{{- if or .linux .android}}
 alias gvim='neovide'
 
 # Neovim profiles

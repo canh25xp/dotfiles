@@ -1,4 +1,4 @@
-{{ if .linux -}}
+{{ if or .linux .android -}}
 
 export EDITOR=nvim
 export PAGER=less
