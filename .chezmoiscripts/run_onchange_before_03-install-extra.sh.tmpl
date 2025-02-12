@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
 echo "================================================================================"
@@ -65,3 +66,4 @@ if ! command -v bat &> /dev/null; then
     ln -s $(which batcat) ~/.local/bin/bat
   fi
 fi
+{{ end -}}
