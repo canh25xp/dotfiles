@@ -173,13 +173,15 @@
                 "name": "Anaconda PowerShell Prompt (anaconda3)",
                 "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:\\Users\\Michael\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\Michael\\anaconda3' \"",
                 "icon": "%USERPROFILE%\\anaconda3\\Menu\\anaconda_powershell_prompt.ico",
-                "startingDirectory": "%USERPROFILE%"
+                "startingDirectory": "%USERPROFILE%",
+                "hidden": true
             },
             {
                 "name": "Anaconda Prompt (anaconda3)",
                 "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" %USERPROFILE%\\anaconda3\\Scripts\\activate.bat  %USERPROFILE%\\anaconda3",
                 "icon": "%USERPROFILE%\\anaconda3\\Menu\\anaconda_prompt.ico",
-                "startingDirectory": "%USERPROFILE%"
+                "startingDirectory": "%USERPROFILE%",
+                "hidden": true
             }
         ]
     },
