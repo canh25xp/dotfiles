@@ -1,3 +1,22 @@
 {{ if eq .chezmoi.os "linux" -}}
-  {{ include "scripts/install-ohmyposh.sh" -}}
+#!/bin/bash
+
+echo "================================================================================"
+echo "[Chezmoi] Installing oh-my-posh"
+
+if command -v oh-my-posh &> /dev/null; then
+	echo "oh-my-posh is already installed. Exiting."
+	exit 0
+fi
+
+read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+
+if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+	echo "Installation canceled."
+	exit 0
+fi
+
+mkdir -p ~/.local/bin/
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin/
 {{ end -}}

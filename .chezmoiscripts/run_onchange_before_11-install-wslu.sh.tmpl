@@ -1,5 +1,31 @@
 {{ if eq .chezmoi.os "linux" -}}
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{ include "scripts/install-wslu.sh" -}}
+#!/bin/bash
+# https://github.com/wslutilities/wslu
+
+echo "================================================================================"
+echo "[Chezmoi] Installing wslu"
+
+
+if command -v wslfetch &>/dev/null; then
+	echo "wslu is already installed. Exiting."
+	exit 0
+fi
+
+read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+
+if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+	echo "Installation canceled."
+	exit 0
+fi
+
+sudo apt install gnupg2 apt-transport-https
+curl -fsSL https://pkg.wslutiliti.es/public.key | sudo gpg --dearmor -o /usr/share/keyrings/wslu-archive-keyring.pgp
+
+echo "deb [signed-by=/usr/share/keyrings/wslu-archive-keyring.pgp] https://pkg.wslutiliti.es/debian bookworm main" | sudo tee -a /etc/apt/sources.list.d/wslu.list
+
+sudo apt update
+sudo apt install wslu
 {{ end -}}
 {{ end -}}
