@@ -23,11 +23,13 @@ packages=(
   luarocks
   gdb
   eza
+  yazi
+  glow
   git-delta
   tealdeer
   tree-sitter
   git-lfs
-  lazy-git
+  lazygit
   oh-my-posh
 )
 
@@ -43,6 +45,5 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   exit 0
 fi
 
-pkg upgrade
 pkg install "${packages[@]}"
 {{ end -}}
