@@ -4818,13 +4818,13 @@ key-quit=q
 #global-key-vol-up=
 
 # Volume up (string)
-#key-vol-up=Ctrl+Up
+key-vol-up=k
 
 # Volume down (string)
 #global-key-vol-down=
 
 # Volume down (string)
-#key-vol-down=Ctrl+Down
+key-vol-down=j
 
 # Mute (string)
 #global-key-vol-mute=
@@ -4884,13 +4884,13 @@ key-subdelay-up=
 #global-key-audiodelay-up=
 
 # Audio delay up (string)
-#key-audiodelay-up=k
+key-audiodelay-up=
 
 # Audio delay down (string)
 #global-key-audiodelay-down=
 
 # Audio delay down (string)
-#key-audiodelay-down=j
+key-audiodelay-down=
 
 # Cycle audio track (string)
 #global-key-audio-track=
