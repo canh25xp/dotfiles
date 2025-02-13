@@ -4698,13 +4698,13 @@ metadata-network-access=1
 #global-key-jump-extrashort=
 
 # Very short backwards jump (string)
-#key-jump-extrashort=Shift+Left
+key-jump-extrashort=Shift+h
 
 # Very short forward jump (string)
 #global-key-jump+extrashort=
 
 # Very short forward jump (string)
-#key-jump+extrashort=Shift+Right
+key-jump+extrashort=Shift+l
 
 # Short backwards jump (string)
 #global-key-jump-short=
@@ -4848,7 +4848,7 @@ key-subdelay-up=
 #global-key-subsync-markaudio=
 
 # Subtitle sync / bookmark audio timestamp (string)
-#key-subsync-markaudio=Shift+h
+key-subsync-markaudio=
 
 # Subtitle sync / bookmark subtitle timestamp (string)
 #global-key-subsync-marksub=
