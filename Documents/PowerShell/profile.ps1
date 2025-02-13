@@ -84,6 +84,7 @@ $env:Path += "$env:PROGRAMFILES\gdrive;"
 $env:Path += "$env:PROGRAMFILES\NirCmd;"
 $env:Path += "$env:PROGRAMFILES\draw.io;"
 $env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
+$env:Path += "$env:PROGRAMFILES\VideoLAN\VLC;"
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
