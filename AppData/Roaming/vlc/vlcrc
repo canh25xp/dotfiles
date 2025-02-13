@@ -1678,7 +1678,7 @@
 #qt-slider-colours=153;210;153;20;210;20;255;199;15;245;39;29
 
 # Ask for network policy at start (boolean)
-#qt-privacy-ask=1
+qt-privacy-ask=0
 
 # Define which screen fullscreen goes (integer)
 #qt-fullscreen-screennumber=-1
@@ -4572,7 +4572,7 @@
 #preparse-timeout=5000
 
 # Allow metadata network access (boolean)
-#metadata-network-access=0
+metadata-network-access=1
 
 # Subdirectory behavior (string)
 #recursive=collapse
