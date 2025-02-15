@@ -7,7 +7,6 @@ Remove-Item alias:diff -Force
 Remove-Item alias:curl -Force
 Remove-Item alias:ls -Force
 Remove-Item alias:cat -Force
-Remove-Item alias:where -Force
 Remove-Item alias:tee -Force
 
 # Bash like aliases
@@ -16,6 +15,7 @@ Set-Alias -Name ff      -Value Find-File
 Set-Alias -Name grep    -Value Find-String
 Set-Alias -Name df      -Value Get-Volume
 Set-Alias -Name which   -Value Show-Command
+Set-Alias -Name whichwsl -Value Get-WslPath
 Set-Alias -Name ls      -Value Get-ChildItemPretty
 Set-Alias -Name la      -Value Get-ChildItemPrettyAll
 Set-Alias -Name ll      -Value Get-ChildItemPrettyLong
@@ -57,6 +57,21 @@ Set-Alias -Name gvim    -Value neovide
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Get-WslPath {
+  param(
+    [string]$DistributionName
+  )
+
+  $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss"
+  $dist = Get-ChildItem -Path $registryPath | Where-Object { $_.GetValue("DistributionName") -eq $DistributionName }
+
+  if ($dist) {
+    return $dist.GetValue("BasePath") + "\ext4.vhdx"
+  } else {
+    Write-Error "Distribution '$DistributionName' not found."
+  }
+}
 
 Function Open-History() {
   Get-Content (Get-PSReadlineOption).HistorySavePath | less
