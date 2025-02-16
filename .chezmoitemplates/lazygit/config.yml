@@ -2,7 +2,8 @@
 notARepository: skip
 promptToReturnFromSubprocess: true
 git:
-  autoFetch: false
+  autoRefresh: true
+  autoFetch: true
   parseEmoji: true
   paging:
     colorArg: always
