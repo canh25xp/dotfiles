@@ -9,3 +9,4 @@ cargo install git-delta
 cargo install eza
 cargo install tree-sitter-cli
 cargo install spotify-tui
+cargo install --locked yazi-fm yazi-cli
