@@ -2,7 +2,7 @@
 # SHELL ALIASES
 # ==============================================
 
-# unix-like aliases
+# Unix-like aliases
 Set-Alias -Name df -Value Get-Volume
 Set-Alias -Name du -Value Get-DirectorySummary
 Set-Alias -Name ff -Value Find-File
@@ -14,7 +14,6 @@ Set-Alias -Name su -Value Start-AdminSession
 Set-Alias -Name which -Value Show-Command
 Set-Alias -Name whichwsl -Value Get-WslPath
 Set-Alias -Name neofetch -Value winfetch
-
 
 # Funtion aliases
 Set-Alias -Name bhis -Value Search-BrowerHistory
@@ -42,14 +41,16 @@ Set-Alias -Name cdi -Value Set-LocationInteractive
 Set-Alias -Name cz -Value chezmoi
 Set-Alias -Name edit -Value $env:EDITOR
 Set-Alias -Name exp -Value explorer
-Set-Alias -Name g -Value git
 Set-Alias -Name gvim -Value neovide
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
-Set-Alias -Name np -Value notepad
-Set-Alias -Name vi -Value nvim
-Set-Alias -Name vim -Value nvim
-Set-Alias -Name sumatra -Value sumatraPDF
+
+# Char aliases
+Set-Alias -Name n -Value nvim
+Set-Alias -Name e -Value explorer
+Set-Alias -Name g -Value git
+Set-Alias -Name l -Value lazygit
+Set-Alias -Name y -Value yazi
 
 # ==============================================
 # FUNTIONS
@@ -82,7 +83,7 @@ function Open-History () {
   Get-Content (Get-PSReadLineOption).HistorySavePath | less
 }
 
-function Open-Yazi {
+function Set-LocationInteractive {
   $tmp = [System.IO.Path]::GetTempFileName()
   yazi $args --cwd-file="$tmp"
   $cwd = Get-Content -Path $tmp
