@@ -36,7 +36,7 @@ Set-Alias -Name wifi -Value Get-Wifi
 Set-Alias -Name wm -Value Start-Komorebi
 Set-Alias -Name word -Value Open-WinWord
 Set-Alias -Name wtf -Value Get-Command
-Set-Alias -Name y -Value Open-Yazi
+Set-Alias -Name cdi -Value Set-LocationInteractive
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
