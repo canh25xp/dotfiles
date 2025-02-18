@@ -66,8 +66,11 @@ Documents/PowerShell/Modules/cmatrix:
   url: https://github.com/matriex/cmatrix
   refreshPeriod: 0h
 
+{{-   if not .work }}
 .config\komorebi\applications.json:
   type: file
   url: https://github.com/LGUG2Z/komorebi-application-specific-configuration/raw/master/applications.json
   refreshPeriod: 0h
+{{-   end }}
+
 {{- end }}
