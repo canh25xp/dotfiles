@@ -5,7 +5,7 @@
   url: https://github.com/catppuccin/yazi/raw/main/themes/mocha/catppuccin-mocha-blue.toml
   refreshPeriod: 0h
 
-{{ if .android }}
+{{   if .android }}
 .termux/colors.properties:
   type: file
   url: https://github.com/catppuccin/termux/raw/main/themes/catppuccin-mocha.properties
@@ -16,41 +16,48 @@
   url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.tar.xz
   path: CaskaydiaMonoNerdFont-Regular.ttf
   refreshPeriod: 0h
-{{ end }}
+{{   end }}
 
-{{ if .windows }}
+{{   if .windows }}
 Appdata/Roaming/bat/themes/Catppuccin Mocha.tmTheme:
-{{ else }}
+{{   else }}
 .config/bat/themes/Catppuccin Mocha.tmTheme:
-{{ end }}
+{{   end }}
   type: file
   url: https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
   refreshPeriod: 0h
 
-{{ if not .windows }}
+{{   if not .windows }}
 .config/neomutt/catppuccin.neomutt:
   type: file
   url: https://github.com/catppuccin/neomutt/raw/main/neomuttrc
   refreshPeriod: 0h
-{{ end }}
+{{   end }}
 
-{{ if .windows }}
+{{   if .windows }}
 Appdata/Roaming/alacritty/catppuccin-mocha.toml:
-{{ else }}
+{{   else }}
 .config/alacritty/catppuccin-mocha.toml:
-{{ end }}
+{{   end }}
   type: file
   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
   refreshPeriod: 0h
 
-{{ if not .windows }}
+{{   if not .windows }}
 .config/tmux/plugins/tpm:
   type: git-repo
   url: https://github.com/tmux-plugins/tpm
   refreshPeriod: 0h
-{{ end }}
+{{   end }}
 
-{{ end }}
+{{   if .windows }}
+.config\komorebi\applications.json:
+  type: file
+  url: https://github.com/LGUG2Z/komorebi-application-specific-configuration/raw/master/applications.json
+  refreshPeriod: 168h
+{{   end }}
+
+{{ end }} {{/* not .work */}}
 
 {{ if .windows }}
 Appdata/Local/nvim:
@@ -66,12 +73,5 @@ Documents/PowerShell/Modules/cmatrix:
   type: git-repo
   url: https://github.com/matriex/cmatrix
   refreshPeriod: 0h
-
-{{   if not .work }}
-.config\komorebi\applications.json:
-  type: file
-  url: https://github.com/LGUG2Z/komorebi-application-specific-configuration/raw/master/applications.json
-  refreshPeriod: 0h
-{{   end }}
 
 {{ end }}
