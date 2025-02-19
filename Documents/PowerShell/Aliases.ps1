@@ -51,6 +51,7 @@ Set-Alias -Name e -Value explorer
 Set-Alias -Name g -Value git
 Set-Alias -Name l -Value lazygit
 Set-Alias -Name y -Value yazi
+Set-Alias -Name q -Value exit # quit
 
 # ==============================================
 # FUNTIONS
