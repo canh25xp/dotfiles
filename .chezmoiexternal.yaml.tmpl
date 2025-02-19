@@ -14,7 +14,7 @@
 .termux/font.ttf:
   type: archive-file
   url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.tar.xz
-  path: CaskaydiaMonoNerdFont-Regular.ttf
+  path: {{ .nerdfontName }}
   refreshPeriod: 0h
 {{   end }}
 
@@ -55,6 +55,12 @@ Appdata/Roaming/alacritty/catppuccin-mocha.toml:
   type: file
   url: https://github.com/LGUG2Z/komorebi-application-specific-configuration/raw/master/applications.json
   refreshPeriod: 168h
+
+AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
+  type: archive-file
+  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.tar.xz
+  path: {{ .nerdfontName }}
+  refreshPeriod: 0h
 {{   end }}
 
 {{ end }} {{/* not .work */}}
