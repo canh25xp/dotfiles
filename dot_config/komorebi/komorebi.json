@@ -56,5 +56,11 @@
     }
   ],
   "float_override": false,
-  "ignore_rules": []
+  "ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "PhoneExperienceHost.exe",
+      "matching_strategy": "Equals"
+    }
+  ]
 }
