@@ -8,17 +8,14 @@ $profileRoot = $PROFILE | Split-Path
 
 . $profileRoot\PSReadLineProfile.ps1
 
-# Init oh-my-posh outside of neovim
+# Init startship or oh-my-posh
+$has_startship = [bool](Get-Command -Name "starship.exe" -ErrorAction SilentlyContinue)
 $has_oh_my_posh = [bool](Get-Command -Name "oh-my-posh.exe" -ErrorAction SilentlyContinue)
-if (!$Env:NVIM -and $has_oh_my_posh) {
+if ($has_startship) {
+  starship init powershell | Invoke-Expression
+} elseif ($has_oh_my_posh) {
   # Load Oh-my-posh theme https://ohmyposh.dev/docs/themes
   oh-my-posh init powershell --config "~/.config/oh-my-posh/catppuccin.omp.json" | Invoke-Expression
-} else {
-  function Prompt {
-    #$prompt = "$env:USERNAME@$env:COMPUTERNAME "
-    $prompt += "$($executionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
-    $prompt
-  }
 }
 
 # Init zoxide

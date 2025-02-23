@@ -2,6 +2,9 @@
 $env:EDITOR = "nvim"
 $env:PAGER = "less -R"
 
+# Startship
+$env:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
+
 # Perforce
 $env:P4ENVIRO = "$HOME\.config\p4\p4enviro.txt"
 $env:P4ALIASES = "$HOME\.config\p4\p4aliases.txt"
