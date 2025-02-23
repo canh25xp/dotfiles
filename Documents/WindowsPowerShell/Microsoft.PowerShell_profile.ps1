@@ -12,7 +12,7 @@ $profileRoot = $PROFILE | Split-Path
 $has_oh_my_posh = [bool](Get-Command -Name "oh-my-posh.exe" -ErrorAction SilentlyContinue)
 if (!$Env:NVIM -and $has_oh_my_posh) {
   # Load Oh-my-posh theme https://ohmyposh.dev/docs/themes
-  oh-my-posh init pwsh --config "~/.config/oh-my-posh/catppuccin.omp.json" | Invoke-Expression
+  oh-my-posh init powershell --config "~/.config/oh-my-posh/catppuccin.omp.json" | Invoke-Expression
 } else {
   function Prompt {
     #$prompt = "$env:USERNAME@$env:COMPUTERNAME "
