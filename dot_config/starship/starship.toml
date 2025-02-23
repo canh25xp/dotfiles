@@ -2,6 +2,10 @@
 
 add_newline = false
 
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
 [directory]
 truncate_to_repo = false
 
@@ -10,6 +14,3 @@ disabled = true
 
 [container]
 disabled = true
-
-[os]
-disabled = false
