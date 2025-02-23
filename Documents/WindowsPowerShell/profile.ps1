@@ -23,10 +23,6 @@ $env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
 
 # FZF config & theme https://github.com/catppuccin/fzf
 $env:FZF_DEFAULT_OPTS = @"
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
---color=selected-bg:#45475a
 --height=50%
 --multi
 --layout=reverse
