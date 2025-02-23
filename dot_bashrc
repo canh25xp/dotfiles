@@ -128,19 +128,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-if ! [ -n "$NVIM" ]; then
+if command -v starship &>/dev/null; then
+  eval "$(starship init bash)"
+elif command -v oh-my-posh &>/dev/null; then
   eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/catppuccin.omp.json)"
 fi
 
-# if ! [ -n "$TMUX" ]; then
-#   eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/powerline.omp.json)"
-# fi
-
 # zoxide integration
-eval "$(zoxide init bash --cmd j)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash --cmd j)"
+fi
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+fi
 
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=$HOME/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
