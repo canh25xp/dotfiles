@@ -26,6 +26,8 @@ Set-Alias -Name wifi    -Value Get-Wifi
 Set-Alias -Name meme    -Value Show-Meme
 Set-Alias -Name wtf     -Value Get-Command
 Set-Alias -Name path    -Value Get-Path
+Set-Alias -Name syspath -Value Get-SystemPath
+Set-Alias -Name userpath -Value Get-UserPath
 Set-Alias -Name env     -Value Edit-EnvironmentVariables
 Set-Alias -Name doc     -Value Show-Documents
 Set-Alias -Name pro     -Value Open-Profile
@@ -233,6 +235,14 @@ function Open-Profile{
 
 function Get-Path {
     $env:PATH -split ';'
+}
+
+function Get-SystemPath {
+  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine).Split(";")
+}
+
+function Get-UserPath {
+  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User).Split(";")
 }
 
 function Get-Wifi {

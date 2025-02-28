@@ -27,6 +27,8 @@ Set-Alias -Name his -Value Open-History
 Set-Alias -Name huh -Value Search-Command
 Set-Alias -Name meme -Value Show-Meme
 Set-Alias -Name path -Value Get-Path
+Set-Alias -Name syspath -Value Get-SystemPath
+Set-Alias -Name userpath -Value Get-UserPath
 Set-Alias -Name pro -Value Open-Profile
 Set-Alias -Name sci -Value Save-ClipboardImage
 Set-Alias -Name trash -Value Open-RecycleBin
@@ -244,6 +246,14 @@ function Open-Profile {
 
 function Get-Path {
   $env:PATH -split ';'
+}
+
+function Get-SystemPath {
+  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine).Split(";")
+}
+
+function Get-UserPath {
+  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User).Split(";")
 }
 
 function Get-Wifi {
