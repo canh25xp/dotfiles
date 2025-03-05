@@ -29,10 +29,12 @@ $env:FZF_DEFAULT_OPTS = @"
 --info=inline
 "@
 
+$env:PATH += ";"
+
 # SDKs & package managers
 if (Test-Path "$HOME\.cargo") {
   $env:CARGO_HOME = "$HOME\.cargo"
-  $env:Path += ";$env:CARGO_HOME\bin;"
+  $env:Path += "$env:CARGO_HOME\bin;"
 }
 
 if (Test-Path "$HOME\vcpkg") {
