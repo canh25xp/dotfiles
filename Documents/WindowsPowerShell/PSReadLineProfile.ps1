@@ -371,7 +371,7 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
 }
 
 # This example will replace any aliases on the command line with the resolved commands.
-Set-PSReadLineKeyHandler -Key "Alt+%" `
+Set-PSReadLineKeyHandler -Key "Ctrl+/" `
                          -BriefDescription ExpandAliases `
                          -LongDescription "Replace all aliases with the full command" `
                          -ScriptBlock {
