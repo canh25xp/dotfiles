@@ -67,7 +67,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
 Set-PSReadLineKeyHandler -Chord 'Ctrl+k,Ctrl+c' -Function CaptureScreen
 
 # Get help about the current command
-Set-PSReadLineKeyHandler -Chord "Ctrl+h" `
+Set-PSReadLineKeyHandler -Chord "Ctrl+?" `
                          -BriefDescription GetHelp `
                          -LongDescription "Get help about the current command" `
                          -ScriptBlock {
