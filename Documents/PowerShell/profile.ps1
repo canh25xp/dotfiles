@@ -61,6 +61,10 @@ if (Test-Path "$env:PROGRAMFILES\Java\jdk-22") {
   $env:Path += "$env:JAVA_HOME\bin;"
 }
 
+if (Test-Path "$env:PROGRAMFILES\Android\Android Studio") {
+  $env:Path += "$env:PROGRAMFILES\Android\Android Studio\bin;"
+}
+
 if (Test-Path "$env:LOCALAPPDATA\Android\Sdk") {
   $env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"
   $env:Path += "$env:ANDROID_HOME\cmdline-tools\latest\bin;"
