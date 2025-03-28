@@ -55,6 +55,14 @@ Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 # Dynamic help (like F1)
 # Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
+Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
+    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert(" }")
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # Change directory interactively
 Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
