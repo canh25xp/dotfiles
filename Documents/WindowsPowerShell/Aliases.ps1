@@ -42,6 +42,7 @@ Set-Alias -Name unins   -Value Open-Uninstall
 Set-Alias -Name huh     -Value Search-Command
 Set-Alias -Name bhis    -Value Search-BrowerHistory
 Set-Alias -Name his     -Value Open-History
+Set-Alias -Name omni    -Value Open-Anything
 Set-Alias -Name bmark   -Value Search-BrowerBookmarks
 
 # Abbreviated aliases
@@ -59,6 +60,36 @@ Set-Alias -Name gvim    -Value neovide
 # ==============================================
 # FUNTIONS
 # ==============================================
+
+function Open-Anything {
+  param (
+    [string]$id,
+    [switch]$plm,
+    [switch]$cl,
+    [switch]$qb
+  )
+  if ($plm) {
+    $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
+  } elseif ($qb) {
+    $url = "https://android.qb.sec.samsung.net/build/$id"
+  } elseif ($cl) {
+    $url = "https://review1716.sec.samsung.net/changes/$id"
+  } else {
+    if ($id -match '^P\d{6}-\d{5}$') {
+      $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
+    } elseif ($id -match '^\d{8,}$') {
+      $url = "https://android.qb.sec.samsung.net/build/$id"
+    } elseif ($id -match '^\d{8,}$') {
+      $url = "https://review1716.sec.samsung.net/changes/$id"
+    } else {
+      Write-Host "Cannot deduce type from id"
+      return
+    }
+  }
+
+  Write-Output $url
+  Start-Process $url
+}
 
 function Get-WslPath {
   param(
