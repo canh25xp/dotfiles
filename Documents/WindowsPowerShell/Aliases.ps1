@@ -233,7 +233,7 @@ function Start-AdminSession {
     .SYNOPSIS
         Starts a new PowerShell session with elevated rights. Alias: su
     #>
-    Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
+    Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
 }
 
 function Open-Telegram {
