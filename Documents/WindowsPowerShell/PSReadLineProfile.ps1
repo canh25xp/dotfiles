@@ -41,6 +41,8 @@ Set-PSReadLineOption -AddToHistoryHandler {
 # Save history in home directory
 Set-PSReadLineOption -HistorySavePath "$HOME\.pwsh_history.txt"
 
+Set-PSReadLineOption -MaximumHistoryCount 100000
+
 # ==============================================
 # KEY BINDINGS
 # ==============================================
