@@ -35,7 +35,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 ### Init dotfiles
 
 ```sh
-chezmoi init canh25xp
+GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ```
 
 ## Post install
