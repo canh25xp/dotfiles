@@ -233,7 +233,7 @@
             {
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64",
                 "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-                "hidden": false,
+                "hidden": {{ if .work -}} true {{- else -}} false {{- end }},
                 "icon": "C:/msys64/ucrt64.ico",
                 "name": "UCRT64 / MSYS2",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
@@ -241,7 +241,7 @@
             {
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys",
                 "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
-                "hidden": false,
+                "hidden": {{ if .work -}} true {{- else -}} false {{- end }},
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS / MSYS2",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
