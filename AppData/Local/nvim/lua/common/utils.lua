@@ -120,11 +120,9 @@ function M.reload_config()
   vim.notify("Nvim configuration reloaded", vim.log.levels.INFO)
 end
 
-function M.diagnostic_goto(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
+function M.diagnostic_goto(count, severity)
   return function()
-    go({ severity = severity })
+    vim.diagnostic.jump({ count = count, severity = severity, wrap = false, float = true })
   end
 end
 
@@ -356,15 +354,6 @@ end
 function M.run_shell_script()
   local script = vim.fn.expand("%:p")
   require("toggleterm").exec(script)
-end
-
--- Change border of documentation hover window
--- github.com/neovim/neovim/pull/13998.
---- @param border string
-function M.set_lsp_border(border)
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
-  require("lspconfig.ui.windows").default_options.border = border
 end
 
 function M.signcolumn_single_sign()
