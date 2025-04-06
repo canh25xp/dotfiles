@@ -61,6 +61,10 @@ return {
     map("n", "<leader>s.", builtin.oldfiles, { desc = "Search Recent Files" })
     map("n", "<leader><leader>", builtin.find_files, { desc = "Find Files" })
 
+    map("n", "<leader>sa", function()
+      builtin.find_files({ hidden = true, no_ignore = true})
+    end, { desc = "Find All" })
+
     -- Slightly advanced example of overriding default behavior and theme
     map("n", "<leader>sz", function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
