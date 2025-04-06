@@ -47,9 +47,7 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   exit 0
 fi
 
-# Install packages
-sudo apt-get update
-sudo apt-get install "${packages[@]}"
+sudo apt-get install "${packages[@]}" -y
 
 mkdir -p ~/.local/bin/
 
