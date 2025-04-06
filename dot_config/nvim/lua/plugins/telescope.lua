@@ -14,32 +14,31 @@ return {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font, version = false },
   },
-  opts = {
-    defaults = {
-      sorting_strategy = "ascending",
-      layout_config = {
-        prompt_position = "top",
-      },
-      mappings = {
-        i = {
-          ["<c-enter>"] = "to_fuzzy_refine",
-          ["<C-j>"] = require("telescope.actions").cycle_history_next,
-          ["<C-k>"] = require("telescope.actions").cycle_history_prev,
-        },
-      },
-    },
-    pickers = {},
-    extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_cursor(),
-      },
-    },
-  },
-  config = function(_, opts)
+  config = function()
     -- Shows all keymaps for the current Telescope picker.
     -- Insert mode: <c-/>
     -- Normal mode: ?
-    require("telescope").setup(opts)
+    require("telescope").setup({
+      defaults = {
+        sorting_strategy = "ascending",
+        layout_config = {
+          prompt_position = "top",
+        },
+        mappings = {
+          i = {
+            ["<c-enter>"] = "to_fuzzy_refine",
+            ["<C-j>"] = require("telescope.actions").cycle_history_next,
+            ["<C-k>"] = require("telescope.actions").cycle_history_prev,
+          },
+        },
+      },
+      pickers = {},
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_cursor(),
+        },
+      },
+    })
 
     -- Enable Telescope extensions if they are installed
     pcall(require("telescope").load_extension, "fzf")
