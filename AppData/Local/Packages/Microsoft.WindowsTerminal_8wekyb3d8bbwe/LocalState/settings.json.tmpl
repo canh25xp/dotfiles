@@ -4,12 +4,20 @@
     "actions": [],
     "centerOnLaunch": true,
     "confirmCloseAllTabs": false,
-    "initialRows": 40,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": {{ if .work -}} "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}" {{- else -}} "{574e775e-4f2a-5b96-ac1e-a2962a402336}" {{- end }},
     "disableAnimations": false,
+    "initialRows": 40,
     "keybindings": [
+        {
+            "id": null,
+            "keys": "alt+right"
+        },
+        {
+            "id": null,
+            "keys": "alt+up"
+        },
         {
             "id": "Terminal.ToggleFocusMode",
             "keys": "ctrl+shift+z"
@@ -21,14 +29,6 @@
         {
             "id": "Terminal.FindText",
             "keys": "ctrl+shift+f"
-        },
-        {
-            "id": null,
-            "keys": "alt+up"
-        },
-        {
-            "id": null,
-            "keys": "alt+right"
         },
         {
             "id": "Terminal.ScrollUp",
@@ -47,24 +47,24 @@
             "keys": "alt+left"
         },
         {
-            "id": "Terminal.MoveFocusUp",
-            "keys": "ctrl+alt+k"
+            "id": null,
+            "keys": "alt+down"
         },
         {
             "id": "Terminal.MoveFocusRight",
             "keys": "ctrl+alt+l"
         },
         {
-            "id": null,
-            "keys": "alt+down"
-        },
-        {
-            "id": "Terminal.ToggleSplitOrientation",
-            "keys": "ctrl+alt+shift+\\"
+            "id": "Terminal.MoveFocusUp",
+            "keys": "ctrl+alt+k"
         },
         {
             "id": "Terminal.ResizePaneRight",
             "keys": "ctrl+shift+plus"
+        },
+        {
+            "id": "Terminal.ToggleSplitOrientation",
+            "keys": "ctrl+alt+shift+\\"
         },
         {
             "id": "Terminal.ResizePaneUp",
@@ -91,24 +91,24 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "id": "Terminal.ScrollDownPage",
-            "keys": "ctrl+shift+pgdn"
-        },
-        {
             "id": "Terminal.ScrollUpPage",
             "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": "Terminal.ScrollDownPage",
+            "keys": "ctrl+shift+pgdn"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "ctrl+shift+\\"
         },
         {
-            "id": "Terminal.OpenDefaultSettingsFile",
-            "keys": "ctrl+alt+shift+comma"
-        },
-        {
             "id": "Terminal.TogglePaneZoom",
             "keys": "ctrl+shift+enter"
+        },
+        {
+            "id": "Terminal.OpenDefaultSettingsFile",
+            "keys": "ctrl+alt+shift+comma"
         },
         {
             "id": "Terminal.ClearBuffer",
