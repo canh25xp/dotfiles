@@ -66,15 +66,6 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
 {{ end }} {{/* not .work */}}
 
 {{ if .windows }}
-Appdata/Local/nvim:
-{{ else }}
-.config/nvim:
-{{ end }}
-  type: git-repo
-  url: https://github.com/canh25xp/kickstart.nvim
-  refreshPeriod: 0h
-
-{{ if .windows }}
 Documents/PowerShell/Modules/cmatrix:
   type: git-repo
   url: https://github.com/matriex/cmatrix
