@@ -201,13 +201,14 @@ return {
         end
 
         -- stylua: ignore start
+        map("n", "K", function() lsp.buf.hover({ border = "rounded" }) end, "Goto Definition")
         map("n", "gd", function() lsp.buf.definition({ reuse_win = true }) end, "Goto Definition")
         map("n", "gD", function() lsp.buf.declaration({ reuse_win = true }) end, "Goto Declaration")
         map("n", "gI", function() lsp.buf.implementation({ reuse_win = true }) end, "Goto Implementation")
         map("n", "gY", function() lsp.buf.type_definition({ reuse_win = true }) end, "Goto Type Definition")
         map("n", "gr", function() lsp.buf.references() end, "Goto References")
-        map("n", "gs", function() lsp.buf.signature_help() end, "Signature help")
-        map("i", "<C-k>", function() lsp.buf.signature_help() end, "Signature help")
+        map("n", "gs", function() lsp.buf.signature_help({ border = "rounded" }) end, "Signature help")
+        map("i", "<C-s>", function() lsp.buf.signature_help({ border = "rounded" }) end, "Signature help")
         map("n", "<leader>cr", function() lsp.buf.rename() end, "Rename")
         map("n", "<leader>ca", function() lsp.buf.code_action() end, "Code Action")
         -- stylua: ignore end
@@ -292,7 +293,6 @@ return {
         }
       end
 
-      utils.set_lsp_border("rounded")
       utils.signcolumn_single_sign()
 
       for server, config in pairs(opts.servers) do
