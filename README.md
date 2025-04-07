@@ -4,33 +4,42 @@
 
 ## Installation
 
-### Install chezmoi
-
-#### Using pkg (termux)
+### Debian & Ubuntu
 
 ```sh
-pkg install chezmoi
+sudo apt install git curl
+curl -LO https://github.com/twpayne/chezmoi/releases/download/latest/chezmoi_2.62.0_linux_amd64.deb
+dpkg -i chezmoi_2.62.0_linux_amd64.deb
+rm chezmoi_2.62.0_linux_amd64.deb
 ```
 
-#### Using snap (linux)
+or using **snap**:
 
 ```sh
 sudo apt install snapd
 sudo snap install chezmoi --classic
 ```
 
-#### Using winget (windows)
+### Windows
 
 ```pwsh
 winget install chezmoi
 ```
 
-#### Using curl
+### Termux (android)
 
 ```sh
-apt install curl
+pkg install chezmoi
+```
+
+### One-line installer
+
+```sh
+sudo apt install curl
 sh -c "$(curl -fsLS get.chezmoi.io)"
 ```
+
+## Post installation
 
 ### Init dotfiles
 
@@ -38,32 +47,10 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ```
 
-## Post install
-
 ### Login to gh
 
 ```sh
 gh auth login
-```
-
-### Create Newuser
-
-```sh
-useradd -m <username>
-passwd <username>
-usermod -aG sudo <username>
-su - <username>
-chsh -s /bin/bash
-```
-
-a simpler way :
-
-```sh
-# As root:
-apt install adduser sudo
-sudo adduser username
-sudo usermod -aG sudo username
-su - username
 ```
 
 ### Build Bat theme
@@ -124,6 +111,28 @@ sudo dpkg-reconfigure locales
 ```
 
 ## FAQ
+
+### Add new user
+
+To create new user with password and sudo privilege then change default shell to bash:
+
+```sh
+apt update && apt upgrade && apt install sudo
+useradd -m username
+passwd username
+usermod -aG sudo username
+usermod --shell /bin/bash username
+su - username
+```
+
+A simpler way:
+
+```sh
+apt update && apt upgrade && apt install adduser sudo
+adduser username
+usermod -aG sudo username
+su - username
+```
 
 ### To clear the state of run*onchange* scripts, run:
 
