@@ -134,6 +134,12 @@ usermod -aG sudo username
 su - username
 ```
 
+### WSL set default user
+
+```sh
+echo -e "[user]\ndefault=user" | sudo tee /etc/wsl.conf > /dev/null
+```
+
 ### To clear the state of run*onchange* scripts, run:
 
 ```sh
