@@ -9,7 +9,7 @@
 {{- $hostname := .chezmoi.hostname -}}
 {{- if ($hostname | lower | contains "vancanh-ng") -}}
 {{-   $work = true -}}
-{{- else if ($hostname | lower | contains "lenovo") -}}
+{{- else if or ($hostname | lower | contains "lenovo") ($hostname | lower | contains "desktop") -}}
 {{-   $personal = true -}}
 {{- end -}}
 
