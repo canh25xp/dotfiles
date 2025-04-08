@@ -1,15 +1,16 @@
-{{ if .windows -}}
+{{ if and .windows .personal -}}
 Write-Host "================================================================================"
-Write-Host "[Chezmoi] Install base winget packages"
+Write-Host "[Chezmoi] Install winget packages"
 
 $confirmation = Read-Host "Do you want to install winget packages? (Y/n)"
 
 if ($confirmation -eq 'n') {
-    Write-Host "Skip winget packages"
+    Write-Host "exit"
     exit
 }
 
-$sourcePath = chezmoi source-path
+echo "Need administrator privilege, expecting a prompt"
 
-sudo winget import -i $sourcePath/scripts/winget_packages.json --no-upgrade --disable-interactivity
+Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe &{ winget import {{ .chezmoi.sourceDir }}/scripts/winget_packages.json --no-upgrade --disable-interactivity }"
+
 {{ end -}}
