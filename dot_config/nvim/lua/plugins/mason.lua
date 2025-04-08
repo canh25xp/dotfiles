@@ -44,7 +44,7 @@ return {
     local registry = require("mason-registry")
     local installed_package = registry.get_installed_package_names()
 
-    if #installed_package == #ensure_installed then
+    if #installed_package > 0 then
       return
     end
 
