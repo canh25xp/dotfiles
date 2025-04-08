@@ -12,6 +12,7 @@ c = commit
 d = diff -du
 l = log -u $(P4USER)
 w = workspaces -u $(P4USER)
+cl = changes -c $(P4CLIENT) -u $(P4USER)
 
 # utils
 du = sizes -s -H //$(P4CLIENT)/...
