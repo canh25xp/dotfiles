@@ -1,6 +1,3 @@
-# ==============================================
-# SHELL ALIASES
-# ==============================================
 
 # Unix-like aliases
 Set-Alias -Name df -Value Get-Volume
@@ -13,12 +10,11 @@ Set-Alias -Name ls -Value Get-ChildItemPretty
 Set-Alias -Name su -Value Start-AdminSession
 Set-Alias -Name which -Value Show-Command
 Set-Alias -Name whichwsl -Value Get-WslPath
-Set-Alias -Name neofetch -Value winfetch
 
 # Funtion aliases
 Set-Alias -Name bhis -Value Search-BrowerHistory
 Set-Alias -Name bmark -Value Search-BrowerBookmarks
-Set-Alias -Name cdi -Value Open-ListFile
+Set-Alias -Name cdi -Value Set-LocationInteractive
 Set-Alias -Name cfg -Value Edit-Config
 Set-Alias -Name cze -Value Edit-Chezmoi
 Set-Alias -Name doc -Value Show-Documents
@@ -26,38 +22,58 @@ Set-Alias -Name env -Value Edit-EnvironmentVariables
 Set-Alias -Name his -Value Open-History
 Set-Alias -Name huh -Value Search-Command
 Set-Alias -Name meme -Value Show-Meme
+Set-Alias -Name omni -Value Open-Anything
 Set-Alias -Name path -Value Get-Path
-Set-Alias -Name syspath -Value Get-SystemPath
-Set-Alias -Name userpath -Value Get-UserPath
 Set-Alias -Name pro -Value Open-Profile
 Set-Alias -Name sci -Value Save-ClipboardImage
+Set-Alias -Name syspath -Value Get-SystemPath
 Set-Alias -Name trash -Value Open-RecycleBin
 Set-Alias -Name unins -Value Open-Uninstall
+Set-Alias -Name userpath -Value Get-UserPath
 Set-Alias -Name wifi -Value Get-Wifi
 Set-Alias -Name wm -Value Start-Komorebi
 Set-Alias -Name word -Value Open-WinWord
 Set-Alias -Name wtf -Value Get-Command
-Set-Alias -Name cdi -Value Set-LocationInteractive
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
 Set-Alias -Name edit -Value $env:EDITOR
 Set-Alias -Name exp -Value explorer
 Set-Alias -Name gvim -Value neovide
+Set-Alias -Name g -Value git
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
-
-# Char aliases
-Set-Alias -Name n -Value nvim
-Set-Alias -Name e -Value explorer
-Set-Alias -Name g -Value git
-Set-Alias -Name l -Value lazygit
 Set-Alias -Name y -Value yazi
-Set-Alias -Name q -Value exit # quit
 
-# ==============================================
-# FUNTIONS
-# ==============================================
+function Open-Anything {
+  param(
+    [string]$id,
+    [switch]$plm,
+    [switch]$cl,
+    [switch]$qb
+  )
+  if ($plm) {
+    $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
+  } elseif ($qb) {
+    $url = "https://android.qb.sec.samsung.net/build/$id"
+  } elseif ($cl) {
+    $url = "https://review1716.sec.samsung.net/changes/$id"
+  } else {
+    if ($id -match '^P\d{6}-\d{5}$') {
+      $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
+    } elseif ($id -match '^\d{8,}$') {
+      $url = "https://android.qb.sec.samsung.net/build/$id"
+    } elseif ($id -match '^\d{8,}$') {
+      $url = "https://review1716.sec.samsung.net/changes/$id"
+    } else {
+      Write-Host "Cannot deduce type from id"
+      return
+    }
+  }
+
+  Write-Output $url
+  Start-Process $url
+}
 
 function Get-WslPath {
   param(
@@ -208,20 +224,8 @@ function Start-Komorebi {
   }
 }
 
-function Start-AdminSession {
-<#
-    .SYNOPSIS
-        Starts a new PowerShell session with elevated rights. Alias: su
-    #>
-  Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
-}
-
 function Open-Telegram {
   & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
-}
-
-function Open-ListFile {
-  lf -print-last-dir $args | Set-Location
 }
 
 function Open-WinWord () {
@@ -249,11 +253,11 @@ function Get-Path {
 }
 
 function Get-SystemPath {
-  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine).Split(";")
+  [Environment]::GetEnvironmentVariable("PATH",[System.EnvironmentVariableTarget]::Machine).Split(";")
 }
 
 function Get-UserPath {
-  [Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User).Split(";")
+  [Environment]::GetEnvironmentVariable("PATH",[System.EnvironmentVariableTarget]::User).Split(";")
 }
 
 function Get-Wifi {

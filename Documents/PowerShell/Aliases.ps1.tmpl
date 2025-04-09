@@ -1,0 +1,15 @@
+# ==============================================
+# SHELL ALIASES
+# ==============================================
+
+# Remove / Overide aliases
+Remove-Item alias:diff -Force
+Remove-Item alias:cat -Force
+Remove-Item alias:tee -Force
+
+{{- template "pwsh/Aliases.ps1" . -}}
+
+function Start-AdminSession {
+  Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
+}
+
