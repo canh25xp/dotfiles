@@ -21,6 +21,11 @@ export FZF_DEFAULT_OPTS='
 export FIGNORE=".dll:.DLL"
 {{ end -}}
 
+export ANDROID_HOME="$HOME/android"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/build-tools/35.0.0"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
 # export PATH="$PATH:$VCPKG_ROOT"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
