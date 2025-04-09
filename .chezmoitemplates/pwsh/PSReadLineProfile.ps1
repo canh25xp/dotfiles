@@ -57,6 +57,14 @@ Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 # Dynamic help (like F1)
 Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
+Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
+    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert(" }")
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # start whkd
 Set-PSReadLineKeyHandler -Chord Alt+W -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
@@ -408,23 +416,5 @@ Set-PSReadLineKeyHandler -Key "Ctrl+/" `
                 }
             }
         }
-    }
-}
-
-# Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line
-Set-PSReadLineKeyHandler -Key RightArrow `
-                         -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
-                         -LongDescription "Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line" `
-                         -ScriptBlock {
-    param($key, $arg)
-
-    $line = $null
-    $cursor = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
-
-    if ($cursor -lt $line.Length) {
-        [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
-    } else {
-        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptNextSuggestionWord($key, $arg)
     }
 }
