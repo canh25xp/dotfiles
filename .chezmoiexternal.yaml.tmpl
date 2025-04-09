@@ -43,20 +43,6 @@ Appdata/Roaming/alacritty/catppuccin-mocha.toml:
   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
   refreshPeriod: 0h
 
-{{   if not .windows }}
-.config/tmux/plugins/catppuccin:
-  type: archive
-  exact: true
-  stripComponents: 1
-  url: https://github.com/catppuccin/tmux/archive/refs/tags/v2.1.3.zip
-  refreshPeriod: 0h
-
-.config/tmux/plugins/tmux-resurrect:
-  type: git-repo
-  url: https://github.com/tmux-plugins/tmux-resurrect
-  refreshPeriod: 0h
-{{   end }}
-
 {{   if .windows }}
 .config\komorebi\applications.json:
   type: file
@@ -71,6 +57,21 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
 {{   end }}
 
 {{ end }} {{/* not .work */}}
+
+{{ if .linux }}
+.config/tmux/plugins/catppuccin:
+  type: archive
+  exact: true
+  stripComponents: 1
+  url: https://github.com/catppuccin/tmux/archive/refs/tags/v2.1.3.zip
+  refreshPeriod: 0h
+
+.config/tmux/plugins/tmux-resurrect:
+  type: git-repo
+  url: https://github.com/tmux-plugins/tmux-resurrect
+  refreshPeriod: 0h
+{{ end }}
+
 
 {{ if .windows }}
 Documents/PowerShell/Modules/cmatrix:
