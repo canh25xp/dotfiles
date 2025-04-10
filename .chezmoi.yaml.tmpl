@@ -51,7 +51,7 @@ git:
   autoPush: false
 
 diff:
-{{- if $work }}
+{{- if and $work $windows }}
   pager: "cat"
 {{- else }}
   pager: "delta"
