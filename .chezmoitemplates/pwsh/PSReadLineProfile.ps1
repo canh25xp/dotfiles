@@ -54,9 +54,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardDeleteWord
 # Kill whole line
 Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
 
-# Dynamic help (like F1)
-Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
-
 Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
