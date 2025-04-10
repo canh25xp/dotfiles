@@ -199,7 +199,7 @@ function Edit-Config {
   # Use fzf to allow the user to select a file interactively
   $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query
   if ($selectedFile) {
-    & $env:EDITOR $selectedFile
+    & chezmoi edit --apply --watch $selectedFile
   }
 }
 
