@@ -59,9 +59,8 @@ return {
     map("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
     map("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
     map("n", "<leader>s.", builtin.oldfiles, { desc = "Search Recent Files" })
-    map("n", "<leader><leader>", builtin.find_files, { desc = "Find Files" })
 
-    map("n", "<leader>sa", function()
+    map("n", "<leader><leader>", function()
       builtin.find_files({ hidden = true, no_ignore = true})
     end, { desc = "Find All" })
 
