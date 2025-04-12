@@ -197,9 +197,9 @@ function Edit-Config {
   $chezmoiFiles = chezmoi managed -p absolute -i files
 
   # Use fzf to allow the user to select a file interactively
-  $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query
+  $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
   if ($selectedFile) {
-    & chezmoi edit --apply --watch $selectedFile
+    & $env:EDITOR $selectedFile
   }
 }
 
@@ -208,9 +208,9 @@ function Edit-Chezmoi {
   $chezmoiFiles = chezmoi managed -p source-absolute -i files
 
   # Use fzf to allow the user to select a file interactively
-  $selectedFile = $chezmoiFiles | fzf --preview="bat --color=always {}"
+  $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
   if ($selectedFile) {
-    & $env:EDITOR $selectedFile
+    & chezmoi edit --apply --watch $selectedFile
   }
 }
 
