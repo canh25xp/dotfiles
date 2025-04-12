@@ -8,7 +8,7 @@
 
 ```sh
 sudo apt install git curl
-curl -LO https://github.com/twpayne/chezmoi/releases/download/latest/chezmoi_2.62.0_linux_amd64.deb
+curl -LO https://github.com/twpayne/chezmoi/releases/v2.62.0/latest/chezmoi_2.62.0_linux_amd64.deb
 dpkg -i chezmoi_2.62.0_linux_amd64.deb
 rm chezmoi_2.62.0_linux_amd64.deb
 ```
