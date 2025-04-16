@@ -51,11 +51,10 @@ git:
   autoPush: false
 
 diff:
-{{- if and $work $windows }}
-  pager: "cat"
-{{- else }}
+{{- if lookPath "delta" }}
   pager: "delta"
-  command: "delta"
+{{- else if lookPath "cat"}}
+  pager: "cat"
 {{- end }}
   reverse: false
 
