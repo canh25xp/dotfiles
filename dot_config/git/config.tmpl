@@ -29,7 +29,7 @@
 
 [core]
   autocrlf = {{ if .windows -}} true {{- else -}} false {{- end }}
-{{- if not .work }}
+{{- if lookPath "delta" }}
   pager = delta
 {{- end }}
   editor = nvim
@@ -46,12 +46,10 @@
 [diff]
   colorMoved = default
 
-{{- if not .work }}
+{{ if lookPath "delta" -}}
 [interactive]
   diffFilter = delta --color-only
-{{- end }}
 
-{{- if not .work }}
 [delta]
   features = decorations
   line-numbers = true
@@ -59,7 +57,8 @@
   side-by-side = true
   hyperlinks = false
   hyperlinks-file-link-format = "vscode://file/{path}:{line}"
-{{- end }}
+
+{{ end -}}
 
 [merge]
   tool = nvimdiff
