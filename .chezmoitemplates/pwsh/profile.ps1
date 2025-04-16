@@ -6,9 +6,9 @@ $env:PAGER = "less -R"
 $env:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
 
 # Perforce
-$env:P4ENVIRO = "$HOME\.config\p4\p4enviro.txt"
-$env:P4ALIASES = "$HOME\.config\p4\p4aliases.txt"
-$env:P4TICKETS = "$HOME\.p4tickets.txt"
+$env:P4ENVIRO = "$HOME\.config\p4\p4enviro"
+$env:P4ALIASES = "$HOME\.config\p4\p4aliases"
+$env:P4TICKETS = "$HOME\.p4tickets"
 
 # Komorebi & whkd
 $env:KOMOREBI_CONFIG_HOME = "$HOME\.config\komorebi"
