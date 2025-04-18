@@ -205,7 +205,7 @@ function Edit-Config {
 
 function Edit-Chezmoi {
   # Get the list of files managed by chezmoi
-  $chezmoiFiles = chezmoi managed -p source-absolute -i files
+  $chezmoiFiles = chezmoi managed -p absolute -i files
 
   # Use fzf to allow the user to select a file interactively
   $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
