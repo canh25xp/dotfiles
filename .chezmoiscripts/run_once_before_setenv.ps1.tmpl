@@ -12,4 +12,8 @@ if ($wslenv) {
 	[Environment]::SetEnvironmentVariable("WSLENV", "USERPROFILE/p:LOCALAPPDATA/p", [System.EnvironmentVariableTarget]::User)
 	Write-Output "set WSLENV successfully"
 }
+
+[Environment]::SetEnvironmentVariable("POWERSHELL_UPDATECHECK", "Off", [System.EnvironmentVariableTarget]::User)
+Write-Output "set POWERSHELL_UPDATECHECK successfully"
+
 {{ end -}}
