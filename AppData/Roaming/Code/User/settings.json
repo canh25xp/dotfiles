@@ -189,4 +189,5 @@
     "codegrok.settings.customBrowser": "system-default",
     "codegrok.settings.numSearchHistory": 15,
     "editor.find.loop": false,
+    "perforce.fileShelveMode": "keep both",
 }
