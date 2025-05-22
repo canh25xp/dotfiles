@@ -168,6 +168,14 @@ sudo apt -y install libasound2t64 # provide libasound2
 
 ### SSH
 
+on the local machine:
+
 ```sh
 git remote add ssh ssh://u0_a353@localhost:8022/~/.local/share/chezmoi
+```
+
+on the ssh:
+
+```sh
+git config receive.denyCurrentBranch updateInstead
 ```
