@@ -17,6 +17,7 @@
         { "PackageIdentifier": "Microsoft.Edge" },
         { "PackageIdentifier": "Microsoft.OneDrive" },
         { "PackageIdentifier": "Spotify.Spotify" },
+        { "PackageIdentifier": "qBittorrent.qBittorrent" },
         { "PackageIdentifier": "Discord.Discord" },
         { "PackageIdentifier": "Valve.Steam" },
         { "PackageIdentifier": "EpicGames.EpicGamesLauncher" },
