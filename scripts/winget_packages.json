@@ -24,7 +24,8 @@
         { "PackageIdentifier": "BurntSushi.ripgrep.MSVC", "Version": "14.1.1" },
         { "PackageIdentifier": "LGUG2Z.komorebi", "Version": "0.1.35" },
         { "PackageIdentifier": "LGUG2Z.whkd", "Version": "0.2.7" },
-        { "PackageIdentifier": "Kitware.CMake", "Version": "3.31.6" }
+        { "PackageIdentifier": "Kitware.CMake", "Version": "3.31.6" },
+        { "PackageIdentifier": "jftuga.less", "Version": "678" }
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
