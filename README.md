@@ -76,13 +76,17 @@ sudo apt install ttf-mscorefonts-installer
 fc-list | grep "Times_New_Roman"
 ```
 
-### Install tree-sitter
+### Install mingw64 packges
 
-Install visual studio and c++ build tools, open "Developer Powershell for vVsual Studio 2022"
+First open mingw64 shell: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64`
 
 ```sh
-cargo install tree-sitter-cli
+pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-tree-sitter
+pacman -S mingw-w64-x86_64-ninja
 ```
+
+Add `C:/msys64/mingw64/bin` to your PATH environment variable
 
 ## Troubleshooting
 
