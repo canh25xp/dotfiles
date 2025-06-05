@@ -8,6 +8,7 @@
         { "PackageIdentifier": "Microsoft.PowerShell", "Version": "7.5.0.0" },
         { "PackageIdentifier": "Git.Git", "Version": "2.49.0" },
         { "PackageIdentifier": "GitHub.cli", "Version": "2.69.0" },
+        { "PackageIdentifier": "MSYS2.MSYS2 ", "Version": "20250221" },
         { "PackageIdentifier": "twpayne.chezmoi", "Version": "2.61.0" },
         { "PackageIdentifier": "Neovim.Neovim", "Version": "0.10.4" },
         { "PackageIdentifier": "Starship.Starship", "Version": "1.22.1" },
