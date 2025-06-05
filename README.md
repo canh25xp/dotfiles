@@ -84,10 +84,6 @@ Install visual studio and c++ build tools, open "Developer Powershell for vVsual
 cargo install tree-sitter-cli
 ```
 
-### Install TMU packages
-
-`C-a I`
-
 ## Troubleshooting
 
 ### Git command returns fatal error: "detected dubious ownership"
