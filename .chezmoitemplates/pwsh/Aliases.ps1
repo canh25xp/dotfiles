@@ -45,6 +45,11 @@ Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
 
+function Get-ClipboardFiles {
+    Add-Type -AssemblyName System.Windows.Forms
+    [Windows.Forms.Clipboard]::GetFileDropList() | ForEach-Object { Copy-Item $_ . }
+}
+
 function Open-Anything {
   param(
     [string]$id,
