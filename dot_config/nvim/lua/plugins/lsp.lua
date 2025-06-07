@@ -92,7 +92,9 @@ return {
             end
           end,
         },
-        neocmake = {},
+        neocmake = {
+          executable = "neocmakelsp"
+        },
         pyright = {
           settings = {
             pyright = {
