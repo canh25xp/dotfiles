@@ -83,6 +83,8 @@ First open mingw64 shell: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -m
 ```sh
 pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-x86_64-tree-sitter
+pacman -S mingw-w64-x86_64-cmake
+pacman -S mingw-w64-x86_64-neocmakelsp
 pacman -S mingw-w64-x86_64-ninja
 ```
 
