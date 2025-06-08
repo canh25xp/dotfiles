@@ -15,7 +15,7 @@
         { "PackageIdentifier": "ajeetdsouza.zoxide", "Version": "0.9.7" },
         { "PackageIdentifier": "eza-community.eza", "Version": "0.21.0" },
         { "PackageIdentifier": "dandavison.delta", "Version": "0.18.2" },
-        { "PackageIdentifier": "sxyazi.yazi", "Version": "25.3.2" },
+        { "PackageIdentifier": "sxyazi.yazi", "Version": "25.5.31" },
         { "PackageIdentifier": "JesseDuffield.lazygit", "Version": "0.48.0" },
         { "PackageIdentifier": "junegunn.fzf", "Version": "0.61.0" },
         { "PackageIdentifier": "sharkdp.bat", "Version": "0.25.0" },

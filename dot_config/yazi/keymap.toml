@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
   { on = "<C-a>", run = 'toggle_all --state=on', desc = "Select all" },
   { on = "?", run = 'help', desc = "Open help" },
