@@ -13,3 +13,20 @@ Host phone
     User u0_a453
     Port 8022
     IdentityFile ~/.ssh/id_ecdsa
+
+HOST tablet
+  HostName localhost
+  User u0_a353
+  Port 8022
+  IdentityFile ~/.ssh/id_rsa
+
+Host github.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa_gh
+
+Host gitlab.com
+  HostName gitlab.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa_gl
+
