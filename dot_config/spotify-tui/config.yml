@@ -11,7 +11,7 @@ theme:
   active: "203, 166, 247" # current playing song in list
   banner: "148, 226, 213" # the "spotify-tui" banner on launch
   hovered: "245, 194, 231" # hovered pane border
-  selected: "180, 190, 254" # a) selected pane border, b) hovered item in list, & c) track title in player
+  selected: "180, 254, 180" # a) selected pane border, b) hovered item in list, & c) track title in player
   header: "180, 190, 254" # header text in panes (e.g. 'Title', 'Artist', etc.)
 
 behavior:
