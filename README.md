@@ -181,3 +181,7 @@ on the ssh:
 ```sh
 git config receive.denyCurrentBranch updateInstead
 ```
+
+### Perforce
+
+> https://help.perforce.com/helix-core/extras/packages/perforce-packages.html
