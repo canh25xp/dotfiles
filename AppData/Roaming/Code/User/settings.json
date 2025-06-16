@@ -190,4 +190,5 @@
     "codegrok.settings.numSearchHistory": 15,
     "editor.find.loop": false,
     "perforce.fileShelveMode": "keep both",
+    "code-i.chatResponseLanguage": "English in priority",
 }
