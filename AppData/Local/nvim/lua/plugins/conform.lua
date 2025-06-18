@@ -53,7 +53,7 @@ return {
     },
     formatters = {
       pwsh_formatter = {
-        command = "pwsh",
+        command = vim.o.shell,
         args = {
           "-NoProfile",
           "-Command",
