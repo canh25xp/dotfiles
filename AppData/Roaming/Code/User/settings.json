@@ -54,11 +54,9 @@
         },
     },
     "terminal.integrated.commandsToSkipShell": [
-        "workbench.action.toggleSidebarVisibility",
-        "-workbench.action.closeWindow",
-        "-workbench.action.quickOpenView",
-        "-workbench.action.focusActiveEditorGroup",
-        "-workbench.explorer.fileView.focus"
+        "workbench.action.toggleSidebarVisibility", // ctrl+b
+        "-workbench.action.closeWindow", // ctrl + shift + w
+        "-workbench.action.quickOpen", // ctrl + p
     ],
     "explorer.incrementalNaming": "smart",
     "explorer.autoReveal": false,
