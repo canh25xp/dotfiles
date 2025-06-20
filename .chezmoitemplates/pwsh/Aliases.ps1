@@ -428,6 +428,7 @@ function Move-ToRecycleBin {
     )
 
     begin {
+        Add-Type -AssemblyName Microsoft.VisualBasic
         $FileSystem = New-Object -TypeName 'Microsoft.VisualBasic.FileIO.FileSystem'
         Write-Verbose -Message "Starting [$($MyInvocation.MyCommand)]"
     }
