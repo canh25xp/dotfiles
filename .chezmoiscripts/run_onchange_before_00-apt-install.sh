@@ -21,6 +21,7 @@ packages=(
   golang
   hexyl
   htop
+  lazygit
   lolcat
   luarocks
   man-db
