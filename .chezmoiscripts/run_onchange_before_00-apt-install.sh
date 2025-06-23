@@ -86,19 +86,3 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 fi
 
 sudo apt-get install "${selected_packages[@]}" -y
-
-mkdir -p ~/.local/bin/
-
-if ! command -v fd &> /dev/null; then
-  if command -v fdfind &>/dev/null; then
-    echo "Creating symlinks fdfind -> fd"
-    ln -s $(which fdfind) ~/.local/bin/fd
-  fi
-fi
-
-if ! command -v bat &> /dev/null; then
-  if command -v batcat &>/dev/null; then
-    echo "Creating symlinks batcat -> bat"
-    ln -s $(which batcat) ~/.local/bin/bat
-  fi
-fi
