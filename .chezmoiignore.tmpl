@@ -21,6 +21,11 @@ Pictures/
 Pictures/
 {{ end }}
 
+
+{{ if .linux}}
+.chezmoiscripts/*termux*.sh
+{{ end }}
+
 {{ if or .linux .android}}
 Documents/
 Arts/
