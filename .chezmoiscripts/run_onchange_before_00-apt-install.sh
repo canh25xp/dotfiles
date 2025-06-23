@@ -72,15 +72,45 @@ else
   done
 fi
 
+sudo apt-get update
+
+# Check which packages are actually available
+echo "[Chezmoi] Checking package availability..."
+available_packages=()
+missing_packages=()
+
+for pkg in "${selected_packages[@]}"; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    available_packages+=("$pkg")
+  else
+    missing_packages+=("$pkg")
+  fi
+done
+
+# Show results
+if (( ${#missing_packages[@]} > 0 )); then
+  echo
+  echo "Warning: The following packages were not found and will be skipped:"
+  for pkg in "${missing_packages[@]}"; do
+    echo " - $pkg"
+  done
+fi
+
+if (( ${#available_packages[@]} == 0 )); then
+  echo
+  echo "No valid packages to install. Exiting."
+  exit 1
+fi
+
 echo
 echo "The following packages will be installed:"
-for package in "${selected_packages[@]}"; do
-  echo "- $package"
+for pkg in "${available_packages[@]}"; do
+  echo " - $pkg"
 done
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
-if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   echo "Installation canceled."
   exit 0
 fi
