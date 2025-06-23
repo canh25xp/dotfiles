@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 
 echo "================================================================================"
@@ -36,4 +35,3 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 fi
 
 sudo apt-get install "${packages[@]}" -y
-{{ end -}}

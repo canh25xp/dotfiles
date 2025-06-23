@@ -1,4 +1,3 @@
-{{ if .windows -}}
 Write-Host "================================================================================"
 Write-Host "[Chezmoi] Install Spicetify theme"
 
@@ -23,4 +22,3 @@ spicetify apply
 Remove-Item $HOME/spicetify -Recurse -Force
 Remove-Item $HOME/spicetify-themes -Recurse -Force
 
-{{ end -}}

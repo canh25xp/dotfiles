@@ -1,12 +1,10 @@
-{{ if .linux -}}
 #!/bin/bash
-# https://deno.com/
 
 echo "================================================================================"
-echo "[Chezmoi] Installing deno"
+echo "[Chezmoi] Installing rustup"
 
-if command -v deno &>/dev/null; then
-	echo "deno is already installed. Exiting."
+if command -v rustup &>/dev/null; then
+	echo "rustup is already installed. Exiting."
 	exit 0
 fi
 
@@ -18,5 +16,9 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-curl -fsSL https://deno.land/install.sh | bash
-{{ end -}}
+# sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install rustup
+
+echo "download and set the latest stable release of Rust"
+rustup default stable

@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 # https://github.com/eth-p/bat-extras
 
@@ -24,4 +23,3 @@ fi
 cd ~/projects/sh/bat-extras
 
 bash build.sh --install --prefix "$HOME/.local"
-{{ end -}}

@@ -1,12 +1,10 @@
-{{ if .linux -}}
 #!/bin/bash
-# https://github.com/jesseduffield/lazygit
 
 echo "================================================================================"
-echo "[Chezmoi] Installing lazygit"
+echo "[Chezmoi] Installing oh-my-posh"
 
-if command -v lazygit &>/dev/null; then
-	echo "lazygit is already installed. Exiting."
+if command -v oh-my-posh &> /dev/null; then
+	echo "oh-my-posh is already installed. Exiting."
 	exit 0
 fi
 
@@ -18,5 +16,5 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-go install github.com/jesseduffield/lazygit@latest
-{{ end -}}
+mkdir -p ~/.local/bin/
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin/

@@ -1,4 +1,3 @@
-{{ if .windows -}}
 echo "================================================================================"
 echo "[Chezmoi] windows set env"
 # batch style
@@ -16,4 +15,3 @@ if ($wslenv) {
 [Environment]::SetEnvironmentVariable("POWERSHELL_UPDATECHECK", "Off", [System.EnvironmentVariableTarget]::User)
 Write-Output "set POWERSHELL_UPDATECHECK successfully"
 
-{{ end -}}

@@ -1,13 +1,8 @@
-{{ if .linux -}}
 #!/bin/bash
+# https://github.com/dlvhdr/gh-dash
 
 echo "================================================================================"
-echo "[Chezmoi] Installing oh-my-posh"
-
-if command -v oh-my-posh &> /dev/null; then
-	echo "oh-my-posh is already installed. Exiting."
-	exit 0
-fi
+echo "[Chezmoi] Installing gh extensions"
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
@@ -17,6 +12,5 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-mkdir -p ~/.local/bin/
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin/
-{{ end -}}
+gh extension install dlvhdr/gh-dash
+gh extension install yusukebe/gh-markdown-preview

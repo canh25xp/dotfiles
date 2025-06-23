@@ -1,11 +1,11 @@
-{{ if .linux -}}
 #!/bin/bash
+# https://github.com/jesseduffield/lazygit
 
 echo "================================================================================"
-echo "[Chezmoi] Installing rustup"
+echo "[Chezmoi] Installing lazygit"
 
-if command -v rustup &>/dev/null; then
-	echo "rustup is already installed. Exiting."
+if command -v lazygit &>/dev/null; then
+	echo "lazygit is already installed. Exiting."
 	exit 0
 fi
 
@@ -17,10 +17,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-# sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install rustup
-
-echo "download and set the latest stable release of Rust"
-rustup default stable
-{{ end -}}
+go install github.com/jesseduffield/lazygit@latest

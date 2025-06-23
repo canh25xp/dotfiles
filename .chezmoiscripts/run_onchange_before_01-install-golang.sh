@@ -1,9 +1,12 @@
-{{ if .linux -}}
 #!/bin/bash
-# https://github.com/dlvhdr/gh-dash
 
 echo "================================================================================"
-echo "[Chezmoi] Installing gh extensions"
+echo "[Chezmoi] Installing go"
+
+if command -v go &>/dev/null; then
+	echo "Go is already installed. Exiting."
+	exit 0
+fi
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
@@ -13,6 +16,6 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-gh extension install dlvhdr/gh-dash
-gh extension install yusukebe/gh-markdown-preview
-{{ end -}}
+# sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang

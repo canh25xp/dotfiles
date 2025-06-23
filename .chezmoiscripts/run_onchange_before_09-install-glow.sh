@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 # https://github.com/charmbracelet/glow
 
@@ -45,4 +44,3 @@ case $choice in
   exit 0
   ;;
 esac
-{{ end -}}

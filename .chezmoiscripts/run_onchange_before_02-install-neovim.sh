@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 # https://github.com/neovim/neovim/blob/master/BUILD.md
 
@@ -39,4 +38,3 @@ cd build
 cpack -G DEB
 
 sudo dpkg -i nvim-linux64.deb
-{{ end -}}

@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 # https://docs.anaconda.com/free/miniconda/
 
@@ -32,4 +31,3 @@ confirmation=${confirmation:-Y}
 if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   ~/miniconda3/bin/conda init bash
 fi
-{{ end -}}

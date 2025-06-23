@@ -1,4 +1,3 @@
-{{ if and .windows .personal -}}
 Write-Host "================================================================================"
 Write-Host "[Chezmoi] Install winget packages"
 
@@ -13,4 +12,3 @@ echo "Need administrator privilege, expecting a prompt"
 
 Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe &{ winget import {{ .chezmoi.sourceDir }}/scripts/winget_packages.json --no-upgrade --disable-interactivity }"
 
-{{ end -}}

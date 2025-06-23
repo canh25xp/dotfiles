@@ -1,15 +1,16 @@
-{{ if .android -}}
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 
 echo "================================================================================"
-echo "[Chezmoi] termux install extra packages"
+echo "[Chezmoi] Installing extra apt packages"
 
 packages=(
   neovim
   ripgrep
-  fd
+  fd-find
   bat
   htop
+  btm
+  zathura
   zoxide
   fzf
   hexyl
@@ -17,18 +18,18 @@ packages=(
   tmux
   neomutt
   pass
+  speedtest-cli
+  qrencode
+  nsxiv
   luarocks
   gdb
+  lolcat
   eza
-  yazi
-  glow
   git-delta
   tealdeer
-  tree-sitter
+  tree-sitter-cli
   git-lfs
-  lazygit
   starship
-  taplo
 )
 
 echo "The following packages will be installed:"
@@ -43,5 +44,20 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   exit 0
 fi
 
-pkg install "${packages[@]}"
-{{ end -}}
+sudo apt-get install "${packages[@]}" -y
+
+mkdir -p ~/.local/bin/
+
+if ! command -v fd &> /dev/null; then
+  if command -v fdfind &>/dev/null; then
+    echo "Creating symlinks fdfind -> fd"
+    ln -s $(which fdfind) ~/.local/bin/fd
+  fi
+fi
+
+if ! command -v bat &> /dev/null; then
+  if command -v batcat &>/dev/null; then
+    echo "Creating symlinks batcat -> bat"
+    ln -s $(which batcat) ~/.local/bin/bat
+  fi
+fi

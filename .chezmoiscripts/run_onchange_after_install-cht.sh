@@ -1,4 +1,3 @@
-{{ if .linux -}}
 #!/bin/bash
 #https://github.com/nvm-sh/nvm
 
@@ -25,4 +24,3 @@ mkdir -p "$PATH_DIR"
 curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
 
 chmod +x "$PATH_DIR/cht.sh"
-{{ end -}}

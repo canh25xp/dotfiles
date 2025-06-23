@@ -1,15 +1,14 @@
-{{ if .linux -}}
 #!/bin/bash
 
 echo "================================================================================"
-echo "[Chezmoi] Building bat theme (catppuccin)"
+echo "[Chezmoi] Updating tldr cache"
 
-if ! command -v bat &>/dev/null ; then
-	echo "bat is not installed. Exiting"
+if ! command -v tldr &>/dev/null ; then
+	echo "tldr is not installed. Exiting"
 	exit 1
 fi
 
-read -p "Build bat theme? (Y/n): " confirmation
+read -p "Update tldr cache? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
@@ -17,5 +16,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-bat cache --build
-{{ end -}}
+tldr --update

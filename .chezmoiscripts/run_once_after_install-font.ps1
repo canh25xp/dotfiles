@@ -1,4 +1,3 @@
-{{ if .windows -}}
 echo "================================================================================"
 echo "[Chezmoi] windows install user font"
 $userFontPath = "$HOME\AppData\Local\Microsoft\Windows\Fonts"
@@ -13,4 +12,3 @@ If(Test-Path -Path $fontPath) {
 	reg query "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
 }
 
-{{ end -}}

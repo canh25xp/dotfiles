@@ -1,25 +1,33 @@
-{{ if .android -}}
 #!/data/data/com.termux/files/usr/bin/bash
 
 echo "================================================================================"
-echo "[Chezmoi] termux install base packages"
+echo "[Chezmoi] termux install extra packages"
 
 packages=(
-  termux-api
-  git
-  gh
-  curl
-  wget
-  man
-  unzip
-  p7zip
-  zip
-  openssh
-  bash-completion
-  build-essential
-  python
-  python-pip
-  nodejs
+  neovim
+  ripgrep
+  fd
+  bat
+  htop
+  zoxide
+  fzf
+  hexyl
+  gdu
+  tmux
+  neomutt
+  pass
+  luarocks
+  gdb
+  eza
+  yazi
+  glow
+  git-delta
+  tealdeer
+  tree-sitter
+  git-lfs
+  lazygit
+  starship
+  taplo
 )
 
 echo "The following packages will be installed:"
@@ -34,6 +42,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   exit 0
 fi
 
-pkg upgrade
 pkg install "${packages[@]}"
-{{ end -}}

@@ -1,4 +1,3 @@
-{{ if .windows -}}
 # https://gist.github.com/s7ephen/714023
 # https://forums.powershell.org/t/powershell-to-set-second-monitor-wallpaper/17949
 # Note: if scheduling this script, you may need to check 
@@ -38,4 +37,3 @@ public class Wallpaper {
 Add-Type -TypeDefinition $setwallpapersrc
 
 [Wallpaper]::SetWallpaper($path)
-{{ end -}}

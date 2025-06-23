@@ -1,4 +1,3 @@
-{{ if and .windows .personal -}}
 Write-Host "================================================================================"
 Write-Host "[Chezmoi] Install winget extra packages extra"
 
@@ -11,4 +10,3 @@ if ($confirmation -eq 'n') {
 
 winget import {{ .chezmoi.sourceDir }}/scripts/winget_packages_extra.json --no-upgrade --disable-interactivity
 
-{{ end -}}

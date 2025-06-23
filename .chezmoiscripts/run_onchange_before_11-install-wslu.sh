@@ -1,4 +1,3 @@
-{{ if .wsl -}}
 #!/bin/bash
 # https://github.com/wslutilities/wslu
 
@@ -26,4 +25,3 @@ echo "deb [signed-by=/usr/share/keyrings/wslu-archive-keyring.pgp] https://pkg.w
 
 sudo apt update
 sudo apt install wslu
-{{ end -}}

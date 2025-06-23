@@ -1,11 +1,11 @@
-{{ if .linux -}}
 #!/bin/bash
+# https://deno.com/
 
 echo "================================================================================"
-echo "[Chezmoi] Installing go"
+echo "[Chezmoi] Installing deno"
 
-if command -v go &>/dev/null; then
-	echo "Go is already installed. Exiting."
+if command -v deno &>/dev/null; then
+	echo "deno is already installed. Exiting."
 	exit 0
 fi
 
@@ -17,7 +17,4 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	exit 0
 fi
 
-# sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang
-{{ end -}}
+curl -fsSL https://deno.land/install.sh | bash
