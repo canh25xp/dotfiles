@@ -1,5 +1,13 @@
 echo "================================================================================"
 echo "[Chezmoi] windows install user font"
+
+$confirmation = Read-Host "Do you want to install font? (Y/n)"
+
+if ($confirmation -eq 'n') {
+    Write-Host "exit"
+    exit
+}
+
 $userFontPath = "$HOME\AppData\Local\Microsoft\Windows\Fonts"
 $fontName = "{{ .nerdfontName }}"
 $fontRegistryName = "CaskaydiaMono NF Regular (TrueType)"
