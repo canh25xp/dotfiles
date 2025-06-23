@@ -64,6 +64,7 @@ if (Test-Path "$env:LOCALAPPDATA\Android\Sdk") {
   $env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"
   $env:Path += "$env:ANDROID_HOME\cmdline-tools\latest\bin;"
   $env:Path += "$env:ANDROID_HOME\platform-tools;"
+  $env:Path += "$env:ANDROID_HOME\emulator;"
 }
 
 if (Test-Path "C:\Gradle\gradle-8.10") {
