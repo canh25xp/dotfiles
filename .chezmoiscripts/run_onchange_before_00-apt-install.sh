@@ -74,8 +74,6 @@ fi
 
 sudo apt-get update
 
-# Check which packages are actually available
-echo "[Chezmoi] Checking package availability..."
 available_packages=()
 missing_packages=()
 
