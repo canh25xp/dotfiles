@@ -4,22 +4,22 @@ echo "==========================================================================
 echo "[Chezmoi] Installing base apt packages"
 
 packages=(
-  git
-  gh
-  curl
-  wget
-  man-db
-  zip
-  unzip
-  p7zip
-  xclip
   bash-completion
   build-essential
+  curl
+  gh
+  git
+  man-db
+  nodejs
+  npm
+  p7zip
   python3
   python3-pip
   python3-venv
-  nodejs
-  npm
+  unzip
+  wget
+  xclip
+  zip
 )
 
 echo "The following packages will be installed:"

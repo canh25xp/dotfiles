@@ -4,32 +4,34 @@ echo "==========================================================================
 echo "[Chezmoi] Installing extra apt packages"
 
 packages=(
-  neovim
-  ripgrep
-  fd-find
   bat
-  htop
   btm
+  eza
+  fd-find
+  fzf
+  gdb
+  gdu
+  git-delta
+  git-lfs
+  golang
+  hexyl
+  htop
+  lolcat
+  luarocks
+  neomutt
+  neovim
+  nsxiv
+  pass
+  qrencode
+  ripgrep
+  rustup
+  speedtest-cli
+  starship
+  tealdeer
+  tmux
+  tree-sitter-cli
   zathura
   zoxide
-  fzf
-  hexyl
-  gdu
-  tmux
-  neomutt
-  pass
-  speedtest-cli
-  qrencode
-  nsxiv
-  luarocks
-  gdb
-  lolcat
-  eza
-  git-delta
-  tealdeer
-  tree-sitter-cli
-  git-lfs
-  starship
 )
 
 echo "The following packages will be installed:"
