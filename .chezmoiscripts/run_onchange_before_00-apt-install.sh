@@ -114,4 +114,4 @@ if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   exit 0
 fi
 
-sudo apt-get install "${selected_packages[@]}" -y
+sudo apt-get install "${available_packages[@]}" -y
