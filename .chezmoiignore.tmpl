@@ -23,7 +23,13 @@ Pictures/
 
 
 {{ if .linux}}
+.chezmoiscripts/*.ps1
 .chezmoiscripts/*termux*.sh
+{{ end }}
+
+{{ if .android}}
+.chezmoiscripts/*
+!.chezmoiscripts/*termux*.sh
 {{ end }}
 
 {{ if or .linux .android}}
@@ -37,8 +43,6 @@ AppData/Roaming/
 .config/komorebi/
 .wslconfig
 p4aliases.txt
-
-.chezmoiscripts/*.ps1
 {{ end }}
 
 {{ if .windows }}
