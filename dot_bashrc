@@ -137,7 +137,11 @@ fi
 
 # Set up fzf key bindings and fuzzy completion
 if command -v fzf &>/dev/null; then
-  eval "$(fzf --bash)"
+  version=$(fzf --version | awk '{print $1}')
+  # Compare version using sort -V
+  if [[ "$(printf '%s\n' "0.48.0" "$version" | sort -V | head -n1)" == "0.48.0" ]]; then
+    eval "$(fzf --bash)"
+  fi
 fi
 
 # heroku autocomplete setup
