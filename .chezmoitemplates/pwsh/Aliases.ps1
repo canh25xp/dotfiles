@@ -54,32 +54,48 @@ function Get-ClipboardFiles {
 
 function Open-Anything {
   param(
+    [Parameter(Mandatory)]
     [string]$id,
+
     [switch]$plm,
+    [switch]$soc,
     [switch]$cl,
     [switch]$qb
   )
+
+  $url = $null
+
   if ($plm) {
     $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
+  } elseif ($soc) {
+    $url = "https://b2b.samsungsemi.com/b2b/lsi/quality/wiznet/wiznetEditIssueK2.do?issueId=$id"
   } elseif ($qb) {
     $url = "https://android.qb.sec.samsung.net/build/$id"
   } elseif ($cl) {
     $url = "https://review1716.sec.samsung.net/changes/$id"
-  } else {
-    if ($id -match '^P\d{6}-\d{5}$') {
+  }
+
+  switch -regex ($id) {
+    '^P\d{6}-\d{5}$' {
       $url = "https://splm.sec.samsung.net/wl/tqm/defect/defectreg/getDefectCodeSearch.do?defectCode=$id"
-    } elseif ($id -match '^\d{8,}$') {
+      break
+    }
+    '^SOC-\d{6}$' {
+      $url = "https://b2b.samsungsemi.com/b2b/lsi/quality/wiznet/wiznetEditIssueK2.do?issueId=$id"
+      break
+    }
+    '^\d{8,}$' {
       $url = "https://android.qb.sec.samsung.net/build/$id"
-    } elseif ($id -match '^\d{8,}$') {
-      $url = "https://review1716.sec.samsung.net/changes/$id"
-    } else {
-      Write-Host "Cannot deduce type from id"
-      return
+      break
     }
   }
 
-  Write-Output $url
-  Start-Process $url
+  if ($url) {
+    Write-Output "Opening: $url"
+    Start-Process $url
+  } else {
+    Write-Warning "Cannot deduce type from ID: $id. Please specify -plm, -soc, -cl, or -qb."
+  }
 }
 
 function Get-WslPath {
