@@ -10,8 +10,6 @@ vim.g.maplocalleader = "\\"
 vim.g.have_nerd_font = true
 vim.g.load_lazy_plugins = true
 vim.g.dynamic_cmdheight = true
-vim.g.is_personal = vim.uv.os_gethostname() == "lenovo"
-vim.g.is_work = vim.uv.os_gethostname() == "vancanh-ng02"
 vim.g.is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
 vim.g.is_linux = vim.fn.has("unix") == 1
 vim.g.is_android = vim.fn.has("android") == 1

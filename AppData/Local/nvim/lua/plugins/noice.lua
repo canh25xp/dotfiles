@@ -2,7 +2,7 @@ return {
   {
     "folke/noice.nvim",
     enabled = true,
-    cond = not vim.g.is_work,
+    cond = true,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -60,7 +60,7 @@ return {
   {
     "rcarriga/nvim-notify",
     enabled = true,
-    cond = not vim.g.is_work,
+    cond = true,
     keys = {
       {
         "<leader>ua",
