@@ -48,8 +48,8 @@ Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
 
 function Get-ClipboardFiles {
-    Add-Type -AssemblyName System.Windows.Forms
-    [Windows.Forms.Clipboard]::GetFileDropList() | ForEach-Object { Copy-Item $_ . }
+  Add-Type -AssemblyName System.Windows.Forms
+  [Windows.Forms.Clipboard]::GetFileDropList() | ForEach-Object { Copy-Item $_ . }
 }
 
 function Open-Anything {
@@ -420,39 +420,39 @@ function Move-ToRecycleBin {
     Would move both File1.txt and File2.txt to the Recycle Bin
 #>
 
-    [CmdletBinding(ConfirmImpact = 'Medium')]
-    [alias('Recycle')]
-    param (
-        [Parameter(Mandatory, HelpMessage='Please enter a path to a file or folder. Wildcards accepted.', ValueFromPipeline, ValueFromPipelineByPropertyName)]
-        [string[]] $Path
-    )
+  [CmdletBinding(ConfirmImpact = 'Medium')]
+  [Alias('Recycle')]
+  param(
+    [Parameter(Mandatory,HelpMessage = 'Please enter a path to a file or folder. Wildcards accepted.',ValueFromPipeline,ValueFromPipelineByPropertyName)]
+    [string[]]$Path
+  )
 
-    begin {
-        Add-Type -AssemblyName Microsoft.VisualBasic
-        $FileSystem = New-Object -TypeName 'Microsoft.VisualBasic.FileIO.FileSystem'
-        Write-Verbose -Message "Starting [$($MyInvocation.MyCommand)]"
-    }
+  begin {
+    Add-Type -AssemblyName Microsoft.VisualBasic
+    $FileSystem = New-Object -TypeName 'Microsoft.VisualBasic.FileIO.FileSystem'
+    Write-Verbose -Message "Starting [$($MyInvocation.MyCommand)]"
+  }
 
-    process {
-        foreach ($currentPath in $Path) {
-            if (Test-Path -Path $currentPath) {
-                $File = Resolve-Path -Path $currentPath
-                foreach ($currentFile in $File) {
-                    Write-Verbose -Message ("Moving '{0}' to the Recycle Bin" -f $currentFile)
-                    if (Test-Path -Path $currentFile -PathType Container) {
-                        $FileSystem::DeleteDirectory($currentFile, 'OnlyErrorDialogs', 'SendToRecycleBin')
-                    } else {
-                        $FileSystem::DeleteFile($currentFile, 'OnlyErrorDialogs', 'SendToRecycleBin')
-                    }
-                }
-            } else {
-                Write-Error -Message "ERROR: Path [$currentPath] does not exist"
-            }
+  process {
+    foreach ($currentPath in $Path) {
+      if (Test-Path -Path $currentPath) {
+        $File = Resolve-Path -Path $currentPath
+        foreach ($currentFile in $File) {
+          Write-Verbose -Message ("Moving '{0}' to the Recycle Bin" -f $currentFile)
+          if (Test-Path -Path $currentFile -PathType Container) {
+            $FileSystem::DeleteDirectory($currentFile,'OnlyErrorDialogs','SendToRecycleBin')
+          } else {
+            $FileSystem::DeleteFile($currentFile,'OnlyErrorDialogs','SendToRecycleBin')
+          }
         }
+      } else {
+        Write-Error -Message "ERROR: Path [$currentPath] does not exist"
+      }
     }
+  }
 
-    end {
-        Remove-Variable -Name FileSystem
-        Write-Verbose -Message "Ending [$($MyInvocation.MyCommand)]"
-    }
+  end {
+    Remove-Variable -Name FileSystem
+    Write-Verbose -Message "Ending [$($MyInvocation.MyCommand)]"
+  }
 }
