@@ -2,45 +2,41 @@
 alias cls=clear
 alias where=which
 {{- if .wsl }}
+
 alias explorer=explorer.exe
+alias exp=explorer
+
 alias notepad=notepad.exe
+alias np=notepad
+
 alias pwsh=pwsh.exe
 alias neovide='neovide.exe'
-alias sumatra='sumatrapdf.exe'
-alias sumatrapdf='sumatrapdf.exe'
-{{- end }}
 
-# Shorten aliases, convenient aliases
-alias lgit=lazygit
-alias what='type -a'
-alias wtf='type -a'
-alias nmutt=neomutt
-alias mail=neomutt
-alias la='ls -A' # Include hidden files
-alias ll='ls -AlF'
-{{- if .wsl }}
-alias np=notepad
-alias exp=explorer
+alias sumatra='sumatrapdf.exe'
 alias gvim='neovide --wsl'
-{{- end }}
-{{- if or .linux .android}}
+
+alias nircmd=nircmd.exe
+alias sci='nircmd clipboard saveimage'
+{{- else }}
 alias gvim='neovide'
+{{- end }}
 
 # Neovim profiles
 alias lvim="NVIM_APPNAME=nvim-lazy nvim"
 alias chad="NVIM_APPNAME=nvchad nvim"
 alias kvim="NVIM_APPNAME=nvim-kickstart nvim"
-{{- end }}
-alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
-alias cz=chezmoi
-if [ -x "$(command -v batman)" ]; then
-alias man=batman
-fi
-alias cht=cht.sh
-alias sci='nircmd.exe clipboard saveimage'
 
-# dotfiles manage
-# alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias lgit=lazygit
+alias what='type -a'
+alias wtf='type -a'
+alias nmutt=neomutt
+alias mail=neomutt
+alias la='ls -A'
+alias ll='ls -AlF'
+
+alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
+
+alias cz=chezmoi
 alias cfg='chezmoi managed -p absolute -i files | fzf --preview="bat --color=always {}" | xargs -r ${EDITOR:-nvim}'
 
 alias fuck='sudo $(fc -ln -1)'
