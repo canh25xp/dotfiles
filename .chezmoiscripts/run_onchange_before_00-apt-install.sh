@@ -3,6 +3,13 @@
 echo "================================================================================"
 echo "[Chezmoi] Installing apt packages"
 
+read -p "Continue? (Y/n): " confirmation
+confirmation=${confirmation:-Y}
+if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
+  echo "Canceled"
+  exit 0
+fi
+
 packages=(
   bash-completion
   bat
