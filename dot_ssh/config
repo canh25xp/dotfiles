@@ -1,20 +1,20 @@
 Host desktop
-    HostName 192.168.0.100
-    User Admin
-    IdentityFile ~/.ssh/id_ecdsa
+  HostName 192.168.0.100
+  User Admin
+  IdentityFile ~/.ssh/id_ecdsa
 
 Host laptop
-    HostName 192.168.0.101
-    User Michael
-    IdentityFile ~/.ssh/id_ecdsa
+  HostName 192.168.0.101
+  User Michael
+  IdentityFile ~/.ssh/id_ecdsa
 
 Host phone
-    HostName 192.168.0.102
-    User u0_a453
-    Port 8022
-    IdentityFile ~/.ssh/id_ecdsa
+  HostName 192.168.0.102
+  User u0_a453
+  Port 8022
+  IdentityFile ~/.ssh/id_ecdsa
 
-HOST tablet
+Host tablet
   HostName localhost
   User u0_a353
   Port 8022
