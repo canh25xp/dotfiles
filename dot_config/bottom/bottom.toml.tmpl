@@ -135,10 +135,16 @@ arc_color = "#89dceb"
      type="disk"
    [[row.child]]
      ratio=3
+{{- if .desktop }}
      [[row.child.child]]
        type="temp"
+{{- else if .laptop }}
      [[row.child.child]]
        type="batt"
+{{- else }}
+     [[row.child.child]]
+       type="empty"
+{{- end }}
 
 # Filters - you can hide specific temperature sensors, network interfaces, and disks using filters.  This is admittedly
 # a bit hard to use as of now, and there is a planned in-app interface for managing this in the future:
