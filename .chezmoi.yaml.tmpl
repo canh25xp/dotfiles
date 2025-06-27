@@ -11,7 +11,7 @@
 {{- $hostname := .chezmoi.hostname                    -}}
 {{- if ($hostname | lower | contains "vancanh-ng")    -}}
 {{-   $work = true                                    -}}
-{{-   $desktop = true                                 -}}
+{{-   $laptop = true                                 -}}
 {{- else if ($hostname | lower | contains "bunnies")  -}}
 {{-   $personal = true                                -}}
 {{-   if ($hostname | lower | contains "desktop")     -}}
