@@ -1,17 +1,25 @@
 {{/* boolean feature tags */}}
 {{- $work := false -}}{{/* true if this machine is a work machine */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $desktop := false -}}
+{{- $laptop := false -}}
 {{- $linux := false -}}
 {{- $windows := false -}}
 {{- $wsl := false -}}
 {{- $android := false -}}
 
-{{- $hostname := .chezmoi.hostname -}}
-{{- if ($hostname | lower | contains "vancanh-ng") -}}
-{{-   $work = true -}}
-{{- else if ($hostname | lower | contains "bunnies") -}}
-{{-   $personal = true -}}
-{{- end -}}
+{{- $hostname := .chezmoi.hostname                    -}}
+{{- if ($hostname | lower | contains "vancanh-ng")    -}}
+{{-   $work = true                                    -}}
+{{-   $desktop = true                                 -}}
+{{- else if ($hostname | lower | contains "bunnies")  -}}
+{{-   $personal = true                                -}}
+{{-   if ($hostname | lower | contains "desktop")     -}}
+{{-     $desktop = true                               -}}
+{{-   else if ($hostname | lower | contains "laptop") -}}
+{{-     $laptop = true                                -}}
+{{-   end                                             -}}
+{{- end                                               -}}
 
 {{- $email := "nv.canh@outlook.com" -}}
 {{- if $work -}}
@@ -74,6 +82,8 @@ data:
   android: {{ $android }}
   work: {{ $work }}
   personal: {{ $personal }}
+  desktop: {{ $desktop }}
+  laptop: {{ $laptop }}
   email: {{ $email | quote }}
   defaultShell: {{ $shell | quote }}
   scale: {{ if $work -}} 2 {{- else -}} 1.25 {{- end}}
