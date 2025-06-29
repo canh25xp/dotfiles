@@ -23,6 +23,12 @@ return {
   opts = {
     cmake_soft_link_compile_commands = false,
     cmake_compile_commands_from_lsp = true,
+    cmake_build_directory = function()
+      if vim.g.is_windows then
+        return "build\\${variant:buildType}"
+      end
+      return "build/${variant:buildType}"
+    end, -- this is used to specify generate directory for cmake, allows macro expansion, can be a string or a function returning the string, relative to cwd.
     cmake_executor = {
       name = "quickfix",
       opts = {
