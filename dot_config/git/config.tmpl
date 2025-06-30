@@ -28,7 +28,6 @@
   process = git-lfs filter-process --skip
 
 [core]
-  hooksPath = .githooks
   autocrlf = {{ if .windows -}} true {{- else -}} false {{- end }}
 {{- if lookPath "delta" }}
   pager = delta
