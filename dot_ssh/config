@@ -18,7 +18,7 @@ Host tablet
   HostName localhost
   User u0_a353
   Port 8022
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_ecdsa
 
 Host github.com
   HostName github.com
