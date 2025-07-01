@@ -70,7 +70,7 @@
 [mergetool "nvimdiff"]
   layout = "MERGED"
 
-{{- if .work }}
+{{- if and .work .windows}}
 [url "ssh://u0_a353@localhost:8022/~/github/"]
   insteadOf = https://github.com/
 {{- end }}
