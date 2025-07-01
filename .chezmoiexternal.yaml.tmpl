@@ -56,9 +56,7 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   refreshPeriod: 0h
 {{   end }}
 
-{{ end }} {{/* not .work */}}
-
-{{ if .linux }}
+{{  if .linux }}
 .config/tmux/plugins/catppuccin:
   type: archive
   exact: true
@@ -70,13 +68,15 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   type: git-repo
   url: https://github.com/tmux-plugins/tmux-resurrect
   refreshPeriod: 0h
-{{ end }}
+{{  end }}
 
-
-{{ if .windows }}
+{{  if .windows }}
 Documents/PowerShell/Modules/cmatrix:
   type: git-repo
   url: https://github.com/matriex/cmatrix
   refreshPeriod: 0h
 
-{{ end }}
+{{  end }}
+
+{{ end }} {{/* not .work */}}
+
