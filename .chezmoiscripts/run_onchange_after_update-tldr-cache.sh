@@ -3,13 +3,13 @@
 echo "================================================================================"
 echo "[Chezmoi] Updating tldr cache"
 
-if ! command -v tldr &>/dev/null ; then
-	echo "tldr is not installed. Exiting"
-	exit 1
-fi
-
 read -p "Update tldr cache? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
+
+if ! command -v tldr &>/dev/null ; then
+	echo "tldr is not installed. Exiting"
+	exit 0
+fi
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
 	echo "Canceled."

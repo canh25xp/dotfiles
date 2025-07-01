@@ -2,7 +2,7 @@ return {
   {
     "folke/noice.nvim",
     enabled = true,
-    cond = true,
+    cond = false,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -60,7 +60,7 @@ return {
   {
     "rcarriga/nvim-notify",
     enabled = true,
-    cond = true,
+    cond = false,
     keys = {
       {
         "<leader>ua",
