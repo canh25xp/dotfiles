@@ -10,7 +10,7 @@ if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   exit 0
 fi
 
-packages=(
+default_packages=(
   bash-completion
   bat
   btm
@@ -58,26 +58,39 @@ packages=(
   zoxide
 )
 
-# Let user choose which packages to install
-echo "Select packages to install (enter numbers separated by spaces):"
-for i in "${!packages[@]}"; do
-  printf "%2d) %s\n" "$((i+1))" "${packages[i]}"
-done
+temp_file=$(mktemp)
+trap 'rm -f "$temp_file"' EXIT
 
-read -p "Your choices [default: all]: " input
+printf "%s\n" "${default_packages[@]}" > "$temp_file"
 
-if [[ -z "$input" ]]; then
-  selected_packages=("${packages[@]}")
+if command -v nvim >/dev/null; then
+  editor="nvim"
+elif command -v vim >/dev/null; then
+  editor="vim"
+elif command -v nano >/dev/null; then
+  editor="nano"
 else
-  selected_packages=()
-  for index in $input; do
-    if [[ "$index" =~ ^[0-9]+$ ]] && (( index >= 1 && index <= ${#packages[@]} )); then
-      selected_packages+=("${packages[index-1]}")
-    else
-      echo "Invalid selection: $index"
-      exit 1
-    fi
-  done
+  echo "No suitable editor found (nvim, vim, or nano). Aborting."
+  exit 1
+fi
+
+echo
+echo "Opening package list for editing. Remove any lines for packages you don't want to install."
+$editor "$temp_file"
+
+# Read edited package list
+mapfile -t selected_packages < "$temp_file"
+
+# Skip empty or comment lines
+selected_packages=("${selected_packages[@]/*#/}")
+selected_packages=("${selected_packages[@]/#/}") # Trim whitespace
+
+# Remove empty entries
+selected_packages=($(printf "%s\n" "${selected_packages[@]}" | sed '/^\s*$/d'))
+
+if [[ ${#selected_packages[@]} -eq 0 ]]; then
+  echo "No packages selected. Exiting."
+  exit 1
 fi
 
 sudo apt-get update
@@ -93,7 +106,7 @@ for pkg in "${selected_packages[@]}"; do
   fi
 done
 
-# Show results
+# Show missing packages
 if (( ${#missing_packages[@]} > 0 )); then
   echo
   echo "Warning: The following packages were not found and will be skipped:"
