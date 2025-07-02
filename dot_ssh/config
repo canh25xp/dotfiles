@@ -20,6 +20,12 @@ Host tablet
   Port 8022
   IdentityFile ~/.ssh/id_ecdsa
 
+Host remote-desktop
+  HostName 100.99.0.0
+  User Admin
+  IdentityFile ~/.ssh/id_ecdsa
+  ProxyJump tablet
+
 Host github.com
   HostName github.com
   PreferredAuthentications publickey
