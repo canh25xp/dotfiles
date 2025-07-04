@@ -5,6 +5,8 @@ return {
     ensure_installed = {
       "black",
       "clangd",
+      "bash-language-server",
+      "clang-format",
       "css-lsp",
       "eslint-lsp",
       "html-lsp",
@@ -15,6 +17,7 @@ return {
       "lua-language-server",
       "markdownlint",
       "marksman",
+      "neocmakelsp",
       "powershell-editor-services",
       "prettier",
       "prettierd",
