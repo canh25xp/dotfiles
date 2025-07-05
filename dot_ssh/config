@@ -20,9 +20,20 @@ Host tablet
   Port 8022
   IdentityFile ~/.ssh/id_ecdsa
 
-Host remote-desktop
+Host wifiteam
+  HostName 192.168.99.12
+  User "wi-fi tg"
+  IdentityFile ~/.ssh/id_ecdsa
+
+Host desktop-jump
   HostName 100.99.0.0
   User Admin
+  IdentityFile ~/.ssh/id_ecdsa
+  ProxyJump tablet
+
+Host wifiteam-jump
+  HostName 192.168.99.12
+  User "wi-fi tg"
   IdentityFile ~/.ssh/id_ecdsa
   ProxyJump tablet
 
