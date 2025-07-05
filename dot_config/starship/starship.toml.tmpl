@@ -22,6 +22,12 @@ disabled = true
 disabled = true
 
 [git_metrics]
+disabled = {{ if .work -}} true {{- else -}} false {{- end}}
+
+[git_status]
+disabled = {{ if .work -}} true {{- else -}} false {{- end}}
+
+[git_branch]
 disabled = false
 
 {{ if not .android -}}
