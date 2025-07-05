@@ -28,13 +28,13 @@ Host wifiteam
 Host desktop-jump
   HostName 100.99.0.0
   User Admin
-  IdentityFile ~/.ssh/id_ecdsa
+  IdentityFile ~/.ssh/id_ecdsa_work
   ProxyJump tablet
 
 Host wifiteam-jump
   HostName 192.168.99.12
   User "wi-fi tg"
-  IdentityFile ~/.ssh/id_ecdsa
+  IdentityFile ~/.ssh/id_ecdsa_work
   ProxyJump tablet
 
 Host github.com
