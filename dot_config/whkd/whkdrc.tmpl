@@ -1,4 +1,4 @@
-.shell {{ .defaultShell }} # pwsh | powershell | cmd
+.shell {{ .defaultShell }}
 
 # Specify different behaviour depending on the app
 # These "app : command" style bindings MUST come immediately below the .shell directive
@@ -11,20 +11,20 @@ alt + q [
 ]
 
 # Open cheatsheets
-win + oem_2             : wt -w 0 split-pane glow "$HOME/Documents/CheatSheets"
+win + oem_2                 : wt -w 0 split-pane glow "$HOME/Documents/CheatSheets"
 
 # Reload whkd configuration
-# alt + shift + w       : Stop-Process -Name whkd -Force; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
-# alt + shift + w       : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
+alt + shift + w             : {{ if eq .defaultShell "cmd" -}} taskkill /f /im whkd.exe && start /b whkd {{- else -}} Stop-Process -Name whkd -Force; Start-Process whkd -WindowStyle hidden {{- end }}
 
 # Stop whkd
-alt + shift + w             : Stop-Process -Name whkd -Force
+alt + shift + escape        : {{ if eq .defaultShell "cmd" -}} taskkill /f /im whkd.exe {{- else -}} Stop-Process -Name whkd -Force {{- end }}
 
 # General
 ctrl + alt + shift + escape : komorebic stop --whkd --bar
 ctrl + alt + shift + s      : komorebic start --whkd --bar
 ctrl + alt + shift + r      : komorebic reload-configuration
 ctrl + alt + shift + p      : komorebic toggle-pause
+alt + shift + oem_2         : komorebic toggle-shortcuts
 alt + shift + r             : komorebic quick-load-resize
 alt + shift + s             : komorebic quick-save-resize
 alt + shift + e             : komorebic retile # rEtile
