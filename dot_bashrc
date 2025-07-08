@@ -144,6 +144,10 @@ if command -v fzf &>/dev/null; then
   fi
 fi
 
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init bash --disable-up-arrow)"
+fi
+
 # heroku autocomplete setup
 # HEROKU_AC_BASH_SETUP_PATH=$HOME/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
 
