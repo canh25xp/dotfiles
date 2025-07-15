@@ -7,6 +7,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 export P4ENVIRO="$HOME/.config/p4/p4enviro"
 export P4ALIASES="$HOME/.config/p4/p4aliases"
+export P4TICKETS="$HOME/.p4tickets"
 
 export FZF_DEFAULT_OPTS='--height=50% --multi --layout=reverse --info=inline'
 
@@ -27,6 +28,7 @@ export PATH="$PATH:$HOME/.deno/bin"
 export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
 
 {{ if .wsl -}}
+export P4TICKETS="$USERPROFILE/.p4tickets"
 export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$LOCALAPPDATA/Microsoft/WinGet/Packages/ahrm.sioyek_Microsoft.Winget.Source_8wekyb3d8bbwe/sioyek-release-windows"
 export PATH="$PATH:$LOCALAPPDATA/Programs/pympress-1.8.5-x86_64.msi"
