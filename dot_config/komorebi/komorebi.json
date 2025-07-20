@@ -29,28 +29,56 @@
       "width": 300
     }
   },
+  "display_index_preferences": {
+    "0": "XKD234302143",
+    "1": "103INVM0M583"
+  },
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "I",
+          "name": "A1",
           "layout": "BSP"
         },
         {
-          "name": "II",
+          "name": "A2",
           "layout": "BSP"
         },
         {
-          "name": "III",
+          "name": "A3",
           "layout": "BSP"
         },
         {
-          "name": "IV",
+          "name": "A4",
           "layout": "BSP"
         },
         {
-          "name": "V",
+          "name": "A5",
           "layout": "BSP"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "B1",
+          "layout": "Rows"
+        },
+        {
+          "name": "B2",
+          "layout": "Rows"
+        },
+        {
+          "name": "B3",
+          "layout": "Rows"
+        },
+        {
+          "name": "B4",
+          "layout": "Rows"
+        },
+        {
+          "name": "B5",
+          "layout": "Rows"
         }
       ]
     }
