@@ -18,9 +18,7 @@
   "border": true,
   "theme": {
     "palette": "Catppuccin",
-    "name": "Mocha",
-    "unfocused_border": "Pink",
-    "bar_accent": "Pink"
+    "name": "Mocha"
   },
   "stackbar": {
     "height": 40,
