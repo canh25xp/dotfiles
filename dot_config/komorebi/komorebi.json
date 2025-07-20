@@ -62,5 +62,12 @@
       "id": "PhoneExperienceHost.exe",
       "matching_strategy": "Equals"
     }
+  ],
+  "manage_rules": [
+    {
+      "kind": "Class",
+      "id": "TaskManagerWindow",
+      "matching_strategy": "Legacy"
+    }
   ]
 }
