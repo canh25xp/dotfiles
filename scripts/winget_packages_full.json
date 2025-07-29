@@ -5,8 +5,6 @@
     {
       "Packages": [
         { "PackageIdentifier": "7zip.7zip" },
-        { "PackageIdentifier": "Msys2.Msys2" },
-        { "PackageIdentifier": "Spotify.Spotify" },
         { "PackageIdentifier": "Alacritty.Alacritty" },
         { "PackageIdentifier": "Apple.iTunes" },
         { "PackageIdentifier": "ArduinoSA.CLI" },
@@ -75,6 +73,7 @@
         { "PackageIdentifier": "Microsoft.WindowsPCHealthCheck" },
         { "PackageIdentifier": "Microsoft.WindowsTerminal" },
         { "PackageIdentifier": "Miktex.Miktex" },
+        { "PackageIdentifier": "Msys2.Msys2" },
         { "PackageIdentifier": "Neovide.Neovide" },
         { "PackageIdentifier": "Neovim.Neovim.Nightly" },
         { "PackageIdentifier": "OlegDanilov.RapidEnvironmentEditor" },
@@ -89,6 +88,7 @@
         { "PackageIdentifier": "ShareX.ShareX" },
         { "PackageIdentifier": "SonicVisualiser.SonicVisualiser" },
         { "PackageIdentifier": "Splashtop.SplashtopWiredXDisplay" },
+        { "PackageIdentifier": "Spotify.Spotify" },
         { "PackageIdentifier": "StrawberryPerl.StrawberryPerl" },
         { "PackageIdentifier": "UniKey.UniKey" },
         { "PackageIdentifier": "VNGCorp.Zalo" },
