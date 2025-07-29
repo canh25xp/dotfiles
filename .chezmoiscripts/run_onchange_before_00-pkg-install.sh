@@ -1,33 +1,48 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 echo "================================================================================"
-echo "[Chezmoi] termux install extra packages"
+echo "[Chezmoi] termux install base packages"
 
 packages=(
-  neovim
-  ripgrep
-  fd
+  bash-completion
   bat
-  htop
-  zoxide
-  fzf
-  hexyl
-  gdu
-  tmux
-  neomutt
-  pass
-  luarocks
-  gdb
+  build-essential
+  curl
   eza
-  yazi
-  glow
+  fd
+  fzf
+  gdb
+  gdu
+  gh
+  git
   git-delta
-  tealdeer
-  tree-sitter
   git-lfs
+  glow
+  hexyl
+  htop
   lazygit
+  luarocks
+  man
+  neomutt
+  neovim
+  nodejs
+  openssh
+  p7zip
+  pass
+  python
+  python-pip
+  ripgrep
   starship
   taplo
+  tealdeer
+  termux-api
+  tmux
+  tree-sitter
+  unzip
+  wget
+  yazi
+  zip
+  zoxide
 )
 
 echo "The following packages will be installed:"
@@ -42,4 +57,5 @@ if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
   exit 0
 fi
 
+pkg upgrade
 pkg install "${packages[@]}"
