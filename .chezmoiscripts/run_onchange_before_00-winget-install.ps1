@@ -8,7 +8,5 @@ if ($confirmation -eq 'n') {
     exit
 }
 
-echo "Need administrator privilege, expecting a prompt"
-
-Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe &{ winget import {{ .chezmoi.sourceDir }}/scripts/winget_packages.json --no-upgrade --disable-interactivity }"
+winget import $HOME/.local/share/chezmoi/scripts/winget_packages.json --no-upgrade --disable-interactivity
 
