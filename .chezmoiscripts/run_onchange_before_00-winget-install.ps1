@@ -8,5 +8,5 @@ if ($confirmation -eq 'n') {
     exit
 }
 
-winget import $HOME/.local/share/chezmoi/scripts/winget_packages.json --no-upgrade --disable-interactivity
+winget import $HOME/.local/share/chezmoi/.chezmoiscripts/.winget_packages.json --no-upgrade --disable-interactivity
 
