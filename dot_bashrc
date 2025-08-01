@@ -161,7 +161,3 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Auto start tmux
-# if ! [ -n "$TERMUX_VERSION" ] && command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   tmux attach || exec tmux new-session
-# fi
