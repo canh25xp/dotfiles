@@ -161,9 +161,6 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# heroku autocomplete setup
-# HEROKU_AC_BASH_SETUP_PATH=$HOME/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
-
 # Auto start tmux
 # if ! [ -n "$TERMUX_VERSION" ] && command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   tmux attach || exec tmux new-session
