@@ -1,6 +1,6 @@
 Host desktop
   HostName 192.168.0.100
-  User Admin
+  User Michael
   IdentityFile ~/.ssh/id_ecdsa
 
 Host laptop
@@ -27,7 +27,7 @@ Host wifiteam
 
 Host desktop-jump
   HostName 100.99.0.0
-  User Admin
+  User Michael
   IdentityFile ~/.ssh/id_ecdsa_work
   ProxyJump tablet
 
