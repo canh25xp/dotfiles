@@ -35,6 +35,7 @@
         { "PackageIdentifier": "Rustlang.Rustup" },
         { "PackageIdentifier": "Spotify.Spotify" },
         { "PackageIdentifier": "Starship.Starship", "Version": "1.22.1" },
+        { "PackageIdentifier": "Tailscale.Tailscale" },
         { "PackageIdentifier": "Valve.Steam" },
         { "PackageIdentifier": "ajeetdsouza.zoxide", "Version": "0.9.7" },
         { "PackageIdentifier": "dandavison.delta", "Version": "0.18.2" },
