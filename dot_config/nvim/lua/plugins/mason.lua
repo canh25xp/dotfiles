@@ -1,6 +1,9 @@
 return {
   "williamboman/mason.nvim",
-  keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+  keys = {
+    { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
+    { "<leader>cI", "<cmd>MasonEnsureInstall<cr>", desc = "Install Mason Packages" }, -- new keybinding
+  },
   opts = {
     ensure_installed = {
       "black",
@@ -43,19 +46,18 @@ return {
   },
   config = function(_, opts)
     require("mason").setup(opts)
-    local ensure_installed = opts.ensure_installed
-    local registry = require("mason-registry")
-    local installed_package = registry.get_installed_package_names()
+    vim.api.nvim_create_user_command("MasonEnsureInstall", function()
+      local ensure_installed = opts.ensure_installed
+      local registry = require("mason-registry")
+      registry.refresh()
+      local installed_package = registry.get_installed_package_names()
 
-    if #installed_package > 0 then
-      return
-    end
-
-    for _, pkg_name in ipairs(ensure_installed) do
-      local ok, pkg = pcall(registry.get_package, pkg_name)
-      if ok and not pkg:is_installed() then
-        pkg:install()
+      for _, pkg_name in ipairs(ensure_installed) do
+        local ok, pkg = pcall(registry.get_package, pkg_name)
+        if ok and not pkg:is_installed() then
+          pkg:install()
+        end
       end
-    end
+    end, { desc = "Install all Mason ensured packages" })
   end,
 }
