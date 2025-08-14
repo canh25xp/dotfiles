@@ -6,11 +6,12 @@ return {
   },
   opts = {
     ensure_installed = {
-      "black",
-      "clangd",
       "bash-language-server",
+      "black",
       "clang-format",
+      "clangd",
       "css-lsp",
+      "deno",
       "eslint-lsp",
       "html-lsp",
       "isort",
