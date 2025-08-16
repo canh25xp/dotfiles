@@ -53,11 +53,24 @@ return {
       registry.refresh()
       local installed_package = registry.get_installed_package_names()
 
+      vim.notify("Checking Mason packages to install...", vim.log.levels.INFO)
+      local installed_count = 0
+      local to_install = {}
+
       for _, pkg_name in ipairs(ensure_installed) do
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok and not pkg:is_installed() then
+          table.insert(to_install, pkg_name)
           pkg:install()
+        else
+          installed_count = installed_count + 1
         end
+      end
+
+      if #to_install > 0 then
+        vim.notify("Installing Mason packages: " .. table.concat(to_install, ", "), vim.log.levels.INFO)
+      else
+        vim.notify("All Mason packages are already installed (" .. installed_package .. ")", vim.log.levels.INFO)
       end
     end, { desc = "Install all Mason ensured packages" })
   end,
