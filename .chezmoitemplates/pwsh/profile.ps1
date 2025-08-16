@@ -86,21 +86,10 @@ $env:Path += "$env:PROGRAMFILES\draw.io;"
 $env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
 $env:Path += "$env:PROGRAMFILES\VideoLAN\VLC;"
 
-if (Test-Path "$HOME\miniconda3\shell\condabin\conda-hook.ps1") {
-  & ~/miniconda3/shell/condabin/conda-hook.ps1
-} elseif (Test-Path "$HOME\anaconda3\shell\condabin\conda-hook.ps1") {
-  & ~/anaconda3/shell/condabin/conda-hook.ps1
-}
-
-#if (Test-Path "$HOME\miniforge3") {
-#  $env:CONDA_ROOT = "$HOME\miniforge3"
-#  $env:Path += "$env:CONDA_ROOT\Scripts;"
-#}
-
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-#if (Test-Path "$HOME\miniforge3\Scripts\conda.exe") {
-#  (& "$HOME\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Where-Object { $_ } | Invoke-Expression
-#}
+If (Test-Path "$HOME\miniconda3\Scripts\conda.exe") {
+    (& "$HOME\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Where-Object { $_ } | Invoke-Expression
+}
 #endregion
 
