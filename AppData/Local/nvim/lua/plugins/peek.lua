@@ -1,6 +1,7 @@
 -- markdown preview
 return {
   "toppair/peek.nvim",
+  event = { "VeryLazy" },
   cond = function() return vim.fn.executable("deno") == 1 end,
   build = "deno task --quiet build:fast",
   keys = {
