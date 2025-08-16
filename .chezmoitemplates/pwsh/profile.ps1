@@ -77,11 +77,6 @@ if (Test-Path "C:\Maven\apache-maven-3.9.9") {
   $env:Path += "$env:MAVEN_HOME\bin;"
 }
 
-if (Test-Path "$HOME\miniforge3") {
-  $env:CONDA_ROOT = "$HOME\miniforge3"
-  $env:Path += "$env:CONDA_ROOT\Scripts;"
-}
-
 # User programs
 $env:Path += "$HOME\Documents\PowerShell\Scripts;"
 $env:Path += "$env:LOCALAPPDATA\SumatraPDF;"
@@ -90,6 +85,17 @@ $env:Path += "$env:PROGRAMFILES\NirCmd;"
 $env:Path += "$env:PROGRAMFILES\draw.io;"
 $env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
 $env:Path += "$env:PROGRAMFILES\VideoLAN\VLC;"
+
+if (Test-Path "$HOME\miniconda3\shell\condabin\conda-hook.ps1") {
+  & ~/miniconda3/shell/condabin/conda-hook.ps1
+} elseif (Test-Path "$HOME\anaconda3\shell\condabin\conda-hook.ps1") {
+  & ~/anaconda3/shell/condabin/conda-hook.ps1
+}
+
+#if (Test-Path "$HOME\miniforge3") {
+#  $env:CONDA_ROOT = "$HOME\miniforge3"
+#  $env:Path += "$env:CONDA_ROOT\Scripts;"
+#}
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
