@@ -6,6 +6,7 @@
       "Packages": [
         { "PackageIdentifier": "7zip.7zip", "Version": "24.09" },
         { "PackageIdentifier": "Anaconda.Miniconda3" },
+        { "PackageIdentifier": "Asus.ArmouryCrate" },
         { "PackageIdentifier": "BurntSushi.ripgrep.MSVC", "Version": "14.1.1" },
         { "PackageIdentifier": "Clement.bottom" },
         { "PackageIdentifier": "Discord.Discord" },
