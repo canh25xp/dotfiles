@@ -27,8 +27,10 @@
 {{- end -}}
 
 {{/* windows only, 1 of pwsh, powershell, cmd */}}
-{{- $shell := "pwsh" -}}
-{{- if $work -}}
+{{- $shell := "cmd" -}}
+{{- if lookPath "pwsh" -}}
+{{-   $shell = "pwsh" -}}
+{{- else if lookPath "powershell"}}
 {{-   $shell = "powershell" -}}
 {{- end -}}
 
