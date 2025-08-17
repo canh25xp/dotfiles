@@ -25,7 +25,7 @@
         { "PackageIdentifier": "Microsoft.PowerToys" },
         { "PackageIdentifier": "Microsoft.VisualStudio.2022.BuildTools" },
         { "PackageIdentifier": "Microsoft.VisualStudio.2022.Community", "Version": "17.14.6"},
-        { "PackageIdentifier": "Microsoft.VisualStudioCode" },
+        { "PackageIdentifier": "Microsoft.VisualStudioCode", "Version": "1.102.3"},
         { "PackageIdentifier": "Microsoft.WindowsTerminal", "Version": "1.22.10731.0" },
         { "PackageIdentifier": "NSSM.NSSM", "Version": "2.24-101-g897c7ad"},
         { "PackageIdentifier": "Neovide.Neovide" },
