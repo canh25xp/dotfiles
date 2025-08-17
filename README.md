@@ -78,14 +78,22 @@ fc-list | grep "Times_New_Roman"
 
 ### Install mingw64 packges
 
-First open mingw64 shell: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64`
+<!-- TODO: automate this process -->
+First open mingw64 shell: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64`
+(Either ucrt64 or mingw64)
 
 ```sh
-pacman -S mingw-w64-x86_64-toolchain
-pacman -S mingw-w64-x86_64-tree-sitter
-pacman -S mingw-w64-x86_64-cmake
-pacman -S mingw-w64-x86_64-neocmakelsp
-pacman -S mingw-w64-x86_64-ninja
+pacman -S mingw-w64-ucrt-x86_64-gcc
+pacman -S mingw-w64-ucrt-x86_64-tree-sitter
+pacman -S mingw-w64-ucrt-x86_64-cmake
+pacman -S mingw-w64-ucrt-x86_64-neocmakelsp
+pacman -S mingw-w64-ucrt-x86_64-ninja
+```
+
+Or install all
+
+```sh
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
 
 Add `C:/msys64/mingw64/bin` to your PATH environment variable
