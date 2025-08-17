@@ -38,6 +38,8 @@ if vim.g.neovide then
   require("config.neovide")
 end
 
+require("config.lsp")
+
 require("common.chezmoi").setup({})
 
 if vim.fn.executable("nvr") == 1 then

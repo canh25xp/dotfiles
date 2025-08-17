@@ -1,5 +1,3 @@
-local icons = require("common.ui").icons
-
 vim.opt.cmdheight = vim.g.dynamic_cmdheight and 0 or 1
 vim.opt.sessionoptions:append({ "globals", "skiprtp" })
 vim.opt.completeopt = "menu,menuone,noselect"
@@ -72,28 +70,6 @@ else
     verthoriz = "+",
   }
 end
-
-vim.diagnostic.config({
-  underline = true,
-  virtual_text = true,
-  severity_sort = true,
-  update_in_insert = false,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-      [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-      [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-      [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-    },
-  },
-  float = {
-    focusable = true,
-    style = "minimal",
-    border = "rounded",
-    prefix = "",
-    header = "",
-  },
-})
 
 if vim.g.is_windows then
   vim.opt.keywordprg = ":help"
