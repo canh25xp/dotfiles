@@ -23,5 +23,20 @@ vim.diagnostic.config({
 })
 
 vim.lsp.enable({
+  "bashls",
+  "clangd",
+  "cssls",
+  "eslint",
+  "html",
+  "jdtls",
+  "jsonls",
   "lua_ls",
+  "marksman",
+  "neocmake",
+  "powershell_es",
+  "pyright",
+  "ruff",
+  "taplo",
+  "texlab",
+  "yamlls",
 })
