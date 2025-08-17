@@ -13,6 +13,7 @@
         { "PackageIdentifier": "EpicGames.EpicGamesLauncher" },
         { "PackageIdentifier": "Git.Git", "Version": "2.49.0" },
         { "PackageIdentifier": "GitHub.cli", "Version": "2.69.0" },
+        { "PackageIdentifier": "Google.AndroidStudio" },
         { "PackageIdentifier": "Google.Chrome" },
         { "PackageIdentifier": "Gyan.FFmpeg.Essentials" },
         { "PackageIdentifier": "JesseDuffield.lazygit", "Version": "0.48.0" },
