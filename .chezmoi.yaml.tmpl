@@ -9,9 +9,12 @@
 {{- $android := false -}}
 
 {{- $hostname := .chezmoi.hostname                    -}}
+{{- $username := .chezmoi.username                    -}}
 {{- if ($hostname | lower | contains "vancanh-ng")    -}}
 {{-   $work = true                                    -}}
-{{-   $laptop = true                                 -}}
+{{-   $laptop = true                                  -}}
+{{- else if eq $username "u0_a453"                    -}}
+{{-   $personal = true                                -}}
 {{- else if ($hostname | lower | contains "bunnies")  -}}
 {{-   $personal = true                                -}}
 {{-   if ($hostname | lower | contains "desktop")     -}}
