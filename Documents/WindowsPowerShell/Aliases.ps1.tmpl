@@ -1,6 +1,11 @@
 # Remove / Overide aliases
 Remove-Item alias:curl -Force
+{{ if lookPath "eza" -}}
 Remove-Item alias:ls -Force
+{{ end -}}
+{{ if lookPath "bat" -}}
+Remove-Item alias:cat -Force
+{{ end -}}
 
 {{- template "pwsh/Aliases.ps1.tmpl" . -}}
 
