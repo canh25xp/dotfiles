@@ -4,12 +4,17 @@ Set-Alias -Name df -Value Get-Volume
 Set-Alias -Name du -Value Get-DirectorySummary
 Set-Alias -Name ff -Value Find-File
 Set-Alias -Name grep -Value Find-String
+{{ if lookPath "eza" -}}
 Set-Alias -Name la -Value Get-ChildItemPrettyAll
 Set-Alias -Name ll -Value Get-ChildItemPrettyLong
 Set-Alias -Name ls -Value Get-ChildItemPretty
+{{ end -}}
 Set-Alias -Name su -Value Start-AdminSession
 Set-Alias -Name which -Value Show-Command
 Set-Alias -Name whichwsl -Value Get-WslPath
+{{ if lookPath "eza" -}}
+Set-Alias -Name cat -Value bat
+{{ end -}}
 
 # Funtion aliases
 Set-Alias -Name bhis -Value Search-BrowerHistory

@@ -1,12 +1,8 @@
-# ==============================================
-# SHELL ALIASES
-# ==============================================
-
 # Remove / Overide aliases
 Remove-Item alias:curl -Force
 Remove-Item alias:ls -Force
 
-{{- template "pwsh/Aliases.ps1" . -}}
+{{- template "pwsh/Aliases.ps1.tmpl" . -}}
 
 function Start-AdminSession {
   Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
