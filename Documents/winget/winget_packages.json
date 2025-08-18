@@ -11,6 +11,7 @@
         { "PackageIdentifier": "Clement.bottom" },
         { "PackageIdentifier": "Discord.Discord" },
         { "PackageIdentifier": "EpicGames.EpicGamesLauncher" },
+        { "PackageIdentifier": "Flydigi.FlydigiSpaceStation" },
         { "PackageIdentifier": "Git.Git", "Version": "2.49.0" },
         { "PackageIdentifier": "GitHub.cli", "Version": "2.69.0" },
         { "PackageIdentifier": "Google.AndroidStudio" },
