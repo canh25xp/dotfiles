@@ -21,8 +21,8 @@ Host tablet
   IdentityFile ~/.ssh/id_ecdsa
 
 Host wifiteam
-  HostName 192.168.99.12
-  User "wi-fi tg"
+  HostName 192.168.23.13
+  User "vancanh.ng"
   IdentityFile ~/.ssh/id_ecdsa
 
 Host desktop-jump
@@ -32,8 +32,8 @@ Host desktop-jump
   ProxyJump tablet
 
 Host wifiteam-jump
-  HostName 192.168.99.12
-  User "wi-fi tg"
+  HostName 192.168.23.13
+  User "vancanh.ng"
   IdentityFile ~/.ssh/id_ecdsa_work
   ProxyJump tablet
 
