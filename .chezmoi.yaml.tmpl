@@ -106,4 +106,10 @@ data:
 cd:
   command: {{ $shell | quote }}
   args: "-nol"
+
+interpreters:
+  ps1:
+    command: {{ $shell | quote }}
+    args: "-NoLogo"
+
 {{- end }}
