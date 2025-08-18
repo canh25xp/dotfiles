@@ -4,8 +4,11 @@
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
-#--theme="TwoDark"
+{{- if stat (joinPath .chezmoi.homeDir "AppData/Roaming/bat/themes/Catppuccin Mocha.tmTheme") }}
 --theme="Catppuccin Mocha"
+{{- else }}
+--theme="Dracula"
+{{- end }}
 
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
