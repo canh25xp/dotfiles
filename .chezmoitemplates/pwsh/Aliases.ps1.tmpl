@@ -41,6 +41,7 @@ Set-Alias -Name word -Value Open-WinWord
 Set-Alias -Name wtf -Value Get-Command
 Set-Alias -Name yeet -Value Move-ToRecycleBin
 Set-Alias -Name nuke -Value Clear-RecycleBin
+Set-Alias -Name hfscp -Value Copy-HFSLink
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
@@ -51,6 +52,39 @@ Set-Alias -Name g -Value git
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
+
+function Copy-HFSLink {
+  param(
+    [Parameter(Mandatory = $true)]
+    [string]$Path,
+
+    # TODO: remove hardcoded link
+    [string]$HfsRoot = "C:\Archive",
+    [string]$HfsServer = "http://107.98.39.128:6969"
+  )
+
+  # Normalize input path
+  $fullPath = (Resolve-Path $Path).ProviderPath
+
+  if ($fullPath -notlike "$HfsRoot*") {
+    Write-Error "The path must be inside the HFS root ($HfsRoot)."
+    return
+  }
+
+  # Get relative path
+  $relativePath = $fullPath.Substring($HfsRoot.Length).TrimStart('\')
+
+  # Convert Windows backslashes to forward slashes
+  $urlPath = $relativePath -replace '\\','/'
+
+  # Build the final URL
+  $link = "$HfsServer/$urlPath"
+
+  # Copy to clipboard
+  Set-Clipboard -Value $link
+
+  Write-Output "Copied to clipboard: $link"
+}
 
 function Get-ClipboardFiles {
   Add-Type -AssemblyName System.Windows.Forms
