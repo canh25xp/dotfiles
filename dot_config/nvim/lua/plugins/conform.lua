@@ -45,6 +45,7 @@ return {
       python = { "ruff_format", "isort", "black", stop_after_first = true },
       markdown = { "prettierd", "markdownlint" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettier" },
       css = { "prettierd" },
       html = { "prettierd" },
       yaml = { "prettierd" },
