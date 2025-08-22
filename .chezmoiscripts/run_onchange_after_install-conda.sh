@@ -5,16 +5,16 @@ echo "==========================================================================
 echo "[Chezmoi] Installing conda (miniconda)"
 
 if command -v conda &>/dev/null; then
-	echo "conda is already installed. Exiting."
-	exit 0
+    echo "conda is already installed. Exiting."
+    exit 0
 fi
 
 read -p "Do you want to proceed with the installation? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
-	echo "Installation canceled."
-	exit 0
+    echo "Installation canceled."
+    exit 0
 fi
 
 mkdir -p ~/miniconda3
@@ -25,9 +25,3 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 
 rm -rf ~/miniconda3/miniconda.sh
 
-read -p "init conda? (Y/n): " confirmation
-confirmation=${confirmation:-Y}
-
-if [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
-  ~/miniconda3/bin/conda init bash
-fi
