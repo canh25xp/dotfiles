@@ -1,0 +1,5 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $ver := .chezmoi.windowsVersion.displayVersion -}}
+{{- if ge $ver "22H2" -}}
+{{- .chezmoi.stdin | replaceAllRegex "nat" "mirrored" -}}
+{{- end -}}
