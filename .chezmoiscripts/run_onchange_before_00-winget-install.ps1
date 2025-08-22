@@ -9,17 +9,23 @@ if ($confirmation -eq 'n') {
 }
 
 $wingetPackages = "$HOME\Documents\winget\winget_packages.json"
+$tempWingetPackges = [System.IO.Path]::GetTempFileName()
+
+# Copy original to temp file
+Copy-Item $wingetPackages $tempWingetPackges -Force
 
 $editConfirmation = Read-Host "Do you want to edit the winget_packages.json file before installing? (Y/n)"
 
 if ($editConfirmation -ne 'n') {
   if (Get-Command nvim -ErrorAction SilentlyContinue) {
-    nvim $wingetPackages
+    nvim $tempWingetPackges
   }
   else {
     # Wait for notepad to close
-    Start-Process notepad -ArgumentList $wingetPackages -Wait
+    Start-Process notepad $tempWingetPackges -Wait
   }
 }
 
-winget import $wingetPackages --no-upgrade --disable-interactivity
+winget import $tempWingetPackges --no-upgrade --disable-interactivity
+
+Remove-Item $tempWingetPackges -Force
