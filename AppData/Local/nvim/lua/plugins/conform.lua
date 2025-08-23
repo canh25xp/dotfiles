@@ -47,6 +47,7 @@ return {
       markdown = { "prettierd", "markdownlint" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettier" },
+      jsonc = { "prettier" },
       css = { "prettierd" },
       html = { "prettierd" },
       yaml = { "prettierd" },
