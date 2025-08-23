@@ -61,8 +61,12 @@ return {
     map("n", "<leader>s.", builtin.oldfiles, { desc = "Search Recent Files" })
 
     map("n", "<leader><leader>", function()
+      builtin.find_files({ hidden = false, no_ignore = false})
+    end, { desc = "Search Files" })
+
+    map("n", "<leader>sa", function()
       builtin.find_files({ hidden = true, no_ignore = true})
-    end, { desc = "Find All" })
+    end, { desc = "Search All Files" })
 
     -- Slightly advanced example of overriding default behavior and theme
     map("n", "<leader>sz", function()
