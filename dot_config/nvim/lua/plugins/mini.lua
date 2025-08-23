@@ -15,5 +15,21 @@ return {
 
     -- Autopairs
     require("mini.pairs").setup()
+
+    require("mini.indentscope").setup({
+      draw = {
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+
+      options = {
+        indent_at_cursor = false,
+      },
+      symbol = "",
+    })
+
+
+    require("mini.bufremove").setup()
+    vim.keymap.set("n", "<leader>bd", MiniBufremove.delete, { desc = "Delete Current Buffer" })
+    vim.keymap.set("n", "<leader>bw", MiniBufremove.wipeout, { desc = "Wipeout Current Buffer" })
   end,
 }
