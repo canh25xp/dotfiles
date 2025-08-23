@@ -10,6 +10,7 @@ return {
     { "<leader>t\\", "<Cmd>ToggleTerm direction=vertical<Cr>", desc = "ToggleTerm vertical split" },
     { "<leader>gg", "<cmd>lua _LazygitToggle()<CR>", desc = "Lazygit" },
     { "<leader>gl", "<cmd>lua _LazygitLogToggle()<CR>", desc = "Lazygit Log" },
+    { "<leader>bt", "<cmd>lua _BottomToggle()<CR>", desc = "Bottom" },
   },
   opts = {
     size = function(term)
@@ -76,11 +77,26 @@ return {
         vim.api.nvim_buf_del_keymap(bn, "t", "<esc><esc>")
       end,
     })
+    local btm = require("toggleterm.terminal").Terminal:new({
+      cmd = "btm",
+      hidden = true,
+      direction = "tab",
+      display_name = "btm",
+      on_create = function(term)
+        local bn = term.bufnr
+        vim.api.nvim_buf_set_keymap(bn, "t", "<C-\\>", "<cmd>close<CR>", { noremap = true, silent = true })
+        vim.api.nvim_buf_del_keymap(bn, "t", "jk")
+        vim.api.nvim_buf_del_keymap(bn, "t", "<esc><esc>")
+      end,
+    })
     function _LazygitLogToggle()
       lazygit_log:toggle()
     end
     function _LazygitToggle()
       lazygit:toggle()
+    end
+    function _BottomToggle()
+      btm:toggle()
     end
   end,
 }
