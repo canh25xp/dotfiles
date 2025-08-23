@@ -8,8 +8,8 @@ if ($confirmation -eq 'n') {
   exit
 }
 
-$wingetPackages = "$HOME\Documents\winget\winget_packages.json"
-$tempWingetPackges = Join-Path ([System.IO.Path]::GetTempPath()) ("winget_packages_{0}.json" -f ([System.Guid]::NewGuid().ToString()))
+$wingetPackages = "$HOME\Documents\winget\winget_packages.jsonc"
+$tempWingetPackges = Join-Path ([System.IO.Path]::GetTempPath()) ("winget_packages_{0}.jsonc" -f ([System.Guid]::NewGuid().ToString()))
 
 # Copy original to temp file
 Copy-Item $wingetPackages $tempWingetPackges -Force
