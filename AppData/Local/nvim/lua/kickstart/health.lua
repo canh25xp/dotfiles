@@ -27,12 +27,21 @@ local check_version = function()
 end
 
 local check_external_reqs = function()
-  local reqs = {
+  local reqs = vim.g.is_windows and {
     "git",
     "lazygit",
     "python",
-    "make",
+    "mingw32-make",
     "7z",
+    "rg",
+    "fd",
+    "fzf",
+  } or {
+    "git",
+    "lazygit",
+    "python3",
+    "make",
+    "unzip",
     "rg",
     "fd",
     "fzf",
@@ -55,17 +64,17 @@ local check_external_reqs = function()
 
   for _, exe in ipairs(reqs) do
     if executable(exe) then
-      ok(string.format("Found executable: '%s'", exe))
+      ok(string.format("Found executable: `%s`", exe))
     else
-      warn(string.format("Could not find executable: '%s'", exe))
+      warn(string.format("Could not find executable: `%s`", exe))
     end
   end
 
   for _, exe in ipairs(servers) do
     if executable(exe) then
-      ok(string.format("Found language server: '%s'", exe))
+      ok(string.format("Found language server: `%s`", exe))
     else
-      warn(string.format("Could not find language server: '%s'", exe))
+      warn(string.format("Could not find language server: `%s`", exe))
     end
   end
 
