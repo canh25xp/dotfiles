@@ -20,6 +20,7 @@ return {
       "java",
       "javascript",
       "json",
+      "jsonc",
       "json5",
       "kotlin",
       "lua",
