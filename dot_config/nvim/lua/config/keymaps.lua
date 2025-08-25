@@ -12,7 +12,6 @@ map("n", "<C-s>", "<cmd>wa<cr><esc>", { desc = "Save Files" })
 map("n", "J", "mzJ`z", { desc = "Join without moving cursor" })
 map("n", "<leader>//", [[/\<<C-r><C-w>\><cr>]], { desc = "Search word under cursor", silent = true })
 map("n", "<leader>/s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Substitute word under cursor" })
-map("v", "<leader>/", [[:<C-u>%s/\<C-r><C-r>=escape(@", '/')<cr>\>/<C-r><C-r>=escape(@", '/')<cr>/gI<Left><Left><Left>]], { desc = "Search and replace selected word" }) -- BUG: AI generated, doesnt work
 map("n", "g|", "<cmd>vsplit<cr><C-]>", { desc = "Open in Split" })
 map("n", "<leader>lp", ":lua =", { desc = "Lua print" })
 map("n", "<leader>lo", ":lua =vim.opt.:get()<left><left><left><left><left><left>", { desc = "Lua print opts" })
