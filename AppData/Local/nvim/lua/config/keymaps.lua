@@ -62,6 +62,16 @@ map("n", "[i", utils.diagnostic_goto(-1, vim.diagnostic.severity.INFO), { desc =
 map("n", "]h", utils.diagnostic_goto(1, vim.diagnostic.severity.HINT), { desc = "Next Hint" })
 map("n", "[h", utils.diagnostic_goto(-1, vim.diagnostic.severity.HINT), { desc = "Prev Hint" })
 
+-- Lsp
+map("n", "gd", function() vim.lsp.buf.definition({ reuse_win = true }) end, { desc = "Goto Definition" })
+map("n", "gD", function() vim.lsp.buf.declaration({ reuse_win = true }) end, { desc = "Goto Declaration" })
+map("n", "gI", function() vim.lsp.buf.implementation({ reuse_win = true }) end, { desc = "Goto Implementation" })
+map("n", "gY", function() vim.lsp.buf.type_definition({ reuse_win = true }) end, { desc = "Goto Type Definition" })
+map("n", "gr", function() vim.lsp.buf.references() end, { desc = "Goto References" })
+map("n", "gs", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
+map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
+map("n", "<leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+
 -- Better scroll
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
