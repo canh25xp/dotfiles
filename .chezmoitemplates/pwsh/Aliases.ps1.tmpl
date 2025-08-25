@@ -15,6 +15,9 @@ Set-Alias -Name whichwsl -Value Get-WslPath
 {{ if lookPath "bat" -}}
 Set-Alias -Name cat -Value bat
 {{ end -}}
+{{ if lookPath "gsudo" -}}
+Set-Alias -Name sudo -Value gsudo
+{{ end -}}
 
 # Funtion aliases
 Set-Alias -Name bhis -Value Search-BrowerHistory
