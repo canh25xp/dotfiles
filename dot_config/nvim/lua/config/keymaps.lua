@@ -99,12 +99,11 @@ map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Line Up" })
 map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Line Down" })
 
--- BUG: these visual mode move lines is messed up
-map("v", "<A-k>", "<cmd>m '<-2<cr>gv=gv", { desc = "Move Line Up" })
-map("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { desc = "Move Line Down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
-map("v", "K", "<cmd>m '<-2<cr>gv=gv", { desc = "Move Line Up" })
-map("v", "J", "<cmd>m '>+1<cr>gv=gv", { desc = "Move Line Down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Srolling
 map("n", "<left>", "zh", { desc = "Scroll left" })
