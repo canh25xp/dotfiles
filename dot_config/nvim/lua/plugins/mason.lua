@@ -12,7 +12,6 @@ return {
       "clang-format",
       "clangd",
       "css-lsp",
-      "deno",
       "eslint-lsp",
       "html-lsp",
       "isort",

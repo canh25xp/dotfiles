@@ -151,10 +151,6 @@ if command -v atuin &>/dev/null; then
   eval "$(atuin init bash --disable-up-arrow)"
 fi
 
-if [ -f "$HOME/home/vancanh-ng/.deno/env" ]; then
-  . "/home/vancanh-ng/.deno/env"
-fi
-
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
