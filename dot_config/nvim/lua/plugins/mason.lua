@@ -1,7 +1,6 @@
 return {
   "williamboman/mason.nvim",
   lazy = false,
-  build = ":MasonUpdate",
   keys = {
     { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     { "<leader>cI", "<cmd>MasonEnsureInstall<cr>", desc = "Install Mason Packages" }, -- new keybinding
