@@ -62,7 +62,10 @@ require("lazy").setup({
     enabled = true, -- automatically check for config file changes and reload the ui
     notify = false, -- get a notification when changes are found
   },
-  install = { colorscheme = { "catppuccin-mocha", "habamax" } },
+  install = {
+    missing = false,
+    colorscheme = { "catppuccin-mocha", "habamax" },
+  },
   performance = {
     cache = {
       enabled = true,
