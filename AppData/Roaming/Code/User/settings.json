@@ -64,7 +64,7 @@
     "workbench.view.alwaysShowHeaderActions": true,
     "scm.defaultViewMode": "tree",
     "cmake.options.statusBarVisibility": "compact",
-    "editor.minimap.autohide": true,
+    "editor.minimap.autohide": "mouseover",
     "extensions.autoCheckUpdates": false,
     "extensions.autoUpdate": false,
     "git.confirmSync": false,
