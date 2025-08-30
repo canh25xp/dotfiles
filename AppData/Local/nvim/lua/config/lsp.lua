@@ -1,6 +1,10 @@
 local icons = require("common.ui").icons
+local utils = require("common.utils")
+local api = vim.api
+local lsp = vim.lsp
+local diagnostic = vim.diagnostic
 
-vim.diagnostic.config({
+diagnostic.config({
   underline = true,
   virtual_text = true,
   severity_sort = true,
@@ -22,7 +26,7 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.enable({
+lsp.enable({
   "bashls",
   "clangd",
   "cssls",
@@ -40,3 +44,102 @@ vim.lsp.enable({
   "texlab",
   "yamlls",
 })
+
+local function on_attach(client, bufnr)
+  local function map(modes, keys, func, desc)
+    vim.keymap.set(modes, keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
+  end
+
+  if client.server_capabilities.documentFormattingProvider then
+    map({ "n", "x" }, "<leader>cF", function() lsp.buf.format({ async = true }) end, "Format")
+  end
+
+  if client.supports_method(lsp.protocol.Methods.textDocument_inlayHint) then
+    map("n", "<leader>uh", function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({})) end, "Toggle Inlay Hints")
+  end
+
+  -- Highlight the current variable and its usages in the buffer.
+  if client.server_capabilities.documentHighlightProvider then
+    local gid = api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+
+    -- highlight references of the word under cursor.
+    api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = gid,
+      callback = lsp.buf.document_highlight,
+    })
+
+    -- clear highlights when cursor moves.
+    api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      group = gid,
+      callback = lsp.buf.clear_references,
+    })
+
+    api.nvim_create_autocmd("LspDetach", {
+      group = api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+      callback = function(event_context)
+        lsp.buf.clear_references()
+        api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event_context.buf })
+      end,
+    })
+  end
+
+  if client.name == "ruff" then
+    client.server_capabilities.hoverProvider = false -- Disable ruff hover in favor of Pyright
+  end
+
+  if client.name == "clangd" then
+    map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", "Clangd Switch Source/Header")
+  end
+
+  -- Enable auto-completion. `CTRL-Y` to select, `Ctrl-E` to cancel
+  if client:supports_method("textDocument/completion") then
+    -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+    local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+    client.server_capabilities.completionProvider.triggerCharacters = chars
+    lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+  end
+
+  -- Auto-format ("lint") on save if server not supports "textDocument/willSaveWaitUntil"
+  if not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/formatting") then
+    api.nvim_create_autocmd("BufWritePre", {
+      group = api.nvim_create_augroup("my.lsp", { clear = false }),
+      buffer = bufnr,
+      callback = function()
+        lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
+      end,
+    })
+  end
+end
+
+local capabilities = lsp.protocol.make_client_capabilities()
+
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if status_ok then
+  capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+else
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  }
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
+end
+
+api.nvim_create_autocmd("LspAttach", {
+  group = api.nvim_create_augroup("kickstart-lsp", { clear = true }),
+  callback = function(event_context)
+    local client = assert(lsp.get_client_by_id(event_context.data.client_id))
+    local bufnr = event_context.buf
+    on_attach(client, bufnr)
+  end,
+})
+
+utils.signcolumn_single_sign()
