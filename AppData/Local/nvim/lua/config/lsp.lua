@@ -65,6 +65,13 @@ else
   }
 end
 
+
+local function on_init(client, _)
+  if client.supports_method "textDocument/semanticTokens" then
+    client.server_capabilities.semanticTokensProvider = nil
+  end
+end
+
 local function on_attach(client, bufnr)
   local function map(modes, keys, func, desc)
     vim.keymap.set(modes, keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
@@ -124,3 +131,5 @@ api.nvim_create_autocmd("LspAttach", {
 })
 
 utils.signcolumn_single_sign()
+
+vim.lsp.config("*", { capabilities = capabilities, on_init = on_init })
