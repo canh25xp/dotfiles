@@ -45,6 +45,26 @@ lsp.enable({
   "yamlls",
 })
 
+local capabilities = lsp.protocol.make_client_capabilities()
+
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if status_ok then
+  capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+else
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  }
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
+end
+
 local function on_attach(client, bufnr)
   local function map(modes, keys, func, desc)
     vim.keymap.set(modes, keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
@@ -92,45 +112,6 @@ local function on_attach(client, bufnr)
   if client.name == "clangd" then
     map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", "Clangd Switch Source/Header")
   end
-
-  -- Enable auto-completion. `CTRL-Y` to select, `Ctrl-E` to cancel
-  if client:supports_method("textDocument/completion") then
-    -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-    local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-    client.server_capabilities.completionProvider.triggerCharacters = chars
-    lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  end
-
-  -- Auto-format ("lint") on save if server not supports "textDocument/willSaveWaitUntil"
-  if not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/formatting") then
-    api.nvim_create_autocmd("BufWritePre", {
-      group = api.nvim_create_augroup("my.lsp", { clear = false }),
-      buffer = bufnr,
-      callback = function()
-        lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
-      end,
-    })
-  end
-end
-
-local capabilities = lsp.protocol.make_client_capabilities()
-
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if status_ok then
-  capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
-else
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  }
-  capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
 end
 
 api.nvim_create_autocmd("LspAttach", {
