@@ -1,5 +1,3 @@
-local icons = require("common.ui").icons
-
 vim.opt.cmdheight = vim.g.dynamic_cmdheight and 0 or 1
 vim.opt.sessionoptions:append({ "globals", "skiprtp" })
 vim.opt.completeopt = "menu,menuone,noselect"
@@ -35,6 +33,7 @@ vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.scrolloff = 4 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.winminwidth = 5 -- Minimum window width
+vim.opt.winborder = "rounded"
 vim.opt.wrap = false -- Disable line wrap
 vim.opt.linebreak = true -- Wrap lines at convenient points
 vim.opt.splitright = true -- New splits should be opened right
@@ -73,24 +72,3 @@ else
   }
 end
 
-vim.diagnostic.config({
-  underline = true,
-  virtual_text = true,
-  severity_sort = true,
-  update_in_insert = false,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-      [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-      [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-      [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-    },
-  },
-  float = {
-    focusable = true,
-    style = "minimal",
-    border = "rounded",
-    prefix = "",
-    header = "",
-  },
-})

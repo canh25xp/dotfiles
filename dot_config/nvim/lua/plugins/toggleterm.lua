@@ -44,10 +44,6 @@ return {
         vim.keymap.set("t", "<C-j>", [[<cmd>wincmd j<cr>]], { buffer = 0, desc = "Focus lower" })
         vim.keymap.set("t", "<C-k>", [[<cmd>wincmd k<cr>]], { buffer = 0, desc = "Focus upper" })
         -- vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { buffer = 0 })
-
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.signcolumn = "no"
       end,
     })
     require("toggleterm").setup(opts)
