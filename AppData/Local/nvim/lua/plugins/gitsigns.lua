@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  version = false, -- Need latest version to fix nvim-v0.11 winborder issue
   opts = {
     signs = {
       add = { text = "▎" },
