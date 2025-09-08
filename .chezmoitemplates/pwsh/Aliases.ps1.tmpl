@@ -45,6 +45,7 @@ Set-Alias -Name wtf -Value Get-Command
 Set-Alias -Name yeet -Value Move-ToRecycleBin
 Set-Alias -Name nuke -Value Clear-RecycleBin
 Set-Alias -Name hfscp -Value Copy-HFSLink
+Set-Alias -Name p4edit -Value Edit-P4File
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
@@ -55,6 +56,24 @@ Set-Alias -Name g -Value git
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
+
+function Edit-P4File {
+  param(
+    [string]$path,
+    [string]$outdir = "$env:TEMP/p4"
+  )
+
+  $relativePath = $path -replace '^//',''
+  $outPath = Join-Path -Path $outdir -ChildPath $relativePath
+  $directory = Split-Path -Path $outPath -Parent
+
+  if (-not (Test-Path $directory)) {
+    New-Item -Path $directory -ItemType Directory -Force | Out-Null
+  }
+
+  & p4 print -o $outPath $path
+  nvim $outPath
+}
 
 function Copy-HFSLink {
   param(
