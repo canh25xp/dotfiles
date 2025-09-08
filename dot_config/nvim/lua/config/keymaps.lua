@@ -45,6 +45,7 @@ map("n", "<leader>qs", "<cmd>mksession!<cr>", { desc = "Save Session" })
 -- UI
 map("n", "<leader>us", utils.toggle_signcolmn, { desc = "Toggle Signcolumn" })
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle Wrap" })
+map("n", "<leader>ul", "<cmd>set list!<cr>", { desc = "Toggle Listchar" })
 map("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-l><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
 
 -- Diagnostic
