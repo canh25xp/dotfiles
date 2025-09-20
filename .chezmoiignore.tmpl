@@ -10,6 +10,8 @@ scripts/
 {{ else if .personal }}
 !.ssh/id_ecdsa
 !.ssh/id_ecdsa.pub
+{{ else }}
+.config/hfs/config.yaml
 {{ end }}
 
 
