@@ -112,10 +112,6 @@ local function on_attach(client, bufnr)
     })
   end
 
-  if client.name == "ruff" then
-    client.server_capabilities.hoverProvider = false -- Disable ruff hover in favor of Pyright
-  end
-
   if client.name == "clangd" then
     map("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", "Clangd Switch Source/Header")
   end
