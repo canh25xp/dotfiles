@@ -47,6 +47,18 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ```
 
+### Decrypt age key
+
+```sh
+chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.txt.age
+```
+
+### Chage age passphrase
+
+```sh
+chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt  
+```
+
 ### Login to gh
 
 ```sh
