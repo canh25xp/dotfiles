@@ -39,6 +39,7 @@ return {
     --   }
     -- end,
     formatters_by_ft = {
+      ps1 = { "pwsh_formatter" },
       lua = { "stylua" },
       sh = { "shfmt" },
       tex = { "latexindent" },
@@ -53,6 +54,16 @@ return {
       toml = { "taplo" },
     },
     formatters = {
+      pwsh_formatter = {
+        command = vim.o.shell,
+        args = {
+          "-NoProfile",
+          "-Command",
+          "Edit-DTWBeautifyScript",
+          "$FILENAME",
+        },
+        stdin = false,
+      },
       latexindent = {
         prepend_args = { "-l", "-m" },
       },
