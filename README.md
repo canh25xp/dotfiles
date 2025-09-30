@@ -151,7 +151,8 @@ A simpler way:
 
 ```sh
 apt update && apt upgrade && apt install adduser sudo
-adduser -G sudo username
+adduser username
+usermod -aG sudo username
 su - username
 ```
 
