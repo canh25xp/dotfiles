@@ -2999,6 +2999,7 @@ qt-privacy-ask=0
 
 # Advanced options (string)
 #sout-avio-options=
+avcodec-hw=d3d11va
 
 [aribsub] # ARIB subtitles decoder
 
