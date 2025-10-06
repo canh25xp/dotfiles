@@ -1,5 +1,6 @@
 {
   "CopilotChat.nvim": { "branch": "main", "commit": "f22747ae5a4c88b4aa519e4638fe89b274ea28a4" },
+  "bookmarks.nvim": { "branch": "main", "commit": "0a60d29fa16d911cb1cfa14ee5979ad13bf5a8f7" },
   "boole.nvim": { "branch": "main", "commit": "4dd3882e40fb26491fabccad2d96912abd78f96a" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "cb5665990a797b102715188e73c44c3931b3b42e" },
@@ -47,6 +48,7 @@
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
   "schemaStore.nvim": { "branch": "main", "commit": "589adb1f6d1e28b508e4d434a0cb7cbc2225c25f" },
   "snacks.nvim": { "branch": "main", "commit": "5eac729fa290248acfe10916d92a5ed5e5c0f9ed" },
+  "sqlite.lua": { "branch": "master", "commit": "6c00ab414dc1b69621b145908c582b747f24b46e" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
