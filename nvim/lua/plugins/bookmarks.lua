@@ -13,5 +13,13 @@ return {
   end,
   keys = {
     { "<leader>mm", "<cmd>BookmarksMark<cr>", desc = "Mark Line" },
+    { "<leader>mn", "<cmd>BookmarksNewList<cr>", desc = "New List" },
+    { "<leader>ml", "<cmd>BookmarksLists<cr>", desc = "Mark Lists" },
+    { "<leader>sm", "<cmd>BookmarksGoto<cr>", desc = "Search Mark" },
+    { "<leader>ma", "<cmd>BookmarksCommands<cr>", desc = "All Mark Commands" },
+    { "]b", "<cmd>BookmarksGotoNextInList<cr>", desc = "Next Bookmarks List" },
+    { "[b", "<cmd>BookmarksGotoPrevInList<cr>", desc = "Prev Bookmarks List" },
+    { "]B", "<cmd>BookmarksGotoNext<cr>", desc = "Next Bookmarks Line" },
+    { "[B", "<cmd>BookmarksGotoPrev<cr>", desc = "Prev Bookmarks Line" },
   },
 }
