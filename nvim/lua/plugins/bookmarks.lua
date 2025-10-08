@@ -17,9 +17,9 @@ return {
     { "<leader>ml", "<cmd>BookmarksLists<cr>", desc = "Mark Lists" },
     { "<leader>sm", "<cmd>BookmarksGoto<cr>", desc = "Search Mark" },
     { "<leader>ma", "<cmd>BookmarksCommands<cr>", desc = "All Mark Commands" },
-    { "]b", "<cmd>BookmarksGotoNextInList<cr>", desc = "Next Bookmarks List" },
-    { "[b", "<cmd>BookmarksGotoPrevInList<cr>", desc = "Prev Bookmarks List" },
-    { "]B", "<cmd>BookmarksGotoNext<cr>", desc = "Next Bookmarks Line" },
-    { "[B", "<cmd>BookmarksGotoPrev<cr>", desc = "Prev Bookmarks Line" },
+    { "]B", "<cmd>BookmarksGotoNextInList<cr>", desc = "Next Bookmarks List" },
+    { "[B", "<cmd>BookmarksGotoPrevInList<cr>", desc = "Prev Bookmarks List" },
+    { "]b", "<cmd>BookmarksGotoNext<cr>", desc = "Next Bookmarks Line" },
+    { "[b", "<cmd>BookmarksGotoPrev<cr>", desc = "Prev Bookmarks Line" },
   },
 }
