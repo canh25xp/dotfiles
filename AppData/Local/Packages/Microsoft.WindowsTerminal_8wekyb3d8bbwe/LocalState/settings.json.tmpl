@@ -4,7 +4,6 @@
     "actions": [],
     "centerOnLaunch": true,
     "compatibility.allowHeadless": true,
-    "confirmCloseAllTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": {{ if eq .defaultShell "powershell" -}} "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}" {{- else if eq .defaultShell "pwsh" -}} "{574e775e-4f2a-5b96-ac1e-a2962a402336}" {{- else -}} "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}" {{- end }},
@@ -125,33 +124,39 @@
         }
     ],
     "launchMode": "default",
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": {
-        "defaults": {
+    "profiles": 
+    {
+        "defaults": 
+        {
             "backgroundImage": "%USERPROFILE%/Pictures/Wallpapers/YorForger.jpg",
-            "backgroundImageOpacity": {{ if .terminalBackground -}} 0.15 {{- else -}} 0 {{- end }},
+            "backgroundImageOpacity": 0.15,
             "closeOnExit": "always",
-            "colorScheme": {
+            "colorScheme": 
+            {
                 "dark": "Catppuccin Mocha",
                 "light": "Catppuccin Latte"
             },
             "cursorShape": "filledBox",
             "experimental.repositionCursorWithMouse": false,
-            "font": {
+            "font": 
+            {
                 "cellHeight": "1.2",
-                "face": "{{ .nerdfontDisplayName }}",
+                "face": "CaskaydiaMono Nerd Font",
                 "features": {},
-                "size": {{ .fontSize }}
+                "size": 13
             },
             "padding": "0",
             "scrollbarState": "visible",
             "showMarksOnScrollbar": true
         },
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -190,6 +195,7 @@
                 "hidden": false,
                 "icon": "%USERPROFILE%\\Pictures\\Assets\\debian.ico",
                 "name": "Debian",
+                "source": "Microsoft.WSL",
                 "startingDirectory": "~"
             },
             {
@@ -292,6 +298,7 @@
             },
             {
                 "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& ~/miniconda3/shell/condabin/conda-hook.ps1 ; conda activate ~/miniconda3 \"",
+                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
                 "hidden": false,
                 "name": "Anaconda PowerShell Prompt (miniconda3)",
                 "icon": "%USERPROFILE%\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
@@ -299,6 +306,7 @@
             },
             {
                 "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" %USERPROFILE%\\miniconda3\\Scripts\\activate.bat  %USERPROFILE%\\miniconda3",
+                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
                 "hidden": false,
                 "name": "Anaconda Prompt (miniconda3)",
                 "icon": "%USERPROFILE%\\miniconda3\\Menu\\anaconda_prompt.ico",
@@ -434,5 +442,6 @@
             }
         }
     ],
-    "useAcrylicInTabRow": true
+    "useAcrylicInTabRow": true,
+    "warning.confirmCloseAllTabs": false
 }
