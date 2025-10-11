@@ -1,8 +1,8 @@
 {{/* chezmoi:template:line-endings=lf */}}
-version: 0.56.0
+version: {{ if .work -}} 0.56.0 {{- else if .personal -}} 0.57.12 {{- end }} {{/* Why TF do we need version in a config file ? */}}
 vfs:
   children: []
-  source: C:\Archive
+  source: {{ if .work -}} C:\Archive {{- else if .personal -}} E:\Archive {{- end }}
   can_upload:
     - vancanh.ng
 auto_check_update: false
@@ -13,5 +13,5 @@ accounts:
 favicon: {{ .chezmoi.homeDir }}/Pictures/Assets/icon.png
 title: vancanh's File Server
 force_lang: en
-port: 6969
+port: {{ if .work -}} 6969 {{- else if .personal -}} 8080 {{- end }}
 open_browser_at_start: false
