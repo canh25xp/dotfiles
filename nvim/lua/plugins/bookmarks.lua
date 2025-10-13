@@ -39,8 +39,12 @@ return {
       require("lazy").load({ plugins = { "bookmarks.nvim" } })
     end
   end,
-  config = function()
-    local opts = {} -- check the "./lua/bookmarks/default-config.lua" file for all the options
+  opts = { -- check the "./lua/bookmarks/default-config.lua" file for all the options
+    navigation = {
+      next_prev_wraparound_same_file = false,
+    },
+  },
+  config = function(_, opts)
     require("bookmarks").setup(opts) -- you must call setup to init sqlite db
     vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter" }, {
       group = vim.api.nvim_create_augroup("BookmarksGroup", {}),
