@@ -12,6 +12,15 @@ return {
     require("bookmarks").setup(opts) -- you must call setup to init sqlite db
   end,
   keys = {
+    {
+      "<leader>`",
+      function()
+        require("bookmarks.domain.service").toggle_mark("")
+        require("bookmarks.sign").safe_refresh_signs()
+        pcall(require("bookmarks.tree.operate").refresh)
+      end,
+      desc = "Toggle Mark",
+    },
     { "<leader>mm", "<cmd>BookmarksMark<cr>", desc = "Mark Line" },
     { "<leader>mn", "<cmd>BookmarksNewList<cr>", desc = "New List" },
     { "<leader>ml", "<cmd>BookmarksLists<cr>", desc = "Mark Lists" },
