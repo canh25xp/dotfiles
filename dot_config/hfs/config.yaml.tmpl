@@ -1,5 +1,5 @@
 {{/* chezmoi:template:line-endings=lf */}}
-version: {{ if .work -}} 0.56.0 {{- else if .personal -}} 0.57.12 {{- end }} {{/* Why TF do we need version in a config file ? */}}
+version: {{ if .work -}} 0.56.0 {{- else if .personal -}} 0.57.12 {{- end }}{{/* Why TF do we need version in a config file ? */}}
 vfs:
   children: []
   source: {{ if .work -}} C:\Archive {{- else if .personal -}} E:\Archive {{- end }}
