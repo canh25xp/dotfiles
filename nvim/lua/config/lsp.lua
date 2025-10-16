@@ -30,7 +30,7 @@ lsp.enable({
   "bashls",
   "clangd",
   "cssls",
-  "eslint",
+  "vtsls",
   "html",
   "jdtls",
   "jsonls",

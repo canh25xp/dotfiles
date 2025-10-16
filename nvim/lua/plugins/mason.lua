@@ -12,7 +12,7 @@ return {
       "clang-format",
       "clangd",
       "css-lsp",
-      "eslint-lsp",
+      "vtsls",
       "html-lsp",
       "isort",
       "jdtls",
