@@ -8,7 +8,7 @@ $wslenv = [Environment]::GetEnvironmentVariable("WSLENV", [System.EnvironmentVar
 if ($wslenv) {
 	Write-Output "WSLENV already set to $wslenv. SKIP"
 } else {
-	[Environment]::SetEnvironmentVariable("WSLENV", "USERPROFILE/p:LOCALAPPDATA/p", [System.EnvironmentVariableTarget]::User)
+	[Environment]::SetEnvironmentVariable("WSLENV", "USERPROFILE/p:LOCALAPPDATA/p:OPENAI_API_KEY/u", [System.EnvironmentVariableTarget]::User)
 	Write-Output "set WSLENV successfully"
 }
 
