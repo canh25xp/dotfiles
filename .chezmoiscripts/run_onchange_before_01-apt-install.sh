@@ -16,6 +16,7 @@ default_packages=(
   btm
   build-essential
   curl
+  direnv
   eza
   fd-find
   fzf
