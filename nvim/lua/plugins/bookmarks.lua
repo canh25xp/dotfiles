@@ -1,3 +1,9 @@
+if vim.g.is_windows then
+  -- TODO: dll download and install script
+  -- https://www.sqlite.org/2025/sqlite-dll-win-x64-3500400.zip
+  vim.g.sqlite_clib_path = vim.fn.stdpath("data") .. "/deps/sqlite/sqlite3.dll"
+end
+
 local find_or_create_project_bookmark_group = function()
   local project_root = vim.uv.cwd()
   if not project_root then
