@@ -4,7 +4,7 @@ local find_or_create_project_bookmark_group = function()
     return
   end
 
-  local project_name = string.gsub(project_root, "^" .. os.getenv("HOME") .. "/", "")
+  local project_name = string.gsub(project_root, "^" .. vim.env.HOME .. vim.g.path_sep, "")
   local Service = require("bookmarks.domain.service")
   local Repo = require("bookmarks.domain.repo")
   local bookmark_list = nil
