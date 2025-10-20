@@ -31,6 +31,7 @@ end
 
 return {
   "LintaoAmons/bookmarks.nvim",
+  cond = not vim.g.is_windows,
   event = "BufEnter",
   tag = "3.2.0",
   dependencies = {
