@@ -25,24 +25,13 @@ end
 
 return {
   "LintaoAmons/bookmarks.nvim",
-  lazy = true,
+  event = "BufEnter",
   tag = "3.2.0",
   dependencies = {
     { "kkharji/sqlite.lua" },
     { "nvim-telescope/telescope.nvim" },
     -- { "stevearc/dressing.nvim" }, -- optional: better UI
     -- { "GeorgesAlkhouri/nvim-aider" }, -- optional: for Aider integration
-  },
-  init = function()
-    local db_path = vim.fn.stdpath("data") .. "/bookmarks.sqlite.db"
-    if vim.fn.filereadable(db_path) == 1 then
-      require("lazy").load({ plugins = { "bookmarks.nvim" } })
-    end
-  end,
-  opts = { -- check the "./lua/bookmarks/default-config.lua" file for all the options
-    navigation = {
-      next_prev_wraparound_same_file = false,
-    },
   },
   config = function(_, opts)
     require("bookmarks").setup(opts) -- you must call setup to init sqlite db
