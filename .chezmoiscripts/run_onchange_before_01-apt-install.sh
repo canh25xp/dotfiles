@@ -11,6 +11,7 @@ if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
 fi
 
 default_packages=(
+  adb
   bash-completion
   bat
   btm
@@ -30,6 +31,7 @@ default_packages=(
   hexyl
   htop
   lazygit
+  libsqlite3-dev # required for bookmarks.nvim
   lolcat
   luarocks
   man-db
@@ -38,6 +40,7 @@ default_packages=(
   nodejs
   npm
   nsxiv
+  p4
   p7zip
   pass
   python3
@@ -47,6 +50,7 @@ default_packages=(
   ripgrep
   rustup
   speedtest-cli
+  sqlite3 # required for bookmarks.nvim
   starship
   tealdeer
   tmux
