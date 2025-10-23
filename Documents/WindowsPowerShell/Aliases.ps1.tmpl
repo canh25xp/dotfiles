@@ -1,3 +1,16 @@
+# stolen from https://github.com/giggio/posh-alias/blob/master/Posh-Alias.psm1
+function Add-Alias($name, $alias) {
+    $func = @"
+function global:$name {
+  `$expr = ('$alias ' + (( `$args | % { if (`$_.GetType().FullName -eq "System.String") { "``"`$(`$_.Replace('``"','````"').Replace("'","``'"))``"" } else { `$_ } } ) -join ' '))
+  write-debug "Expression: `$expr"
+  Invoke-Expression `$expr
+}
+"@
+  write-debug "Defined function:`n$func"
+  $func | iex
+}
+
 # Remove / Overide aliases
 Remove-Item alias:curl -Force
 {{ if lookPath "eza" -}}
@@ -7,7 +20,7 @@ Remove-Item alias:ls -Force
 Remove-Item alias:cat -Force
 {{ end -}}
 
-{{- template "pwsh/Aliases.ps1.tmpl" . -}}
+{{ template "pwsh/Aliases.ps1.tmpl" . -}}
 
 function Start-AdminSession {
   Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"

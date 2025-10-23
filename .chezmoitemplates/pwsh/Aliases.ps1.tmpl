@@ -1,25 +1,24 @@
-
 # Unix-like aliases
+{{ if lookPath "eza" -}}
+Add-Alias la "eza -a -1 --icons --hyperlink --time-style relative"
+Add-Alias ll "eza -a -l --icons --hyperlink --time-style relative"
+Add-Alias ls "eza --icons -1 --hyperlink --time-style relative"
+{{ end -}}
+{{ if lookPath "bat" -}}
+Add-Alias cat "bat -P"
+{{ end -}}
+{{ if lookPath "gsudo" -}}
+Add-Alias sudo gsudo
+{{ end -}}
+
+# Funtion aliases
 Set-Alias -Name df -Value Get-Volume
 Set-Alias -Name du -Value Get-DirectorySummary
 Set-Alias -Name ff -Value Find-File
 Set-Alias -Name grep -Value Find-String
-{{ if lookPath "eza" -}}
-Set-Alias -Name la -Value Get-ChildItemPrettyAll
-Set-Alias -Name ll -Value Get-ChildItemPrettyLong
-Set-Alias -Name ls -Value Get-ChildItemPretty
-{{ end -}}
 Set-Alias -Name su -Value Start-AdminSession
 Set-Alias -Name which -Value Show-Command
 Set-Alias -Name whichwsl -Value Get-WslPath
-{{ if lookPath "bat" -}}
-Set-Alias -Name cat -Value bat
-{{ end -}}
-{{ if lookPath "gsudo" -}}
-Set-Alias -Name sudo -Value gsudo
-{{ end -}}
-
-# Funtion aliases
 Set-Alias -Name bhis -Value Search-BrowerHistory
 Set-Alias -Name bmark -Value Search-BrowerBookmarks
 Set-Alias -Name cdi -Value Set-LocationInteractive
@@ -363,18 +362,6 @@ function Show-Meme {
     [string]$Name = "thisisfine"
   )
   Invoke-Expression (Get-Content "~\Pictures\Arts\$Name.ps1" -Raw)
-}
-
-function Get-ChildItemPretty {
-  eza --icons -1 --hyperlink --time-style relative $args
-}
-
-function Get-ChildItemPrettyAll {
-  eza -a --icons -1 --hyperlink --time-style relative $args
-}
-
-function Get-ChildItemPrettyLong {
-  eza -a -l --icons --hyperlink --time-style relative $args
 }
 
 function Get-ChildItemList {
