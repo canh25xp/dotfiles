@@ -8,6 +8,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# ANSI color codes
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+RESET="\033[0m"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -111,6 +116,18 @@ fi
 if [ -f ~/.bash_completion/alacritty ]; then
   . ~/.bash_completion/alacritty
 fi
+
+# Only enable proxy if SOCKS port is open
+if netstat -tln 2>/dev/null | grep -qE '127\.0\.0\.1:1080|0\.0\.0\.0:1080'; then
+  export ALL_PROXY="socks5://127.0.0.1:1080"
+  export http_proxy="$ALL_PROXY"
+  export https_proxy="$ALL_PROXY"
+  echo -e "${GREEN}SOCKS proxy detected → ALL_PROXY set${RESET}"
+else
+  unset ALL_PROXY http_proxy https_proxy
+fi
+
+export no_proxy="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
