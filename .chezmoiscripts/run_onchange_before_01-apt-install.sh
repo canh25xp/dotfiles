@@ -30,6 +30,8 @@ default_packages=(
   golang
   hexyl
   htop
+  httpie
+  jq
   lazygit
   libsqlite3-dev # required for bookmarks.nvim
   lolcat
