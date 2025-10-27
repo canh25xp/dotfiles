@@ -1,3 +1,5 @@
 [submodule "nvim-lazy"]
-	path = nvim-lazy
-	url = https://github.com/canh25xp/nvim-lazy
+  path = nvim-lazy
+  url = https://github.com/canh25xp/nvim-lazy
+  branch = main
+  ignore = all
