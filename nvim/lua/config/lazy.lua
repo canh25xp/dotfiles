@@ -63,7 +63,7 @@ require("lazy").setup({
     notify = false, -- get a notification when changes are found
   },
   install = {
-    missing = false,
+    missing = true,
     colorscheme = { "catppuccin-mocha", "habamax" },
   },
   performance = {
