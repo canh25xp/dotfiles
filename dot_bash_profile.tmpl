@@ -27,6 +27,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
 
 {{ if .wsl -}}
+export DONT_PROMPT_WSL_INSTALL=true
 export P4TICKETS="$USERPROFILE/.p4tickets"
 export PATH="$PATH:$LOCALAPPDATA/Programs/Microsoft VS Code/bin"
 export PATH="$PATH:$LOCALAPPDATA/Programs/Ollama"
