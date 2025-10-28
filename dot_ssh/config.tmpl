@@ -4,6 +4,9 @@ IdentityFile ~/.ssh/id_ecdsa_work
 IdentityFile ~/.ssh/id_ecdsa
 {{- end }}
 
+Host *
+    KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
+
 Host desktop
   HostName 192.168.0.100
   User Michael
