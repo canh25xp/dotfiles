@@ -111,15 +111,19 @@ fi
 # Only enable proxy if SOCKS port is open
 if netstat -tln 2>/dev/null | grep -qE '127\.0\.0\.1:1080|0\.0\.0\.0:1080'; then
   export ALL_PROXY="socks5://127.0.0.1:1080"
+  export HTTP_PROXY="$ALL_PROXY"
+  export HTTPS_PROXY="$ALL_PROXY"
   export http_proxy="$ALL_PROXY"
   export https_proxy="$ALL_PROXY"
   echo -e "${GREEN}SOCKS proxy detected → ALL_PROXY set${RESET}"
 else
-  unset ALL_PROXY http_proxy https_proxy
+  unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
 fi
-{{- end }}
 
-export no_proxy="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
+export NO_PROXY="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
+export no_proxy="$NO_PROXY"
+
+{{- end }}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
