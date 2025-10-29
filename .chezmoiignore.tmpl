@@ -21,6 +21,10 @@ nvim-lazy/
 .termux/
 {{ end }}
 
+{{ if not .wsl }}
+.vscode-server/
+{{ end }}
+
 {{ if .work }}
 Pictures/Wallpapers
 .chezmoiscripts/00-winget-install.ps1
