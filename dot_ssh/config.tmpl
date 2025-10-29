@@ -4,11 +4,13 @@ IdentityFile ~/.ssh/id_ecdsa_work
 IdentityFile ~/.ssh/id_ecdsa
 {{- end }}
 
+Host *
+    KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
+
 Host desktop
   HostName 192.168.0.100
   User Michael
   IdentityFile ~/.ssh/id_ecdsa
-  KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
 Host laptop
   HostName 192.168.0.101
@@ -36,7 +38,6 @@ Host desktop-jump
   HostName 100.99.0.0
   User Michael
   IdentityFile ~/.ssh/id_ecdsa_work
-  KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
   ProxyJump tablet
 
 Host wifiteam-jump
