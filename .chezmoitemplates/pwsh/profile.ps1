@@ -2,6 +2,8 @@
 $env:EDITOR = "nvim"
 $env:PAGER = "less -R"
 
+$env:NVIM_APPNAME="nvim-lazy"
+
 # Startship
 $env:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
 
