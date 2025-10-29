@@ -71,11 +71,6 @@
 [mergetool "nvimdiff"]
   layout = "MERGED"
 
-{{- if and .work .windows}}
-[url "ssh://u0_a353@localhost:8022/~/github/"]
-  insteadOf = https://github.com/
-{{- end }}
-
 [alias]
 {{- if eq .chezmoi.os "windows" }}
   p4 = !python.exe 'C:\\Program Files\\Git\\mingw64\\libexec\\git-core\\git-p4'
