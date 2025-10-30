@@ -34,6 +34,14 @@ Host wifiteam
   User "vancanh.ng"
   IdentityFile ~/.ssh/id_ecdsa_work
 
+Host tablet-proxy
+  HostName localhost
+  User u0_a353
+  DynamicForward 1080
+  Port 8022
+  ExitOnForwardFailure yes
+  IdentityFile ~/.ssh/id_ecdsa_work
+
 Host desktop-jump
   HostName 100.99.0.0
   User Michael
