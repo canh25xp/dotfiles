@@ -10,10 +10,10 @@ daemon:
     port: "50051"
 directories:
     builtin:
-        libraries: C:\Users\Admin\AppData\Local\Arduino15\libraries
-    data: C:\Users\Admin\AppData\Local\Arduino15
-    downloads: C:\Users\Admin\AppData\Local\Arduino15\staging
-    user: C:\Users\Admin\Documents\Arduino
+        libraries: {{ joinPath .chezmoi.homeDir "AppData/Local/Arduino15/libraries" | replace "/" "\\" }}
+    data: {{ joinPath .chezmoi.homeDir "AppData/Local/Arduino15" | replace "/" "\\" }}
+    downloads: {{ joinPath .chezmoi.homeDir "AppData/Local/Arduino15/staging" | replace "/" "\\" }}
+    user: {{ joinPath .chezmoi.homeDir "Documents/Arduino" | replace "/" "\\" }}
 library:
     enable_unsafe_install: true
 locale: en
