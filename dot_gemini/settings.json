@@ -1,0 +1,20 @@
+{
+  "general": {
+    "vimMode": true,
+    "preferredEditor": "nvim"
+  },
+  "ui": {
+    "theme": "GitHub",
+    "hideBanner": false,
+    "hideTips": false,
+    "customWittyPhrases": [
+      "You forget a thousand things every day. Make sure this is one of ’em",
+      "Connecting to AGI"
+    ]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  }
+}
