@@ -109,13 +109,13 @@ fi
 
 {{ if .work -}}
 # Only enable proxy if SOCKS port is open
-if netstat -tln 2>/dev/null | grep -qE '127\.0\.0\.1:1080|0\.0\.0\.0:1080'; then
-  export ALL_PROXY="socks5://127.0.0.1:1080"
+if adb forward --list 2>/dev/null | grep -qE 'tcp:3128'; then
+  export ALL_PROXY="http://127.0.0.1:3128"
   export HTTP_PROXY="$ALL_PROXY"
   export HTTPS_PROXY="$ALL_PROXY"
   export http_proxy="$ALL_PROXY"
   export https_proxy="$ALL_PROXY"
-  echo -e "${GREEN}SOCKS proxy detected → ALL_PROXY set${RESET}"
+  echo -e "${GREEN}Using proxy $ALL_PROXY${RESET}"
 else
   unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
 fi
