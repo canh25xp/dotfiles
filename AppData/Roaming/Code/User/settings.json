@@ -8,6 +8,7 @@
     "editor.stickyScroll.enabled": false,
     "update.mode": "manual",
     "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
     "extensions.ignoreRecommendations": true,
     "workbench.tree.expandMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "always",
