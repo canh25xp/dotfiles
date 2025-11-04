@@ -37,7 +37,7 @@ set icons
 set drawbox
 
 # File previewer
-# set previewer ~/.config/lf/pv.sh
+set previewer ~/.config/lf/preview.sh
 
 set info size:time
 set scrolloff 10 # leave some space at the top and the bottom of the screen
