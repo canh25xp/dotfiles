@@ -107,24 +107,6 @@ if [ -f ~/.bash_completion/alacritty ]; then
   . ~/.bash_completion/alacritty
 fi
 
-{{ if .work -}}
-# Only enable proxy if SOCKS port is open
-if adb forward --list 2>/dev/null | grep -qE 'tcp:3128'; then
-  export ALL_PROXY="http://127.0.0.1:3128"
-  export HTTP_PROXY="$ALL_PROXY"
-  export HTTPS_PROXY="$ALL_PROXY"
-  export http_proxy="$ALL_PROXY"
-  export https_proxy="$ALL_PROXY"
-  echo -e "${GREEN}Using proxy $ALL_PROXY${RESET}"
-else
-  unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
-fi
-
-export NO_PROXY="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
-export no_proxy="$NO_PROXY"
-
-{{- end }}
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$("$HOME/.miniconda3/bin/conda" 'shell.bash' 'hook' 2>/dev/null)"
