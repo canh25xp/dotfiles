@@ -50,6 +50,7 @@ Set-PSReadLineOption -MaximumHistoryCount 100000
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardDeleteWord
+Set-PSReadLineKeyHandler -Chord Ctrl+j -Function AcceptLine
 
 # Kill whole line
 Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
