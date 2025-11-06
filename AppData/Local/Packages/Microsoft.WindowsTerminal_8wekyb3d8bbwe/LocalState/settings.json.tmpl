@@ -134,7 +134,7 @@
     {
         "defaults":
         {
-            "backgroundImage": {{ joinPath .chezmoi.homeDir "Pictures/Wallpapers/YorForger.jpg" | quote }},
+            "backgroundImage": {{ .terminalBackgroundImage | quote }},
             "backgroundImageOpacity": 0.15,
             "closeOnExit": "always",
             "colorScheme": {

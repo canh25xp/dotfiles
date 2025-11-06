@@ -29,6 +29,11 @@
 {{-   $email = "vancanh.ng@samsung.com" -}}
 {{- end -}}
 
+{{- $terminalBackgroundImage := joinPath .chezmoi.homeDir "Pictures/Wallpapers/GothGirl.gif" -}}
+{{- if $work -}}
+{{-   $terminalBackgroundImage = joinPath .chezmoi.homeDir "Pictures/Wallpapers/2B.gif" -}}
+{{- end -}}
+
 {{/* windows only, 1 of pwsh, powershell, cmd */}}
 {{- $shell := "cmd" -}}
 {{- if lookPath "pwsh" -}}
@@ -100,6 +105,7 @@ data:
   p4port: {{ if $work -}} "107.113.53.156:1716" {{- else -}} "" {{- end}}
   p4user: {{ if $work -}} "vancanh.ng" {{- else -}} "" {{- end}}
   terminalBackground: true
+  terminalBackgroundImage: {{ $terminalBackgroundImage | quote }}
 
 {{- if $windows }}
 
