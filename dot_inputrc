@@ -1,20 +1,4 @@
-# The following GNU Emacs style escape sequences are available when specifying key sequences:
-# \C-   control prefix (Ctrl)
-# \M-   meta prefix (Alt)
-# \e    an escape character
-# \\    backslash
-# \"    a double quotation mark
-# \'    a single quote or apostrophe
-#
-# This file controls the behaviour of line input editing for
-# programs that use the GNU Readline library.  Existing
-# programs include FTP, Bash, and GDB.
-#
-# You can re-read the inputrc file with C-x C-r.
-# Lines beginning with '#' are comments.
-#
-# First, include any system-wide bindings and variable
-# assignments from /etc/Inputrc
+# NOTE: re-read the inputrc file with C-x C-r.
 $include /etc/inputrc
 
 # Display a list of the matching files
@@ -28,51 +12,67 @@ set completion-map-case on
 set bell-style none
 
 # Open file explorer
-# Control-o:"cdx\C-m"
-Control-o:"cdi\C-m"
+"\C-o": "\C-ucdi\C-j"
 
 # Open man page for the what ever typed in the terminal
-"\eh":"\C-aman \C-m" # Alt-h
+"\M-h": "\C-aman \C-m"
 
 # Kill whole line
-"\el":kill-whole-line # Alt-l
+"\e\e": kill-whole-line
+"\el": kill-whole-line
 
-# If there are multiple matches for completion, Tab should cycle through them
-TAB:menu-complete
-
-# And Shift-Tab should cycle backwards
-"\e[Z":menu-complete-backward
+# If there are multiple matches for completion, Tab and Shift-Tab should cycle through them all
+"\t": menu-complete
+"\e[Z": menu-complete-backward
 
 # Cycle through history based on characters already typed on the line
-"\e[A":history-search-backward
-"\e[B":history-search-forward
-"\C-p":history-search-backward
-"\C-n":history-search-forward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
 
 # Keep Ctrl-Left and Ctrl-Right working when the above are used
-"\e[1;5C":forward-word
-"\e[1;5D":backward-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
 
 
 $if Bash
 
-# edit the path
-"\C-xp": "PATH=${PATH}\e\C-e\C-a\ef\C-f"
+  # edit the path
+  "\C-xp": "PATH=${PATH}\e\C-e\C-a\ef\C-f"
 
-# prepare to type a quoted word --
-# insert open and close double quotes
-# and move to just after the open quote
-"\C-x\"": "\"\"\C-b"
+  # insert a backslash (testing backslash escapes in sequences and macros)
+  "\C-x\\": "\\"
 
-# insert a backslash (testing backslash escapes in sequences and macros)
-"\C-x\\": "\\"
+  # Quote the current or previous word
+  "\C-xq": "\eb\"\ef\""
 
-# Quote the current or previous word
-"\C-xq": "\eb\"\ef\""
+  # Add a binding to refresh the line, which is unbound
+  "\C-xr": redraw-current-line
 
-# Add a binding to refresh the line, which is unbound
-"\C-xr": redraw-current-line
-
-# Edit variable on current line.
-"\M-\C-v": "\C-a\C-k$\C-y\M-\C-e\C-a\C-y="
+  # Edit variable on current line.
+  "\M-\C-v": "\C-a\C-k$\C-y\M-\C-e\C-a\C-y="
 $endif
+
+
+# [Escape code references] (https://en.wikipedia.org/wiki/ANSI_escape_code)
+# The following GNU Emacs style escape sequences are available when specifying key sequences:
+# \C-         control prefix (Ctrl)
+# \M-         meta prefix (Alt)
+# \e          escape (Esc), simulate Alt key
+# \\          backslash (\)
+# \"          a double quotation mark (")
+# \'          a single quote or apostrophe (')
+#
+# \e[A        Up
+# \e[B        Down
+# \e[C        Right
+# \e[D        Left
+# \e[F        End
+# \e[G        Keypad 5
+# \e[H        Home
+# \e[3~       Delete
+# \e[1P       F1
+# \e[1Q       F2
+# \e[1R       F3
+# \e[1S       F4
