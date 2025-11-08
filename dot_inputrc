@@ -31,10 +31,6 @@ set bell-style none
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
-# Keep Ctrl-Left and Ctrl-Right working when the above are used
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
-
 
 $if Bash
 
