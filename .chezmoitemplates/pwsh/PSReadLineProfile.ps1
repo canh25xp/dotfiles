@@ -28,11 +28,11 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 # Ignore some of the commands (not add to history)
 Set-PSReadLineOption -AddToHistoryHandler {
     Param([string]$line)
-    # Ignored git commands
-    # if ($line -match "^git") {
-    #     return $false
-    # }
-    if (@("exit", "dir", "ls", "la", "pwd", "cd ..", "cls", "clear", "exp .", "pwsh").Contains($line.ToLowerInvariant())) {
+    # Ignored chezmoi commands
+    if ($line -match "^cz") {
+        return $false
+    }
+    if (@("exit", "dir", "ls", "la", "ll", "pwd", "cd ..", "cdi", "cls", "clear", "exp .", "pwsh", "nvim").Contains($line.ToLowerInvariant())) {
         return $false
     }
     return $true
