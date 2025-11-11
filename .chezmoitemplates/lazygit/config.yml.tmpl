@@ -5,10 +5,10 @@ git:
   autoRefresh: true
   autoFetch: true
   parseEmoji: true
-  paging:
-    colorArg: always
+  pagers:
+    - colorArg: always
 {{- if lookPath "delta" }}
-    pager: delta --dark --paging=never
+      pager: delta --dark --paging=never
 {{- end }}
 
 gui:
