@@ -1,22 +1,22 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
 rev = "63f9650"
-hash = "c2c9ad90a84f9d86188a2b8b73a289c1"
+hash = "71a5d59885621a3a52dbe73796bad555"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
 rev = "63f9650"
-hash = "a65dc998e4742a4f6561623e6154e1b9"
+hash = "bf794a8753f9ec618d51f8f9c4fbeda5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
 rev = "63f9650"
-hash = "30bf27ffcc32f385291b3061b4cf36f3"
+hash = "aa23c1b709263dcc1c7acc8cd41b512"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
 rev = "63f9650"
-hash = "a00000a1d5785fc9295d9a96cb5b3201"
+hash = "24e91fec452b0c0ef59bfca31be086f3"
 
 [flavor]
 deps = []
