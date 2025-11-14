@@ -39,6 +39,7 @@ default_packages=(
   man-db
   neomutt
   neovim
+  netcat-traditional
   nodejs
   npm
   nsxiv
