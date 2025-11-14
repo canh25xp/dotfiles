@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "plm-ipaas": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "streamableHttp",
+      "url": "https://ipaas-scadev.sec.samsung.net/sec/kr/mcp_plm_001/1.0/plmmcp",
+      "headers": {
+        "PLM_USER_ID": "vancanh.ng",
+        "PLM_USER_DIVISION": "25"
+      }
+    },
+    "github-ipaas": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "streamableHttp",
+      "url": "https://ipaas-scadev.sec.samsung.net/sec/kr/mcp_github_001/1.0/mcp",
+      "headers": {
+        "iPaaS-Backend-Authorization": "Bearer ${GITHUB_TOKEN}"
+      }
+    },
+    "CODEGrok-ipaas": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "streamableHttp",
+      "url": "https://ipaas-sca.sec.samsung.net/sec/kr/codegrok-mcp/1.0/mcp",
+      "headers": {
+        "iPaaS-Backend-Authorization": "Bearer ${CODEGROK_TOKEN}"
+      }
+    },
+    "Academic Search MCP Server": {
+      "type": "streamableHttp",
+      "url": "https://ipaas-sca.sec.samsung.net/sec/kr/mcp_ai_playground_001/1.0/mcp"
+    }
+  }
+}
