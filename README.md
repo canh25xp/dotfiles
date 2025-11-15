@@ -1,6 +1,6 @@
-# My [dotfiles](https://github.com/canh25xp/dotfiles), manage with [chezmoi](https://github.com/twpayne/chezmoi)
+# Michael's [dotfiles](https://github.com/canh25xp/dotfiles)
 
-> [Documentation](https://www.chezmoi.io/)
+> Manage with `chezmoi` ([github](https://github.com/twpayne/chezmoi) | [documentation](https://www.chezmoi.io/))
 
 My Windows, Linux (via WSL) and Android (via [Termux](https://github.com/termux/termux-app)) setup.
 Focus on:
@@ -25,7 +25,7 @@ sudo dpkg -i chezmoi_linux_amd64.deb
 rm chezmoi_linux_amd64.deb
 ```
 
-or using **snap**:
+Or using `snap`:
 
 ```sh
 sudo apt install snapd
@@ -38,7 +38,7 @@ sudo snap install chezmoi --classic
 winget install chezmoi
 ```
 
-### Termux (android)
+### Termux
 
 ```sh
 pkg install chezmoi
@@ -56,10 +56,16 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 ### Init dotfiles
 
 ```sh
+chezmoi init canh25xp --depth 1
+```
+
+Add `GIT_LFS_SKIP_SMUDGE` if you want skip download `git-lfs` files (mostly my wallpapers)
+
+```sh
 GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ```
 
-### Decrypt age key
+### Decrypt age key (optional)
 
 ```sh
 chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.txt.age
@@ -71,19 +77,19 @@ chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.t
 chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt
 ```
 
-### Login to gh
+### Login to `gh`
 
 ```sh
 gh auth login
 ```
 
-### Build Bat theme
+### Build `bat` theme
 
 ```sh
 bat cache --build
 ```
 
-### Install node
+### Install `node`
 
 ```sh
 nvm install latest
@@ -100,7 +106,7 @@ sudo apt install ttf-mscorefonts-installer
 fc-list | grep "Times_New_Roman"
 ```
 
-### Install mingw64 packges
+### Install mingw64 packages
 
 <!-- TODO: automate this process -->
 
@@ -133,7 +139,7 @@ Add `C:/msys64/mingw64/bin` to your PATH environment variable
 git config --global --add safe.directory '*'
 ```
 
-### Cannot set LC_CTYPE to default locale: No such file or directory
+### Cannot set `LC_CTYPE` to default locale: No such file or directory
 
 > https://askubuntu.com/questions/599808/cannot-set-lc-ctype-to-default-locale-no-such-file-or-directory
 
@@ -144,8 +150,6 @@ sudo dpkg-reconfigure locales
 
 3
 ```
-
-## FAQ (More like my Frequently Forgot Commands)
 
 ### To clear the state of run*onchange* scripts, run:
 
