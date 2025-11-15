@@ -20,9 +20,9 @@ Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (witho
 
 ```sh
 sudo apt install git curl
-curl -LO https://github.com/twpayne/chezmoi/releases/download/v2.63.0/chezmoi_2.63.0_linux_amd64.deb
-dpkg -i chezmoi_2.62.0_linux_amd64.deb
-rm chezmoi_2.62.0_linux_amd64.deb
+curl -Lo chezmoi_linux_amd64.deb https://github.com/twpayne/chezmoi/releases/download/v2.67.0/chezmoi_2.67.0_linux_amd64.deb
+sudo dpkg -i chezmoi_linux_amd64.deb
+rm chezmoi_linux_amd64.deb
 ```
 
 or using **snap**:
@@ -65,10 +65,10 @@ GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.txt.age
 ```
 
-### Chage age passphrase
+### Change age passphrase
 
 ```sh
-chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt  
+chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt
 ```
 
 ### Login to gh
@@ -103,6 +103,7 @@ fc-list | grep "Times_New_Roman"
 ### Install mingw64 packges
 
 <!-- TODO: automate this process -->
+
 First open mingw64 shell: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64`
 (Either ucrt64 or mingw64)
 
