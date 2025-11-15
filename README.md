@@ -44,7 +44,7 @@ winget install chezmoi
 pkg install chezmoi
 ```
 
-### One-line installer
+### One-line installer (any platform)
 
 ```sh
 sudo apt install curl
@@ -92,7 +92,7 @@ node --version
 npm --version
 ```
 
-### Install Microsoft Fonts
+### Install Microsoft Font
 
 ```sh
 echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt/sources.list.d/contrib.list
@@ -145,35 +145,7 @@ sudo dpkg-reconfigure locales
 3
 ```
 
-## FAQ
-
-### Add new user
-
-To create new user with password and sudo privilege then change default shell to bash:
-
-```sh
-apt update && apt upgrade && apt install sudo
-useradd -m username
-passwd username
-usermod -aG sudo username
-usermod --shell /bin/bash username
-su - username
-```
-
-A simpler way:
-
-```sh
-apt update && apt upgrade && apt install adduser sudo
-adduser username
-usermod -aG sudo username
-su - username
-```
-
-### WSL set default user
-
-```sh
-echo -e "[user]\ndefault=user" | sudo tee /etc/wsl.conf > /dev/null
-```
+## FAQ (More like my Frequently Forgot Commands)
 
 ### To clear the state of run*onchange* scripts, run:
 
@@ -186,35 +158,3 @@ chezmoi state delete-bucket --bucket=entryState
 ```sh
 chezmoi state delete-bucket --bucket=scriptState
 ```
-
-### Mermaid-cli error
-
-```
-Generating single mermaid chart
-
-Error: Failed to launch the browser process!
-/home/michael/.cache/puppeteer/chrome-headless-shell/linux-131.0.6778.204/chrome-headless-shell-linux64/chrome-headless-
-shell: error while loading shared libraries: libasound.so.2: cannot open shared object file: No such file or directory
-```
-
-```sh
-sudo apt -y install libasound2t64 # provide libasound2
-```
-
-### SSH
-
-on the local machine:
-
-```sh
-git remote add ssh ssh://u0_a353@localhost:8022/~/.local/share/chezmoi
-```
-
-on the ssh:
-
-```sh
-git config receive.denyCurrentBranch updateInstead
-```
-
-### Perforce
-
-> https://help.perforce.com/helix-core/extras/packages/perforce-packages.html
