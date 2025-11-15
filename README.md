@@ -56,10 +56,10 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 ### Init dotfiles
 
 ```bash
-chezmoi init canh25xp --depth 1
+chezmoi init canh25xp
 ```
 
-Add `GIT_LFS_SKIP_SMUDGE` if you want skip download `git-lfs` files (mostly my wallpapers)
+Add `GIT_LFS_SKIP_SMUDGE` if you want skip download `git-lfs` files (mostly my wallpapers) and specify `--depth` to shallow clone only.
 
 ```bash
 GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
@@ -69,12 +69,6 @@ GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 
 ```bash
 chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.txt.age
-```
-
-### Change age passphrase
-
-```bash
-chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt
 ```
 
 ### Login to `gh`
@@ -158,4 +152,11 @@ chezmoi state delete-bucket --bucket=entryState
 
 ```bash
 chezmoi state delete-bucket --bucket=scriptState
+```
+
+
+### To change age passphrase
+
+```bash
+chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt
 ```
