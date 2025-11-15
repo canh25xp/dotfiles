@@ -57,19 +57,23 @@ ntree() {
 }
 
 # cd on exit
+{{ if lookPath "yazi" -}}
+cdi() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+{{ else if lookPath "lf" -}}
 cdi() {
   # `command` is needed in case `lfcd` is aliased to `lf`
   cd "$(command lf -print-last-dir "$@")"
 }
 
-# cdi() {
-#   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-#   yazi "$@" --cwd-file="$tmp"
-#   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-#     builtin cd -- "$cwd"
-#   fi
-#   rm -f -- "$tmp"
-# }
+{{ end -}}
 
 # bat help
 alias bathelp='bat --plain --language=help'
