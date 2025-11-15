@@ -18,7 +18,11 @@ $env:WHKD_CONFIG_HOME = "$HOME\.config\whkd"
 
 # yazi
 $env:YAZI_CONFIG_HOME = "$HOME\.config\yazi"
-$env:YAZI_FILE_ONE = "$env:PROGRAMFILES\Git\usr\bin\file.exe"
+if (Test-Path "$env:PROGRAMFILES\Git\usr\bin\file.exe") {
+  $env:YAZI_FILE_ONE = "$env:PROGRAMFILES\Git\usr\bin\file.exe"
+} elseif (Test-Path "$env:LOCALAPPDATA\Programs\Git\usr\bin\file.exe") {
+  $env:YAZI_FILE_ONE = "$env:LOCALAPPDATA\Programs\Git\usr\bin\file.exe"
+}
 
 # tealdeer
 $env:TEALDEER_CONFIG_DIR = "$HOME\.config\tealdeer"
