@@ -2,6 +2,18 @@
 
 > [Documentation](https://www.chezmoi.io/)
 
+My Windows, Linux (via WSL) and Android (via [Termux](https://github.com/termux/termux-app)) setup.
+Focus on:
+
+- Consistency: The experience should be as close as possible, whether I'm on linux or windows, work or home, vscode or neovim.
+  Especially the UX (keybindings, commands, aliases, ...), the UI (colorscheme and themes) doesn't have to be.
+- Minimalism: Try not to stray too far from the default, especially on the work machine.
+  Prioritize app that can easily be install with the OS's default package manager (`winget` for Windows, `apt` for Ubuntu and `pkg` for Termux)
+- Stability: Minimize breaking changes between update and between machines.
+  Don't assume the machine has the require application or net work connection.
+
+Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (without chroot)
+
 ## Installation
 
 ### Debian & Ubuntu
