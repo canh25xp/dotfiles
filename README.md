@@ -2,6 +2,8 @@
 
 > Manage with `chezmoi` ([github](https://github.com/twpayne/chezmoi) | [documentation](https://www.chezmoi.io/))
 
+![Screenshot](./Pictures/Screenshots/Screenshot-2025-11-16.png)
+
 My Windows, Linux (via WSL) and Android (via [Termux](https://github.com/termux/termux-app)) setup.
 Focus on:
 

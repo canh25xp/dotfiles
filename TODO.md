@@ -6,5 +6,5 @@
 - [ ] Manage API keys and tokens via `age`
 - [ ] Dynamic ssh config profiles (change hostname based on current machine)
 - [ ] Add nvim-obsidian plugins
-- [ ] Maybe add some screenshots to flex my setup ?
+- [x] Maybe add some screenshots to flex my setup ?
 - [ ] Quick open DevNote keymap
