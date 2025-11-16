@@ -9,6 +9,7 @@ Focus on:
 
 - **Consistency**: The experience should be as close as possible, whether I'm on linux or windows, work or home, vscode or neovim.
   Especially the UX (keybindings, commands, aliases, ...), the UI (colorscheme and themes) doesn't have to be.
+  A list of [keybindings](./Keybindings.md) is define to ensure this.
 - **Minimalism**: Try not to stray too far from the default, especially on the work machine.
   Prioritize app that can easily be install with the OS's default package manager (`winget` for Windows, `apt` for Ubuntu and `pkg` for Termux)
 - **Stability**: Minimize breaking changes between update and between machines.
@@ -155,7 +156,6 @@ chezmoi state delete-bucket --bucket=entryState
 ```bash
 chezmoi state delete-bucket --bucket=scriptState
 ```
-
 
 ### To change age passphrase
 

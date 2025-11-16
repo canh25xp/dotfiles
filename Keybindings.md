@@ -1,61 +1,67 @@
 # Keybindings
 
 This is not a list if Keybindings for any particular applications, but rather a guideline for choosing a semantic and consistent keybindings across my applications.
+Prioritize to use vim-like bindings if possible.
+
+## Letters (A–Z)
+
+`h,j,k,l` should always map to `left, down, up, right` direction if possible.
+
+| Key | Meanings                                           |
+| --- | -------------------------------------------------- |
+| A   | Append, Add, Around, All, Archive, AI              |
+| B   | Backward, Buffer, Build, Bottom                    |
+| C   | Change, Copy, Create, Close, Code, Compile, Config |
+| D   | Delete, Down, Debug, Diff, Duplicate               |
+| E   | End, Edit, Execute, Eval, Expand                   |
+| F   | Forward, Find, File, Format                        |
+| G   | Go, Git, Group, Generate                           |
+| H   | Home, Help, History, Hide, Hunk[^1]                |
+| I   | Insert, Info, Import, Inspect, Inlay               |
+| J   | Join, Jump, Justify                                |
+| K   | Keyword, Kill, Keybindings, Keep/Bookmark          |
+| L   | List, Line, Log, Lazy[^2]                          |
+| M   | Mark, Move, Menu, Merge, Mason[^3]                 |
+| N   | Next, New, Navigate                                |
+| O   | Open, Options, Outline                             |
+| P   | Paste, Previous, Project, Print, Preview           |
+| Q   | Quit, Quick, Queue                                 |
+| R   | Replace, Rename, Run, Reload, Reference            |
+| S   | Substitute, Save, Search, Split, Sort, Sync        |
+| T   | Till[^4], Tab, Toggle, Terminal, Test, Tree        |
+| U   | Undo, Up, Update, Upload                           |
+| V   | Visual, View, Version Control, Verify              |
+| W   | Word, Window, Write, Workspace, Wrap               |
+| X   | Cut, Close, eXchange                               |
+| Y   | Yank[^5], Yes                                      |
+| Z   | Fold[^7], Redraw, Undo, Zoom, Suspend[^8]          |
+
+[^1]: a hunk is a block of changes in git (or any version control system)
+
+[^2]: as in lazgit, lazyvim,...
+
+[^3]: nvim's package manager [github](https://github.com/mason-org/mason.nvim)
+
+[^4]: As in until, or upto some point
+
+[^5]: Yank mean copy
+
+[^6]: Think of it like the z fold phone
+
+[^7]: Think of it like sleep (Zzz)
+
+## Numbers (0–9)
+
+Use 1-8 to refer to the index of an ordered list (tabs, buffers, windows, ...) but reserved 0 and 9 for first and last index.
+
+## Punctuation & Special Characters
 
 > [!WARNING]
 > AI Generated, need review
 
-## Letters (A–Z)
-
-| Key | Meanings                                 |
-| --- | ---------------------------------------- |
-| A   | Add, Append, All, Archive, AI            |
-| B   | Buffer, Back, Build, Bottom              |
-| C   | Copy, Create, Close, Compile, Config     |
-| D   | Delete, Down, Debug, Diff, Duplicate     |
-| E   | Edit, Execute/Eval, Expand, End          |
-| F   | Find, File, Format, Forward              |
-| G   | Go/Goto, Git, Group, Generate            |
-| H   | Help, Home, History, Hide                |
-| I   | Insert, Info, Import, Inspect            |
-| J   | Jump, Join, Justify                      |
-| K   | Kill, Keybindings, Keep/Bookmark         |
-| L   | List, Line, Left, Log                    |
-| M   | Move, Mark, Menu, Merge                  |
-| N   | New, Next, Navigate                      |
-| O   | Open, Options, Outline                   |
-| P   | Paste, Project, Previous, Print, Preview |
-| Q   | Quit, Quick, Queue                       |
-| R   | Rename, Run, Reload, Replace             |
-| S   | Save, Search, Split, Sort, Sync          |
-| T   | Tab, Toggle, Terminal, Test, Tree        |
-| U   | Undo, Up, Update, Upload                 |
-| V   | View, Visual, Version Control, Verify    |
-| W   | Window, Write, Workspace, Wrap           |
-| X   | Cut, Close, Exchange/Swap                |
-| Y   | Yank, Yes                                |
-| Z   | Undo, Zoom, Suspend                      |
-
-## Numbers (0–9)
-
-| Key | Semantic Meaning                |
-| --- | ------------------------------- |
-| 0   | Reset, Root, Beginning          |
-| 1   | Primary, First workspace/tab    |
-| 2   | Second, Split layout, Duplicate |
-| 3   | Third mode/panel                |
-| 4   | Quad layout, Category 4         |
-| 5   | Middle, Balance, Refresh        |
-| 6   | Extra workspace                 |
-| 7   | Advanced mode                   |
-| 8   | Utilities, Overflow             |
-| 9   | Last workspace/tab              |
-
-## Punctuation & Special Characters
-
 | Key   | Meanings                                       |
 | ----- | ---------------------------------------------- |
-| `     | Console toggle, Scratchpad                     |
+| `     | Toggle, jump                                   |
 | ~     | Home, Alternate, Tilde-expand                  |
 | !     | Force, Shell command, Negate                   |
 | @     | Metadata, Macro, Annotation                    |
@@ -70,6 +76,8 @@ This is not a list if Keybindings for any particular applications, but rather a 
 | \|    | Pipe, Vertical split                           |
 | :     | Command mode, Exec command palette             |
 | ;     | Repeat, Secondary command                      |
+| ,     | Repeat, recent, hide                           |
+| .     | Repeat (counterclockwise), recent, hide        |
 | '     | Mark, Quote literal                            |
 | "     | Registers, Secondary clipboard                 |
 | <     | Shift left, Previous                           |
@@ -81,7 +89,7 @@ This is not a list if Keybindings for any particular applications, but rather a 
 | +     | Add, Next, Increase                            |
 | =     | Format, Align                                  |
 | \_    | Hidden, Low-level, Alternative                 |
-| Space | Leader key, Menu, Universal prefix             |
+| Space | Leader, Menu, Universal prefix                 |
 
 ## Function Keys (F1–F12)
 
