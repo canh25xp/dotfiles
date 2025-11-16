@@ -15,3 +15,4 @@
 - [x] Add nvim-obsidian plugins
 - [x] Maybe add some screenshots to flex my setup ?
 - [ ] Quick open DevNote keymap
+- [ ] `cht.sh` client installation
