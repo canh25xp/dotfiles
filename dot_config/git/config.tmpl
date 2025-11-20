@@ -72,7 +72,7 @@
   layout = "MERGED"
 
 [alias]
-{{- if eq .chezmoi.os "windows" }}
+{{- if .windows }}
   p4 = !python.exe 'C:\\Program Files\\Git\\mingw64\\libexec\\git-core\\git-p4'
 {{- end }}
   ff = merge --ff-only origin/HEAD
@@ -109,3 +109,8 @@
   unhide-all = ! git ls-files -v | grep '^[a-z]' | cut -c3- | xargs git unhide --
   hiddens = ! git ls-files -v | grep '^[a-z]' | cut -c3-
   edit = !$EDITOR $(git status --porcelain | awk '$1 ~ /^M|A|U/ {print $2}')
+
+{{- if .android }}
+[safe]
+  directory = /storage/emulated/0/Documents/DevNote
+{{- end }}
