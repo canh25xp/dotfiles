@@ -19,13 +19,13 @@ Host laptop
 
 Host phone
   HostName 192.168.0.102
-  User u0_a453
+  User {{ .phoneUserName }}
   Port 8022
   IdentityFile ~/.ssh/id_ecdsa
 
 Host tablet
   HostName localhost
-  User u0_a353
+  User {{ .tabletUserName }}
   Port 8022
   IdentityFile ~/.ssh/id_ecdsa_work
 
@@ -36,7 +36,7 @@ Host wifiteam
 
 Host tablet-proxy
   HostName localhost
-  User u0_a353
+  User {{ .tabletUserName }}
   DynamicForward 1080
   Port 8022
   ExitOnForwardFailure yes
