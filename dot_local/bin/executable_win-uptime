@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Query Windows uptime via PowerShell
+raw=$(pwsh.exe -NoProfile -Command '[Math]::Round(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+
+# Convert minutes to hours and minutes
+hours=$(( raw / 60 ))
+minutes=$(( raw % 60 ))
+
+# Display in "Xh Ym" format
+echo "${hours}h ${minutes}m"
