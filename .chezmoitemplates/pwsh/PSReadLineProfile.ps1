@@ -81,6 +81,38 @@ Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
 # of what you did when asking for help or demonstrating a technique.
 Set-PSReadLineKeyHandler -Chord 'Ctrl+k,Ctrl+c' -Function CaptureScreen
 
+Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+e' `
+                         -BriefDescription EditAndExecute `
+                         -LongDescription "Open current command in an editor, then execute" `
+                         -ScriptBlock {
+    # Get current command buffer
+    $buffer = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$buffer, [ref]$null)
+
+    # Temp file
+    $tmp = New-TemporaryFile
+    Set-Content -Path $tmp -Value $buffer
+
+    # Pick editor
+    $editor = $env:EDITOR
+    if (-not $editor) { $editor = "nvim" }
+
+    # Open editor in separate OS process so terminal control works
+    Start-Process -Wait -NoNewWindow $editor -ArgumentList $tmp
+
+    # Read edited command
+    $edited = Get-Content $tmp -Raw
+
+    # Normalize line endings
+    $edited = $edited -replace "`r", ""
+    $edited = $edited.Substring(0, $edited.Length - 1)
+
+    # Insert and execute
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($edited)
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # Get help about the current command
 Set-PSReadLineKeyHandler -Chord "Ctrl+?" `
                          -BriefDescription GetHelp `
