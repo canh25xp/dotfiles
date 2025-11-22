@@ -15,7 +15,7 @@ error_symbol = "[❯](red)"
 [username]
 show_always = true
 style_user = "purple italic"
-aliases = { "Administrator" = "root" }
+aliases = { "Administrator" = "root", {{ .phoneUserName | quote }} = {{ .phoneDeviceName | quote }}, {{ .tabletUserName | quote }} = {{ .tabletDeviceName | quote }} }
 
 [directory]
 truncate_to_repo = true
