@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
-# Query Windows uptime via PowerShell
-raw=$(pwsh.exe -NoProfile -Command '[Math]::Round(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+if command -v pwsh.exe >/dev/null 2>&1; then
+    # Query Windows uptime via PowerShell
+    raw=$(pwsh.exe -NoProfile -Command '[Math]::Round(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+fi
+
+# Fall back to uptime from /proc if PowerShell is unavailable or failed
+if [[ -z "${raw}" ]]; then
+    raw=$(awk '{printf "%d\n", ($1/60)}' /proc/uptime 2>/dev/null)
+fi
+
+if [[ -z "${raw}" || ! "${raw}" =~ ^[0-9]+$ ]]; then
+    echo "uptime unavailable"
+    exit 1
+fi
 
 # Convert minutes to hours and minutes
 hours=$(( raw / 60 ))
