@@ -87,6 +87,24 @@ function Toggle-FocusMode {
   } catch {
     Write-Warning "Failed to run chezmoi apply: $_"
   }
+
+  if (-not $newValue) {
+    $imagePath = Join-Path $HOME "Pictures/Wallpapers/YouHaveToLockIn.jpg"
+    $message = "You have to lock in"
+    $chafa = Get-Command chafa -ErrorAction SilentlyContinue
+
+    Write-Output $message
+    if (-not (Test-Path -Path $imagePath)) {
+      Write-Warning "Image not found at $imagePath"
+    } elseif ($null -ne $chafa) {
+      try {
+        & $chafa $imagePath
+      } catch {
+        Write-Warning "Failed to render image with chafa: $_"
+      }
+    }
+  }
+
   Write-Output "terminalBackground set to $newValue"
 }
 
