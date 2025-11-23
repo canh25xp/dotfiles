@@ -157,6 +157,10 @@ chezmoi state delete-bucket --bucket=entryState
 chezmoi state delete-bucket --bucket=scriptState
 ```
 
+### Encrypt files with [age](https://www.chezmoi.io/user-guide/encryption/age/) or [gpg](https://www.chezmoi.io/user-guide/encryption/gpg/)
+
+> [Encryption](https://www.chezmoi.io/user-guide/frequently-asked-questions/encryption/)
+
 ### To change age passphrase
 
 > [!WARNING]
