@@ -1,0 +1,7 @@
+nv.canh@outlook.com namespaces="git" {{ if .personal -}}
+{{-   if lookPath "gopass" -}}
+{{-     gopass "personal/ssh/id_ed25519_home_pc.pub" -}}
+{{-   else if lookPath "pass" -}}
+{{-     pass "personal/ssh/id_ed25519_home_pc.pub" -}}
+{{-   end -}}
+{{- end -}}
