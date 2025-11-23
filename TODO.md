@@ -11,7 +11,7 @@
 - [ ] Toggle Terminal Background Opacity
 - [ ] Quick select terminal background via `fzf`
 - [ ] Manage API keys and tokens via `age`
-- [ ] Dynamic ssh config profiles (change hostname based on current machine)
+- [x] Dynamic ssh config profiles (change hostname based on current machine)
 - [x] Add nvim-obsidian plugins
 - [x] Maybe add some screenshots to flex my setup ?
 - [ ] Quick open DevNote keymap

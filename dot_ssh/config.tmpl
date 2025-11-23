@@ -24,9 +24,11 @@ Host phone
   Port 8022
 
 Host tablet
-  HostName {{ .tabletTailscaleIP }}
+  HostName {{ if .work -}} localhost {{- else -}} {{ .tabletTailscaleIP }} {{- end }}
   User {{ .tabletUserName }}
   Port 8022
+
+{{- if .work }}
 
 Host wifiteam
   HostName 192.168.23.13
@@ -56,6 +58,8 @@ Host wifiteam-jump
   User "vancanh.ng"
   User {{ .knoxID }}
   ProxyJump tablet
+
+{{- end }}
 
 Host github.com
   HostName github.com
