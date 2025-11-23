@@ -5,7 +5,8 @@ IdentityFile ~/.ssh/id_ecdsa
 {{- end }}
 
 Host *
-    KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
+  AddKeysToAgent yes
+  KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
 Host desktop
   HostName 192.168.0.100
