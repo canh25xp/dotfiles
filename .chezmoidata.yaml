@@ -1,6 +1,7 @@
 fullName: "Ngô Văn Cảnh"
 nickName: "Michael"
 userName: "canh25xp"
+knoxID: "vancanh.ng"
 themeName: "Catppuccin"
 themeFlavor: "Mocha"
 themeAccent: "Pink"
@@ -19,3 +20,17 @@ tabletDeviceName: "bunnies-x826b"
 desktopIPv4: 192.168.0.100
 laptopIPv4: 192.168.0.101
 phoneIPv4: 192.168.0.102
+
+# Tailscale
+tailnetDNS: "walleye-godzilla.ts.net"
+desktopTailscale: "bunnies-desktop"
+desktopTailscaleIP: 100.99.0.0
+
+laptopTailscale: "bunnies-laptop"
+laptopTailscaleIP: 100.99.0.1
+
+phoneTailscale: "bunnies-f741b"
+phoneTailscaleIP: 100.99.0.2
+
+tabletTailscale: "bunnies-x826b"
+tabletTailscaleIP: 100.99.0.3
