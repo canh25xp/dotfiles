@@ -14,3 +14,8 @@ phoneUserName: "u0_a505"
 tabletUserName: "u0_a353"
 phoneDeviceName: "bunnies-f741b"
 tabletDeviceName: "bunnies-x826b"
+
+# Local ip address
+desktopIPv4: 192.168.0.100
+laptopIPv4: 192.168.0.101
+phoneIPv4: 192.168.0.102

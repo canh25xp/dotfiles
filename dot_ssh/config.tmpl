@@ -11,17 +11,17 @@ Host *
   KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
 Host desktop
-  HostName 192.168.0.100
+  HostName {{ .desktopIPv4 }}
   User Michael
   IdentityFile ~/.ssh/id_ecdsa
 
 Host laptop
-  HostName 192.168.0.101
+  HostName {{ .laptopIPv4 }}
   User Michael
   IdentityFile ~/.ssh/id_ecdsa
 
 Host phone
-  HostName 192.168.0.102
+  HostName {{ .phoneIPv4 }}
   User {{ .phoneUserName }}
   Port 8022
   IdentityFile ~/.ssh/id_ecdsa
