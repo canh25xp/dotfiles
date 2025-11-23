@@ -9,6 +9,7 @@
         // { "PackageIdentifier": "Asus.ArmouryCrate" },
         { "PackageIdentifier": "BurntSushi.ripgrep.MSVC", "Version": "14.1.1" },
         { "PackageIdentifier": "Clement.bottom" },
+        // { "PackageIdentifier": "Fastfetch-cli.Fastfetch" },
         // { "PackageIdentifier": "Cloudflare.Warp" },
         // { "PackageIdentifier": "Discord.Discord" },
         // { "PackageIdentifier": "EpicGames.EpicGamesLauncher" },

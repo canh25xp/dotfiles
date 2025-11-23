@@ -8,7 +8,9 @@ packages=(
   bat
   build-essential
   curl
+  entr
   eza
+  fastfetch
   fd
   fzf
   gdb

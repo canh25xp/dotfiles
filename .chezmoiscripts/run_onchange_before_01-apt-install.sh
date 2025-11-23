@@ -18,7 +18,9 @@ default_packages=(
   build-essential
   curl
   direnv
+  entr
   eza
+  fastfetch
   fd-find
   fzf
   gdb
@@ -55,6 +57,7 @@ default_packages=(
   speedtest-cli
   sqlite3 # required for bookmarks.nvim
   starship
+  steghide
   tealdeer
   tmux
   tree-sitter-cli
