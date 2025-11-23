@@ -175,3 +175,14 @@ chezmoi age encrypt -p -o ~/.local/share/chezmoi/.key.txt.age ~/.config/chezmoi/
 ```bash
 chezmoi apply --include externals -R
 ```
+
+### Enable sign commits
+
+```bash
+# whole project
+git config commit.gpgsign true
+# per commit
+git commit -S
+# check signature last commit
+git log -1 --show-signature
+```
