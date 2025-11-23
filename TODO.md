@@ -8,7 +8,7 @@
   - [ ] Use cli applications only.
   - [ ] Should be easy to revert and clean up.
   - [ ] Single command, all options should be pass to script as cli argument, after that, don't ask for user's input.
-- [ ] Toggle Terminal Background Opacity
+- [x] Toggle Terminal Background Opacity
 - [ ] Quick select terminal background via `fzf`
 - [ ] Manage API keys and tokens via `age`
 - [x] Dynamic ssh config profiles (change hostname based on current machine)

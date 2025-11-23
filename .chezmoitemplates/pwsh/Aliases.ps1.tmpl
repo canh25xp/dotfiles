@@ -45,6 +45,7 @@ Set-Alias -Name yeet -Value Move-ToRecycleBin
 Set-Alias -Name nuke -Value Clear-RecycleBin
 Set-Alias -Name hfscp -Value Copy-HFSLink
 Set-Alias -Name p4edit -Value Edit-P4File
+Set-Alias -Name lockin -Value Toggle-FocusMode
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
@@ -54,6 +55,40 @@ Set-Alias -Name g -Value git
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
+
+function Toggle-FocusMode {
+  # Toggle chezmoi terminal background flag to switch focus mode
+  $configPath = Join-Path $HOME ".config/chezmoi/chezmoi.yaml"
+
+  if (-not (Test-Path -Path $configPath)) {
+    Write-Error "chezmoi config not found at $configPath"
+    return
+  }
+
+  $content = Get-Content -Raw -Path $configPath
+
+  if ($content -match "terminalBackground:\s*true") {
+    $newContent = [regex]::Replace($content,"terminalBackground:\s*true","terminalBackground: false",1)
+    $newValue = $false
+  } elseif ($content -match "terminalBackground:\s*false") {
+    $newContent = [regex]::Replace($content,"terminalBackground:\s*false","terminalBackground: true",1)
+    $newValue = $true
+  } else {
+    Write-Error "Unable to find terminalBackground setting in $configPath"
+    return
+  }
+
+  Set-Content -Path $configPath -Value $newContent -Encoding UTF8
+  try {
+    & chezmoi apply "$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" 2>&1
+    if ($LASTEXITCODE -ne 0) {
+      Write-Warning "chezmoi apply exited with code $LASTEXITCODE"
+    }
+  } catch {
+    Write-Warning "Failed to run chezmoi apply: $_"
+  }
+  Write-Output "terminalBackground set to $newValue"
+}
 
 function Edit-P4File {
   param(
