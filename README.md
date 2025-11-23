@@ -71,7 +71,7 @@ GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ### Decrypt age key (optional)
 
 ```bash
-chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/key.txt.age
+chezmoi age decrypt -p -o ~/.config/chezmoi/key.txt ~/.local/share/chezmoi/.key.txt.age
 ```
 
 ### Login to `gh`
@@ -159,6 +159,9 @@ chezmoi state delete-bucket --bucket=scriptState
 
 ### To change age passphrase
 
+> [!WARNING]
+> Might as well just create a new keys and re-encrypt every (encrypted) files
+
 ```bash
-chezmoi age encrypt -p -o ~/.local/share/chezmoi/key.txt.age ~/.config/chezmoi/key.txt
+chezmoi age encrypt -p -o ~/.local/share/chezmoi/.key.txt.age ~/.config/chezmoi/key.txt
 ```
