@@ -1,3 +1,7 @@
 {{- if .personal -}}
-{{-   passRaw "personal/ssh/id_ed25519_home_pc" -}}
+{{-   if lookPath "gopass" -}}
+{{-     gopassRaw "personal/ssh/id_ed25519_home_pc" -}}
+{{-   else if lookPath "pass" -}}
+{{-     passRaw "personal/ssh/id_ed25519_home_pc" -}}
+{{-   end -}}
 {{- end -}}
