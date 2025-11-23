@@ -16,3 +16,12 @@
 - [x] Maybe add some screenshots to flex my setup ?
 - [ ] Quick open DevNote keymap
 - [ ] `cht.sh` client installation
+- [ ] Fully automate init process (Everything with single command `chezmoi init --apply`)
+      Regardless of work or home, linux or windows.
+      This task consider done when all of my machine can be fully automatically initialize, or at least no error occurs.
+  - [ ] work Windows
+  - [ ] home Windows
+  - [ ] work Debian
+  - [ ] home Debian
+  - [ ] phone Termux
+  - [ ] tablet Termux
