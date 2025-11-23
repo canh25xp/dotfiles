@@ -169,3 +169,9 @@ chezmoi state delete-bucket --bucket=scriptState
 ```bash
 chezmoi age encrypt -p -o ~/.local/share/chezmoi/.key.txt.age ~/.config/chezmoi/key.txt
 ```
+
+### To update external dependencies only
+
+```bash
+chezmoi apply --include externals -R
+```
