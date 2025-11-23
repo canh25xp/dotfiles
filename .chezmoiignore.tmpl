@@ -7,18 +7,6 @@ nvim-lazy/
 .profile
 *.age
 
-.ssh/id_*
-{{ if .work }}
-!.ssh/id_ecdsa_work
-!.ssh/id_ecdsa_work.pub
-{{ else if .personal }}
-!.ssh/id_ecdsa
-!.ssh/id_ecdsa.pub
-{{ else }}
-.config/hfs/config.yaml
-{{ end }}
-
-
 {{ if not .android }}
 .termux/
 storage/

@@ -1,7 +1,7 @@
 {{ if .work -}}
-IdentityFile ~/.ssh/id_ecdsa_work
+IdentityFile ~/.ssh/id_ed25519_work_pc
 {{- else if .personal -}}
-IdentityFile ~/.ssh/id_ecdsa
+IdentityFile ~/.ssh/id_ed25519_home_pc
 {{- end }}
 
 HashKnownHosts no
