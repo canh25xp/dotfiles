@@ -4,6 +4,8 @@ IdentityFile ~/.ssh/id_ecdsa_work
 IdentityFile ~/.ssh/id_ecdsa
 {{- end }}
 
+HashKnownHosts no
+
 Host *
   AddKeysToAgent yes
   KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
