@@ -1,6 +1,7 @@
 [user]
   name = {{ .fullName }}
   email = {{ .emailPersonal | quote }}
+  signingkey = {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519_home_pc.pub" | quote }}
 
 [includeIf "hasconfig:remote.*.url:https://github.sec.samsung.net*/**"]
   path = config-samsung
@@ -23,6 +24,12 @@
 [credential "https://github.sec.samsung.net"]
   helper =
   helper = !gh auth git-credential
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = {{ joinPath .chezmoi.homeDir ".ssh/allowed_signers" | quote }}
 
 [filter "lfs"]
   required = true
