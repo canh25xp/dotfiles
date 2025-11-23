@@ -61,10 +61,12 @@ Host wifiteam-jump
 
 {{- end }}
 
-Host github.com
+Host github
   HostName github.com
+  User git
   PreferredAuthentications publickey
 
-Host gitlab.com
-  HostName gitlab.com
+Host github-sec
+  HostName github.sec.samsung.net
+  User git
   PreferredAuthentications publickey
