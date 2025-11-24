@@ -1,5 +1,15 @@
 {{- if .personal -}}
-{{    range (gitHubKeys "canh25xp") -}}
-{{      .Key }}
-{{    end -}}
+{{-   if lookPath "gopass" -}}
+{{-     gopass "personal/ssh/id_ed25519_home_pc.pub" -}}
+{{-     gopass "work/ssh/id_ed25519_work_pc.pub" -}}
+{{-   else if lookPath "pass" -}}
+{{-     pass "personal/ssh/id_ed25519_home_pc.pub" -}}
+{{-     pass "work/ssh/id_ed25519_work_pc.pub" -}}
+{{-   end -}}
+{{- else if .work -}}
+{{-   if lookPath "gopass" -}}
+{{-     gopass "work/ssh/id_ed25519_work_pc.pub" -}}
+{{-   else if lookPath "pass" -}}
+{{-     pass "work/ssh/id_ed25519_work_pc.pub" -}}
+{{-   end -}}
 {{- end -}}
