@@ -6,6 +6,9 @@
 [includeIf "hasconfig:remote.*.url:https://github.sec.samsung.net*/**"]
   path = config-samsung
 
+[includeIf "hasconfig:remote.*.url:https://github.com*/**"]
+  path = config-personal
+
 [credential]
   helper = store
 
