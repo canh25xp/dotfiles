@@ -26,3 +26,4 @@
   - [ ] phone Termux
   - [ ] tablet Termux
 - [ ] BUG FIX: termux android is not recognize .chezmoi.username, maybe come up with other way to register private device in Termux
+- [ ] Consistency: use `home` instead of `personal`
