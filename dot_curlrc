@@ -1,0 +1,5 @@
+# Always show errors (not silent)
+show-error
+
+# Follow redirects automatically
+location
