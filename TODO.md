@@ -25,5 +25,8 @@
   - [ ] home Debian
   - [ ] phone Termux
   - [ ] tablet Termux
-- [ ] BUG FIX: termux android is not recognize .chezmoi.username, maybe come up with other way to register private device in Termux
+- [ ] **BUG FIX**:
+  - [ ] Termux: chezmoi data is not recognize .chezmoi.username, maybe come up with other way to register private device in Termux
+  - [ ] Windows: `eza` check installation before add `ls` alias
+  - [ ] Windows: `bat` check installation before add `cat` alias
 - [ ] Consistency: use `home` instead of `personal`
