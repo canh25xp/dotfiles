@@ -1,4 +1,11 @@
 {{- if .personal -}}
+{{-   if eq .chezmoi.username "Admin" -}}
+{{-     if lookPath "gopass" -}}
+{{-       gopass "personal/ssh/id_ed25519_sudo.pub" -}}
+{{-     else if lookPath "pass" -}}
+{{-       pass "personal/ssh/id_ed25519_sudo.pub" -}}
+{{-     end -}}
+{{-   end -}}
 {{-   if lookPath "gopass" -}}
 {{      gopass "personal/ssh/id_ed25519_home_pc.pub" }}
 {{      gopass "work/ssh/id_ed25519_work_pc.pub" }}
