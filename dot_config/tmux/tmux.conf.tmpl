@@ -116,7 +116,11 @@ set -ga status-left "#[fg=#{@thm_pink},bg=#{@thm_bg}]#{?window_zoomed_flag,  
 set -g status-right "#{E:@catppuccin_status_application}"
 set -ag status-right "#{E:@catppuccin_status_user}"
 set -ag status-right "#{E:@catppuccin_status_host}"
+{{- if .wsl }}
 set -ag status-right "#[fg=#{@thm_crust},bg=#{@thm_pink}]  #(~/.local/bin/win-uptime) #[default]"
+{{- else }}
+set -ag status-right "#{E:@catppuccin_status_uptime}"
+{{- end }}
 
 set -g @resurrect-save 'C-s'
 set -g @resurrect-restore 'C-r'
