@@ -3,7 +3,16 @@ Documents/DevNote:
   url: https://github.com/canh25xp/DevNote
   refreshPeriod: 0h
 
-{{   if .windows }}
+{{  if .windows }}
+AppData\Local\nvim-lazy:
+{{  else }}
+.config/nvim-lazy:
+{{  end }}
+  type: git-repo
+  url: https://github.com/canh25xp/nvim-lazy
+  refreshPeriod: 0h
+
+{{ if .windows }}
 AppData\Local\gopass\stores\root:
 {{   else }}
 .password-store:
