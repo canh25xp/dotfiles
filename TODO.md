@@ -30,3 +30,4 @@
   - [ ] Windows: `eza` check installation before add `ls` alias
   - [ ] Windows: `bat` check installation before add `cat` alias
 - [ ] Consistency: use `home` instead of `personal`
+- [x] Ignore app configs if the app it self not found (using lookPath)

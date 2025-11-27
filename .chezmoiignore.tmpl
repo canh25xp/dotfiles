@@ -53,7 +53,6 @@ Documents/
 Arts/
 AppData/
 AppData/Roaming/
-.arduinoIDE/
 .config/winfetch/
 .config/whkd/
 .config/komorebi/
@@ -62,7 +61,6 @@ p4aliases.txt
 {{ end }}
 
 {{ if .windows }}
-.arduinoIDE/
 .local/
 .gnupg/
 .cgdb/
@@ -91,4 +89,18 @@ p4aliases.txt
 .inputrc
 
 .chezmoiscripts/*.sh
+{{ end }}
+
+{{ if not (lookPath "spotdl") }}
+.spotdl/
+{{ end }}
+
+{{ if not (lookPath "glow") }}
+AppData/Local/glow/
+.config/glow/
+{{ end }}
+
+{{ if not (lookPath "arduino-cli") }}
+AppData/Local/Arduino15/
+.arduinoIDE/
 {{ end }}
