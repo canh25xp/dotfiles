@@ -1,0 +1,366 @@
+{
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "C:\\HQ_APKFiles\\scoop\\buckets\\main",
+            "Updated": "2025-11-26T16:53:29.7143779+07:00",
+            "Manifests": 1413
+        },
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2025-11-26T15:32:15+07:00",
+            "Manifests": 2216
+        },
+        {
+            "Name": "sysinternals",
+            "Source": "https://github.com/niheaven/scoop-sysinternals",
+            "Updated": "2025-11-24T08:29:18+07:00",
+            "Manifests": 75
+        },
+        {
+            "Name": "java",
+            "Source": "https://github.com/ScoopInstaller/Java",
+            "Updated": "2025-11-23T15:25:32+07:00",
+            "Manifests": 322
+        }
+    ],
+    "apps": [
+        {
+            "Source": "main",
+            "Version": "25.01",
+            "Info": "",
+            "Updated": "2025-11-26T16:59:51.8929676+07:00",
+            "Name": "7zip"
+        },
+        {
+            "Source": "extras",
+            "Version": "1.2.1",
+            "Info": "",
+            "Updated": "2025-11-26T17:54:38.5997211+07:00",
+            "Name": "age"
+        },
+        {
+            "Source": "main",
+            "Version": "0.26.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:54:44.8647316+07:00",
+            "Name": "bat"
+        },
+        {
+            "Source": "main",
+            "Version": "0.11.4",
+            "Info": "",
+            "Updated": "2025-11-26T17:54:48.3932623+07:00",
+            "Name": "bottom"
+        },
+        {
+            "Source": "main",
+            "Version": "2025-11-04",
+            "Info": "",
+            "Updated": "2025-11-26T17:54:51.683395+07:00",
+            "Name": "cacert"
+        },
+        {
+            "Source": "main",
+            "Version": "1.18.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:55:02.7388925+07:00",
+            "Name": "chafa"
+        },
+        {
+            "Source": "main",
+            "Version": "2.67.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:44:30.759499+07:00",
+            "Name": "chezmoi"
+        },
+        {
+            "Source": "main",
+            "Version": "0.18.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:55:08.8377501+07:00",
+            "Name": "delta"
+        },
+        {
+            "Source": "main",
+            "Version": "1.2.3",
+            "Info": "",
+            "Updated": "2025-11-26T17:55:13.2392192+07:00",
+            "Name": "dust"
+        },
+        {
+            "Source": "main",
+            "Version": "0.23.4",
+            "Info": "",
+            "Updated": "2025-11-26T17:55:16.4541152+07:00",
+            "Name": "eza"
+        },
+        {
+            "Source": "main",
+            "Version": "10.3.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:44:48.290851+07:00",
+            "Name": "fd"
+        },
+        {
+            "Source": "main",
+            "Version": "8.0.1",
+            "Info": "",
+            "Updated": "2025-11-26T17:56:25.4388347+07:00",
+            "Name": "ffmpeg"
+        },
+        {
+            "Source": "main",
+            "Version": "0.67.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:44:42.9557872+07:00",
+            "Name": "fzf"
+        },
+        {
+            "Source": "main",
+            "Version": "5.32.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:56:31.6688682+07:00",
+            "Name": "gdu"
+        },
+        {
+            "Source": "main",
+            "Version": "2.83.1",
+            "Info": "",
+            "Updated": "2025-11-26T17:56:40.8939263+07:00",
+            "Name": "gh"
+        },
+        {
+            "Source": "main",
+            "Version": "2.52.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:25:40.6126731+07:00",
+            "Name": "git"
+        },
+        {
+            "Source": "main",
+            "Version": "1.16.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:56:47.9435246+07:00",
+            "Name": "gopass"
+        },
+        {
+            "Source": "main",
+            "Version": "2.4.8",
+            "Info": "",
+            "Updated": "2025-11-26T17:56:59.2439233+07:00",
+            "Name": "gpg"
+        },
+        {
+            "Source": "main",
+            "Version": "2.6.1",
+            "Info": "",
+            "Updated": "2025-11-26T17:57:08.9240509+07:00",
+            "Name": "gsudo"
+        },
+        {
+            "Source": "sysinternals",
+            "Version": "5.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:57:16.7238557+07:00",
+            "Name": "handle"
+        },
+        {
+            "Source": "main",
+            "Version": "7.1.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:57:40.1990045+07:00",
+            "Name": "hashcat"
+        },
+        {
+            "Source": "main",
+            "Version": "0.16.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:57:43.0742412+07:00",
+            "Name": "hexyl"
+        },
+        {
+            "Source": "extras",
+            "Version": "0.57.26",
+            "Info": "",
+            "Updated": "2025-11-26T17:57:52.8393461+07:00",
+            "Name": "hfs"
+        },
+        {
+            "Source": "extras",
+            "Version": "1.0.37",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:03.7389132+07:00",
+            "Name": "JPEGView"
+        },
+        {
+            "Source": "main",
+            "Version": "1.8.1",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:06.3736173+07:00",
+            "Name": "jq"
+        },
+        {
+            "Source": "extras",
+            "Version": "0.1.38",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:17.1694645+07:00",
+            "Name": "komorebi"
+        },
+        {
+            "Source": "extras",
+            "Version": "0.56.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:23.5936641+07:00",
+            "Name": "lazygit"
+        },
+        {
+            "Source": "main",
+            "Version": "685",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:26.1988421+07:00",
+            "Name": "less"
+        },
+        {
+            "Source": "main",
+            "Version": "2.10.6",
+            "Info": "",
+            "Updated": "2025-11-26T16:59:43.3765081+07:00",
+            "Name": "lessmsi"
+        },
+        {
+            "Source": "extras",
+            "Version": "3.22.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:40.408438+07:00",
+            "Name": "meld"
+        },
+        {
+            "Source": "extras",
+            "Version": "0.15.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:46.6884982+07:00",
+            "Name": "neovide"
+        },
+        {
+            "Source": "main",
+            "Version": "0.11.5",
+            "Info": "",
+            "Updated": "2025-11-26T17:44:21.9713419+07:00",
+            "Name": "neovim"
+        },
+        {
+            "Source": "extras",
+            "Version": "8.8.8",
+            "Info": "",
+            "Updated": "2025-11-26T17:58:53.8000951+07:00",
+            "Name": "notepadplusplus"
+        },
+        {
+            "Source": "main",
+            "Version": "1.2.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:59:00.5943845+07:00",
+            "Name": "nvm"
+        },
+        {
+            "Source": "extras",
+            "Version": "1.10.6",
+            "Info": "",
+            "Updated": "2025-11-26T18:00:46.0845057+07:00",
+            "Name": "obsidian"
+        },
+        {
+            "Source": "extras",
+            "Version": "2025.3-2851897",
+            "Info": "",
+            "Updated": "2025-11-26T17:30:26.9414223+07:00",
+            "Name": "p4v"
+        },
+        {
+            "Source": "main",
+            "Version": "15.1.0",
+            "Info": "",
+            "Updated": "2025-11-26T17:44:57.1374209+07:00",
+            "Name": "ripgrep"
+        },
+        {
+            "Source": "main",
+            "Version": "1.28.2",
+            "Info": "",
+            "Updated": "2025-11-26T18:06:42.8669222+07:00",
+            "Name": "rustup"
+        },
+        {
+            "Source": "main",
+            "Version": "3.3.3",
+            "Info": "",
+            "Updated": "2025-11-26T18:15:54.0954635+07:00",
+            "Name": "scrcpy"
+        },
+        {
+            "Source": "main",
+            "Version": "1.24.1",
+            "Info": "",
+            "Updated": "2025-11-26T18:15:59.4582579+07:00",
+            "Name": "starship"
+        },
+        {
+            "Source": "main",
+            "Version": "1.8.1",
+            "Info": "",
+            "Updated": "2025-11-26T18:16:04.838266+07:00",
+            "Name": "tealdeer"
+        },
+        {
+            "Source": "extras",
+            "Version": "1.106.2",
+            "Info": "",
+            "Updated": "2025-11-26T17:32:01.1121261+07:00",
+            "Name": "vscode"
+        },
+        {
+            "Source": "main",
+            "Version": "1.21.4",
+            "Info": "",
+            "Updated": "2025-11-26T18:16:17.2577166+07:00",
+            "Name": "wget"
+        },
+        {
+            "Source": "extras",
+            "Version": "0.2.10",
+            "Info": "",
+            "Updated": "2025-11-26T18:16:20.9789463+07:00",
+            "Name": "whkd"
+        },
+        {
+            "Source": "extras",
+            "Version": "2.2.2",
+            "Info": "",
+            "Updated": "2025-11-26T18:16:26.982499+07:00",
+            "Name": "windirstat"
+        },
+        {
+            "Source": "main",
+            "Version": "25.5.31",
+            "Info": "",
+            "Updated": "2025-11-26T18:16:35.5107282+07:00",
+            "Name": "yazi"
+        },
+        {
+            "Source": "main",
+            "Version": "0.9.8",
+            "Info": "",
+            "Updated": "2025-11-26T17:45:07.8795625+07:00",
+            "Name": "zoxide"
+        },
+        {
+            "Source": "java",
+            "Version": "21.46.19",
+            "Info": "",
+            "Updated": "2025-11-26T17:37:50.6467473+07:00",
+            "Name": "zulu21-jdk"
+        }
+    ]
+}
