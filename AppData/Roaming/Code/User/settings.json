@@ -1,4 +1,5 @@
 {
+    "catppuccin.accentColor": "pink",
     "http.proxyStrictSSL": false,
     "editor.cursorBlinking": "phase",
     "editor.cursorSurroundingLines": 4,
