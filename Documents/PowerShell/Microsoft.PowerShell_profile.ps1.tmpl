@@ -1,0 +1,56 @@
+# ==============================================
+# ALIASES
+# ==============================================
+# stolen from https://github.com/giggio/posh-alias/blob/master/Posh-Alias.psm1
+
+function Add-Alias($name, $alias) {
+    $func = @"
+function global:$name {
+  `$expr = ('$alias ' + (( `$args | % { if (`$_.GetType().FullName -eq "System.String") { "``"`$(`$_.Replace('``"','````"').Replace("'","``'"))``"" } else { `$_ } } ) -join ' '))
+  write-debug "Expression: `$expr"
+  Invoke-Expression `$expr
+}
+"@
+  Remove-Alias -ErrorAction SilentlyContinue $name
+  write-debug "Defined function:`n$func"
+  $func | iex
+}
+
+function Start-AdminSession {
+  Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
+}
+
+{{ template "pwsh/Aliases.ps1.tmpl" . }}
+
+# ==============================================
+# PSREADLINE SETTINGS
+# ==============================================
+
+{{ template "pwsh/PSReadLineProfile.ps1" . }}
+
+# Dynamic help (like F1)
+Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
+
+# Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line
+Set-PSReadLineKeyHandler -Key RightArrow `
+                         -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
+                         -LongDescription "Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line" `
+                         -ScriptBlock {
+    param($key, $arg)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($cursor -lt $line.Length) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
+    } else {
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptNextSuggestionWord($key, $arg)
+    }
+}
+
+# ==============================================
+# EXTERNAL INIT
+# ==============================================
+
+{{ template "pwsh/externals.ps1.tmpl" . }}

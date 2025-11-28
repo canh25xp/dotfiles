@@ -1,7 +1,3 @@
-# ==============================================
-# PSREADLINE SETTINGS
-# ==============================================
-
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
@@ -42,10 +38,6 @@ Set-PSReadLineOption -AddToHistoryHandler {
 Set-PSReadLineOption -HistorySavePath "$HOME\.pwsh_history.txt"
 
 Set-PSReadLineOption -MaximumHistoryCount 100000
-
-# ==============================================
-# KEY BINDINGS
-# ==============================================
 
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward

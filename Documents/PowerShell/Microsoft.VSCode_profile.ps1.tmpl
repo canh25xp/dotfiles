@@ -1,8 +1,14 @@
-$profileRoot = $PROFILE | Split-Path
+# ==============================================
+# ALIASES
+# ==============================================
 
-. $profileRoot\Aliases.ps1
+{{ template "pwsh/Aliases.ps1.tmpl" . }}
 
-. $profileRoot\PSReadLineProfile.ps1
+# ==============================================
+# PSREADLINE SETTINGS
+# ==============================================
+
+{{ template "pwsh/PSReadLineProfile.ps1" . }}
 
 # The Default Prompt
 # function Prompt {

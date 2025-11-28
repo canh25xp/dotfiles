@@ -1,3 +1,7 @@
+# ==============================================
+# ALIASES
+# ==============================================
+
 # stolen from https://github.com/giggio/posh-alias/blob/master/Posh-Alias.psm1
 function Add-Alias($name, $alias) {
     $func = @"
@@ -20,8 +24,20 @@ Remove-Item alias:ls -Force
 Remove-Item alias:cat -Force
 {{ end -}}
 
-{{ template "pwsh/Aliases.ps1.tmpl" . -}}
+{{ template "pwsh/Aliases.ps1.tmpl" . }}
 
 function Start-AdminSession {
   Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
 }
+
+# ==============================================
+# PSREADLINE SETTINGS
+# ==============================================
+
+{{ template "pwsh/PSReadLineProfile.ps1" . }}
+
+# ==============================================
+# EXTERNAL INIT
+# ==============================================
+
+{{ template "pwsh/externals.ps1.tmpl" . }}

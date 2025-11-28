@@ -1,13 +1,3 @@
-# ==============================================
-# SHELL INIT
-# ==============================================
-
-$profileRoot = $PROFILE | Split-Path
-
-. $profileRoot\Aliases.ps1
-
-. $profileRoot\PSReadLineProfile.ps1
-
 # Init startship or oh-my-posh
 $has_startship = [bool](Get-Command -Name "starship.exe" -ErrorAction SilentlyContinue)
 $has_oh_my_posh = [bool](Get-Command -Name "oh-my-posh.exe" -ErrorAction SilentlyContinue)
