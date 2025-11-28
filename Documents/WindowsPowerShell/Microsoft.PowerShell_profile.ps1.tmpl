@@ -1,4 +1,10 @@
 # ==============================================
+# PSREADLINE SETTINGS
+# ==============================================
+
+{{ template "pwsh/PSReadLineProfile.ps1" . }}
+
+# ==============================================
 # ALIASES
 # ==============================================
 
@@ -29,12 +35,6 @@ Remove-Item alias:cat -Force
 function Start-AdminSession {
   Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
 }
-
-# ==============================================
-# PSREADLINE SETTINGS
-# ==============================================
-
-{{ template "pwsh/PSReadLineProfile.ps1" . }}
 
 # ==============================================
 # EXTERNAL INIT
