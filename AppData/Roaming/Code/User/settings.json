@@ -1,4 +1,5 @@
 {
+    "http.proxyStrictSSL": false,
     "editor.cursorBlinking": "phase",
     "editor.cursorSurroundingLines": 4,
     "editor.suggest.insertMode": "replace",
