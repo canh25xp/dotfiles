@@ -99,3 +99,17 @@ If (Test-Path "$HOME\miniconda3\Scripts\conda.exe") {
 }
 #endregion
 
+# Auto-detect proxy settings
+# Check for HTTP proxy on port 3128
+if (Test-NetConnection -ComputerName 127.0.0.1 -Port 3128 -InformationLevel Quiet -ErrorAction SilentlyContinue) {
+    $env:ALL_PROXY = "http://127.0.0.1:3128"
+    $env:HTTP_PROXY = $env:ALL_PROXY
+    $env:HTTPS_PROXY = $env:ALL_PROXY
+    Write-Host "Using HTTP proxy $env:ALL_PROXY" -ForegroundColor Green
+} else {
+    Remove-Item Env:\ALL_PROXY -ErrorAction SilentlyContinue
+    Remove-Item Env:\HTTP_PROXY -ErrorAction SilentlyContinue
+    Remove-Item Env:\HTTPS_PROXY -ErrorAction SilentlyContinue
+}
+
+$env:NO_PROXY = "$env:NO_PROXY,localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
