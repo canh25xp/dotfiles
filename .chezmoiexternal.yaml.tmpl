@@ -12,13 +12,9 @@ AppData\Local\nvim-lazy:
   url: https://github.com/canh25xp/nvim-lazy
   refreshPeriod: 0h
 
-{{ if .windows }}
-AppData\Local\gopass\stores\root:
-{{   else }}
 .password-store:
-{{   end }}
   type: git-repo
-  url: {{ if .work -}} https://github.sec.samsung.net/vancanh-ng/.password-store {{- else -}} https://github.com/canh25xp/.password-store  {{- end }},
+  url: {{ if .work -}} https://github.sec.samsung.net/vancanh-ng/.password-store {{- else -}} https://github.com/canh25xp/.password-store {{- end }}
   refreshPeriod: 0h
 
 {{ if not .work }}
