@@ -92,6 +92,7 @@ $env:Path += "$env:PROGRAMFILES\draw.io;"
 $env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
 $env:Path += "$env:PROGRAMFILES\VideoLAN\VLC;"
 
+{{ if .work -}}
 # Auto-detect proxy settings
 # Check for HTTP proxy on port 3128
 if (Test-NetConnection -ComputerName 127.0.0.1 -Port 3128 -InformationLevel Quiet -ErrorAction SilentlyContinue) {
@@ -106,3 +107,4 @@ if (Test-NetConnection -ComputerName 127.0.0.1 -Port 3128 -InformationLevel Quie
 }
 
 $env:NO_PROXY = "$env:NO_PROXY,localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
+{{ end -}}
