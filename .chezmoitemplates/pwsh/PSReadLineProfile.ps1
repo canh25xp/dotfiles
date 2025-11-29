@@ -44,7 +44,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardDeleteWord
 Set-PSReadLineKeyHandler -Chord Ctrl+j -Function AcceptLine
 
-Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
+Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+b' -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
     [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
@@ -61,8 +61,9 @@ Set-PSReadLineKeyHandler -Chord Ctrl+o -ScriptBlock {
 
 # CaptureScreen is good for blog posts or email showing a transaction
 # of what you did when asking for help or demonstrating a technique.
-Set-PSReadLineKeyHandler -Chord 'Ctrl+k,Ctrl+c' -Function CaptureScreen
+Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+c' -Function CaptureScreen
 
+# Edit current command with $env:EDITOR
 Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+e' -Function ViEditVisually
 
 # Get help about the current command
