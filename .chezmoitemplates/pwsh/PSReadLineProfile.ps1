@@ -44,21 +44,11 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord Ctrl+w -Function BackwardDeleteWord
 Set-PSReadLineKeyHandler -Chord Ctrl+j -Function AcceptLine
 
-# Kill whole line
-Set-PSReadLineKeyHandler -Chord Alt+l -Function RevertLine
-
 Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
     [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert(" }")
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-}
-
-# start whkd
-Set-PSReadLineKeyHandler -Chord Alt+W -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Process whkd -WindowStyle hidden")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
