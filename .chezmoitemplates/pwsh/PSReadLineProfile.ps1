@@ -63,6 +63,7 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+?" `
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
+# Examples taken from https://raw.githubusercontent.com/PowerShell/PSReadLine/refs/heads/master/PSReadLine/SamplePSReadLineProfile.ps1
 # Matching quotes parens, and braces
 Set-PSReadLineKeyHandler -Key '"',"'" `
     -BriefDescription SmartInsertQuote `
@@ -274,7 +275,7 @@ Set-PSReadLineKeyHandler -Key Alt+w `
 }
 
 # Paste the clipboard text as a here string
-Set-PSReadLineKeyHandler -Key Ctrl+V `
+Set-PSReadLineKeyHandler -Key Ctrl+Alt+v `
     -BriefDescription PasteAsHereString `
     -LongDescription "Paste the clipboard text as a here string" `
     -ScriptBlock {
@@ -362,8 +363,8 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
     }
 }
 
-# This example will replace any aliases on the command line with the resolved commands.
-Set-PSReadLineKeyHandler -Key "Ctrl+/" `
+# Like shell-expand-line in bash
+Set-PSReadLineKeyHandler -Key "Ctrl+Alt+e" `
     -BriefDescription ExpandAliases `
     -LongDescription "Replace all aliases with the full command" `
     -ScriptBlock {
