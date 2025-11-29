@@ -40,7 +40,7 @@ function global:$name {
 "@
     Remove-Alias -ErrorAction SilentlyContinue $name
     write-debug "Defined function:`n$func"
-    $func | iex
+    $func | Invoke-Expression
 }
 
 function Start-AdminSession {

@@ -18,7 +18,7 @@ function global:$name {
 }
 "@
     write-debug "Defined function:`n$func"
-    $func | iex
+    $func | Invoke-Expression
 }
 
 # Remove / Overide aliases
