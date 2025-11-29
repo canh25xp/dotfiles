@@ -17,8 +17,8 @@ function global:$name {
   Invoke-Expression `$expr
 }
 "@
-  write-debug "Defined function:`n$func"
-  $func | iex
+    write-debug "Defined function:`n$func"
+    $func | iex
 }
 
 # Remove / Overide aliases
@@ -33,7 +33,7 @@ Remove-Item alias:cat -Force
 {{ template "pwsh/Aliases.ps1.tmpl" . }}
 
 function Start-AdminSession {
-  Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
+    Start-Process -FilePath "wt" -Verb runAs -ArgumentList "powershell.exe -NoExit -Command &{Set-Location $PWD}"
 }
 
 # ==============================================

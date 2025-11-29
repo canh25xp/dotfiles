@@ -9,9 +9,9 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+/" -Function ShowCommandHelp
 
 # Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line
 Set-PSReadLineKeyHandler -Key RightArrow `
-                         -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
-                         -LongDescription "Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line" `
-                         -ScriptBlock {
+    -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
+    -LongDescription "Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line" `
+    -ScriptBlock {
     param($key, $arg)
 
     $line = $null
@@ -38,13 +38,13 @@ function global:$name {
   Invoke-Expression `$expr
 }
 "@
-  Remove-Alias -ErrorAction SilentlyContinue $name
-  write-debug "Defined function:`n$func"
-  $func | iex
+    Remove-Alias -ErrorAction SilentlyContinue $name
+    write-debug "Defined function:`n$func"
+    $func | iex
 }
 
 function Start-AdminSession {
-  Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
+    Start-Process -FilePath "wt" -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
 }
 
 {{ template "pwsh/Aliases.ps1.tmpl" . }}
