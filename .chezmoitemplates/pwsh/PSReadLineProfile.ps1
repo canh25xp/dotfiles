@@ -31,6 +31,10 @@ Set-PSReadLineOption -MaximumHistoryCount 100000
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 
+# Clipboard interaction is bound by default in Windows mode, but not Emacs mode.
+Set-PSReadLineKeyHandler -Key Ctrl+C -Function Copy
+Set-PSReadLineKeyHandler -Key Ctrl+v -Function Paste
+
 Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+b' -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
