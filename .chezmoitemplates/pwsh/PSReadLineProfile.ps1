@@ -35,6 +35,10 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key Ctrl+C -Function Copy
 Set-PSReadLineKeyHandler -Key Ctrl+v -Function Paste
 
+# Override Emacs Tab Completion
+Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
+Set-PSReadLineKeyHandler -Key Shift+Tab -Function TabCompletePrevious
+
 Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+b' -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
