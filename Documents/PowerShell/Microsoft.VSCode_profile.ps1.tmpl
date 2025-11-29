@@ -1,23 +1,11 @@
 # ==============================================
-# ALIASES
-# ==============================================
-
-{{ template "pwsh/Aliases.ps1.tmpl" . }}
-
-# ==============================================
 # PSREADLINE SETTINGS
 # ==============================================
 
 {{ template "pwsh/PSReadLineProfile.ps1" . }}
 
-# The Default Prompt
-# function Prompt {
-#     $env:USERNAME+"@"+$env:COMPUTERNAME+":"+"$($executionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
-# }
+# ==============================================
+# ALIASES
+# ==============================================
 
-# Shell Prompt
-# function Prompt {
-#     $prompt = Write-Prompt "$env:USERNAME@$env:COMPUTERNAME" -ForegroundColor ([ConsoleColor]::Green)
-#     $prompt += ":$($executionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
-#     $prompt
-# }
+{{ template "pwsh/Aliases.ps1.tmpl" . }}
