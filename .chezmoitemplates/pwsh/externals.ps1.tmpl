@@ -13,3 +13,10 @@ $has_zoxide = [bool](Get-Command -Name "zoxide.exe" -ErrorAction SilentlyContinu
 if ($has_zoxide) {
   zoxide init --cmd j powershell | Out-String | Invoke-Expression
 }
+
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "$HOME\miniconda3\Scripts\conda.exe") {
+    (& "$HOME\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Where-Object { $_ } | Invoke-Expression
+}
+#endregion

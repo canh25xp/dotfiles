@@ -92,13 +92,6 @@ $env:Path += "$env:PROGRAMFILES\draw.io;"
 $env:Path += "$env:PROGRAMFILES\Inkscape\bin;"
 $env:Path += "$env:PROGRAMFILES\VideoLAN\VLC;"
 
-#region conda initialize
-# !! Contents within this block are managed by 'conda init' !!
-If (Test-Path "$HOME\miniconda3\Scripts\conda.exe") {
-    (& "$HOME\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Where-Object { $_ } | Invoke-Expression
-}
-#endregion
-
 # Auto-detect proxy settings
 # Check for HTTP proxy on port 3128
 if (Test-NetConnection -ComputerName 127.0.0.1 -Port 3128 -InformationLevel Quiet -ErrorAction SilentlyContinue) {
