@@ -24,6 +24,7 @@ bind -T copy-mode-vi v    send -X begin-selection
 bind -T copy-mode-vi C-v  send -X rectangle-toggle
 bind -T copy-mode-vi y    send -X copy-selection
 bind -T copy-mode-vi Y    send -X copy-line-and-cancel
+bind / copy-mode \; send-keys / # Quick search
 
 # Kill pane/window without ask
 unbind x
