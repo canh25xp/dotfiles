@@ -31,3 +31,4 @@
   - [ ] Windows: `bat` check installation before add `cat` alias
 - [ ] Consistency: use `home` instead of `personal`
 - [x] Ignore app configs if the app it self not found (using lookPath)
+- [ ] `gpg` encrypted files (.ssh/id*) are initialize way too slow on Windows, and way too often.
