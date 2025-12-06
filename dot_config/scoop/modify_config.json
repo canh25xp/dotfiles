@@ -1,3 +1,4 @@
+{{- /* chezmoi:template:line-endings=crlf */ -}}
 {{- /* chezmoi:modify-template */ -}}
 {{- $data := fromJson .chezmoi.stdin -}}
 {{- $data = ($data | setValueAtPath "use_external_7zip" true) -}}
