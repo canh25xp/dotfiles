@@ -120,6 +120,7 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
+  - name: "alt"
   - name: "1"
   - name: "2"
   - name: "3"
@@ -271,6 +272,8 @@ keybindings:
     bindings: ["alt+o"]
 
   # Change focus to a workspace defined in `workspaces` config.
+  - commands: ["focus --workspace alt"]
+    bindings: ["alt+oem_tilde"]
   - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
@@ -304,6 +307,8 @@ keybindings:
     bindings: ["alt+shift+down"]
 
   # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move --workspace alt", "focus --workspace alt"]
+    bindings: ["alt+shift+oem_tilde"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["alt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
