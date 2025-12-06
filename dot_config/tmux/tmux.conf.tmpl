@@ -17,8 +17,6 @@ bind - split-window -v # Split horizontal
 bind \\ split-window -h # Split verical
 
 set -w -g mode-keys vi # Use vi-binding in copy-mode
-unbind -T copy-mode-vi v # unbind begin-selection in copy-mode
-unbind -T copy-mode-vi q # unbind cancel in copy-mode
 bind -T copy-mode-vi i    send -X cancel
 bind -T copy-mode-vi v    send -X begin-selection
 bind -T copy-mode-vi C-v  send -X rectangle-toggle
@@ -27,13 +25,10 @@ bind -T copy-mode-vi Y    send -X copy-line-and-cancel
 bind / copy-mode \; send-keys / # Quick search
 
 # Kill pane/window without ask
-unbind x
 bind x kill-pane
-unbind &
 bind q kill-window
 
 # New window and retain cwd
-unbind c
 bind c new-window -c "#{pane_current_path}"
 
 # Windows navigation
