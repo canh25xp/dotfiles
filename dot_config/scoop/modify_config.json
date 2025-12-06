@@ -1,0 +1,7 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $data := fromJson .chezmoi.stdin -}}
+{{- $data = ($data | setValueAtPath "use_external_7zip" true) -}}
+{{- $data = ($data | setValueAtPath "alias.ls" "scoop-ls") -}}
+{{- $data = ($data | setValueAtPath "alias.rm" "scoop-rm") -}}
+{{- $data = ($data | setValueAtPath "alias.upgrade" "scoop-upgrade") -}}
+{{ toPrettyJson $data }}
