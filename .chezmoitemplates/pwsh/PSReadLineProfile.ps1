@@ -4,7 +4,6 @@ using namespace System.Management.Automation.Language
 # Commands default parameter
 $PSDefaultParameterValues.Add('Format-*:AutoSize', $true)
 $PSDefaultParameterValues.Add('Format-*:Wrap', $true)
-$PSDefaultParameterValues.Add('Receive-Job:Keep', $true)
 $PSDefaultParameterValues.Add('Get-Command:All', $true)
 
 Set-PsReadLineOption -EditMode Emacs
