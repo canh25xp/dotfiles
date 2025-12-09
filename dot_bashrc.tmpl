@@ -129,7 +129,7 @@ else
   unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
 fi
 
-export NO_PROXY="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
+export NO_PROXY="localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net,107.98.0.0/16"
 export no_proxy="$NO_PROXY"
 
 {{- end }}
