@@ -106,3 +106,7 @@ AppData/Local/glow/
 AppData/Local/Arduino15/
 .arduinoIDE/
 {{ end }}
+
+{{ if not (lookPath "scoop") }}
+.config/scoop/
+{{ end }}
