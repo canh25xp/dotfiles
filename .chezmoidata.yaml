@@ -21,6 +21,10 @@ desktopIPv4: 192.168.0.100
 laptopIPv4: 192.168.0.101
 phoneIPv4: 192.168.0.102
 
+# Work ip address
+workIPv4Lan: 107.98.39.128
+workIPv4Wifi: 107.98.68.201
+
 # Tailscale
 tailnetDNS: "walleye-godzilla.ts.net"
 desktopTailscale: "bunnies-desktop"
