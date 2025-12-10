@@ -46,6 +46,7 @@ Set-Alias -Name nuke -Value Clear-RecycleBin
 Set-Alias -Name hfscp -Value Copy-HFSLink
 Set-Alias -Name p4edit -Value Edit-P4File
 Set-Alias -Name lockin -Value Switch-TerminalBackground
+Set-Alias -Name wall -Value Select-TerminalBackground
 
 # Abbreviated aliases
 Set-Alias -Name cz -Value chezmoi
@@ -55,6 +56,99 @@ Set-Alias -Name g -Value git
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
+
+function Select-TerminalBackground {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$false, Position=0)]
+        [string]$Path
+    )
+
+    $wallpaperDir = Join-Path $HOME "Pictures/Wallpapers"
+    $configPath = Join-Path $HOME ".config/chezmoi/chezmoi.yaml"
+    $terminalSettingsPath = "$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+
+    if ($PSBoundParameters.ContainsKey('Path')) {
+        if (-not (Test-Path $Path)) {
+            Write-Error "The provided path does not exist: $Path"
+            return
+        }
+
+        $fullPath = Resolve-Path $Path | Select-Object -ExpandProperty Path
+        $selection = Resolve-Path $Path | Get-Item | Select-Object -ExpandProperty Name
+        Write-Debug "Directly selected: $fullPath"
+    }
+    else {
+        $wallpaperDir = Join-Path $HOME "Pictures/Wallpapers"
+        $configPath = Join-Path $HOME ".config/chezmoi/chezmoi.yaml"
+        $terminalSettingsPath = "$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+
+        if (-not (Test-Path $wallpaperDir)) {
+            Write-Error "Wallpaper directory not found at $wallpaperDir"
+            return
+        }
+        if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) {
+            Write-Error "fzf command is required but not found."
+            return
+        }
+
+        Push-Location $wallpaperDir
+        try {
+            $selection = Get-ChildItem -File |
+                Select-Object -ExpandProperty Name |
+                fzf --cycle `
+                    --prompt="Select Wallpaper > " `
+                    --preview-window="right:60%" `
+                    --preview "chafa --format=sixel --animate=off {}"
+        } finally {
+            Pop-Location
+        }
+
+        if ([string]::IsNullOrWhiteSpace($selection)) {
+            Write-Warning "No image selected. Operation cancelled."
+            return
+        }
+
+        $fullPath = Join-Path $wallpaperDir $selection
+        Write-Debug "Selected: $fullPath"
+    }
+
+    if (-not (Test-Path -Path $configPath)) {
+        Write-Error "chezmoi config not found at $configPath"
+        return
+    }
+
+    $content = Get-Content -Raw -Path $configPath
+
+    # Prepare path for YAML (Escape backslashes: C:\Path becomes C:\\Path)
+    $yamlReadyPath = $fullPath -replace "\\", "\\"
+
+    # Regex to find 'wallpaper: "..."'
+    # We use non-greedy matching (.*?) to ensure we only capture inside the quotes
+    $pattern = 'wallpaper:\s*".*?"'
+
+    if ($content -match $pattern) {
+        $replacement = "wallpaper: ""$yamlReadyPath"""
+        $newContent = [regex]::Replace($content, $pattern, $replacement)
+        Set-Content -Path $configPath -Value $newContent -Encoding UTF8
+        Write-Debug "Updated chezmoi.yaml configuration."
+    } else {
+        Write-Error "Unable to find 'wallpaper' key in $configPath. Check your formatting."
+        return
+    }
+
+    try {
+        Write-Debug "Applying changes to Windows Terminal..."
+        & chezmoi apply $terminalSettingsPath 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "chezmoi apply exited with code $LASTEXITCODE"
+        } else {
+            Write-Output "Set wallpaper: $selection"
+        }
+    } catch {
+        Write-Warning "Failed to run chezmoi apply: $_"
+    }
+}
 
 function Switch-TerminalBackground {
     # Toggle chezmoi terminal background flag to switch focus mode
