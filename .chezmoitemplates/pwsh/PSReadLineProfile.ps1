@@ -2,9 +2,9 @@ using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
 # Commands default parameter
-$PSDefaultParameterValues.Add('Format-*:AutoSize', $true)
-$PSDefaultParameterValues.Add('Format-*:Wrap', $true)
-$PSDefaultParameterValues.Add('Get-Command:All', $true)
+$PSDefaultParameterValues['Format-*:AutoSize'] = $true
+$PSDefaultParameterValues['Format-*:Wrap']     = $true
+$PSDefaultParameterValues['Get-Command:All']   = $true
 
 Set-PsReadLineOption -EditMode Emacs
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
