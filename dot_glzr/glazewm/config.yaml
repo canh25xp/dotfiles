@@ -137,6 +137,7 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: "zebar" }
+      - window_process: { equals: "scrcpy" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -155,6 +156,10 @@ window_rules:
         window_class: { not_regex: "OpusApp" }
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
+
+  - commands: ["set-floating"]
+    match:
+      - window_process: { equals: "explorer" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
