@@ -38,6 +38,34 @@ Set-PSReadLineKeyHandler -Key Ctrl+v -Function Paste
 Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
 Set-PSReadLineKeyHandler -Key Shift+Tab -Function TabCompletePrevious
 
+Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+h' `
+    -BriefDescription "Ask AI" `
+    -LongDescription "Ask AI about what ever the question is currently typing on the cli and insert it back the current line" `
+    -ScriptBlock {
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    $prompt = $line.Trim()
+
+    if ([string]::IsNullOrWhiteSpace($prompt)) {
+        return
+    }
+
+    [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Asking Ollama: '$prompt'...")
+
+    $command = Get-HelpAI -Prompt $prompt
+
+    [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
+    if ($command) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+    } else {
+        # If generation failed, restore the original prompt
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert($prompt)
+    }
+}
+
 Set-PSReadLineKeyHandler -Chord 'Ctrl+x,Ctrl+b' -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::BeginningOfLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("Start-Job -ScriptBlock { ")
