@@ -57,6 +57,41 @@ Set-Alias -Name lg -Value lazygit
 Set-Alias -Name lgit -Value lazygit
 Set-Alias -Name y -Value yazi
 
+function Get-HelpAI {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Prompt
+    )
+
+    if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
+        Write-Warning "Ollama executable not found in PATH."
+        return $null
+    }
+
+    $output = ollama run howto "$Prompt" 2>$null
+
+    if (-not $output) {
+        Write-Warning "No response from ollama for prompt: '$Prompt'."
+        return $null
+    }
+
+    # This regex captures everything inside the first ```...``` block.
+    $match = [regex]::Match(
+        $output,
+        '```[a-zA-Z0-9_-]*\s*([\s\S]*?)\s*```',
+        'Singleline'
+    )
+
+    if ($match.Success) {
+        # Return the captured command
+        return $match.Groups[1].Value.Trim()
+    } else {
+        # Fallback: if no code block, return the raw output
+        Write-Warning "No code block found in response. Returning raw output."
+        return $output.Trim()
+    }
+}
+
 function Select-TerminalBackground {
     [CmdletBinding()]
     param (
