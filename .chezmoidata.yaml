@@ -25,6 +25,12 @@ phoneIPv4: 192.168.0.102
 workIPv4Lan: 107.98.39.128
 workIPv4Wifi: 107.98.68.201
 
+# Proxy settings
+proxyIP: "127.0.0.1"
+proxyPort: "3128"
+proxyServer: "http://127.0.0.1:3128"
+workNoProxy: "localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net,sts.secsso.net,107.98.0.0/16"
+
 # Tailscale
 tailnetDNS: "walleye-godzilla.ts.net"
 desktopTailscale: "bunnies-desktop"

@@ -106,5 +106,5 @@ if (Test-NetConnection -ComputerName 127.0.0.1 -Port 3128 -InformationLevel Quie
     Remove-Item Env:\HTTPS_PROXY -ErrorAction SilentlyContinue
 }
 
-$env:NO_PROXY = "$env:NO_PROXY,localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net"
+$env:NO_PROXY += {{ .workNoProxy | quote }}
 {{ end -}}
