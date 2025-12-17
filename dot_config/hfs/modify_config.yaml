@@ -10,13 +10,15 @@
 {{- $data = ($data | setValueAtPath "title" "vancanh's File Server") -}}
 {{- $data = ($data | setValueAtPath "favicon" (joinPath .chezmoi.homeDir "Pictures/Assets/icon.png" )) -}}
 {{- $data = ($data | setValueAtPath "port" 6969) -}}
-{{- $data = ($data | setValueAtPath "vfs.can_upload" "vancanh-ng") -}}
+{{- $data = ($data | setValueAtPath "vfs.can_upload" (list "vancanh-ng")) -}}
 
 {{- /* Set work/personal specific values */ -}}
 {{- if .linux -}}
-{{- $data = ($data | setValueAtPath "vfs.source" (joinPath .chezmoi.homeDir "Archive" )) -}}
+{{- $child := dict "source" (joinPath .chezmoi.homeDir "Archive") -}}
+{{- $data = ($data | setValueAtPath "vfs.children" (list $child)) -}}
 {{- else -}}
-{{- $data = ($data | setValueAtPath "vfs.source" "C:\\Archive") -}}
+{{- $child := dict "source" "C:\\Archive" -}}
+{{- $data = ($data | setValueAtPath "vfs.children" (list $child)) -}}
 {{- end -}}
 
 {{ toYaml $data }}
