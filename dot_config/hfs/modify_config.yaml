@@ -14,11 +14,17 @@
 
 {{- /* Set work/personal specific values */ -}}
 {{- if .linux -}}
-{{- $child := dict "source" (joinPath .chezmoi.homeDir "Archive") -}}
-{{- $data = ($data | setValueAtPath "vfs.children" (list $child)) -}}
+{{- $children := list
+      (dict "source" (joinPath .chezmoi.homeDir "Archive"))
+      (dict "source" (joinPath .chezmoi.homeDir "Downloads"))
+-}}
+{{- $data = ($data | setValueAtPath "vfs.children" $children) -}}
 {{- else -}}
-{{- $child := dict "source" "C:\\Archive" -}}
-{{- $data = ($data | setValueAtPath "vfs.children" (list $child)) -}}
+{{- $children := list
+      (dict "source" "C:\\Archive")
+      (dict "source" "C:\\Downloads")
+-}}
+{{- $data = ($data | setValueAtPath "vfs.children" $children) -}}
 {{- end -}}
 
 {{ toYaml $data }}
