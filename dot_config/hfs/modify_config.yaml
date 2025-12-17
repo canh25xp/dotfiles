@@ -1,4 +1,4 @@
-{{- /* chezmoi:template:line-endings=crlf */ -}}
+{{- /* chezmoi:template:line-endings=native */ -}}
 {{- /* chezmoi:modify-template */ -}}
 {{- $data := fromYaml .chezmoi.stdin -}}
 
