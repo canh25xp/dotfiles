@@ -1,0 +1,22 @@
+{{- /* chezmoi:template:line-endings=crlf */ -}}
+{{- /* chezmoi:modify-template */ -}}
+{{- $data := fromYaml .chezmoi.stdin -}}
+
+{{- /* Set common values */ -}}
+{{- $data = ($data | setValueAtPath "accounts.vancanh-ng.admin" true) -}}
+{{- $data = ($data | setValueAtPath "accounts.vancanh-ng.srp" (joinPath .chezmoi.sourceDir "dot_config/hfs/.ignored-encrypted-srp.age" | include | decrypt | trim)) -}}
+{{- $data = ($data | setValueAtPath "auto_check_update" false) -}}
+{{- $data = ($data | setValueAtPath "open_browser_at_start" false) -}}
+{{- $data = ($data | setValueAtPath "title" "vancanh's File Server") -}}
+{{- $data = ($data | setValueAtPath "favicon" (joinPath .chezmoi.homeDir "Pictures/Assets/icon.png" )) -}}
+{{- $data = ($data | setValueAtPath "port" 6969) -}}
+{{- $data = ($data | setValueAtPath "vfs.can_upload" "vancanh-ng") -}}
+
+{{- /* Set work/personal specific values */ -}}
+{{- if .linux -}}
+{{- $data = ($data | setValueAtPath "vfs.source" (joinPath .chezmoi.homeDir "Archive" )) -}}
+{{- else -}}
+{{- $data = ($data | setValueAtPath "vfs.source" "C:\\Archive") -}}
+{{- end -}}
+
+{{ toYaml $data }}
