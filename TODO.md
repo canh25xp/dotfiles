@@ -33,3 +33,4 @@
 - [x] Ignore app configs if the app it self not found (using lookPath)
 - [ ] `gpg` encrypted files (.ssh/id\*) are initialize way too slow on Windows, and way too often. [#4807](https://github.com/twpayne/chezmoi/discussions/4807#discussioncomment-15166685)
 - [ ] Dealing with encrypted files when `age` recipients key has not initialized.
+- [ ] Automate installing from external package managers `cargo`, `npm`, ...
