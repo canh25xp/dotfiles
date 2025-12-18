@@ -10,3 +10,5 @@ cargo install eza
 cargo install tree-sitter-cli
 cargo install spotify-tui
 cargo install yazi-build
+cargo install grex
+cargo install rip2

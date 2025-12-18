@@ -18,6 +18,7 @@ default_packages=(
   build-essential
   curl
   direnv
+  duf
   entr
   eza
   fastfetch
@@ -53,7 +54,9 @@ default_packages=(
   python3-venv
   qrencode
   ripgrep
+  rsync
   rustup
+  sd
   speedtest-cli
   sqlite3 # required for bookmarks.nvim
   starship
