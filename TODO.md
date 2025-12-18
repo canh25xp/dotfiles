@@ -34,3 +34,4 @@
 - [ ] `gpg` encrypted files (.ssh/id\*) are initialize way too slow on Windows, and way too often. [#4807](https://github.com/twpayne/chezmoi/discussions/4807#discussioncomment-15166685)
 - [ ] Dealing with encrypted files when `age` recipients key has not initialized.
 - [ ] Automate installing from external package managers `cargo`, `npm`, ...
+- [ ] Add support to encrypted notes in [DevNote](https://github.com/canh25xp/DevNote)
