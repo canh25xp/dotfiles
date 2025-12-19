@@ -11,6 +11,11 @@ bind k copy-mode
 bind P new-window -n pwsh "pwsh.exe"
 {{- end }}
 
+# Open btm in floating popup at top-right (requires tmux 3.2+)
+if -F '#{>=:#{version},3.2}' {
+  bind B popup -w30% -h30% -xR -yS -EB 'btm -e'
+}
+
 unbind '"' # Unbind split horizontal
 unbind % # Unbind split vertical
 bind - split-window -v # Split horizontal
