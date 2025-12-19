@@ -68,7 +68,7 @@ function Get-HelpAI {
         return $null
     }
 
-    $output = ollama run howto "$Prompt" 2>$null
+    $output = ollama run mistral-cli-helper "$Prompt" 2>$null
 
     if (-not $output) {
         Write-Warning "No response from ollama for prompt: '$Prompt'."
