@@ -63,6 +63,7 @@ default_packages=(
   steghide
   tealdeer
   tmux
+  trash-cli
   tree-sitter-cli
   unzip
   wget
