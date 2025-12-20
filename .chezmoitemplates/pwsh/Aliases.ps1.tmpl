@@ -10,6 +10,9 @@ Add-Alias cat "bat -P"
 {{ if lookPath "gsudo" -}}
 Add-Alias sudo gsudo
 {{ end -}}
+{{ if lookPath "podman" -}}
+Set-Alias docker podman
+{{ end -}}
 
 # Funtion aliases
 Set-Alias -Name df -Value Get-Volume

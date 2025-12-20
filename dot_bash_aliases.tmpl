@@ -48,6 +48,10 @@ alias fucking=sudo
 alias cat='bat -P'
 {{ end -}}
 
+{{ if lookPath "podman" -}}
+alias docker=podman
+{{ end -}}
+
 # Open Nvim and enter Neotree
 ntree() {
   nvim -c "Neotree position=current"
