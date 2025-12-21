@@ -66,12 +66,123 @@ function Get-HelpAI {
         [string]$Prompt
     )
 
-    if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
-        Write-Warning "Ollama executable not found in PATH."
+    $defaultSystemPrompt = @"
+You are a command-line assistant.
+
+Primary goals:
+- Provide correct, minimal, copy-pasteable CLI commands.
+- Prefer POSIX-compatible shell unless specified.
+- Assume Linux by default. Unless user specified Windows.
+- No emojis. No roleplay. No motivational text.
+
+Rules:
+- Output ONE single command only.
+- When multiple solutions exist, show the best default only.
+- NO explanations.
+- NO extra text.
+- NO multiple options.
+- NO OS comparisons.
+- NO warnings.
+- NO punctuation outside the command.
+
+Output format:
+
+```sh
+command
+```
+"@.Trim()
+
+    $systemPromptPath = Join-Path $HOME ".ollama/models/mistral-cli-helper"
+    $systemPrompt = $null
+
+    if (Test-Path $systemPromptPath) {
+        try {
+            $systemPromptConfig = Get-Content -Raw -Path $systemPromptPath
+            $systemPromptMatch = [regex]::Match(
+                $systemPromptConfig,
+                'SYSTEM\s+"""\s*([\s\S]*?)\s*"""',
+                'Singleline'
+            )
+
+            if ($systemPromptMatch.Success) {
+                $systemPrompt = $systemPromptMatch.Groups[1].Value.Trim()
+            }
+        } catch {
+            Write-Verbose "Failed to read system prompt from $systemPromptPath : $($_.Exception.Message)"
+        }
+    }
+
+    if (-not $systemPrompt) {
+        $systemPrompt = $defaultSystemPrompt
+    }
+
+    $ollamaHost = if ($env:OLLAMA_HOST) {
+        $env:OLLAMA_HOST.TrimEnd('/')
+    } else {
+        "http://127.0.0.1:11434"
+    }
+    $requestUri = "$ollamaHost/api/chat"
+
+    $payload = @{
+        model = "mistral"
+        stream = $false
+        messages = @(
+            @{ role = "system"; content = $systemPrompt }
+            @{ role = "user"; content = $Prompt }
+        )
+    }
+
+    if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) {
+        Write-Warning "curl.exe not found in PATH."
         return $null
     }
 
-    $output = ollama run mistral-cli-helper "$Prompt" 2>$null
+    try {
+        $jsonPayload = $payload | ConvertTo-Json -Depth 6 -Compress
+    } catch {
+        Write-Warning "Failed to serialize payload to JSON: $($_.Exception.Message)"
+        return $null
+    }
+
+    $curlArgs = @(
+        "-s"
+        "-S"
+        "--fail"
+        "-X"
+        "POST"
+        $requestUri
+        "-H"
+        "Content-Type: application/json"
+        "--data"
+        $jsonPayload
+    )
+
+    try {
+        $responseRaw = & curl.exe @curlArgs
+    } catch {
+        Write-Warning "Failed to invoke curl.exe for $requestUri : $($_.Exception.Message)"
+        return $null
+    }
+
+    if ([string]::IsNullOrWhiteSpace($responseRaw)) {
+        Write-Warning "No response from Ollama API for prompt: '$Prompt'."
+        return $null
+    }
+
+    try {
+        $response = $responseRaw | ConvertFrom-Json -Depth 6
+    } catch {
+        Write-Warning "Failed to parse Ollama response as JSON. Returning raw output."
+        return $responseRaw.Trim()
+    }
+
+    $output = $null
+
+    if ($response -and $response.message -and $response.message.content) {
+        $output = $response.message.content
+    } elseif ($response -and $response.messages) {
+        $output = ($response.messages | Select-Object -Last 1).content
+    }
 
     if (-not $output) {
         Write-Warning "No response from ollama for prompt: '$Prompt'."
@@ -86,13 +197,11 @@ function Get-HelpAI {
     )
 
     if ($match.Success) {
-        # Return the captured command
         return $match.Groups[1].Value.Trim()
-    } else {
-        # Fallback: if no code block, return the raw output
-        Write-Warning "No code block found in response. Returning raw output."
-        return $output.Trim()
     }
+
+    Write-Warning "No code block found in response. Returning raw output."
+    return $output.Trim()
 }
 
 function Select-TerminalBackground {
