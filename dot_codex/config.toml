@@ -1,0 +1,34 @@
+model = 'gpt-5-codex'
+model_reasoning_effort = 'medium'
+
+[model_providers.openai-chat-completions]
+# Name of the provider that will be displayed in the Codex UI.
+name = "OpenAI using Chat Completions"
+# The path `/chat/completions` will be amended to this URL to make the POST
+# request for the chat completions.
+base_url = "https://api.openai.com/v1"
+# If `env_key` is set, identifies an environment variable that must be set when
+# using Codex with this provider. The value of the environment variable must be
+# non-empty and will be used in the `Bearer TOKEN` HTTP header for the POST request.
+env_key = "OPENAI_API_KEY"
+# Valid values for wire_api are "chat" and "responses". Defaults to "chat" if omitted.
+wire_api = "responses"
+# If necessary, extra query params that need to be added to the URL.
+# See the Azure example below.
+query_params = {}
+
+[model_providers.ollama]
+name = "Ollama local"
+base_url = "http://localhost:11434/v1"
+wire_api = "responses"
+
+[profiles.gpt-oss]
+model_provider = "ollama"
+model = "gpt-oss"
+model_reasoning_effort = "medium"
+
+[features]
+web_search_request = true
+
+[projects."/home/michael/.local/share/chezmoi"]
+trust_level = "trusted"
