@@ -514,18 +514,27 @@ function Edit-Config {
         return
     }
 
-    # Get the list of files managed by chezmoi
-    $chezmoiFiles = chezmoi managed -p absolute -i files
+    # Change to home directory
+    Push-Location $HOME
 
-    # Use fzf with preview if bat exists, otherwise without preview
-    if (Get-Command bat -ErrorAction SilentlyContinue) {
-        $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
-    } else {
-        $selectedFile = $chezmoiFiles | fzf
+    try {
+        # Get the list of files managed by chezmoi
+        $chezmoiFiles = chezmoi managed -p absolute -i files
+
+        # Use fzf with preview if bat exists, otherwise without preview
+        if (Get-Command bat -ErrorAction SilentlyContinue) {
+            $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query
+        } else {
+            $selectedFile = $chezmoiFiles | fzf --query $query
+        }
+
+        if ($selectedFile) {
+            & $env:EDITOR $selectedFile
+        }
     }
-
-    if ($selectedFile) {
-        & $env:EDITOR $selectedFile
+    finally {
+        # Return to original location
+        Pop-Location
     }
 }
 

@@ -37,7 +37,33 @@ alias ll='ls -AlF'
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 
 alias cz=chezmoi
-alias cfg='chezmoi managed -p absolute -i files | fzf --preview="bat --color=always {}" | xargs -r ${EDITOR:-nvim}'
+cfg() {
+  local query="${1:-}"
+
+  echo $query
+
+  # Change to home directory
+  pushd "$HOME" >/dev/null || return 1
+
+  # Get the list of files managed by chezmoi
+  local chezmoi_files
+  chezmoi_files=$(chezmoi managed -p relative -i files 2>/dev/null)
+
+  local selected_file
+  if command -v bat &>/dev/null; then
+    selected_file=$(echo "$chezmoi_files" | fzf --preview "bat --color=always {}" --query $query)
+  else
+    selected_file=$(echo "$chezmoi_files" | fzf --query $query)
+  fi
+
+  # Open selected file if one was chosen
+  if [[ -n "$selected_file" ]]; then
+    "${EDITOR:-nvim}" "$selected_file"
+  fi
+
+  # Return to original location
+  popd >/dev/null || return 1
+}
 
 alias fuck='sudo $(fc -ln -1)'
 alias please=fuck
