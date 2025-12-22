@@ -507,24 +507,25 @@ function Edit-Config {
         [Parameter(Mandatory = $false,Position = 0)]
         [string]$query = ""
     )
+
+    # Check if fzf exists
+    if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) {
+        Write-Error "fzf command is required but not found."
+        return
+    }
+
     # Get the list of files managed by chezmoi
     $chezmoiFiles = chezmoi managed -p absolute -i files
 
-    # Use fzf to allow the user to select a file interactively
-    $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
+    # Use fzf with preview if bat exists, otherwise without preview
+    if (Get-Command bat -ErrorAction SilentlyContinue) {
+        $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
+    } else {
+        $selectedFile = $chezmoiFiles | fzf
+    }
+
     if ($selectedFile) {
         & $env:EDITOR $selectedFile
-    }
-}
-
-function Edit-Chezmoi {
-    # Get the list of files managed by chezmoi
-    $chezmoiFiles = chezmoi managed -p absolute -i files
-
-    # Use fzf to allow the user to select a file interactively
-    $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}"
-    if ($selectedFile) {
-        & chezmoi edit --apply --watch $selectedFile
     }
 }
 
