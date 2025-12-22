@@ -519,7 +519,7 @@ function Edit-Config {
 
     try {
         # Get the list of files managed by chezmoi
-        $chezmoiFiles = chezmoi managed -p absolute -i files
+        $chezmoiFiles = chezmoi managed -p relative -i files
 
         # Use fzf with preview if bat exists, otherwise without preview
         if (Get-Command bat -ErrorAction SilentlyContinue) {
