@@ -751,3 +751,13 @@ function Move-ToRecycleBin {
         Write-Verbose -Message "Ending [$($MyInvocation.MyCommand)]"
     }
 }
+
+function Start-AdminSession {
+    $shell = if ($PSVersionTable.PSEdition -eq 'Core') {
+        'pwsh.exe'
+    } else {
+        'powershell.exe' # 'Desktop'
+    }
+
+    Start-Process -FilePath 'wt' -Verb RunAs -ArgumentList "$shell -NoExit -Command `"Set-Location '$PWD'`""
+}
