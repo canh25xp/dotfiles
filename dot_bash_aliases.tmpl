@@ -37,7 +37,7 @@ alias ll='ls -AlF'
 alias path='echo -e ${PATH//:/\\n}' # Print path in newline each
 
 alias cz=chezmoi
-alias cfg='chezmoi managed -p absolute -i files | fzf --preview="cat {}" | xargs -r ${EDITOR:-nvim}'
+alias cfg='chezmoi managed -p absolute -i files | fzf --preview="bat --color=always {}" | xargs -r ${EDITOR:-nvim}'
 
 alias fuck='sudo $(fc -ln -1)'
 alias please=fuck
