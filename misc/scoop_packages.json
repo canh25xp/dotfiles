@@ -203,13 +203,6 @@
         },
         {
             "Source": "extras",
-            "Version": "0.1.38",
-            "Info": "",
-            "Updated": "2025-11-26T17:58:17.1694645+07:00",
-            "Name": "komorebi"
-        },
-        {
-            "Source": "extras",
             "Version": "0.56.0",
             "Info": "",
             "Updated": "2025-11-26T17:58:23.5936641+07:00",
@@ -326,13 +319,6 @@
             "Info": "",
             "Updated": "2025-11-26T18:16:17.2577166+07:00",
             "Name": "wget"
-        },
-        {
-            "Source": "extras",
-            "Version": "0.2.10",
-            "Info": "",
-            "Updated": "2025-11-26T18:16:20.9789463+07:00",
-            "Name": "whkd"
         },
         {
             "Source": "extras",

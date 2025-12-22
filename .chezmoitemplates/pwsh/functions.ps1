@@ -528,16 +528,6 @@ function Edit-Chezmoi {
     }
 }
 
-function Start-Komorebi {
-    $process = Get-Process -Name komorebi -ErrorAction SilentlyContinue
-
-    if (!$process) {
-        komorebic start --whkd --bar
-    } else {
-        Write-Host "komorebi is already running."
-    }
-}
-
 function Open-Telegram {
     & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
 }

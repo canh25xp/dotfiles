@@ -21,8 +21,6 @@
         // { "PackageIdentifier": "Gyan.FFmpeg.Essentials" },
         { "PackageIdentifier": "JesseDuffield.lazygit", "Version": "0.48.0" },
         { "PackageIdentifier": "Kitware.CMake", "Version": "3.31.6" },
-        // { "PackageIdentifier": "LGUG2Z.komorebi", "Version": "0.1.35" },
-        // { "PackageIdentifier": "LGUG2Z.whkd", "Version": "0.2.7" },
         { "PackageIdentifier": "MSYS2.MSYS2", "Version": "20250221" },
         // { "PackageIdentifier": "Meld.Meld" },
         { "PackageIdentifier": "Microsoft.Edge" },
