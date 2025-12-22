@@ -91,6 +91,13 @@ merge:
     - "{{ "{{" }} .Source {{ "}}" }}"
     - "{{ "{{" }} .Target {{ "}}" }}"
 
+pass:
+{{- if lookPath "pass" }}
+  command: "pass"
+{{- else if lookPath "gopass"}}
+  command: "gopass"
+{{- end }}
+
 data:
   wsl: {{ $wsl }}
   linux: {{ $linux }}
