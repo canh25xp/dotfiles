@@ -10,3 +10,4 @@ if ($confirmation -eq 'n') {
 
 Install-Script -Name winfetch
 Install-Module -Name PowerShell-Beautifier
+Install-Module -Name PoshFunctions
