@@ -40,8 +40,6 @@ alias cz=chezmoi
 cfg() {
   local query="${1:-}"
 
-  echo $query
-
   # Change to home directory
   pushd "$HOME" >/dev/null || return 1
 
@@ -50,10 +48,10 @@ cfg() {
   chezmoi_files=$(chezmoi managed -p relative -i files 2>/dev/null)
 
   local selected_file
-  if command -v bat &>/dev/null; then
+  if [[ -n "$query" ]]; then
     selected_file=$(echo "$chezmoi_files" | fzf --preview "bat --color=always {}" --query $query -1 -0)
   else
-    selected_file=$(echo "$chezmoi_files" | fzf --query $query -1 -0)
+    selected_file=$(printf '%s\n' "$chezmoi_files" | fzf --preview "bat --color=always {}")
   fi
 
   # Open selected file if one was chosen
