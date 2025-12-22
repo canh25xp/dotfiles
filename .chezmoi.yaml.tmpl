@@ -122,7 +122,9 @@ cd:
 interpreters:
   ps1:
     command: {{ $shell | quote }}
-    args: "-NoLogo"
+    args:
+      - "-nop"
+      - "-nol"
 
 {{- end }}
 
