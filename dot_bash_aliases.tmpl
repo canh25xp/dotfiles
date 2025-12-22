@@ -51,9 +51,9 @@ cfg() {
 
   local selected_file
   if command -v bat &>/dev/null; then
-    selected_file=$(echo "$chezmoi_files" | fzf --preview "bat --color=always {}" --query $query)
+    selected_file=$(echo "$chezmoi_files" | fzf --preview "bat --color=always {}" --query $query -1 -0)
   else
-    selected_file=$(echo "$chezmoi_files" | fzf --query $query)
+    selected_file=$(echo "$chezmoi_files" | fzf --query $query -1 -0)
   fi
 
   # Open selected file if one was chosen

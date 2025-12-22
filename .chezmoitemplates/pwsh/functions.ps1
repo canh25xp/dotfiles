@@ -523,9 +523,9 @@ function Edit-Config {
 
         # Use fzf with preview if bat exists, otherwise without preview
         if (Get-Command bat -ErrorAction SilentlyContinue) {
-            $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query
+            $selectedFile = $chezmoiFiles | fzf --preview "bat --color=always {}" --query $query -1 -0
         } else {
-            $selectedFile = $chezmoiFiles | fzf --query $query
+            $selectedFile = $chezmoiFiles | fzf --query $query -1 -0
         }
 
         if ($selectedFile) {
