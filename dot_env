@@ -1,3 +1,3 @@
-export CHEZMOI_SECRETS=1
 export OLLAMA_API_KEY="$(pass show work/tokens/ollama/cli-helper)"
-export OPENAI_API_KEY="$(pass show work/tokens/openai/agent)"
+export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
+export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
