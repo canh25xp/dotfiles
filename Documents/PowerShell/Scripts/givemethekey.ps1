@@ -1,3 +1,5 @@
+$env:CHEZMOI_SECRETS=1
+
 {{- if .work -}}
 $env:OLLAMA_API_KEY = (pass show work/tokens/ollama/ollama)
 $env:OPENAI_API_KEY = (pass show work/tokens/openai/codex)

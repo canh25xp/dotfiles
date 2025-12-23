@@ -1,3 +1,4 @@
+export CHEZMOI_SECRETS=1
 {{- if .work -}}
 export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
 export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
