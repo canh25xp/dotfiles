@@ -1,0 +1,5 @@
+$env:OLLAMA_API_KEY = (pass show work/tokens/ollama/ollama)
+$env:OPENAI_API_KEY = (pass show work/tokens/openai/codex)
+$env:GEMINI_API_KEY = (pass show work/tokens/gemini/gemini-cli)
+
+echo "env +OLLAMA_API_KEY + OPENAI_API_KEY +GEMINI_API_KEY"
