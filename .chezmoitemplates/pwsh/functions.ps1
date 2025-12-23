@@ -54,12 +54,30 @@ command
         $systemPrompt = $defaultSystemPrompt
     }
 
-    $ollamaHost = if ($env:OLLAMA_HOST) {
-        $env:OLLAMA_HOST.TrimEnd('/')
-    } else {
-        "http://127.0.0.1:11434"
+    $ollamaHostRaw = if ($env:OLLAMA_HOST) { $env:OLLAMA_HOST } else { "http://127.0.0.1:11434" }
+    $ollamaHostNormalized = $ollamaHostRaw.Trim()
+
+    if (-not ($ollamaHostNormalized -match '^[a-zA-Z][a-zA-Z0-9+\\.\\-]*://')) {
+        $ollamaHostNormalized = "http://$ollamaHostNormalized"
     }
-    $requestUri = "$ollamaHost/api/chat"
+
+    try {
+        $ollamaUriBuilder = [UriBuilder]$ollamaHostNormalized
+    } catch {
+        Write-Warning "Invalid OLLAMA_HOST value '$ollamaHostRaw'. Falling back to http://127.0.0.1:11434."
+        $ollamaUriBuilder = [UriBuilder]"http://127.0.0.1:11434"
+    }
+
+    if ($ollamaUriBuilder.Host -eq "0.0.0.0") {
+        $ollamaUriBuilder.Host = "127.0.0.1"
+    }
+
+    if ($ollamaUriBuilder.Port -eq -1) {
+        $ollamaUriBuilder.Port = 11434
+    }
+
+    $baseUri = $ollamaUriBuilder.Uri.AbsoluteUri.TrimEnd('/')
+    $requestUri = "$baseUri/api/chat"
 
     $payload = @{
         model = "mistral"
@@ -111,7 +129,7 @@ command
         $response = $responseRaw | ConvertFrom-Json -Depth 6
     } catch {
         Write-Warning "Failed to parse Ollama response as JSON. Returning raw output."
-        return $responseRaw.Trim()
+        return ($responseRaw | Out-String).Trim()
     }
 
     $output = $null
