@@ -42,6 +42,10 @@ Set-Alias sudo gsudo
 Set-Alias docker podman
 {{ end -}}
 
+{{ if lookPath "gopass" -}}
+Set-Alias pass gopass
+{{ end -}}
+
 # Funtion aliases
 Set-Alias -Name df -Value Get-Volume
 Set-Alias -Name du -Value Get-DirectorySummary
