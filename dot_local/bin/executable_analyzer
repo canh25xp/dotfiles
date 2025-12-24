@@ -3,13 +3,14 @@
 VERSION="v0.1"
 
 print_usage() {
-  echo "Usage: analyzer <log_file> <info_type>"
+  echo "Usage: analyzer <log_file> [<info_type>]"
   echo "       analyzer --version"
   echo "       analyzer --help"
   echo ""
   echo "Arguments:"
   echo "  <log_file>    Path to the Android Dumpstate log file."
   echo "  <info_type>   Type of information to extract (e.g., 'scan-results')."
+  echo "                If not provided, fzf will be used to select interactively."
   echo ""
   echo "Available info_types:"
   echo "  scan-results  : Extracts the latest Wi-Fi scan results."
@@ -47,14 +48,33 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-if [ "$#" -ne 2 ]; then
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
   echo "Error: Invalid number of arguments." >&2
   print_usage
   exit 1
 fi
 
 LOG_FILE="$1"
-INFO_TYPE="$2"
+
+# If info_type is not provided, use fzf to select
+if [ "$#" -eq 1 ]; then
+  # Check if fzf is installed
+  if ! command -v fzf &>/dev/null; then
+    echo "Error: fzf is not installed. Please install fzf or provide info_type as second argument." >&2
+    exit 1
+  fi
+
+  # Use fzf to select info_type
+  INFO_TYPE=$(printf "scan-results\nbuild-id\n" | fzf --prompt="Select info type: " --height=40%)
+
+  # Check if user selected something or cancelled
+  if [ -z "$INFO_TYPE" ]; then
+    echo "No selection made. Exiting." >&2
+    exit 1
+  fi
+else
+  INFO_TYPE="$2"
+fi
 
 if [ ! -f "$LOG_FILE" ]; then
   echo "Error: Log file not found: $LOG_FILE" >&2
