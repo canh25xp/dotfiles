@@ -1,8 +1,8 @@
 export CHEZMOI_SECRETS=1
-{{- if .work -}}
+{{ if .work -}}
 export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
 export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
 export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
 
 echo "env +OLLAMA_API_KEY + OPENAI_API_KEY +GEMINI_API_KEY"
-{{- end -}}
+{{ end -}}
