@@ -13,6 +13,7 @@ print_usage() {
   echo ""
   echo "Available info_types:"
   echo "  scan-results  : Extracts the latest Wi-Fi scan results."
+  echo "  build-id      : Extracts the system build ID (ro.system.qb.id or ro.version.qb.id)."
 }
 
 print_version() {
@@ -69,9 +70,17 @@ latest_scan_results() {
     ' "$log_file"
 }
 
+extract_build_id() {
+  local log_file="$1"
+  grep -a -E '(\[ro\.system\.qb\.id\]|\[ro\.vendor\.qb\.id\])' "$log_file" || true
+}
+
 case "$INFO_TYPE" in
 "scan-results")
   latest_scan_results "$LOG_FILE"
+  ;;
+"build-id")
+  extract_build_id "$LOG_FILE"
   ;;
 *)
   echo "Error: Unknown info type: $INFO_TYPE" >&2
