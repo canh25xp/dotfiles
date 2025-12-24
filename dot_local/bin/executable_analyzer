@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+VERSION="v0.1"
+
+print_usage() {
+  echo "Usage: analyzer <log_file> <info_type>"
+  echo "       analyzer --version"
+  echo "       analyzer --help"
+  echo ""
+  echo "Arguments:"
+  echo "  <log_file>    Path to the Android Dumpstate log file."
+  echo "  <info_type>   Type of information to extract (e.g., 'scan-results')."
+  echo ""
+  echo "Available info_types:"
+  echo "  scan-results  : Extracts the latest Wi-Fi scan results."
+}
+
+print_version() {
+  echo "Dumpstate log analyzer ${VERSION}"
+}
+
+if [ "$#" -eq 0 ]; then
+  print_version
+  print_usage
+  exit 0
+fi
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+  --version)
+    print_version
+    exit 0
+    ;;
+  --help)
+    print_usage
+    exit 0
+    ;;
+  -*)
+    echo "Error: Unknown option: $1" >&2
+    print_usage
+    exit 1
+    ;;
+  *)
+    break
+    ;;
+  esac
+done
+
+if [ "$#" -ne 2 ]; then
+  echo "Error: Invalid number of arguments." >&2
+  print_usage
+  exit 1
+fi
+
+LOG_FILE="$1"
+INFO_TYPE="$2"
+
+if [ ! -f "$LOG_FILE" ]; then
+  echo "Error: Log file not found: $LOG_FILE" >&2
+  exit 1
+fi
+
+case "$INFO_TYPE" in
+"scan-results")
+  awk '
+    /^Latest scan results:/ {flag=1; next}
+    flag {print}
+    flag && /^$/ {exit}
+    ' "$LOG_FILE"
+  ;;
+*)
+  echo "Error: Unknown info type: $INFO_TYPE" >&2
+  print_usage
+  exit 1
+  ;;
+esac
