@@ -13,8 +13,9 @@ print_usage() {
   echo "                If not provided, fzf will be used to select interactively."
   echo ""
   echo "Available info_types:"
-  echo "  scan-results  : Extracts the latest Wi-Fi scan results."
-  echo "  build-id      : Extracts the system build ID (ro.system.qb.id or ro.version.qb.id)."
+  echo "  scan-results    : Extracts the latest Wi-Fi scan results."
+  echo "  build-id        : Extracts the system build ID (ro.system.qb.id or ro.version.qb.id)."
+  echo "  wpa_supplicant  : Extracts wpa_supplicant tags from the log file."
 }
 
 print_version() {
@@ -65,7 +66,7 @@ if [ "$#" -eq 1 ]; then
   fi
 
   # Use fzf to select info_type
-  INFO_TYPE=$(printf "scan-results\nbuild-id\n" | fzf --prompt="Select info type: " --height=40%)
+  INFO_TYPE=$(printf "scan-results\nbuild-id\nwpa_supplicant\n" | fzf --prompt="Select info type: " --height=40%)
 
   # Check if user selected something or cancelled
   if [ -z "$INFO_TYPE" ]; then
@@ -95,12 +96,21 @@ extract_build_id() {
   grep -a -E '(\[ro\.system\.qb\.id\]|\[ro\.vendor\.qb\.id\])' "$log_file" || true
 }
 
+extract_wpa_supplicant() {
+  local log_file="$1"
+  # Extract wpa_supplicant related sections from the log, excluding Heartbeat entries
+  rg -N '\b\w+\s+\d+\s+\d+\s+\w\s+wpa_supplicant:' "$log_file" | rg -v "Heartbeat"
+}
+
 case "$INFO_TYPE" in
 "scan-results")
   latest_scan_results "$LOG_FILE"
   ;;
 "build-id")
   extract_build_id "$LOG_FILE"
+  ;;
+"wpa_supplicant")
+  extract_wpa_supplicant "$LOG_FILE"
   ;;
 *)
   echo "Error: Unknown info type: $INFO_TYPE" >&2
