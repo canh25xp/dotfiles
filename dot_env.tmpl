@@ -1,8 +1,26 @@
 export CHEZMOI_SECRETS=1
-{{ if .work -}}
-export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
-export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
-export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
 
-echo "env +OLLAMA_API_KEY + OPENAI_API_KEY +GEMINI_API_KEY"
-{{ end -}}
+if [ "$1" ]; then
+    case "$1" in
+    openai)
+        export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
+        echo "env+ OPENAI_API_KEY"
+        ;;
+    ollama)
+        export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
+        echo "env+ OLLAMA_API_KEY"
+        ;;
+    gemini)
+        export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
+        echo "env+ GEMINI_API_KEY"
+        ;;
+    *)
+        echo "Unknown API key specified."
+        ;;
+    esac
+else
+    export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
+    export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
+    export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
+    echo "env +OLLAMA_API_KEY +OPENAI_API_KEY +GEMINI_API_KEY"
+fi
