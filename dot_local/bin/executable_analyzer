@@ -98,8 +98,10 @@ extract_build_id() {
 
 extract_wpa_supplicant() {
   local log_file="$1"
-  # Extract wpa_supplicant related sections from the log, excluding Heartbeat entries
-  rg -N '\b\w+\s+\d+\s+\d+\s+\w\s+wpa_supplicant:' "$log_file" | rg -v "Heartbeat"
+  # Extract wpa_supplicant tag,
+  # Excluding Heartbeat
+  # Strip UID PID and TID
+  rg -N '\b\w+\s+\d+\s+\d+\s+\w\s+wpa_supplicant:' "$log_file" | rg -v "Heartbeat" | sd '^(\S+\s+\S+)\s+\S+\s+\d+\s+\d+\s+' '$1 '
 }
 
 case "$INFO_TYPE" in
