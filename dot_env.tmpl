@@ -14,6 +14,14 @@ if [ "$1" ]; then
         export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
         echo "env+ GEMINI_API_KEY"
         ;;
+    openrouter)
+        export OPENROUTER_API_KEY="$(pass show work/tokens/openrouter)"
+        echo "env+ OPENROUTER_API_KEY"
+        ;;
+    anthropic)
+        export ANTHROPIC_API_KEY="$(pass show work/tokens/anthropic)"
+        echo "env+ ANTHROPIC_API_KEY"
+        ;;
     *)
         echo "Unknown API key specified."
         ;;
@@ -22,5 +30,7 @@ else
     export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
     export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
     export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
+    export OPENROUTER_API_KEY="$(pass show work/tokens/openrouter)"
+    export ANTHROPIC_API_KEY="$(pass show work/tokens/anthropic)"
     echo "env +OLLAMA_API_KEY +OPENAI_API_KEY +GEMINI_API_KEY"
 fi
