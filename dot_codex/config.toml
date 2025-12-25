@@ -27,6 +27,16 @@ model_provider = "ollama"
 model = "gpt-oss"
 model_reasoning_effort = "medium"
 
+[profiles.gpt-oss-cloud]
+model_provider = "ollama"
+model = "gpt-oss:120b-cloud"
+model_reasoning_effort = "medium"
+
+[profiles.gemini-3-flash-cloud]
+model_provider = "ollama"
+model = "gemini-3-flash-preview:cloud"
+model_reasoning_effort = "medium"
+
 [features]
 web_search_request = true
 
