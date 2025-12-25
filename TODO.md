@@ -35,3 +35,4 @@
 - [ ] Dealing with encrypted files when `age` recipients key has not initialized.
 - [ ] Automate installing from external package managers `cargo`, `npm`, ...
 - [x] Add support to encrypted notes in [DevNote](https://github.com/canh25xp/DevNote)
+- [ ] On windows start up script: Check proxy server and connect
