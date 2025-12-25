@@ -22,14 +22,14 @@ name = "Ollama local"
 base_url = "http://localhost:11434/v1"
 wire_api = "responses"
 
-[profiles.gpt-oss]
-model_provider = "ollama"
-model = "gpt-oss"
-model_reasoning_effort = "medium"
+[model_providers.ollama-cloud]
+name = "Ollama cloud"
+base_url = "https://ollama.com/v1"
+env_key = "OLLAMA_API_KEY"
 
 [profiles.gpt-oss-cloud]
-model_provider = "ollama"
-model = "gpt-oss:120b-cloud"
+model_provider = "ollama-cloud"
+model = "gpt-oss:120b"
 model_reasoning_effort = "medium"
 
 [profiles.gemini-3-flash-cloud]
