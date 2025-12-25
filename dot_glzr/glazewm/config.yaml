@@ -137,7 +137,6 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: "zebar" }
-      - window_process: { equals: "scrcpy" }
       - window_process: { equals: "msrdc" }
 
       # Ignores picture-in-picture windows for browsers.
@@ -161,6 +160,7 @@ window_rules:
   - commands: ["set-floating"]
     match:
       - window_process: { equals: "explorer" }
+      - window_process: { equals: "scrcpy" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
