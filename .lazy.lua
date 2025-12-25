@@ -1,11 +1,24 @@
 return {
-	"snacks.nvim",
-	opts = function(_, opts)
-		opts.picker = opts.picker or {}
-		opts.picker.sources = opts.picker.sources or {}
-		opts.picker.sources.explorer = vim.tbl_deep_extend("force", opts.picker.sources.explorer or {}, {
-			hidden = true,
-			ignored = true,
-		})
-	end,
+  "snacks.nvim",
+  opts = {
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+          exclude = { ".git" },
+        },
+        files = {
+          hidden = true,
+          ignored = true,
+          exclude = { ".git" },
+        },
+        grep = {
+          hidden = true,
+          ignored = true,
+          exclude = { ".git" },
+        },
+      },
+    },
+  },
 }
