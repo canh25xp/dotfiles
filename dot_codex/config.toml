@@ -40,5 +40,8 @@ model_reasoning_effort = "medium"
 [features]
 web_search_request = true
 
-[projects."/home/michael/.local/share/chezmoi"]
+[projects."~/.local/share/chezmoi"]
+trust_level = "trusted"
+
+[projects."~/.config/nvim-lazy"]
 trust_level = "trusted"
