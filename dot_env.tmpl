@@ -1,36 +1,32 @@
+#!/usr/bin/env sh
+
+# Enable loading of secret files via `chezmoi secret`.
 export CHEZMOI_SECRETS=1
+
+# Determine the base token directory
+TOKEN_BASE_DIR={{ if .work -}} "work/tokens" {{- else if .personal -}} "personal/tokens" {{- else -}} "tokens" {{- end }}
+
+# Helper to export a key and announce it.
+export_key() {
+    var_name=$1
+    secret_path=$2
+    export "$var_name=$(pass show "$secret_path")"
+    echo "env+ $var_name"
+}
 
 if [ "$1" ]; then
     case "$1" in
-    openai)
-        export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
-        echo "env+ OPENAI_API_KEY"
-        ;;
-    ollama)
-        export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
-        echo "env+ OLLAMA_API_KEY"
-        ;;
-    gemini)
-        export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
-        echo "env+ GEMINI_API_KEY"
-        ;;
-    openrouter)
-        export OPENROUTER_API_KEY="$(pass show work/tokens/openrouter)"
-        echo "env+ OPENROUTER_API_KEY"
-        ;;
-    anthropic)
-        export ANTHROPIC_API_KEY="$(pass show work/tokens/anthropic)"
-        echo "env+ ANTHROPIC_API_KEY"
-        ;;
-    *)
-        echo "Unknown API key specified."
-        ;;
+        openai)      export_key OPENAI_API_KEY      "$TOKEN_BASE_DIR/openai/codex" ;;
+        ollama)      export_key OLLAMA_API_KEY      "$TOKEN_BASE_DIR/ollama/ollama" ;;
+        gemini)      export_key GEMINI_API_KEY      "$TOKEN_BASE_DIR/gemini/gemini-cli" ;;
+        openrouter)  export_key OPENROUTER_API_KEY  "$TOKEN_BASE_DIR/openrouter" ;;
+        anthropic)   export_key ANTHROPIC_API_KEY   "$TOKEN_BASE_DIR/anthropic" ;;
+        *) echo "Unknown API key specified." ;;
     esac
 else
-    export OLLAMA_API_KEY="$(pass show work/tokens/ollama/ollama)"
-    export OPENAI_API_KEY="$(pass show work/tokens/openai/codex)"
-    export GEMINI_API_KEY="$(pass show work/tokens/gemini/gemini-cli)"
-    export OPENROUTER_API_KEY="$(pass show work/tokens/openrouter)"
-    export ANTHROPIC_API_KEY="$(pass show work/tokens/anthropic)"
-    echo "env +OLLAMA_API_KEY +OPENAI_API_KEY +GEMINI_API_KEY"
+    export_key OLLAMA_API_KEY      "$TOKEN_BASE_DIR/ollama/ollama"
+    export_key OPENAI_API_KEY      "$TOKEN_BASE_DIR/openai/codex"
+    export_key GEMINI_API_KEY      "$TOKEN_BASE_DIR/gemini/gemini-cli"
+    export_key OPENROUTER_API_KEY  "$TOKEN_BASE_DIR/openrouter"
+    export_key ANTHROPIC_API_KEY   "$TOKEN_BASE_DIR/anthropic"
 fi
