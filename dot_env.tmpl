@@ -16,17 +16,21 @@ export_key() {
 
 if [ "$1" ]; then
     case "$1" in
-        openai)      export_key OPENAI_API_KEY      "$TOKEN_BASE_DIR/openai/codex" ;;
-        ollama)      export_key OLLAMA_API_KEY      "$TOKEN_BASE_DIR/ollama/ollama" ;;
-        gemini)      export_key GEMINI_API_KEY      "$TOKEN_BASE_DIR/gemini/gemini-cli" ;;
-        openrouter)  export_key OPENROUTER_API_KEY  "$TOKEN_BASE_DIR/openrouter" ;;
-        anthropic)   export_key ANTHROPIC_API_KEY   "$TOKEN_BASE_DIR/anthropic" ;;
-        *) echo "Unknown API key specified." ;;
+    openai) export_key OPENAI_API_KEY "$TOKEN_BASE_DIR/openai/codex" ;;
+    ollama) export_key OLLAMA_API_KEY "$TOKEN_BASE_DIR/ollama/ollama" ;;
+    gemini) export_key GEMINI_API_KEY "$TOKEN_BASE_DIR/gemini/gemini-cli" ;;
+    openrouter) export_key OPENROUTER_API_KEY "$TOKEN_BASE_DIR/openrouter" ;;
+    anthropic) export_key ANTHROPIC_API_KEY "$TOKEN_BASE_DIR/anthropic" ;;
+    github) export_key GITHUB_TOKEN "$TOKEN_BASE_DIR/github/gh-cli" ;;
+    quay) export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman" ;;
+    *) echo "Unknown API key specified." ;;
     esac
 else
-    export_key OLLAMA_API_KEY      "$TOKEN_BASE_DIR/ollama/ollama"
-    export_key OPENAI_API_KEY      "$TOKEN_BASE_DIR/openai/codex"
-    export_key GEMINI_API_KEY      "$TOKEN_BASE_DIR/gemini/gemini-cli"
-    export_key OPENROUTER_API_KEY  "$TOKEN_BASE_DIR/openrouter"
-    export_key ANTHROPIC_API_KEY   "$TOKEN_BASE_DIR/anthropic"
+    export_key OLLAMA_API_KEY "$TOKEN_BASE_DIR/ollama/ollama"
+    export_key OPENAI_API_KEY "$TOKEN_BASE_DIR/openai/codex"
+    export_key GEMINI_API_KEY "$TOKEN_BASE_DIR/gemini/gemini-cli"
+    export_key OPENROUTER_API_KEY "$TOKEN_BASE_DIR/openrouter"
+    export_key ANTHROPIC_API_KEY "$TOKEN_BASE_DIR/anthropic"
+    export_key GITHUB_TOKEN "$TOKEN_BASE_DIR/github/gh-cli"
+    export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman"
 fi
