@@ -1,5 +1,12 @@
-model = 'gpt-5-codex'
-model_reasoning_effort = 'medium'
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+
+[features]
+web_search_request = true
+
+# ==============================================================================
+# [PROVIDERS]
+# ==============================================================================
 
 [model_providers.openai-chat-completions]
 # Name of the provider that will be displayed in the Codex UI.
@@ -17,28 +24,44 @@ wire_api = "responses"
 # See the Azure example below.
 query_params = {}
 
+# Use local ollama as provider.
+# NOTE: This is kinda redundant since codex already support `--oss` flag
+# `codex --oss`                       to use ollama local which use gpt-oss:20b by default
+# `codex --oss -m gpt-oss:120b-cloud` to use ollama cloud model gpt-oss:120b
 [model_providers.ollama]
 name = "Ollama local"
 base_url = "http://localhost:11434/v1"
 wire_api = "responses"
 
+# Use ollama.com as provider. Require OLLAMA_API_KEY environment
+# NOTE: You can access the same cloud model by just apending `:cloud` to ollama provider
 [model_providers.ollama-cloud]
 name = "Ollama cloud"
 base_url = "https://ollama.com/v1"
 env_key = "OLLAMA_API_KEY"
+
+# ==============================================================================
+# [PROFILES]
+# ==============================================================================
+
+[profiles.gpt-oss]
+model_provider = "ollama"
+model = "gpt-oss:20b"
+model_reasoning_effort = "medium"
+
+[profiles.gemini-3-flash]
+model_provider = "ollama"
+model = "gemini-3-flash-preview:cloud"
+model_reasoning_effort = "medium"
 
 [profiles.gpt-oss-cloud]
 model_provider = "ollama-cloud"
 model = "gpt-oss:120b"
 model_reasoning_effort = "medium"
 
-[profiles.gemini-3-flash-cloud]
-model_provider = "ollama"
-model = "gemini-3-flash-preview:cloud"
-model_reasoning_effort = "medium"
-
-[features]
-web_search_request = true
+# ==============================================================================
+# [PROJECTS]
+# ==============================================================================
 
 [projects."~/.local/share/chezmoi"]
 trust_level = "trusted"
