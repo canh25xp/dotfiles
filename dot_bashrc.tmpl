@@ -185,3 +185,8 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fi
+
+# Initialize Codex command-line completion for Bash
+if command -v codex &>/dev/null; then
+  eval "$(codex completion bash)"
+fi
