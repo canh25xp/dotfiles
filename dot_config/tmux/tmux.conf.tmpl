@@ -123,7 +123,7 @@ set -ag status-right "#{E:@catppuccin_status_user}"
 set -ag status-right "#{E:@catppuccin_status_host}"
 {{- if .wsl }}
 set -ag status-right "#[fg=#{@thm_crust},bg=#{@thm_pink}]  #(~/.local/bin/win-uptime) #[default]"
-{{- else }}
+{{- else if .linux }}
 set -ag status-right "#{E:@catppuccin_status_uptime}"
 {{- end }}
 
