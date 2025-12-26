@@ -63,8 +63,8 @@ model_reasoning_effort = "medium"
 # [PROJECTS]
 # ==============================================================================
 
-[projects."~/.local/share/chezmoi"]
+[projects.{{ joinPath .chezmoi.homeDir ".local/share/chezmoi" | quote }}]
 trust_level = "trusted"
 
-[projects."~/.config/nvim-lazy"]
+[projects.{{ joinPath .chezmoi.homeDir ".config/nvim-lazy" | quote }}]
 trust_level = "trusted"
