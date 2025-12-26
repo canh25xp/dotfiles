@@ -80,6 +80,13 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   type: git-repo
   url: https://github.com/tmux-plugins/tmux-resurrect
   refreshPeriod: 0h
+
+.local/bin/trans:
+  type: file
+  # git.io/trans
+  url: https://raw.githubusercontent.com/soimort/translate-shell/gh-pages/trans
+  refreshPeriod: 0h
+  executable: true
 {{ end }}
 
 {{ if .windows }}
