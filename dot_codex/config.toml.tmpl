@@ -35,6 +35,8 @@ query_params = {}
 name = "Ollama local"
 base_url = "http://localhost:11434/v1"
 wire_api = "responses"
+request_max_retries = 1 # It's a local model, there's not really a reason to fail unless ollama really did not running.
+stream_max_retries = 3
 
 # Use ollama.com as provider. Require OLLAMA_API_KEY environment
 # NOTE: You can access the same cloud model by just apending `:cloud` to ollama provider
