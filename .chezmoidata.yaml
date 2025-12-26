@@ -26,6 +26,7 @@ workIPv4Lan: 107.98.39.128
 workIPv4Wifi: 107.98.68.201
 
 # Proxy settings
+androidSerial: "R32X6003EPL"
 proxyIP: "127.0.0.1"
 proxyPort: "3128"
 proxyServer: "http://127.0.0.1:3128"
