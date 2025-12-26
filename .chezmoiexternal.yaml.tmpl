@@ -68,7 +68,7 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   refreshPeriod: 0h
 {{ end }}
 
-{{ if .linux }}
+{{ if or .android .linux }}
 .config/tmux/plugins/catppuccin:
   type: archive
   exact: true
@@ -79,6 +79,11 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
 .config/tmux/plugins/tmux-resurrect:
   type: git-repo
   url: https://github.com/tmux-plugins/tmux-resurrect
+  refreshPeriod: 0h
+
+.config/tmux/plugins/tmux-battery:
+  type: git-repo
+  url: https://github.com/tmux-plugins/tmux-battery
   refreshPeriod: 0h
 {{ end }}
 
