@@ -123,8 +123,6 @@ set -ag status-right "#{E:@catppuccin_status_user}"
 set -ag status-right "#{E:@catppuccin_status_host}"
 {{- if .wsl }}
 set -ag status-right "#[fg=#{@thm_crust},bg=#{@thm_pink}]  #(~/.local/bin/win-uptime) #[default]"
-{{- else if .android }}
-set -ag status-right "#{E:@catppuccin_status_battery}"
 {{- else }}
 set -ag status-right "#{E:@catppuccin_status_uptime}"
 {{- end }}
@@ -135,4 +133,3 @@ set -g @resurrect-processes 'false'
 
 run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux
 run ~/.config/tmux/plugins/tmux-resurrect/resurrect.tmux
-run ~/.config/tmux/plugins/tmux-battery/battery.tmux
