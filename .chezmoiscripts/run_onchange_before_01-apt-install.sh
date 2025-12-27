@@ -25,6 +25,7 @@ default_packages=(
   fd-find
   fzf
   gdb
+  gawk # required for `trans`
   gdu
   gh
   git
