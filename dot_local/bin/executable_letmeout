@@ -16,12 +16,16 @@ if [[ -z "$raw" || ! "$raw" =~ ^[0-9]+$ ]]; then
     raw=0
 fi
 
-remaining=$(( TOTAL_MINUTES - raw ))
-if (( remaining < 0 )); then
-    remaining=0
+difference=$(( raw - TOTAL_MINUTES ))
+if (( difference >= 0 )); then
+    sign="+"
+    span=$difference
+else
+    sign="-"
+    span=$(( -difference ))
 fi
 
-hours=$(( remaining / 60 ))
-minutes=$(( remaining % 60 ))
+hours=$(( span / 60 ))
+minutes=$(( span % 60 ))
 
-echo "${hours}h ${minutes}m"
+echo "${sign} ${hours}h ${minutes}m"
