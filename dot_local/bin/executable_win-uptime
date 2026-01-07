@@ -11,10 +11,8 @@ if [[ -z "${raw}" ]]; then
 fi
 
 if [[ -z "${raw}" || ! "${raw}" =~ ^[0-9]+$ ]]; then
-    echo "uptime unavailable"
-    exit 1
+    raw=0
 fi
-
 # Convert minutes to hours and minutes
 hours=$(( raw / 60 ))
 minutes=$(( raw % 60 ))

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Total workday duration in minutes: 8.8 hours work + 1 hour lunch
+TOTAL_MINUTES=588
+
+raw=""
+if command -v pwsh.exe >/dev/null 2>&1; then
+    raw=$(pwsh.exe -NoProfile -Command '[Math]::Floor(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+fi
+
+if [[ -z "$raw" ]]; then
+    raw=$(awk '{printf "%d\n", ($1/60)}' /proc/uptime 2>/dev/null)
+fi
+
+if [[ -z "$raw" || ! "$raw" =~ ^[0-9]+$ ]]; then
+    raw=0
+fi
+
+remaining=$(( TOTAL_MINUTES - raw ))
+if (( remaining < 0 )); then
+    remaining=0
+fi
+
+hours=$(( remaining / 60 ))
+minutes=$(( remaining % 60 ))
+
+echo "${hours}h ${minutes}m"
