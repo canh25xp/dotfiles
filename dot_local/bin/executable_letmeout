@@ -4,9 +4,14 @@
 TOTAL_MINUTES=588
 
 worktime=0
-if command -v pwsh.exe >/dev/null 2>&1; then
-    # worktime is count from windows bootup time.
-    worktime=$(pwsh.exe -NoProfile -Command '[Math]::Floor(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+
+# Prefer the shared win-uptime helper so we only maintain uptime logic once.
+if command -v win-uptime >/dev/null 2>&1; then
+    if uptime_output=$(win-uptime 2>/dev/null); then
+        if [[ "$uptime_output" =~ ^([0-9]+)h[[:space:]]+([0-9]+)m$ ]]; then
+            worktime=$(( ${BASH_REMATCH[1]} * 60 + ${BASH_REMATCH[2]} ))
+        fi
+    fi
 fi
 
 # minutes until I can get out of work
