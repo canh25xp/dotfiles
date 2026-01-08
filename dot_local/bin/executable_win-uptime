@@ -1,21 +1,63 @@
 #!/usr/bin/env bash
+BOOTUP_FILE="$HOME/.bootup"
+CACHE_VALID_TIME=86400 # allow cache to valid up to 24 hours
 
-if command -v pwsh.exe >/dev/null 2>&1; then
-    # Query Windows uptime via PowerShell
-    raw=$(pwsh.exe -NoProfile -Command '[Math]::Round(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+cache_boot_minutes() {
+    # Derive cached uptime from BOOTUP_FILE contents (epoch seconds).
+    [[ -f "$BOOTUP_FILE" ]] || return 1
+
+    local boot_ts file_ts now
+    if ! read -r boot_ts <"$BOOTUP_FILE"; then
+        return 1
+    fi
+
+    [[ "$boot_ts" =~ ^[0-9]+$ ]] || return 1
+
+    now=$(date +%s)
+    file_ts=$(stat -c %Y "$BOOTUP_FILE" 2>/dev/null) || return 1
+    ((file_ts > 0 && file_ts <= now)) || return 1
+
+    # Invalidate cache if marker is older than 1 day.
+    (( now - file_ts <= $CACHE_VALID_TIME )) || return 1
+    ((boot_ts > 0 && boot_ts <= now)) || return 1
+
+    printf '%d\n' $(((now - boot_ts) / 60))
+}
+
+write_boot_marker() {
+    local boot_minutes="$1"
+    [[ "$boot_minutes" =~ ^[0-9]+$ ]] || return 1
+
+    local now boot_ts
+    now=$(date +%s)
+    boot_ts=$((now - boot_minutes * 60))
+    ((boot_ts >= 0)) || boot_ts=0
+
+    printf '%s\n' "$boot_ts" >"$BOOTUP_FILE"
+}
+
+bootup=$(cache_boot_minutes)
+
+if [[ -z "$bootup" ]]; then
+    if command -v pwsh.exe >/dev/null 2>&1; then
+        bootup=$(pwsh.exe -NoProfile -Command '[Math]::Round(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+        [[ "$bootup" =~ ^[0-9]+$ ]] && write_boot_marker "$bootup" || bootup=""
+    fi
 fi
 
 # Fall back to uptime from /proc if PowerShell is unavailable or failed
-if [[ -z "${raw}" ]]; then
-    raw=$(awk '{printf "%d\n", ($1/60)}' /proc/uptime 2>/dev/null)
+if [[ -z "${bootup}" ]]; then
+    bootup=$(awk '{printf "%d\n", ($1/60)}' /proc/uptime 2>/dev/null)
+    [[ "$bootup" =~ ^[0-9]+$ ]] && write_boot_marker "$bootup" || bootup=""
 fi
 
-if [[ -z "${raw}" || ! "${raw}" =~ ^[0-9]+$ ]]; then
-    raw=0
+if [[ -z "${bootup}" || ! "${bootup}" =~ ^[0-9]+$ ]]; then
+    bootup=0
 fi
+
 # Convert minutes to hours and minutes
-hours=$(( raw / 60 ))
-minutes=$(( raw % 60 ))
+hours=$(( bootup / 60 ))
+minutes=$(( bootup % 60 ))
 
 # Display in "Xh Ym" format
 echo "${hours}h ${minutes}m"
