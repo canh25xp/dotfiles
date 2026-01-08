@@ -1,21 +1,78 @@
 #!/usr/bin/env bash
 
+TIMEIN_FILE="$HOME/.timein"
+
 # Total workday duration in minutes: 8.8 hours work + 1 hour lunch
-TOTAL_MINUTES=588
+WORKDAY=588
+
+parse_time_to_minutes() {
+    local input="$1"
+    local regex='^[[:space:]]*([0-9]+)[[:space:]]*h([[:space:]]*([0-9]+)[[:space:]]*m)?[[:space:]]*$'
+
+    if [[ $input =~ $regex ]]; then
+        local hours="${BASH_REMATCH[1]}"
+        local minutes=0
+
+        if [[ -n ${BASH_REMATCH[3]} ]]; then
+            minutes="${BASH_REMATCH[3]}"
+        fi
+
+        printf '%d\n' $((10#$hours * 60 + 10#$minutes))
+        return 0
+    fi
+
+    return 1
+}
+
+format_minutes() {
+    local total_minutes=$1
+    local hours=$((total_minutes / 60))
+    local minutes=$((total_minutes % 60))
+    printf '%dh %dm\n' "$hours" "$minutes"
+}
+
+timein_minutes=""
+
+if (($# > 0)); then
+    timein_input="$*"
+    if ! timein_minutes=$(parse_time_to_minutes "$timein_input"); then
+        echo "Invalid time format. Use forms like '7h 35m'." >&2
+        exit 1
+    fi
+
+    if ! format_minutes "$timein_minutes" >"$TIMEIN_FILE"; then
+        echo "Warning: unable to write to $TIMEIN_FILE" >&2
+    fi
+elif [[ -f "$TIMEIN_FILE" ]]; then
+    if timein_minutes=$(parse_time_to_minutes "$(<"$TIMEIN_FILE")"); then
+        :
+    else
+        echo "Warning: ignoring invalid contents in $TIMEIN_FILE" >&2
+        timein_minutes=""
+    fi
+fi
 
 worktime=0
 
-# Prefer the shared win-uptime helper so we only maintain uptime logic once.
-if command -v win-uptime >/dev/null 2>&1; then
-    if uptime_output=$(win-uptime 2>/dev/null); then
-        if [[ "$uptime_output" =~ ^([0-9]+)h[[:space:]]+([0-9]+)m$ ]]; then
-            worktime=$(( ${BASH_REMATCH[1]} * 60 + ${BASH_REMATCH[2]} ))
+if [[ -n $timein_minutes ]]; then
+    current_minutes=$((10#$(date +%H) * 60 + 10#$(date +%M)))
+    worktime=$((current_minutes - timein_minutes))
+    if ((worktime < 0)); then
+        worktime=$((worktime + 1440))
+    fi
+else
+    # Prefer the shared win-uptime helper so we only maintain uptime logic once.
+    if command -v win-uptime >/dev/null 2>&1; then
+        if uptime_output=$(win-uptime 2>/dev/null); then
+            if [[ "$uptime_output" =~ ^([0-9]+)h[[:space:]]+([0-9]+)m$ ]]; then
+                worktime=$((${BASH_REMATCH[1]} * 60 + ${BASH_REMATCH[2]}))
+            fi
         fi
     fi
 fi
 
 # minutes until I can get out of work
-timeout=$(( worktime - TOTAL_MINUTES ))
+timeout=$(( worktime - WORKDAY ))
 
 if (( timeout >= 0 )); then
     sign="+"
