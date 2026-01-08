@@ -2,8 +2,6 @@
 
 # Total workday duration in minutes: 8.8 hours work + 1 hour lunch
 TOTAL_MINUTES=588
-STATE_ROOT="${XDG_RUNTIME_DIR:-/tmp}"
-STATE_FILE="$STATE_ROOT/letmeout_message_shown"
 
 worktime=0
 if command -v pwsh.exe >/dev/null 2>&1; then
@@ -27,23 +25,24 @@ timeout_minutes=$(( span % 60 ))
 
 echo "${sign} ${timeout_hours}h ${timeout_minutes}m"
 
-if (( difference >= 0 )); then
-    if [[ -f "$STATE_FILE" ]]; then
-        exit 0
-    fi
-
-    # Remember that the popup has been displayed so we only show it once per cycle.
-    : >"$STATE_FILE"
-
-    if command -v tmux >/dev/null 2>&1; then
-        tmux_version=$(tmux -V 2>/dev/null | awk '{print $2}')
-        if [[ -n "$tmux_version" ]]; then
-            # tmux display-popup is available from tmux 3.2 onward. Earlier versions fall back quietly.
-            if tmux display-popup -w40% -h25% -E "printf 'Congrats! You made it out alive.\nKeep up good work.\n'; read -n 1 -s -r -p '[press enter to continue]'" 2>/dev/null; then
-                exit 0
-            fi
-        fi
-    fi
-else
-    rm -f "$STATE_FILE" 2>/dev/null
-fi
+# STATE_FILE="$HOME/.letmeout_message_shown"
+# if (( timeout >= 0 )); then
+#     if [[ -f "$STATE_FILE" ]]; then
+#         exit 0
+#     fi
+#
+#     # Remember that the popup has been displayed so we only show it once per cycle.
+#     : >"$STATE_FILE"
+#
+#     if command -v tmux >/dev/null 2>&1; then
+#         tmux_version=$(tmux -V 2>/dev/null | awk '{print $2}')
+#         if [[ -n "$tmux_version" ]]; then
+#             # tmux display-popup is available from tmux 3.2 onward. Earlier versions fall back quietly.
+#             if tmux display-popup -w40% -h25% -E "printf 'Congrats! You made it out alive.\nKeep up good work.\n'; read -n 1 -s -r -p '[press enter to continue]'" 2>/dev/null; then
+#                 exit 0
+#             fi
+#         fi
+#     fi
+# else
+#     rm -f "$STATE_FILE" 2>/dev/null
+# fi
