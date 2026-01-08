@@ -2,6 +2,7 @@
 
 - **Repository focus**: Dotfiles and machine bootstrap managed with [chezmoi](https://www.chezmoi.io/). Expect cross-platform targets (Windows, Linux, WSL, Termux/Android) and templating that adapts per host.
 - **Key conventions**: Files prefixed with `dot_` map to real paths (e.g. `dot_bashrc.tmpl` becomes `~/.bashrc`). `private_` paths hold encrypted secrets; keep them in `*.age` form. `.tmpl` files are Go text templates, often using helpers populated from `.chezmoidata.yaml` and the data map defined in `.chezmoi.yaml.tmpl`.
+- **Executable**: Files prefixed with `executable_` will be put in PATH with execute permission, so don't directly test them with with `./executable_command`, instead, first run `chezmoi apply` to apply the change, then run `command`.
 - **Configuration switches**: `.chezmoi.yaml.tmpl` sets booleans like `work`, `personal`, `linux`, `windows`, `android`. Reuse these flags when adding conditional content instead of introducing new environment checks. Keep new template logic compact and comment sparingly so it stays readable.
 - **Shared data**: `.chezmoidata.yaml` stores personal metadata (emails, hostnames, IPs, proxy info). Update this file if a template needs new values, and avoid leaking its contents into plaintext files outside the repo.
 - **External resources**: `.chezmoiexternal.yaml.tmpl` pulls in git repos and remote assets (fonts, themes, password store). Extend this file when new assets are required, keeping platform guards consistent with the existing style.
