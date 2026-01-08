@@ -5,32 +5,27 @@ TOTAL_MINUTES=588
 STATE_ROOT="${XDG_RUNTIME_DIR:-/tmp}"
 STATE_FILE="$STATE_ROOT/letmeout_message_shown"
 
-raw=""
+worktime=0
 if command -v pwsh.exe >/dev/null 2>&1; then
-    raw=$(pwsh.exe -NoProfile -Command '[Math]::Floor(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
+    # worktime is count from windows bootup time.
+    worktime=$(pwsh.exe -NoProfile -Command '[Math]::Floor(((Get-Date) - (gcim Win32_OperatingSystem).LastBootUpTime).TotalMinutes)' 2>/dev/null | tr -d '\r')
 fi
 
-if [[ -z "$raw" ]]; then
-    raw=$(awk '{printf "%d\n", ($1/60)}' /proc/uptime 2>/dev/null)
-fi
+# minutes until I can get out of work
+timeout=$(( worktime - TOTAL_MINUTES ))
 
-if [[ -z "$raw" || ! "$raw" =~ ^[0-9]+$ ]]; then
-    raw=0
-fi
-
-difference=$(( raw - TOTAL_MINUTES ))
-if (( difference >= 0 )); then
+if (( timeout >= 0 )); then
     sign="+"
-    span=$difference
+    span=$timeout
 else
     sign="-"
-    span=$(( -difference ))
+    span=$(( -timeout ))
 fi
 
-hours=$(( span / 60 ))
-minutes=$(( span % 60 ))
+timeout_hours=$(( span / 60 ))
+timeout_minutes=$(( span % 60 ))
 
-echo "${sign} ${hours}h ${minutes}m"
+echo "${sign} ${timeout_hours}h ${timeout_minutes}m"
 
 if (( difference >= 0 )); then
     if [[ -f "$STATE_FILE" ]]; then
