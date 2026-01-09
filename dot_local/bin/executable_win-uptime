@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 BOOTUP_FILE="$HOME/.bootup"
-CACHE_VALID_TIME=86400 # allow cache to valid up to 24 hours
+CACHE_VALID_TIME=43200 # allow cache to valid up to 24 hours
 
 cache_boot_minutes() {
     # Derive cached uptime from BOOTUP_FILE contents (epoch seconds).
