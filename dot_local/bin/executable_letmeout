@@ -94,8 +94,17 @@ if (( timeout >= 0 )); then
     fi
 
     # Remember that the popup has been displayed so we only show it once per cycle.
-    touch $STATE_FILE
-    tmux display-popup -w40% -h25% -E "printf 'Congrats! You made it out alive.\nKeep up good work.\n'; read -n 1 -s -r -p '[press enter to continue]'"
+    touch "$STATE_FILE"
+
+    messages=(
+        $'Congrats! You made it out alive.\nKeep up good work.\n'
+        $'That\'s your 9 hours shift. Just 50 more years to go!\n'
+    )
+    message_index=$(( RANDOM % ${#messages[@]} ))
+    message="${messages[message_index]}"
+    popup_command=$(printf 'printf %%b %q; read -n 1 -s -r -p %q' "$message" "[press enter to continue]")
+
+    tmux display-popup -w40% -h25% -E "$popup_command"
 
 else
     rm -f "$STATE_FILE" 2>/dev/null
