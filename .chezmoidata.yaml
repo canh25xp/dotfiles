@@ -30,7 +30,7 @@ androidSerial: "R32X6003EPL"
 proxyIP: "127.0.0.1"
 proxyPort: "3128"
 proxyServer: "http://127.0.0.1:3128"
-workNoProxy: "localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net,sts.secsso.net,107.98.0.0/16,107.113.0.0/16"
+workNoProxy: "localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net,sts.secsso.net,.figma.com,107.98.0.0/16,107.113.0.0/16"
 
 # Tailscale
 tailnetDNS: "walleye-godzilla.ts.net"
