@@ -27,12 +27,12 @@
   - [ ] tablet Termux
 - [ ] **BUG FIX**:
   - [ ] Termux: chezmoi data is not recognize .chezmoi.username, maybe come up with other way to register private device in Termux
-  - [ ] Windows: `eza` check installation before add `ls` alias
-  - [ ] Windows: `bat` check installation before add `cat` alias
+  - [x] Windows: `eza` check installation before add `ls` alias
+  - [x] Windows: `bat` check installation before add `cat` alias
 - [ ] Consistency: use `home` instead of `personal`
 - [x] Ignore app configs if the app it self not found (using lookPath)
-- [ ] `gpg` encrypted files (.ssh/id\*) are initialize way too slow on Windows, and way too often. [#4807](https://github.com/twpayne/chezmoi/discussions/4807#discussioncomment-15166685)
-- [ ] Dealing with encrypted files when `age` recipients key has not initialized.
+- [x] `gpg` encrypted files (.ssh/id\*) are initialize way too slow on Windows, and way too often. [#4807](https://github.com/twpayne/chezmoi/discussions/4807#discussioncomment-15166685)
+- [x] Dealing with encrypted files when `age` recipients key has not initialized.
 - [ ] Automate installing from external package managers `cargo`, `npm`, ...
 - [x] Add support to encrypted notes in [DevNote](https://github.com/canh25xp/DevNote)
 - [x] On windows start up script: Check proxy server and connect
