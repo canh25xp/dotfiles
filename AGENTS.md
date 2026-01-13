@@ -1,13 +1,23 @@
-# Agents Guide
+# Repository Guidelines
 
-- **Repository focus**: Dotfiles and machine bootstrap managed with [chezmoi](https://www.chezmoi.io/). Expect cross-platform targets (Windows, Linux, WSL, Termux/Android) and templating that adapts per host.
-- **Key conventions**: Files prefixed with `dot_` map to real paths (e.g. `dot_bashrc.tmpl` becomes `~/.bashrc`). `private_` paths hold encrypted secrets; keep them in `*.age` form. `.tmpl` files are Go text templates, often using helpers populated from `.chezmoidata.yaml` and the data map defined in `.chezmoi.yaml.tmpl`.
-- **Executable**: Files prefixed with `executable_` will be put in PATH with execute permission, so don't directly test them with with `./executable_command`, instead, first run `chezmoi apply` to apply the change, then run `command`.
-- **Configuration switches**: `.chezmoi.yaml.tmpl` sets booleans like `work`, `personal`, `linux`, `windows`, `android`. Reuse these flags when adding conditional content instead of introducing new environment checks. Keep new template logic compact and comment sparingly so it stays readable.
-- **Shared data**: `.chezmoidata.yaml` stores personal metadata (emails, hostnames, IPs, proxy info). Update this file if a template needs new values, and avoid leaking its contents into plaintext files outside the repo.
-- **External resources**: `.chezmoiexternal.yaml.tmpl` pulls in git repos and remote assets (fonts, themes, password store). Extend this file when new assets are required, keeping platform guards consistent with the existing style.
-- **Scripts**: `scripts/` contains bootstrap utilities for editors, language servers, and environment setup. Maintain POSIX shell compatibility for `*.sh` helpers, respect `set -euo pipefail`, and prefer mirroring existing argument and logging patterns. `scripts/sync.sh` mirrors Neovim configs between `dot_config/nvim` and `AppData/Local/nvim`; run it after touching either copy to keep parity.
-- **Testing changes**: Use `chezmoi diff` (or `chezmoi apply --dry-run`) to confirm template output. For script edits, run them with the default shell when feasible; adding or updating scripts should include a note explaining how to validate on each platform.
-- **Documentation**: Update `README.md`, `Keybindings.md`, or `TODO.md` when workflows or keybindings change. Screenshots live under `Pictures/`; avoid adding large binary assets unless necessary.
-- **Security**: Never commit raw secrets or tokens. New sensitive files must be encrypted with `chezmoi age`. Respect the user's corporate/work separation when adding configurations—gate work-specific settings behind the `work` flag.
-- **Coordination tips**: When adding major tooling, confirm whether a portable mode or reduced dependency path is required (see `TODO.md`). Mention any assumptions about package availability or network access in PR notes so future updates stay reproducible.
+## Project Structure & Module Organization
+Templated dotfiles live under `dot_*` and render to their destination names. Shared configs sit in `dot_config/` (notably `dot_config/nvim`, `dot_config/tmux`), Windows overrides in `AppData/` and `Documents/`, and Linux extras in `dot_local/`. Neovim code lives in `nvim/`, with Lua modules in `nvim/lua/config` and helpers in `nvim/lua/common`. Automation scripts are in `.chezmoiscripts/`; assets and references stay in `Pictures/` and `Keybindings.md`.
+
+## Build, Test, and Development Commands
+- `chezmoi status` – inspect which workstation files diverge before editing.
+- `chezmoi diff` – review rendered changes; pass `--destination` to inspect the target path.
+- `chezmoi apply --dry-run` – validate rendering without modifying live files; drop `--dry-run` to apply.
+- `./scripts/sync.sh` – mirror Neovim configs between `dot_config/nvim` and `AppData/Local/nvim`.
+- `bash ./scripts/install-cargo.sh` or `pwsh -NoProfile -File scripts/powershell_es_install.ps1` – reuse installers rather than duplicating setup logic.
+
+## Coding Style & Naming Conventions
+Follow chezmoi conventions: prefix tracked files with `dot_`, store secrets in `private_*`, and use `.tmpl` when a template reads environment variables or encrypted data. Bash scripts keep the `#!/usr/bin/env bash` shebang, enable `set -euo pipefail`, and use two-space indentation as in `scripts/sync.sh`. Lua modules in `nvim/` do the same, return tables from plugin specs in `nvim/lua/plugins`, and locate shared helpers in `nvim/lua/common`. PowerShell scripts under `Documents/` or `scripts/` should stick to approved verbs and PascalCase functions.
+
+## Testing Guidelines
+Run `chezmoi diff` and `chezmoi apply --dry-run` on the target host to confirm templates resolve with local secrets. After dependency updates, run `chezmoi doctor` to surface missing tools. Lint Bash scripts with `shellcheck scripts/<file>.sh` when possible, review PowerShell code before `pwsh -NoProfile -File <script>.ps1`, and launch `nvim --headless "+Lazy! sync" +qa` to ensure Lua changes load.
+
+## Commit & Pull Request Guidelines
+Recent history favors `scope: summary` subjects (for example `pwsh: add Alias howto`); keep the scope lowercase, 1–2 words, and write imperative summaries under 60 characters. Group related edits per commit, note rendered results or target OSes in the body, and use PR descriptions to list verification commands. Attach screenshots for UI changes, link GitHub issues when applicable, and flag secret-handling updates for review.
+
+## Security & Secrets Handling
+Never commit plain-text secrets: keep sensitive files under `private_*` and encrypt with `chezmoi age`, as demonstrated by `.key.txt.age`. Templates such as `dot_env.tmpl` should reference secrets through `{{ env "VAR" }}` lookups. When adding new private assets, document the provisioning step and confirm `.gitignore` covers transient outputs.
