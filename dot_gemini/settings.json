@@ -21,8 +21,10 @@
     "context7": {
       "httpUrl": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": {{ pass "personal/tokens/context7/mcp" | quote }},
         "Accept": "application/json, text/event-stream"
+      },
+      "env": {
+        "CONTEXT7_API_KEY": "CONTEXT7_API_KEY"
       }
     }
   }

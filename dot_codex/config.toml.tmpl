@@ -70,7 +70,7 @@ model_reasoning_effort = "medium"
 
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"
-http_headers = { "CONTEXT7_API_KEY" = {{ pass "personal/tokens/context7/mcp" | quote }} }
+env_http_headers = { "CONTEXT7_API_KEY" = "CONTEXT7_API_KEY" }
 
 # ==============================================================================
 # [PROJECTS]
