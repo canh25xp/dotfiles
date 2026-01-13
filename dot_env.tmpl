@@ -24,6 +24,7 @@ if [ "$1" ]; then
     github) export_key GITHUB_TOKEN "$TOKEN_BASE_DIR/github/gh-cli" ;;
     quay) export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman" ;;
     context) export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp" ;;
+    figma) export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp" ;;
     *) echo "Unknown API key specified." ;;
     esac
 else
@@ -35,4 +36,5 @@ else
     export_key GITHUB_TOKEN "$TOKEN_BASE_DIR/github/gh-cli"
     export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman"
     export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp"
+    export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp"
 fi
