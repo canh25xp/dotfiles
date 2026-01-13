@@ -4,55 +4,17 @@ function Get-HelpAI {
         [string]$Prompt
     )
 
-    $defaultSystemPrompt = @"
+    $systemPrompt = @"
 You are a command-line assistant.
-
-Primary goals:
-- Provide correct, minimal, copy-pasteable CLI commands.
-- Prefer POSIX-compatible shell unless specified.
-- Assume Linux by default. Unless user specified Windows.
-- No emojis. No roleplay. No motivational text.
+Your primary goals is to provide correct, minimal, copy-pasteable CLI commands.
+You should respond with a command that can be used to achieve the desired result.
+Command shoud be suitable for Linux by default. Unless user specified otherwise.
 
 Rules:
-- Output ONE single command only.
+- Output ONLY the command, do not include any additional text or explaination.
+- Do NOT include any quotes or backticks in the output.
 - When multiple solutions exist, show the best default only.
-- NO explanations.
-- NO extra text.
-- NO multiple options.
-- NO OS comparisons.
-- NO warnings.
-- NO punctuation outside the command.
-
-Output format:
-
-```sh
-command
-```
 "@.Trim()
-
-    $systemPromptPath = Join-Path $HOME ".ollama/models/mistral-cli-helper"
-    $systemPrompt = $null
-
-    if (Test-Path $systemPromptPath) {
-        try {
-            $systemPromptConfig = Get-Content -Raw -Path $systemPromptPath
-            $systemPromptMatch = [regex]::Match(
-                $systemPromptConfig,
-                'SYSTEM\s+"""\s*([\s\S]*?)\s*"""',
-                'Singleline'
-            )
-
-            if ($systemPromptMatch.Success) {
-                $systemPrompt = $systemPromptMatch.Groups[1].Value.Trim()
-            }
-        } catch {
-            Write-Verbose "Failed to read system prompt from $systemPromptPath : $($_.Exception.Message)"
-        }
-    }
-
-    if (-not $systemPrompt) {
-        $systemPrompt = $defaultSystemPrompt
-    }
 
     $ollamaHostRaw = if ($env:OLLAMA_HOST) { $env:OLLAMA_HOST } else { "http://127.0.0.1:11434" }
     $ollamaHostNormalized = $ollamaHostRaw.Trim()
@@ -101,15 +63,13 @@ command
     }
 
     $curlArgs = @(
-        "-s"
-        "-S"
-        "--fail"
-        "-X"
+        "-s" # --silent
+        "-S" # --show-error
+        "-f" # --fail
+        "-X" # --request
         "POST"
         $requestUri
-        "-H"
-        "Content-Type: application/json"
-        "--data"
+        "-d" # --data
         $jsonPayload
     )
 
@@ -156,7 +116,7 @@ command
         return $match.Groups[1].Value.Trim()
     }
 
-    Write-Warning "No code block found in response. Returning raw output."
+    Write-Debug "No code block found in response. Returning raw output."
     return $output.Trim()
 }
 
