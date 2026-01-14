@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# organizing projects by language
+# Language is determine using `github-linguist`.
+# Install with `apt install ruby-github-linguist`
+
+SRC="$HOME/projects"
+DEST="$HOME/proj"
+
+mkdir -p "$DEST"
+
+for dir in "$SRC"/*; do
+  [ -d "$dir" ] || continue
+
+  name=$(basename "$dir")
+
+  # Get main language (last column of first line)
+  lang=$(github-linguist "$dir" 2>/dev/null |
+    head -n 1 |
+    awk '{print $NF}')
+
+  if [ -z "$lang" ]; then
+    lang="misc"
+  fi
+
+  target="$DEST/$lang"
+  mkdir -p "$target"
+
+  echo "Symlink $name → $lang"
+  ln -s "$dir" "$target/$name"
+done
