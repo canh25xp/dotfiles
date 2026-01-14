@@ -10,8 +10,10 @@ TOKEN_BASE_DIR={{ if .work -}} "work/tokens" {{- else if .personal -}} "personal
 export_key() {
     var_name=$1
     secret_path=$2
-    export "$var_name=$(pass show "$secret_path")"
-    echo "env+ $var_name"
+    if secret_value=$(pass show "$secret_path" 2>/dev/null); then
+        export "$var_name=$secret_value"
+        echo "env+ $var_name"
+    fi
 }
 
 if [ "$1" ]; then
