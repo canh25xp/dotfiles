@@ -1,0 +1,17 @@
+machine pie.dev
+login httpie
+password test
+
+{{ if .work -}}
+machine android.qb.sec.samsung.net
+login vancanh.ng
+password {{ pass "work/tokens/qb" }}
+
+machine confluence-mx.sec.samsung.net
+login vancanh.ng
+password {{ pass "work/tokens/confluence" }}
+
+machine review1716.sec.samsung.net
+login vancanh.ng
+password {{- /*TODO: some how get ticket from `p4 login -p` or read from $P4TICKETS*/}}
+{{- end }}
