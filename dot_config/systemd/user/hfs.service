@@ -2,7 +2,7 @@
 Description=HFS Service
 
 [Service]
-ExecStart=/usr/local/bin/hfs --cwd /home/vancanh-ng/.local/share/hfs --config /home/vancanh-ng/.config/hfs/config.yaml
+ExecStart=/usr/local/bin/hfs --cwd %h/.local/share/hfs --config %h/.config/hfs/config.yaml
 Type=simple
 Restart=always
 
