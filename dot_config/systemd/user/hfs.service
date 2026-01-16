@@ -1,0 +1,10 @@
+[Unit]
+Description=HFS Service
+
+[Service]
+ExecStart=/usr/local/bin/hfs --cwd /var/lib/hfs --config /home/vancanh-ng/.config/hfs/config.yaml
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
