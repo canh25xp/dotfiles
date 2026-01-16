@@ -92,6 +92,12 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   url: https://raw.githubusercontent.com/soimort/translate-shell/gh-pages/trans
   refreshPeriod: 0h
   executable: true
+
+.local/bin/please:
+  type: file
+  url: https://raw.githubusercontent.com/TNG/please-cli/main/please.sh
+  refreshPeriod: 0h
+  executable: true
 {{ end }}
 
 {{ if .windows }}
