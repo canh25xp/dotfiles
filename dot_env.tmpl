@@ -27,6 +27,7 @@ if [ "$1" ]; then
     quay) export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman" ;;
     context) export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp" ;;
     figma) export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp" ;;
+    xai) export_key GROK_API_KEY "$TOKEN_BASE_DIR/xai/cli" ;;
     *) echo "Unknown API key specified." ;;
     esac
 else
@@ -39,4 +40,5 @@ else
     export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman"
     export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp"
     export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp"
+    export_key GROK_API_KEY "$TOKEN_BASE_DIR/xai/cli"
 fi
