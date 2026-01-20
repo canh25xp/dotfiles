@@ -16,8 +16,9 @@ export_key() {
     fi
 }
 
-if [ "$1" ]; then
-    case "$1" in
+load_secret() {
+    key=$1
+    case "$key" in
     openai) export_key OPENAI_API_KEY "$TOKEN_BASE_DIR/openai/codex" ;;
     ollama) export_key OLLAMA_API_KEY "$TOKEN_BASE_DIR/ollama/ollama" ;;
     gemini) export_key GEMINI_API_KEY "$TOKEN_BASE_DIR/gemini/gemini-cli" ;;
@@ -28,17 +29,23 @@ if [ "$1" ]; then
     context) export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp" ;;
     figma) export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp" ;;
     xai) export_key GROK_API_KEY "$TOKEN_BASE_DIR/xai/cli" ;;
-    *) echo "Unknown API key specified." ;;
+    *) echo "Unknown API key: $key" ;;
     esac
+}
+
+if [ "$#" -gt 0 ]; then
+    for key in "$@"; do
+        load_secret "$key"
+    done
 else
-    export_key OLLAMA_API_KEY "$TOKEN_BASE_DIR/ollama/ollama"
-    export_key OPENAI_API_KEY "$TOKEN_BASE_DIR/openai/codex"
-    export_key GEMINI_API_KEY "$TOKEN_BASE_DIR/gemini/gemini-cli"
-    export_key OPENROUTER_API_KEY "$TOKEN_BASE_DIR/openrouter"
-    export_key ANTHROPIC_API_KEY "$TOKEN_BASE_DIR/anthropic"
-    export_key GITHUB_TOKEN "$TOKEN_BASE_DIR/github/gh-cli"
-    export_key QUAY_ENCRYPTED_PASSWORD "$TOKEN_BASE_DIR/quay/podman"
-    export_key CONTEXT7_API_KEY "$TOKEN_BASE_DIR/context7/mcp"
-    export_key FIGMA_API_KEY "$TOKEN_BASE_DIR/figma/mcp"
-    export_key GROK_API_KEY "$TOKEN_BASE_DIR/xai/cli"
+    load_secret ollama
+    load_secret openai
+    load_secret gemini
+    load_secret openrouter
+    load_secret anthropic
+    load_secret github
+    load_secret quay
+    load_secret context
+    load_secret figma
+    load_secret xai
 fi
