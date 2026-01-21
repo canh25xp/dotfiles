@@ -1,0 +1,26 @@
+{
+	"name": "Vimium C",
+	"@time": "1/21/2026, 12:53:32 PM",
+	"time": 1768974812236,
+	"environment": {
+		"extension": "2.12.3",
+		"platform": "win",
+		"chromium": 143
+	},
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map J goBack",
+		"map K goForward",
+		"map H previousTab",
+		"map L nextTab",
+		"",
+		"map <space><space> Vomnibar.activate",
+		"unmap <a-m>",
+		"map <c-m> toggleMuteTab",
+		"map <c-d> scrollFullPageDown",
+		"map <c-u> scrollFullPageUp",
+		""
+	],
+	"vimSync": true
+}
