@@ -34,13 +34,9 @@ export DONT_PROMPT_WSL_INSTALL=true
 export PATH="$LOCALAPPDATA/Programs/Microsoft VS Code/bin:$PATH"
 export PATH="$PATH:/mnt/c/Program Files/Neovide"
 export PATH="$PATH:/mnt/c/Program Files/PowerShell/7"
-{{- end }}
+{{ end -}}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-if [ -f "$HOME/.env" ]; then
-    . $HOME/.env openai ollama
-fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
