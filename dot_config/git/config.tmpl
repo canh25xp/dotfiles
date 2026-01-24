@@ -1,7 +1,7 @@
 [user]
   name = {{ .fullName }}
   email = {{ if .personal -}} {{ .emailPersonal | quote }} {{- else if .work -}} {{ .emailWork | quote }} {{- else -}} {{ .email | quote }} {{- end }}
-  signingkey = {{ if .personal -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519_home_pc.pub" | quote }} {{- else if .work -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519_work_pc.pub" | quote }} {{- else -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519.pub" | quote }} {{- end }}
+  signingkey = {{ if .personal -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519_github.pub" | quote }} {{- else if .work -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519_work_pc.pub" | quote }} {{- else -}} {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519.pub" | quote }} {{- end }}
 
 [includeIf "hasconfig:remote.*.url:https://github.sec.samsung.net*/**"]
   path = config-samsung
