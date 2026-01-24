@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Repositories you care about
+REPOS=(
+  "neovim/neovim"
+  "jesseduffield/lazygit"
+)
+
+# Ensure gh exists
+if ! command -v gh >/dev/null 2>&1; then
+  echo "❌ gh CLI not found. Install from https://cli.github.com/"
+  exit 1
+fi
+
+# Ensure authenticated
+if ! gh auth status >/dev/null 2>&1; then
+  echo "❌ gh is not authenticated. Run: gh auth login"
+  exit 1
+fi
+
+echo "📦 Latest GitHub Releases"
+echo "========================"
+echo
+
+for repo in "${REPOS[@]}"; do
+  echo "🔹 $repo"
+
+  # gh returns empty if no releases
+  release_json=$(gh release view \
+    --repo "$repo" \
+    --json tagName,name,publishedAt,url 2>/dev/null || true)
+
+  if [[ -z "$release_json" ]]; then
+    echo "  No releases found"
+    echo
+    continue
+  fi
+
+  tag=$(jq -r '.tagName' <<<"$release_json")
+  name=$(jq -r '.name // empty' <<<"$release_json")
+  date=$(jq -r '.publishedAt' <<<"$release_json" | cut -dT -f1)
+  url=$(jq -r '.url' <<<"$release_json")
+
+  [[ -n "$name" ]] && echo "  Name : $name"
+  echo "  Tag  : $tag"
+  echo "  Date : $date"
+  echo "  URL  : $url"
+  echo
+done
