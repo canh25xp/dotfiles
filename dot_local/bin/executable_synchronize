@@ -3,6 +3,7 @@
 set -euo pipefail
 
 readonly SCRIPT_NAME="synchronize"
+dry_run=false
 
 readonly REPOS=(
   "chezmoi::$HOME/.local/share/chezmoi"
@@ -44,12 +45,33 @@ sync_repo() {
   local path="$2"
 
   log "Synchronizing $name ($path)"
+  if $dry_run; then
+    git -C "$path" pull --ff-only --dry-run
+    git -C "$path" push --dry-run
+    return
+  fi
+
   git -C "$path" pull --ff-only
   git -C "$path" push
 }
 
 main() {
   local entry
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -n|--dry-run)
+        dry_run=true
+        ;;
+      -*)
+        fail "Unknown option: $1"
+        ;;
+      *)
+        fail "Unexpected argument: $1"
+        ;;
+    esac
+    shift
+  done
 
   for entry in "${REPOS[@]}"; do
     local name="${entry%%::*}"
