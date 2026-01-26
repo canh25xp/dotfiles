@@ -38,3 +38,13 @@
 - [x] On windows start up script: Check proxy server and connect
 - [ ] `newspaper`: get latest software release via `gh` or github API.
 - [x] `synchronize`: pull && push dotfiles and all externals.
+- [ ] Automate everyday tasks:
+  - [x] Start proxy server via `adb`
+  - [/] login `p4`
+  - [ ] Get time-in
+  - [ ] Get PLM issues
+  - [ ] login Knox
+  - [ ] login Helix
+  - [ ] Start WSL > Tmux
+  - [ ] Start Edge personal profile and work profile
+  - [] Check dotfiles and externals
