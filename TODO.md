@@ -36,3 +36,5 @@
 - [ ] Automate installing from external package managers `cargo`, `npm`, ...
 - [x] Add support to encrypted notes in [DevNote](https://github.com/canh25xp/DevNote)
 - [x] On windows start up script: Check proxy server and connect
+- [ ] `newspaper`: get latest software release via `gh` or github API.
+- [x] `synchronize`: pull && push dotfiles and all externals.
