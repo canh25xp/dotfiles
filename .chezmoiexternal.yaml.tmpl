@@ -98,13 +98,6 @@ AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
   url: https://raw.githubusercontent.com/TNG/please-cli/main/please.sh
   refreshPeriod: 0h
   executable: true
-
-.local/share/blesh:
-  type: archive
-  url: https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz
-  exact: false
-  stripComponents: 1
-  refreshPeriod: 0h
 {{ end }}
 
 {{ if .windows }}
