@@ -2,7 +2,7 @@
 Description=Ollama Service
 
 [Service]
-ExecStart=/usr/local/bin/ollama serve
+ExecStart=%h/.local/bin/ollama serve
 Restart=always
 
 [Install]
