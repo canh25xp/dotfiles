@@ -48,3 +48,4 @@
   - [ ] Start WSL > Tmux
   - [ ] Start Edge personal profile and work profile
   - [] Check dotfiles and externals
+- [ ] `doctor`: A checkhealth command for whole system: check for required software and version
