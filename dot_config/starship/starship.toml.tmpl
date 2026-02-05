@@ -49,10 +49,16 @@ disabled = false
 {{ if not .android -}}
 [battery]
 disabled = true
-{{ end -}}
+{{- end }}
 
 [env_var.CHEZMOI_SECRETS]
 variable = "CHEZMOI_SECRETS"
 symbol = " "
 style = "purple"
 format = "[$symbol]($style) "
+
+[env_var.ANDROID_SERIAL]
+variable = "ANDROID_SERIAL"
+symbol = " "
+style = "green"
+format = "[$symbol]($style)$env_value"
