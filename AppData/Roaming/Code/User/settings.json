@@ -193,4 +193,5 @@
     "editor.find.loop": false,
     "perforce.fileShelveMode": "keep both",
     "code-i.chatResponseLanguage": "English in priority",
+    "chat.disableAIFeatures": true,
 }
