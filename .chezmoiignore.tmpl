@@ -114,6 +114,10 @@ AppData/Local/glow/
 .config/glow/
 {{ end }}
 
+{{ if not (lookPath "ollama") }}
+.ollama/
+{{ end }}
+
 {{ if not (lookPath "arduino-cli") }}
 AppData/Local/Arduino15/
 .arduinoIDE/
