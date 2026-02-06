@@ -40,18 +40,8 @@ export PATH="$PATH:/mnt/c/Program Files/PowerShell/7"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
-fi
-
-# Cline CLI
-if [ -d "$HOME/.cline/cli/bin" ]; then
-    PATH="$PATH:$HOME/.cline/cli/bin"
 fi
 
 # if running bash
