@@ -38,8 +38,11 @@ tailnetDNS: "walleye-godzilla.ts.net"
 desktopTailscale: "bunnies-desktop"
 desktopTailscaleIP: 100.99.0.0
 
+desktopDebianTailscale: "bunnies-desktop-debian"
+desktopDebianTailscaleIP: 100.99.0.1
+
 laptopTailscale: "bunnies-laptop"
-laptopTailscaleIP: 100.99.0.1
+laptopTailscaleIP: 100.99.0.5
 
 phoneTailscale: "bunnies-f741b"
 phoneTailscaleIP: 100.99.0.2
