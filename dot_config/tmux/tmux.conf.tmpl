@@ -20,6 +20,8 @@ unbind '"' # Unbind split horizontal
 unbind % # Unbind split vertical
 bind - split-window -v # Split horizontal
 bind \\ split-window -h # Split verical
+bind _ split-window -c "#{pane_current_path}" -v # Split horizontal (dupplicate)
+bind | split-window -c "#{pane_current_path}" -h # Split verical (dupplicate)
 
 set -w -g mode-keys vi # Use vi-binding in copy-mode
 bind -T copy-mode-vi i    send -X cancel
