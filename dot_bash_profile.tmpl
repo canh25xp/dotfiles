@@ -24,12 +24,6 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/build-tools/35.0.0"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
-# export PATH="$PATH:$VCPKG_ROOT"
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-
-export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
-
 {{ if .wsl -}}
 export DONT_PROMPT_WSL_INSTALL=true
 export PATH="$LOCALAPPDATA/Programs/Microsoft VS Code/bin:$PATH"
@@ -39,9 +33,20 @@ export PATH="$PATH:/mnt/c/Program Files/PowerShell/7"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.cargo/bin" ]; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [ -d "$HOME/go/bin" ]; then
+    PATH="$HOME/go/bin:$PATH"
 fi
 
 # if running bash
