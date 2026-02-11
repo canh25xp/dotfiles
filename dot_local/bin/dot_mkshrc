@@ -1,5 +1,5 @@
 # Stolen from https://github.com/matan-h/adb-shell
-# this file should be in "/sdcard/.adb/startup.sh"
+# this file should be in "/sdcard/.mkshrc"
 # shellcheck shell=ksh
 ENABLE_EXPERIMENTAL_HISTORY=false # Set to true to enable the experimental history workaround
 

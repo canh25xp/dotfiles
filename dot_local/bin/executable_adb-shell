@@ -1,13 +1,13 @@
 #! /bin/bash
 # Stolen from https://github.com/matan-h/adb-shell
 
-STARTUP=/sdcard/.adb/startup.sh
+STARTUP=/sdcard/.mkshrc
 adb shell "[ -f $STARTUP ] || exit 6"
 last_exit_status=$?
 
 if [ $last_exit_status -eq 6 ]; then
     echo "file not found, push with adb"
-    adb push "$(dirname "$0")/startup.sh" $STARTUP
+    adb push "$(dirname "$0")/.mkshrc" $STARTUP
 
 elif [ $last_exit_status -eq 1 ]; then # adb error
     exit 1
