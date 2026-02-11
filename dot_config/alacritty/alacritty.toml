@@ -12,7 +12,11 @@ program = "/bin/bash"
 startup_mode = "Maximized"
 
 [font]
-size = 12
+size = 10.5
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
 
 [font.bold]
 family = "CaskaydiaCove Nerd Font"
@@ -25,10 +29,6 @@ style = "Bold Italic"
 [font.italic]
 family = "CaskaydiaCove Nerd Font"
 style = "Italic"
-
-[font.normal]
-family = "CaskaydiaCove Nerd Font"
-style = "Regular"
 
 [keyboard]
 bindings = [
