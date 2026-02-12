@@ -3,6 +3,10 @@
 # shellcheck shell=ksh
 ENABLE_EXPERIMENTAL_HISTORY=false # Set to true to enable the experimental history workaround
 
+if [ -d "/data/local/tmp/bin" ]; then
+    PATH="/data/local/tmp/bin:$PATH"
+fi
+
 # basic:
 # shellcheck disable=SC2164
 cd "${OLDPWD:-$HOME}" # always start from $OLDPWD or $HOME
