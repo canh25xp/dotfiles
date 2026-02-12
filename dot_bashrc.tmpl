@@ -178,15 +178,16 @@ fi
 # >>> Lazy NVM >>>
 export NVM_DIR="$HOME/.nvm"
 
-nvm() {
+__load_nvm() {
   unset -f nvm node npm npx
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  nvm "$@"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 }
 
-node() { nvm "$@"; }
-npm()  { nvm "$@"; }
-npx()  { nvm "$@"; }
+nvm()  { __load_nvm; nvm "$@"; }
+node() { __load_nvm; node "$@"; }
+npm()  { __load_nvm; npm "$@"; }
+npx()  { __load_nvm; npx "$@"; }
 # <<< Lazy NVM <<<
 
 # Initialize Codex command-line completion for Bash
