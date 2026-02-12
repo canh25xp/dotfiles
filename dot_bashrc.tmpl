@@ -134,20 +134,19 @@ export no_proxy="$NO_PROXY"
 
 {{- end }}
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/.miniconda3/bin/conda" 'shell.bash' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
+# >>> Lazy Conda Init >>>
+if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
+  __lazy_conda() {
+    unset -f conda
     . "$HOME/.miniconda3/etc/profile.d/conda.sh"
-  else
-    export PATH="$HOME/.miniconda3/bin:$PATH"
-  fi
+  }
+
+  conda() {
+    __lazy_conda
+    conda "$@"
+  }
 fi
-unset __conda_setup
-# <<< conda initialize <<<
+# <<< Lazy Conda Init <<<
 
 # Skip shell decoration when running in VS Code's integrated terminal
 if [ "${TERM_PROGRAM}" != "vscode" ]; then
@@ -180,11 +179,19 @@ if command -v direnv &>/dev/null; then
   eval "$(direnv hook bash)"
 fi
 
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-fi
+# >>> Lazy NVM >>>
+export NVM_DIR="$HOME/.nvm"
+
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+
+node() { nvm "$@"; }
+npm()  { nvm "$@"; }
+npx()  { nvm "$@"; }
+# <<< Lazy NVM <<<
 
 # Initialize Codex command-line completion for Bash
 if command -v codex &>/dev/null; then
