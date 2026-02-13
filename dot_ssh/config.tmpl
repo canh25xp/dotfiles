@@ -10,6 +10,8 @@ Host *
   AddKeysToAgent yes
   KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
+# ========== Interactive HOST ==================================================
+
 Host desktop
   HostName {{ .desktopTailscaleIP }}
   User {{ .nickName }}
@@ -37,20 +39,10 @@ Host work-laptop
   HostName {{ .workIPv4Lan }}
   User {{ .knoxID }}
 
-{{- if .work }}
-
 Host wifiteam
   HostName 192.168.23.13
   User {{ .knoxID }}
 
-Host tablet-proxy
-  HostName localhost
-  User {{ .tabletUserName }}
-  DynamicForward 1080
-  Port 8022
-  ExitOnForwardFailure yes
-
-# Jump hosts
 Host desktop-jump
   HostName {{ .desktopTailscaleIP }}
   User {{ .nickName }}
@@ -63,12 +55,26 @@ Host phone-jump
   ProxyJump tablet
 
 Host wifiteam-jump
-  HostName 192.168.23.13
-  User "vancanh.ng"
-  User {{ .knoxID }}
-  ProxyJump tablet
+  HostName 192.168.1.125
+  User vancanh-ng
+  ProxyJump netgear
 
-{{- end }}
+# ========== SOCKS Proxy =======================================================
+
+Host tablet-proxy
+  HostName localhost
+  User {{ .tabletUserName }}
+  DynamicForward 1080
+  Port 8022
+  ExitOnForwardFailure yes
+
+# ========== APs ===============================================================
+
+Host netgear
+  HostName 107.98.150.183
+  User root
+
+# ========== Git Server ========================================================
 
 Host github
   HostName github.com
