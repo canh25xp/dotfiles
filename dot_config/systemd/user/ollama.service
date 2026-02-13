@@ -4,6 +4,8 @@ Description=Ollama Service
 [Service]
 ExecStart=%h/.local/bin/ollama serve
 Restart=always
+Environment="OLLAMA_CONTEXT_LENGTH=32768"
+Environment="OLLAMA_HOST=0.0.0.0:11434"
 
 [Install]
 WantedBy=default.target
