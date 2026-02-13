@@ -27,21 +27,23 @@ AppData/Local/nvim-lazy:
   url: https://github.com/catppuccin/yazi/raw/main/themes/mocha/catppuccin-mocha-blue.toml
   refreshPeriod: 0h
 
-.local/share/fonts/CascadiaCode:
+{{ if .linux }}
+.local/share/fonts:
+{{ else if .windows }}
+AppData/Local/Microsoft/Windows/Fonts:
+{{ else if .android }}
+.termux/fonts:
+{{ else }}
+.fonts:
+{{ end }}
   type: archive
-  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.tar.xz
+  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.tar.xz
   refreshPeriod: 0h
 
 {{ if .android }}
 .termux/colors.properties:
   type: file
   url: https://github.com/catppuccin/termux/raw/main/themes/catppuccin-mocha.properties
-  refreshPeriod: 0h
-
-.termux/font.ttf:
-  type: archive-file
-  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.tar.xz
-  path: {{ .nerdfontName }}
   refreshPeriod: 0h
 {{ end }}
 
@@ -74,14 +76,6 @@ Appdata/Roaming/alacritty/catppuccin-mocha.toml:
   type: file
   url: https://raw.githubusercontent.com/catppuccin/kitty/refs/heads/main/themes/mocha.conf
   refreshPeriod: 0h
-
-{{ if .windows }}
-AppData/Local/Microsoft/Windows/Fonts/{{ .nerdfontName }}:
-  type: archive-file
-  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.tar.xz
-  path: {{ .nerdfontName }}
-  refreshPeriod: 0h
-{{ end }}
 
 {{ if or .android .linux }}
 .config/tmux/plugins/catppuccin:
