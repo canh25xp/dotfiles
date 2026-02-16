@@ -24,8 +24,8 @@ default_packages=(
   fastfetch
   fd-find
   fzf
-  gdb
   gawk # required for `trans`
+  gdb
   gdu
   gh
   git
@@ -35,7 +35,9 @@ default_packages=(
   hexyl
   htop
   httpie
+  i3
   jq
+  kitty
   lazygit
   libsqlite3-dev # required for bookmarks.nvim
   lolcat
@@ -69,6 +71,7 @@ default_packages=(
   unzip
   wget
   xclip
+  xorg
   zathura
   zip
   zoxide
