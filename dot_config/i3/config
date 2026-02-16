@@ -216,3 +216,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Detect Firefox PiP
+for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, resize set 400 225, move position position 10ppt 10ppt
+
+# Detect Chromium/Chrome PiP
+for_window [title="^Picture in picture$"] floating enable, sticky enable, resize set 400 225, move position position 10ppt 10ppt
