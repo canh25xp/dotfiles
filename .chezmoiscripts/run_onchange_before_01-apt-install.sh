@@ -23,6 +23,7 @@ default_packages=(
   eza
   fastfetch
   fd-find
+  feh  # Display Background for `i3`
   fzf
   gdb
   gawk # required for `trans`
@@ -77,7 +78,7 @@ default_packages=(
 temp_file=$(mktemp)
 trap 'rm -f "$temp_file"' EXIT
 
-printf "%s\n" "${default_packages[@]}" > "$temp_file"
+printf "%s\n" "${default_packages[@]}" >"$temp_file"
 
 if command -v nvim >/dev/null; then
   editor="nvim"
@@ -95,7 +96,7 @@ echo "Opening package list for editing. Remove any lines for packages you don't 
 $editor "$temp_file"
 
 # Read edited package list
-mapfile -t selected_packages < "$temp_file"
+mapfile -t selected_packages <"$temp_file"
 
 # Skip empty or comment lines
 selected_packages=("${selected_packages[@]/*#/}")
@@ -123,7 +124,7 @@ for pkg in "${selected_packages[@]}"; do
 done
 
 # Show missing packages
-if (( ${#missing_packages[@]} > 0 )); then
+if ((${#missing_packages[@]} > 0)); then
   echo
   echo "Warning: The following packages were not found and will be skipped:"
   for pkg in "${missing_packages[@]}"; do
@@ -131,7 +132,7 @@ if (( ${#missing_packages[@]} > 0 )); then
   done
 fi
 
-if (( ${#available_packages[@]} == 0 )); then
+if ((${#available_packages[@]} == 0)); then
   echo
   echo "No valid packages to install. Exiting."
   exit 1
