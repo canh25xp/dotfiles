@@ -12,6 +12,7 @@ fi
 
 default_packages=(
   adb
+  alsa-utils pipewire pipewire-audio wireplumber # For audio
   bash-completion
   bat
   btm
