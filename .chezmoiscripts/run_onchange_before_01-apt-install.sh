@@ -75,6 +75,7 @@ default_packages=(
   zathura
   zip
   zoxide
+  alsa-utils pipewire pipewire-audio wireplumber # For audio
 )
 
 temp_file=$(mktemp)
