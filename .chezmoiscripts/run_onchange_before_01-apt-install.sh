@@ -72,6 +72,7 @@ default_packages=(
   tree-sitter-cli
   unzip
   wget
+  wpasupplicant iproute2 ifupdown iw # For Wi-Fi
   xclip
   xorg
   zathura
