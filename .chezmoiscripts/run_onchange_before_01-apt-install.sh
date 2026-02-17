@@ -15,6 +15,7 @@ default_packages=(
   alsa-utils pipewire pipewire-audio wireplumber # For audio
   bash-completion
   bat
+  bluez # For bluetooth
   btm
   build-essential
   curl
