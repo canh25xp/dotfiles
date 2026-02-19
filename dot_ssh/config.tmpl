@@ -10,28 +10,32 @@ Host *
   AddKeysToAgent yes
   KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
-# ========== Interactive HOST ==================================================
+# ========== Direct Host =======================================================
 
 Host desktop
-  HostName {{ .desktopTailscaleIP }}
+  HostName {{ .bunniesDesktopIP }}
   User {{ .nickName }}
 
 Host desktop-admin
-  HostName {{ .desktopTailscaleIP }}
+  HostName {{ .bunniesDesktopIP }}
   User Admin
   IdentityFile ~/.ssh/id_ed25519_sudo
 
-Host laptop
-  HostName {{ .laptopTailscaleIP }}
-  User {{ .nickName }}
+Host desktop-debian
+  HostName {{ .bunniesDesktopDebianIP }}
+  User {{ .nickName | lower }}
+
+Host laptop-debian
+  HostName {{ .bunniesLaptopDebianIP }}
+  User {{ .nickName | lower }}
 
 Host phone
-  HostName {{ .phoneTailscaleIP }}
+  HostName {{ .bunniesF741bIP }}
   User {{ .phoneUserName }}
   Port 8022
 
 Host tablet
-  HostName {{ if .work -}} localhost {{- else -}} {{ .tabletTailscaleIP }} {{- end }}
+  HostName {{ if .work -}} localhost {{- else -}} {{ .bunniesX826bIP }} {{- end }}
   User {{ .tabletUserName }}
   Port 8022
 
@@ -43,13 +47,15 @@ Host wifiteam
   HostName 192.168.23.13
   User {{ .knoxID }}
 
+# ========== Proxy Jump Host ===================================================
+
 Host desktop-jump
-  HostName {{ .desktopTailscaleIP }}
+  HostName {{ .bunniesDesktopIP }}
   User {{ .nickName }}
   ProxyJump tablet
 
 Host phone-jump
-  HostName {{ .phoneTailscaleIP }}
+  HostName {{ .bunniesF741bIP }}
   User {{ .phoneUserName }}
   Port 8022
   ProxyJump tablet
@@ -63,7 +69,7 @@ Host wifiteam-jump
 
 Host tablet-proxy
   HostName localhost
-  User {{ .tabletUserName }}
+  User {{ .bunniesX826bIP }}
   DynamicForward 1080
   Port 8022
   ExitOnForwardFailure yes

@@ -25,26 +25,17 @@ phoneIPv4: 192.168.0.102
 workIPv4Lan: 107.98.39.128
 workIPv4Wifi: 107.98.68.201
 
+# Tailscale
+tailnetDNS: "walleye-godzilla.ts.net"
+bunniesDesktopIP: 100.99.0.0
+bunniesDesktopDebianIP: 100.99.0.1
+bunniesF741bIP: 100.99.0.2
+bunniesX826bIP: 100.99.0.3
+bunniesLaptopDebianIP: 100.99.0.4
+
 # Proxy settings
 androidSerial: "R32X6003EPL"
 proxyIP: "127.0.0.1"
 proxyPort: "3128"
 proxyServer: "http://127.0.0.1:3128"
 workNoProxy: "localhost,127.0.0.1,::1,.sec.samsung.net,.samsung.net,.corp.samsungelectronics.net,sts.secsso.net,.mediatek.com,.figma.com,107.98.0.0/16,107.113.0.0/16"
-
-# Tailscale
-tailnetDNS: "walleye-godzilla.ts.net"
-desktopTailscale: "bunnies-desktop"
-desktopTailscaleIP: 100.99.0.0
-
-desktopDebianTailscale: "bunnies-desktop-debian"
-desktopDebianTailscaleIP: 100.99.0.1
-
-laptopTailscale: "bunnies-laptop"
-laptopTailscaleIP: 100.99.0.5
-
-phoneTailscale: "bunnies-f741b"
-phoneTailscaleIP: 100.99.0.2
-
-tabletTailscale: "bunnies-x826b"
-tabletTailscaleIP: 100.99.0.3
