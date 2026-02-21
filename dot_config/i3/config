@@ -19,6 +19,8 @@ set $mod Mod1
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
+hide_edge_borders smart
+
 # Set Display background
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/YorForger.jpg
 
