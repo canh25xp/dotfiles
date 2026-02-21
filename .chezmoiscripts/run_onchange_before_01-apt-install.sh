@@ -50,6 +50,7 @@ default_packages=(
   neomutt
   neovim
   netcat-traditional
+  network-manager wpasupplicant iproute2 ifupdown iw # For Wi-Fi
   nodejs
   npm
   nsxiv
@@ -74,7 +75,6 @@ default_packages=(
   tree-sitter-cli
   unzip
   wget
-  wpasupplicant iproute2 ifupdown iw # For Wi-Fi
   xclip
   xorg
   zathura
