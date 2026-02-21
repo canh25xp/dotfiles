@@ -179,14 +179,17 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Ctrl+Shift+r restart
-# exit i3 (logs you out of your X session)
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+
+# exit i3
+mode "exit: [l]ogout, [r]eboot, [p]oweroff, [s]leep" {
 
   bindsym l exec i3-msg exit
 
   bindsym r exec systemctl reboot
 
-  bindsym s exec systemctl shutdown
+  bindsym p exec systemctl poweroff
+
+  bindsym s exec systemctl suspend
 
   bindsym Escape mode "default"
 
@@ -194,7 +197,7 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 
 }
 
-bindsym $mod+Shift+Escape mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+Escape mode "exit: [l]ogout, [r]eboot, [p]oweroff, [s]leep"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
