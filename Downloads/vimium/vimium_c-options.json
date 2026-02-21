@@ -7,6 +7,12 @@
 		"platform": "win",
 		"chromium": 143
 	},
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": ":https://usevia.app/"
+		}
+	],
 	"keyLayout": 2,
 	"keyMappings": [
 		"#!no-check",
