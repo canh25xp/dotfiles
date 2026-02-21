@@ -26,7 +26,6 @@ default_packages=(
   fastfetch
   fd-find
   feh  # Display Background for `i3`
-  fonts-cascadia-code
   fzf
   gawk # required for `trans`
   gdb
