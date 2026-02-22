@@ -56,6 +56,7 @@ default_packages=(
   p4
   p7zip
   pass
+  procs
   python3
   python3-pip
   python3-venv
