@@ -38,7 +38,7 @@ default_packages=(
   hexyl
   htop
   httpie
-  i3
+  i3 i3lock-fancy
   jq
   kitty
   lazygit
