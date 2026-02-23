@@ -62,6 +62,7 @@ default_packages=(
   python3-venv
   qrencode
   ripgrep
+  rofi
   rsync
   rustup
   sd
