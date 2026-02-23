@@ -158,6 +158,7 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+  show-icons: true;
   timeout {
       action: "kb-cancel";
       delay:  0;
@@ -167,3 +168,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@theme "/usr/share/rofi/themes/purple.rasi"
