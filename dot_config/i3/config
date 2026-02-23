@@ -71,6 +71,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym Mod4+grave exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
