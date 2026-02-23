@@ -290,3 +290,5 @@ for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, resize
 for_window [title="^Picture in picture$"] floating enable, sticky enable, resize set 400 225, move position position 10ppt 10ppt
 
 for_window [class="kitty"] border pixel 1
+
+exec --no-startup-id i3-sensible-terminal
