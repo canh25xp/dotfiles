@@ -32,6 +32,7 @@ bunniesDesktopDebianIP: 100.99.0.1
 bunniesF741bIP: 100.99.0.2
 bunniesX826bIP: 100.99.0.3
 bunniesLaptopDebianIP: 100.99.0.4
+wifiteamLaptopUbuntuIP: 100.99.0.10
 
 # Proxy settings
 androidSerial: "R32X6003EPL"

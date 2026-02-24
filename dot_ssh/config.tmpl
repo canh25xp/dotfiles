@@ -60,8 +60,13 @@ Host phone-jump
   Port 8022
   ProxyJump tablet
 
-Host wifiteam-jump
-  HostName 192.168.1.125
+Host wifiteam-jump-tablet
+  HostName {{ .wifiteamLaptopUbuntuIP }}
+  User vancanh-ng
+  ProxyJump tablet
+
+Host wifiteam-jump-netgear
+  HostName 192.168.23.13
   User vancanh-ng
   ProxyJump netgear
 
