@@ -44,8 +44,8 @@ Host work-laptop
   User {{ .knoxID }}
 
 Host wifiteam
-  HostName 192.168.23.13
-  User {{ .knoxID }}
+  HostName {{ .wifiteamIPv4 }}
+  User {{ .knoxID | replace "." "-" }}
 
 # ========== Proxy Jump Host ===================================================
 
@@ -66,7 +66,7 @@ Host wifiteam-jump-tablet
   ProxyJump tablet
 
 Host wifiteam-jump-netgear
-  HostName 192.168.23.13
+  HostName {{ .wifiteamIPv4 }}
   User {{ .knoxID | replace "." "-" }}
   ProxyJump netgear
 
@@ -82,7 +82,7 @@ Host tablet-proxy
 # ========== APs ===============================================================
 
 Host netgear
-  HostName 107.98.150.183
+  HostName {{ .netgearIPv4 }}
   User root
 
 # ========== Git Server ========================================================
