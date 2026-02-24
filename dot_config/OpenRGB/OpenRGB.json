@@ -1783,6 +1783,6 @@
         },
         "greyscale_tray_icon": false,
         "language": "default",
-        "minimize_on_close": false
+        "minimize_on_close": true
     }
 }
