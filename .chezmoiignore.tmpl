@@ -137,3 +137,9 @@ AppData/Local/Arduino15/
 {{ if not (lookPath "scoop") }}
 .config/scoop/
 {{ end }}
+
+
+{{ if not (lookPath "openrgb") }}
+.config/OpenRGB
+.config/autostart/OpenRGB.desktop
+{{ end }}
