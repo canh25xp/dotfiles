@@ -62,12 +62,12 @@ Host phone-jump
 
 Host wifiteam-jump-tablet
   HostName {{ .wifiteamLaptopUbuntuIP }}
-  User vancanh-ng
+  User {{ .knoxID | replace "." "-" }}
   ProxyJump tablet
 
 Host wifiteam-jump-netgear
   HostName 192.168.23.13
-  User vancanh-ng
+  User {{ .knoxID | replace "." "-" }}
   ProxyJump netgear
 
 # ========== SOCKS Proxy =======================================================
