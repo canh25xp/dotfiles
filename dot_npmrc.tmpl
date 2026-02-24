@@ -1,4 +1,4 @@
 {{- $nvmDir := joinPath .chezmoi.homeDir ".nvm" -}}
-{{- if not (stat $nvmDir) }}
+{{- if not (or (stat $nvmDir) (lookPath "nvm")) }}
 prefix={{ .chezmoi.homeDir }}/.local
 {{- end }}
