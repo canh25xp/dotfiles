@@ -1,7 +1,9 @@
+{{ if or .personal .work }}
 Documents/DevNote:
   type: git-repo
-  url: https://github.com/canh25xp/DevNote
+  url: {{ if .work -}} https://github.sec.samsung.net/vancanh-ng/DevNote {{- else -}} https://github.com/canh25xp/DevNote {{- end }}
   refreshPeriod: 0h
+{{ end }}
 
 {{ if .personal }}
 Documents/BunniesDiary:
