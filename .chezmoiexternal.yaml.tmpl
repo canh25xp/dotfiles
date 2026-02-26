@@ -3,10 +3,12 @@ Documents/DevNote:
   url: https://github.com/canh25xp/DevNote
   refreshPeriod: 0h
 
+{{ if .personal }}
 Documents/BunniesDiary:
   type: git-repo
   url: https://github.com/canh25xp/BunniesDiary
   refreshPeriod: 0h
+{{ end }}
 
 {{  if .windows }}
 AppData/Local/nvim-lazy:
