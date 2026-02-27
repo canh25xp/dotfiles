@@ -1,6 +1,42 @@
 #! /bin/bash
 # Stolen from https://github.com/matan-h/adb-shell
 
+set -e
+
+choose_device() {
+    # If user already specified one, respect it
+    if [ -n "$ANDROID_SERIAL" ]; then
+        return
+    fi
+
+    mapfile -t DEVICES < <(adb devices | awk 'NR>1 && $2=="device" {print $1}')
+
+    case "${#DEVICES[@]}" in
+    0)
+        echo "No adb devices connected" >&2
+        exit 1
+        ;;
+    1)
+        export ANDROID_SERIAL="${DEVICES[0]}"
+        ;;
+    *)
+        echo "Multiple devices detected:"
+        for i in "${!DEVICES[@]}"; do
+            printf " [%d] %s\n" "$((i + 1))" "${DEVICES[$i]}"
+        done
+        printf "Choose device: "
+        read -r idx
+        if ! [[ "$idx" =~ ^[0-9]+$ ]] || [ "$idx" -lt 1 ] || [ "$idx" -gt "${#DEVICES[@]}" ]; then
+            echo "Invalid selection" >&2
+            exit 1
+        fi
+        export ANDROID_SERIAL="${DEVICES[$((idx - 1))]}"
+        ;;
+    esac
+}
+
+choose_device
+
 STARTUP=/sdcard/.mkshrc
 adb shell "[ -f $STARTUP ] || exit 6"
 last_exit_status=$?
