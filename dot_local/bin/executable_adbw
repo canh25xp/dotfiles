@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# adb wrapper for quick device selection
+
+set -euo pipefail
+
+# If ANDROID_SERIAL already defined, just use it
+if [[ -n "${ANDROID_SERIAL:-}" ]]; then
+    exec adb "$@"
+fi
+
+# Get list of connected device serials (skip header + offline devices)
+mapfile -t DEVICES < <(adb devices | awk 'NR>1 && $2=="device" {print $1}')
+
+COUNT=${#DEVICES[@]}
+
+if [[ "$COUNT" -eq 0 ]]; then
+    echo "No ADB devices connected" >&2
+    exit 1
+elif [[ "$COUNT" -eq 1 ]]; then
+    export ANDROID_SERIAL="${DEVICES[0]}"
+    exec adb "$@"
+else
+    echo "Multiple ADB devices detected:"
+    for i in "${!DEVICES[@]}"; do
+        printf "  [%d] %s\n" "$((i + 1))" "${DEVICES[i]}"
+    done
+
+    read -rp "Select device number: " choice
+
+    # Validate input
+    if ! [[ "$choice" =~ ^[0-9]+$ ]] || ((choice < 1 || choice > COUNT)); then
+        echo "Invalid selection" >&2
+        exit 1
+    fi
+
+    export ANDROID_SERIAL="${DEVICES[choice - 1]}"
+    exec adb "$@"
+fi
