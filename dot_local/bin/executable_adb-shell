@@ -1,8 +1,6 @@
 #! /bin/bash
 # Stolen from https://github.com/matan-h/adb-shell
 
-set -e
-
 choose_device() {
     # Respect existing selection
     if [ -n "$ANDROID_SERIAL" ]; then
