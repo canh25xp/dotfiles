@@ -27,6 +27,7 @@ default_packages=(
   fd-find
   feh  # Display Background for `i3`
   fzf
+  fonts-noto-cjk fonts-noto-color-emoji # CJK: Chinese, Japanese and Korean fonts
   gawk # required for `trans`
   gdb
   gdu
