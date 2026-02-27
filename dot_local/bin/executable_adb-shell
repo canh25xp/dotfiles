@@ -4,35 +4,49 @@
 set -e
 
 choose_device() {
-    # If user already specified one, respect it
+    # Respect existing selection
     if [ -n "$ANDROID_SERIAL" ]; then
         return
     fi
 
-    mapfile -t DEVICES < <(adb devices | awk 'NR>1 && $2=="device" {print $1}')
+    # Collect full device info lines
+    mapfile -t DEVICE_LINES < <(adb devices -l | awk 'NR>1 && $2=="device"')
 
-    case "${#DEVICES[@]}" in
-    0)
+    if [ "${#DEVICE_LINES[@]}" -eq 0 ]; then
         echo "No adb devices connected" >&2
         exit 1
-        ;;
-    1)
-        export ANDROID_SERIAL="${DEVICES[0]}"
-        ;;
-    *)
-        echo "Multiple devices detected:"
-        for i in "${!DEVICES[@]}"; do
-            printf " [%d] %s\n" "$((i + 1))" "${DEVICES[$i]}"
-        done
-        printf "Choose device: "
-        read -r idx
-        if ! [[ "$idx" =~ ^[0-9]+$ ]] || [ "$idx" -lt 1 ] || [ "$idx" -gt "${#DEVICES[@]}" ]; then
-            echo "Invalid selection" >&2
-            exit 1
-        fi
-        export ANDROID_SERIAL="${DEVICES[$((idx - 1))]}"
-        ;;
-    esac
+    fi
+
+    # Extract serials
+    mapfile -t SERIALS < <(printf '%s\n' "${DEVICE_LINES[@]}" | awk '{print $1}')
+
+    # Only one → auto pick
+    if [ "${#SERIALS[@]}" -eq 1 ]; then
+        export ANDROID_SERIAL="${SERIALS[0]}"
+        return
+    fi
+
+    echo "Multiple adb devices detected:"
+    for i in "${!DEVICE_LINES[@]}"; do
+        serial="${SERIALS[$i]}"
+        line="${DEVICE_LINES[$i]}"
+
+        model=$(grep -o 'model:[^ ]*' <<<"$line" | cut -d: -f2)
+        product=$(grep -o 'product:[^ ]*' <<<"$line" | cut -d: -f2)
+
+        printf " [%d] %s  (model:%s product:%s)\n" \
+            "$((i + 1))" "$serial" "${model:-?}" "${product:-?}"
+    done
+
+    printf "Choose device: "
+    read -r idx
+
+    if ! [[ "$idx" =~ ^[0-9]+$ ]] || [ "$idx" -lt 1 ] || [ "$idx" -gt "${#SERIALS[@]}" ]; then
+        echo "Invalid selection" >&2
+        exit 1
+    fi
+
+    export ANDROID_SERIAL="${SERIALS[$((idx - 1))]}"
 }
 
 choose_device
