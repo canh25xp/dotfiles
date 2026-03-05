@@ -22,8 +22,10 @@ export FIGNORE=".dll:.DLL"
 if [ -d "$HOME/android" ]; then
     export ANDROID_HOME="$HOME/android"
     export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
-    export PATH="$PATH:$ANDROID_HOME/build-tools/35.0.0"
     export PATH="$PATH:$ANDROID_HOME/platform-tools"
+    # Add latest build-tools version automatically
+    latest_build_tools=$(ls -1 "$ANDROID_HOME/build-tools" | sort -V | tail -n1)
+    export PATH="$PATH:$ANDROID_HOME/build-tools/$latest_build_tools"
 fi
 
 {{ if .wsl -}}
