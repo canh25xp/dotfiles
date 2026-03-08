@@ -5,6 +5,27 @@ set -euo pipefail
 REPOS=(
   "neovim/neovim"
   "jesseduffield/lazygit"
+  "twpayne/chezmoi"
+  "tmux/tmux"
+  "starship/starship"
+  "cli/cli"
+  "junegunn/fzf"
+  "jesseduffield/lazygit"
+  "sxyazi/yazi"
+  "sharkdp/bat"
+  "eza-community/eza"
+  "ajeetdsouza/zoxide"
+  "MilesCranmer/rip2"
+  "BurntSushi/ripgrep"
+  "sharkdp/fd"
+  "chmln/sd"
+  "ClementTsang/bottom"
+  "httpie/cli"
+  "dandavison/delta"
+  "bootandy/dust"
+  "dundee/gdu"
+  "muesli/duf"
+  "dalance/procs"
 )
 
 # Ensure gh exists
