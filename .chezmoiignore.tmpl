@@ -49,6 +49,9 @@ Pictures/
 .config/rofi/
 .config/neovide/
 .config/gtk-3.0/
+.config/kitty/
+.config/autostart/
+.local/share/applications/
 .ollama/
 Pictures/
 Downloads/
@@ -139,6 +142,9 @@ AppData/Local/Arduino15/
 .config/scoop/
 {{ end }}
 
+{{ if not (lookPath "xplr") }}
+.config/xplr/
+{{ end }}
 
 {{ if not (lookPath "openrgb") }}
 .config/OpenRGB
