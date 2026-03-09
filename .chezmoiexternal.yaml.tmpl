@@ -69,6 +69,7 @@ Appdata/Roaming/bat/themes/Catppuccin Mocha.tmTheme:
   refreshPeriod: 0h
 {{ end }}
 
+{{ if not .wsl }}
 {{ if .windows }}
 Appdata/Roaming/alacritty/catppuccin-mocha.toml:
 {{ else }}
@@ -77,11 +78,14 @@ Appdata/Roaming/alacritty/catppuccin-mocha.toml:
   type: file
   url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
   refreshPeriod: 0h
+{{ end }}
 
+{{ if not .wsl }}
 .config/kitty/catppuccin-mocha.conf:
   type: file
   url: https://raw.githubusercontent.com/catppuccin/kitty/refs/heads/main/themes/mocha.conf
   refreshPeriod: 0h
+{{ end }}
 
 {{ if or .android .linux }}
 .config/tmux/plugins/catppuccin:
