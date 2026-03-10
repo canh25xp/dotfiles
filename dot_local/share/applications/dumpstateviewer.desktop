@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Dumpstate Viewer
+Comment=Android Dumpstate Log Viewer
+Exec=DumpstateViewer
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=Development;Utility;
+StartupNotify=true
