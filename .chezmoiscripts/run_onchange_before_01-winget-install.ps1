@@ -21,6 +21,9 @@ if ($editConfirmation -ne 'n') {
   if (Get-Command nvim -ErrorAction SilentlyContinue) {
     nvim $tempWingetPackges
   }
+  else if (Get-Command edit -ErrorAction SilentlyContinue) {
+    edit $tempWingetPackges
+  }
   else {
     # Wait for notepad to close
     Start-Process notepad $tempWingetPackges -Wait
