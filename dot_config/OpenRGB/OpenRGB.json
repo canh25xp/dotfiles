@@ -1755,7 +1755,7 @@
         ]
     },
     "Theme": {
-        "theme": "Dark"
+        "theme": "Auto"
     },
     "UserInterface": {
         "RunZoneChecks": true,
@@ -1783,6 +1783,7 @@
         },
         "greyscale_tray_icon": false,
         "language": "default",
-        "minimize_on_close": true
+        "minimize_on_close": true,
+        "show_led_view": true
     }
 }
