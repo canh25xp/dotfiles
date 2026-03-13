@@ -109,8 +109,9 @@ fi
 
 {{ if .work -}}
 # Try HTTP proxy, then fallback to SOCKS5 proxy
-if nc -z 127.0.0.1 3128 2>/dev/null; then
-  export ALL_PROXY="http://127.0.0.1:3128"
+# TODO: add pass from password-store
+if nc -z 107.98.150.183 3128 2>/dev/null; then
+  export ALL_PROXY="http://bunnies:*************@107.98.150.183:3128"
   export HTTP_PROXY="$ALL_PROXY"
   export HTTPS_PROXY="$ALL_PROXY"
   export http_proxy="$ALL_PROXY"
