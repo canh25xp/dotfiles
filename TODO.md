@@ -49,8 +49,9 @@
   - [ ] Start Edge personal profile and work profile
   - [] Check dotfiles and externals
 - [ ] `doctor`: A checkhealth command for whole system: check for required software and version
-- [ ] include openrgb config in windows
+- [ ] Include `openrgb` config in windows
 - [ ] System config
+  - [ ] Update Nvidia driver.
   - [ ] Add unstable Debian apt source (sid)
   - [ ] Add apt source for: `cloudflare-client`, `microsoft-edge`, `tailscale`
   - [ ] Manually install package that not yet installable with apt or too old
@@ -58,11 +59,20 @@
     - [ ] `neovim`
     - [ ] `tealdeer`
     - [ ] `openrgb`
+    - [ ] `ollama`
   - [ ] Import gpg keys
   - [ ] Config LED with `openrgb`
   - [ ] Config audio with `wireplumber`
   - [ ] Config Wi-Fi with `nmcli`
   - [ ] Config bluetooth with `bluetoothctl`
   - [ ] Config backlight `brightnessctl`
-  - [ ] Config grub
-  - [ ] Config mouse
+  - [ ] Config grub: auto login, background image
+  - [ ] Config mouse: disable acceleration, touchpad gesture via `xinput`
+  - [ ] Config power `powerprofilectl`
+  - [ ] Config udev rules to use via
+  - [ ] Config auto mount path
+  - [ ] Config console via `dpkg-reconfigure console-setup`
+  - [ ] Desktop entry, mime type
+  - [ ] Add Vietnamese keyboard
+- [ ] Manage `podman` containers
+- [ ] Manage `ollama` keys, models
