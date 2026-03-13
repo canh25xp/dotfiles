@@ -50,3 +50,19 @@
   - [] Check dotfiles and externals
 - [ ] `doctor`: A checkhealth command for whole system: check for required software and version
 - [ ] include openrgb config in windows
+- [ ] System config
+  - [ ] Add unstable Debian apt source (sid)
+  - [ ] Add apt source for: `cloudflare-client`, `microsoft-edge`, `tailscale`
+  - [ ] Manually install package that not yet installable with apt or too old
+    - [ ] `yazi`
+    - [ ] `neovim`
+    - [ ] `tealdeer`
+    - [ ] `openrgb`
+  - [ ] Import gpg keys
+  - [ ] Config LED with `openrgb`
+  - [ ] Config audio with `wireplumber`
+  - [ ] Config Wi-Fi with `nmcli`
+  - [ ] Config bluetooth with `bluetoothctl`
+  - [ ] Config backlight `brightnessctl`
+  - [ ] Config grub
+  - [ ] Config mouse
