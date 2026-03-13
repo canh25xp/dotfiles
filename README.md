@@ -23,7 +23,7 @@ Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (witho
 
 ```bash
 sudo apt install git curl
-curl -Lo chezmoi_linux_amd64.deb https://github.com/twpayne/chezmoi/releases/download/v2.67.0/chezmoi_2.67.0_linux_amd64.deb
+curl -fsSL https://api.github.com/repos/twpayne/chezmoi/releases/latest | grep -o 'https://[^"]*linux_amd64\.deb' | xargs -n1 curl -Lo chezmoi_linux_amd64.deb
 sudo dpkg -i chezmoi_linux_amd64.deb
 rm chezmoi_linux_amd64.deb
 ```
