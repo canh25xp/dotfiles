@@ -42,7 +42,7 @@ Pictures/
 .ollama/
 {{ end }}
 
-{{ if .wsl }}
+{{ if or .wsl .android }}
 .config/alacritty/
 .config/i3/
 .config/i3status/
