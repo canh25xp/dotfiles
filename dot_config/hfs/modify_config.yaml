@@ -4,7 +4,13 @@
 
 {{- /* Set common values */ -}}
 {{- $data = ($data | setValueAtPath "accounts.vancanh-ng.admin" true) -}}
-{{- $data = ($data | setValueAtPath "accounts.vancanh-ng.srp" (joinPath .chezmoi.sourceDir "dot_config/hfs/.ignored-encrypted-srp.age" | include | decrypt | trim)) -}}
+
+{{- $key := joinPath .chezmoi.homeDir ".config/chezmoi/key.txt" -}}
+{{- if (stat $key) -}}
+  {{- $srp := (joinPath .chezmoi.sourceDir "dot_config/hfs/.ignored-encrypted-srp.age" | include | decrypt | trim) -}}
+  {{- $data = ($data | setValueAtPath "accounts.vancanh-ng.srp" $srp) -}}
+{{- end -}}
+
 {{- $data = ($data | setValueAtPath "auto_check_update" false) -}}
 {{- $data = ($data | setValueAtPath "open_browser_at_start" false) -}}
 {{- $data = ($data | setValueAtPath "title" "vancanh's File Server") -}}
