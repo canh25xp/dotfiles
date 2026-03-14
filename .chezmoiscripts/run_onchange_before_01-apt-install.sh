@@ -16,6 +16,7 @@ default_packages=(
   bash-completion
   bat
   bluez # For bluetooth
+  brightnessctl
   btm
   build-essential
   curl
@@ -26,8 +27,8 @@ default_packages=(
   fastfetch
   fd-find
   feh  # Display Background for `i3`
-  fzf
   fonts-noto-cjk fonts-noto-color-emoji # CJK: Chinese, Japanese and Korean fonts
+  fzf
   gawk # required for `trans`
   gdb
   gdu
@@ -57,6 +58,7 @@ default_packages=(
   p4
   p7zip
   pass
+  playerctl
   procs
   python3
   python3-pip
