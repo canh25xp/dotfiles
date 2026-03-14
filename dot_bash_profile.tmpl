@@ -28,6 +28,15 @@ if [ -d "$HOME/android" ]; then
     export PATH="$PATH:$ANDROID_HOME/build-tools/$latest_build_tools"
 fi
 
+if [ -d "$HOME/.jdks" ]; then
+    latest_jdk=$(find "$HOME/.jdks" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort -V | tail -n1)
+
+    if [ -n "$latest_jdk" ]; then
+        export JAVA_HOME="$HOME/.jdks/$latest_jdk"
+        export PATH="$JAVA_HOME/bin:$PATH"
+    fi
+fi
+
 {{ if .wsl -}}
 export DONT_PROMPT_WSL_INSTALL=true
 export PATH="$LOCALAPPDATA/Programs/Microsoft VS Code/bin:$PATH"
