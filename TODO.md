@@ -36,9 +36,9 @@
 - [ ] Automate installing from external package managers `cargo`, `npm`, ...
 - [x] Add support to encrypted notes in [DevNote](https://github.com/canh25xp/DevNote)
 - [x] On windows start up script: Check proxy server and connect
-- [ ] `newspaper`: get latest software release via `gh` or github API.
+- [x] `newspaper`: get latest software release via `gh` or github API.
 - [x] `synchronize`: pull && push dotfiles and all externals.
-- [ ] Automate everyday tasks:
+- [x] Automate everyday tasks:
   - [x] Start proxy server via `adb`
   - [/] login `p4`
   - [ ] Get time-in
