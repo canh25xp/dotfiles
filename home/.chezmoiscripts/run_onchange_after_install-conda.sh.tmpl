@@ -1,4 +1,11 @@
+{{ if .linux -}}
 #!/bin/bash
+
+{{ else if .android -}}
+#!/data/data/com.termux/files/usr/bin/bash
+
+{{ end -}}
+
 # https://docs.anaconda.com/free/miniconda/
 
 echo "================================================================================"

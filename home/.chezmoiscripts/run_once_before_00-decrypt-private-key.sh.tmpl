@@ -1,4 +1,10 @@
-#!/usr/bin/env bash
+{{ if .linux -}}
+#!/bin/bash
+
+{{ else if .android -}}
+#!/data/data/com.termux/files/usr/bin/bash
+
+{{ end -}}
 
 KEY_FILE="${HOME}/.config/chezmoi/key.txt"
 ENC_FILE="${HOME}/.local/share/chezmoi/.key.txt.age"
