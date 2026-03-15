@@ -1,7 +1,22 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-if [ ! -f "${HOME}/.config/chezmoi/key.txt" ]; then
+KEY_FILE="${HOME}/.config/chezmoi/key.txt"
+ENC_FILE="${HOME}/.local/share/chezmoi/.key.txt.age"
+
+if [ ! -f "$KEY_FILE" ]; then
     mkdir -p "${HOME}/.config/chezmoi"
-    chezmoi age decrypt --output "${HOME}/.config/chezmoi/key.txt" --passphrase "${HOME}/.local/share/chezmoi/.key.txt.age"
-    chmod 600 "${HOME}/.config/chezmoi/key.txt"
+
+    attempts=0
+    while [ "$attempts" -lt 3 ]; do
+        if chezmoi age decrypt --output "$KEY_FILE" --passphrase "$ENC_FILE"; then
+            chmod 600 "$KEY_FILE"
+            break
+        fi
+
+        attempts=$((attempts + 1))
+        echo "Decrypt failed ($attempts/3), try again..."
+    done
 fi
+
+# Skip decrypt
+exit 0
