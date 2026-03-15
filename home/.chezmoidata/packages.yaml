@@ -131,7 +131,42 @@ packages:
       - zoxide
   windows:
     winget:
+      - 7zip.7zip
+      - BrechtSanders.WinLibs.POSIX.UCRT
+      - BurntSushi.ripgrep.MSVC
+      - Clement.bottom
       - Git.Git
+      - GitHub.cli
+      - GnuWin32.Gzip
+      - JesseDuffield.lazygit
+      - Kitware.CMake
+      - Microsoft.Edge
+      - Microsoft.OpenJDK.21
+      - Microsoft.VisualStudioCode
+      - Microsoft.WindowsTerminal
+      - Neovim.Neovim
+      - OpenJS.NodeJS.LTS
+      - Python.Python.3.12
+      - Rustlang.Rustup
+      - Spotify.Spotify
+      - Starship.Starship
+      - Tailscale.Tailscale
+      - VideoLAN.VLC
+      - ajeetdsouza.zoxide
+      - dandavison.delta
+      - dbrgn.tealdeer
+      - dundee.gdu
+      - eza-community.eza
+      - glzr-io.glazewm
+      - gokcehan.lf
+      - jftuga.less
+      - jqlang.jq
+      - junegunn.fzf
+      - sharkdp.bat
+      - sharkdp.fd
+      - sxyazi.yazi
+      - twpayne.chezmoi
+      - yt-dlp.yt-dlp
     scoop:
       - hfs
       - gopass

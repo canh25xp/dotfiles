@@ -1,0 +1,11 @@
+Write-Host "================================================================================"
+Write-Host "[Chezmoi] Install winget packages"
+
+$confirmation = Read-Host "Do you want to install winget packages? (Y/n)"
+
+if ($confirmation -notmatch "^[Yy]$") {
+  Write-Host "Skip"
+  exit
+}
+
+winget install {{- range .packages.windows.winget }} {{ . }} {{- end }}
