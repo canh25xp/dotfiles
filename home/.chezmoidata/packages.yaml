@@ -1,0 +1,137 @@
+packages:
+  linux:
+    apt:
+      - adb
+      - alsa-utils
+      - pipewire
+      - pipewire-audio
+      - wireplumber # For audio
+      - bash-completion
+      - bat
+      - bluez # For bluetooth
+      - brightnessctl
+      - btm
+      - build-essential
+      - curl
+      - direnv
+      - duf
+      - entr
+      - eza
+      - fastfetch
+      - fd-find
+      - feh # Display Background for `i3`
+      - fonts-noto-cjk # CJK: Chinese, Japanese and Korean fonts
+      - fonts-noto-color-emoji
+      - fzf
+      - gawk # required for `trans` cli
+      - gdb
+      - gdu
+      - gh
+      - git
+      - git-delta
+      - git-lfs
+      - golang
+      - hexyl
+      - htop
+      - httpie
+      - i3 i3lock-fancy
+      - jq
+      - kitty
+      - lazygit
+      - libsqlite3-dev # required for bookmarks.nvim
+      - lolcat
+      - luarocks
+      - man-db
+      - neomutt
+      - neovim
+      - netcat-traditional
+      - network-manager # For Wi-Fi
+      - wpasupplicant
+      - iproute2
+      - ifupdown
+      - iw
+      - nodejs
+      - npm
+      - nsxiv
+      - p4
+      - p7zip
+      - pass
+      - playerctl
+      - procs
+      - python3
+      - python3-pip
+      - python3-venv
+      - qrencode
+      - ripgrep
+      - rofi
+      - rsync
+      - rustup
+      - sd
+      - speedtest-cli
+      - sqlite3 # required for bookmarks.nvim
+      - starship
+      - steghide
+      - tealdeer
+      - tmux
+      - trash-cli
+      - tree-sitter-cli
+      - unzip
+      - wget
+      - xclip
+      - xorg
+      - zathura
+      - zip
+      - zoxide
+    npm:
+      - cline
+      - hfs
+  termux:
+    pkg:
+      - bash-completion
+      - bat
+      - build-essential
+      - curl
+      - entr
+      - eza
+      - fastfetch
+      - fd
+      - fzf
+      - gdb
+      - gdu
+      - gh
+      - git
+      - git-delta
+      - git-lfs
+      - glow
+      - hexyl
+      - htop
+      - lazygit
+      - luarocks
+      - man
+      - neomutt
+      - neovim
+      - nodejs
+      - openssh
+      - p7zip
+      - pass
+      - python
+      - python-pip
+      - ripgrep
+      - squid
+      - starship
+      - taplo
+      - tealdeer
+      - termux-api
+      - tmux
+      - tree-sitter
+      - unzip
+      - wget
+      - yazi
+      - zip
+      - zoxide
+  windows:
+    winget:
+      - Git.Git
+    scoop:
+      - hfs
+      - gopass

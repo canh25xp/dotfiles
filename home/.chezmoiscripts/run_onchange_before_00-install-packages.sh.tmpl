@@ -1,7 +1,13 @@
+{{ if .linux -}}
 #!/bin/bash
 
+{{ else if .android -}}
+#!/data/data/com.termux/files/usr/bin/bash
+
+{{ end -}}
+
 echo "================================================================================"
-echo "[Chezmoi] Installing apt packages"
+echo "[Chezmoi] Installing packages"
 
 read -p "Continue? (Y/n): " confirmation
 confirmation=${confirmation:-Y}
@@ -11,79 +17,15 @@ if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
 fi
 
 default_packages=(
-  adb
-  alsa-utils pipewire pipewire-audio wireplumber # For audio
-  bash-completion
-  bat
-  bluez # For bluetooth
-  brightnessctl
-  btm
-  build-essential
-  curl
-  direnv
-  duf
-  entr
-  eza
-  fastfetch
-  fd-find
-  feh  # Display Background for `i3`
-  fonts-noto-cjk fonts-noto-color-emoji # CJK: Chinese, Japanese and Korean fonts
-  fzf
-  gawk # required for `trans`
-  gdb
-  gdu
-  gh
-  git
-  git-delta
-  git-lfs
-  golang
-  hexyl
-  htop
-  httpie
-  i3 i3lock-fancy
-  jq
-  kitty
-  lazygit
-  libsqlite3-dev # required for bookmarks.nvim
-  lolcat
-  luarocks
-  man-db
-  neomutt
-  neovim
-  netcat-traditional
-  network-manager wpasupplicant iproute2 ifupdown iw # For Wi-Fi
-  nodejs
-  npm
-  nsxiv
-  p4
-  p7zip
-  pass
-  playerctl
-  procs
-  python3
-  python3-pip
-  python3-venv
-  qrencode
-  ripgrep
-  rofi
-  rsync
-  rustup
-  sd
-  speedtest-cli
-  sqlite3 # required for bookmarks.nvim
-  starship
-  steghide
-  tealdeer
-  tmux
-  trash-cli
-  tree-sitter-cli
-  unzip
-  wget
-  xclip
-  xorg
-  zathura
-  zip
-  zoxide
+{{- if .linux }}
+{{- range .packages.linux.apt }}
+  {{ . }}
+{{- end }}
+{{- else if .android }}
+{{- range .packages.termux.pkg }}
+  {{ . }}
+{{- end }}
+{{- end }}
 )
 
 temp_file=$(mktemp)
@@ -91,20 +33,7 @@ trap 'rm -f "$temp_file"' EXIT
 
 printf "%s\n" "${default_packages[@]}" >"$temp_file"
 
-if command -v nvim >/dev/null; then
-  editor="nvim"
-elif command -v vim >/dev/null; then
-  editor="vim"
-elif command -v nano >/dev/null; then
-  editor="nano"
-else
-  echo "No suitable editor found (nvim, vim, or nano). Aborting."
-  exit 1
-fi
-
-echo
-echo "Opening package list for editing. Remove any lines for packages you don't want to install."
-$editor "$temp_file"
+editor "$temp_file"
 
 # Read edited package list
 mapfile -t selected_packages <"$temp_file"
@@ -121,7 +50,7 @@ if [[ ${#selected_packages[@]} -eq 0 ]]; then
   exit 1
 fi
 
-sudo apt-get update
+{{ if .linux -}} sudo {{ end -}} apt-get update
 
 available_packages=()
 missing_packages=()
@@ -162,4 +91,4 @@ if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   exit 0
 fi
 
-sudo apt-get install "${available_packages[@]}" -y
+{{ if .linux -}} sudo {{ end -}} apt-get install "${available_packages[@]}" -y
