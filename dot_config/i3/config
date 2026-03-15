@@ -82,6 +82,8 @@ bindsym Mod4+grave exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Ctrl+Shift+q exec xkill
+
 bindsym $mod+Shift+z border toggle
 
 # start dmenu (a program launcher)
