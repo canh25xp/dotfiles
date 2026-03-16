@@ -1,1 +1,7 @@
+# Swap caplocks and escape key
+setxkbmap -option caps:swapescape
+
+# Display always on
+xset s off -dpms
+
 exec i3
