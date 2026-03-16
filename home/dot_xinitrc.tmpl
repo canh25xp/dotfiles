@@ -1,5 +1,7 @@
+{{ if .laptop -}}
 # Swap caplocks and escape key
 setxkbmap -option caps:swapescape
+{{- end }}
 
 # Display always on
 xset s off -dpms
