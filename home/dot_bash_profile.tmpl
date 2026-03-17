@@ -71,18 +71,26 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 {{ if .work -}}
+export LOCAL_HOST="127.0.0.1"
 export PROXY_HOST={{ .netgearIPv4 | quote }}
 export PROXY_PORT="3128"
-export PROXY="$PROXY_HOST:$PROXY_PORT"
 
 # Try HTTP proxy, then fallback to SOCKS5 proxy
-if nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
-  export ALL_PROXY="http://$PROXY"
+if nc -z $LOCAL_HOST $PROXY_PORT 2>/dev/null; then
+  export ALL_PROXY="http://$LOCAL_HOST:$PROXY_PORT"
   export HTTP_PROXY="$ALL_PROXY"
   export HTTPS_PROXY="$ALL_PROXY"
   export http_proxy="$ALL_PROXY"
   export https_proxy="$ALL_PROXY"
-  echo -e "${GREEN}Using HTTP proxy $PROXY${RESET}"
+  echo -e "${GREEN}Using HTTP proxy $ALL_PROXY${RESET}"
+
+elif nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
+  export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
+  export HTTP_PROXY="$ALL_PROXY"
+  export HTTPS_PROXY="$ALL_PROXY"
+  export http_proxy="$ALL_PROXY"
+  export https_proxy="$ALL_PROXY"
+  echo -e "${GREEN}Using HTTP proxy $ALL_PROXY${RESET}"
 
 elif nc -z 127.0.0.1 1080 2>/dev/null; then
   export ALL_PROXY="socks5://127.0.0.1:1080"
