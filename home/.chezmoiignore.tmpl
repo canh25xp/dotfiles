@@ -148,3 +148,7 @@ AppData/Local/Arduino15/
 .config/OpenRGB
 .config/autostart/OpenRGB.desktop
 {{ end }}
+
+{{ if not (lookPath "antigravity") }}
+.config/Antigravity
+{{ end }}
