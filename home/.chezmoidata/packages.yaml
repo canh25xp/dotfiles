@@ -18,6 +18,8 @@ packages:
       - entr
       - eza
       - fastfetch
+      - fcitx5
+      - fcitx5-unikey
       - fd-find
       - feh # Display Background for `i3`
       - fonts-noto-cjk # CJK: Chinese, Japanese and Korean fonts

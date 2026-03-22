@@ -36,6 +36,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 # exec --no-startup-id nm-applet
 
+# For vietnamese keyboard
+exec_always --no-startup-id fcitx5
+
 ################################################################################
 # KEY BINDINGS
 ################################################################################
