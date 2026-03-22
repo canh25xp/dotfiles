@@ -7,7 +7,7 @@ sudoedit /etc/udev/rules.d/50-qmk.rules
 ```
 
 ```
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="514b", MODE="0666"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666"
 ```
 
 ```sh
