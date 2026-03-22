@@ -100,6 +100,30 @@ Mon Mar 16 21:58:53 2026
 +-----------------------------------------------------------------------------------------+
 ```
 
+## Troubleshoot
+
+### Failed to load driver
+
+```console
+$ lsmod | grep nvidia
+
+$ uname -r
+6.12.74+deb13+1-amd64
+
+$ sudo dkms status
+nvidia-current/550.163.01, 6.12.73+deb13-amd64, x86_64: installed
+```
+
+Reason: Kernel version mismatch
+
+Solution: rebuild driver for current kernel
+
+```sh
+sudo apt install linux-headers-$(uname -r)
+sudo dkms autoinstall
+sudo update-initramfs -u
+```
+
 ## References
 
 - [NVIDIA Official Driver Installation Guide](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/debian.html)
