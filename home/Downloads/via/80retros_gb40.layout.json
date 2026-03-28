@@ -1,7 +1,24 @@
 {
   "name": "80Retros GB40",
   "vendorProductId": 917516382,
-  "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  "macros": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "bunnies",
+    "minji",
+    "hanni",
+    "danni",
+    "haerin",
+    "hanni"
+  ],
   "layers": [
     [
       "LT(3,KC_TAB)",
