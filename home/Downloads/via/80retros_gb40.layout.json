@@ -78,9 +78,9 @@
       "LT(2,KC_SPC)",
       "KC_NO",
       "MO(3)",
-      "KC_RALT",
-      "KC_RGUI",
-      "KC_RCTL"
+      "MT(MOD_LALT | MOD_RALT,KC_LEFT)",
+      "MT(MOD_LGUI | MOD_RGUI,KC_DOWN)",
+      "MT(MOD_LCTL | MOD_RCTL,KC_RGHT)"
     ],
     [
       "KC_GRV",
@@ -129,7 +129,7 @@
       "KC_RBRC",
       "KC_MINS",
       "KC_EQL",
-      "KC_TRNS",
+      "KC_UP",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -140,9 +140,9 @@
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "KC_LEFT",
+      "KC_DOWN",
+      "KC_RGHT"
     ],
     [
       "KC_TRNS",
