@@ -18,7 +18,6 @@ Agents modifying this repository should prioritize stability and reproducibility
 - home/ # Files deployed into the user's $HOME via chezmoi
 - docs/ # Short, system-specific documentation
 - misc/ # Data files, package lists, and references
-- nvim/ # Legacy Neovim configuration (reference only). Neovim configuration will be clone separately in `~/.config/nvim-lazy` for Linux or `~/AppData/Local/nvim-lazy` for Windows.
 - assets/ # Images used in documentation
 
 ## Test and apply changes
