@@ -6,9 +6,20 @@
       "type": "streamableHttp",
       "url": "https://ipaas-scadev.sec.samsung.net/sec/kr/mcp_plm_001/1.0/plmmcp",
       "headers": {
-        "PLM_USER_ID": "vancanh.ng",
-        "PLM_USER_DIVISION": "25"
-      }
+        "PLM_USER_ID": "${PLM_USER_ID}",
+        "PLM_USER_DIVISION": "25",
+        "PLM_USER_LANG": "EN"
+
+      },
+      "autoApprove": [
+        "get_defects_by_user",
+        "get_defect_info",
+        "add_defect_comment",
+        "transfer_defect",
+        "get_file_list",
+        "get_mcp_info",
+        "get_file_url"
+      ]
     },
     "github-ipaas": {
       "disabled": false,
