@@ -39,6 +39,10 @@ Host tablet
   User {{ .tabletUserName }}
   Port 8022
 
+Host wifiteam-laptop-debian
+  HostName {{ .wifiteamLaptopUbuntuIP }}
+  User {{ .knoxID | replace "." "-" }}
+
 Host work-laptop
   HostName {{ .workIPv4Lan }}
   User {{ .knoxID }}
