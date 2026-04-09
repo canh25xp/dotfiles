@@ -1,0 +1,15 @@
+layout_conda() {
+  . "$HOME/.miniconda3/etc/profile.d/conda.sh"
+  conda activate "$1"
+}
+
+layout_uv() {
+  local venv_path="${1:-.venv}"
+
+  if [ ! -d "$venv_path" ]; then
+    echo "Creating venv at $venv_path..."
+    uv venv "$venv_path"
+  fi
+
+  source "$venv_path/bin/activate"
+}
