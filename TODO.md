@@ -76,3 +76,5 @@
   - [ ] Add Vietnamese keyboard
 - [ ] Manage `podman` containers
 - [ ] Manage `ollama` keys, models
+- [ ] Remove all decoration and coloring when running inside CLine terminal (recognize by CLINE_ACTIVE=true environment variable) to avoid messing with cline output.
+      This including: `ls`, `git`, ...
