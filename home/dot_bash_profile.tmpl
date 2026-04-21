@@ -71,11 +71,12 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 {{ if .work -}}
-export PROXY_HOST={{ .netgearIPv4 | quote }}
-export PROXY_PORT="3128"
+PROXY_HOST={{ .netgearIPv4 | quote }}
+PROXY_PORT="3128"
+NC_TIMEOUT=1 # fast timeout (1 seconds max)
 
 # Try HTTP proxy, then fallback to SOCKS5 proxy
-if nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
+if nc -z -w $NC_TIMEOUT $PROXY_HOST $PROXY_PORT 2>/dev/null; then
     export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
     export HTTP_PROXY="$ALL_PROXY"
     export HTTPS_PROXY="$ALL_PROXY"

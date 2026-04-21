@@ -133,8 +133,9 @@ fi
 proxy_on() {
   local PROXY_HOST={{ .netgearIPv4 | quote }}
   local PROXY_PORT="3128"
+  NC_TIMEOUT=1 # fast timeout (1 seconds max)
 
-  if nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
+  if nc -z -w $NC_TIMEOUT $PROXY_HOST $PROXY_PORT 2>/dev/null; then
     export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
     export HTTP_PROXY="$ALL_PROXY"
     export HTTPS_PROXY="$ALL_PROXY"
