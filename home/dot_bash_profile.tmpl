@@ -71,33 +71,37 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 {{ if .work -}}
-PROXY_HOST={{ .netgearIPv4 | quote }}
-PROXY_PORT="3128"
-NC_TIMEOUT=1 # fast timeout (1 seconds max)
+# Initialize proxy configuration on startup
+_proxy_init() {
+    local PROXY_HOST={{ .netgearIPv4 | quote }}
+    local PROXY_PORT="3128"
+    local NC_TIMEOUT=1 # fast timeout (1 seconds max)
 
-# Try HTTP proxy, then fallback to SOCKS5 proxy
-if nc -z -w $NC_TIMEOUT $PROXY_HOST $PROXY_PORT 2>/dev/null; then
-    export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
-    export HTTP_PROXY="$ALL_PROXY"
-    export HTTPS_PROXY="$ALL_PROXY"
-    export http_proxy="$ALL_PROXY"
-    export https_proxy="$ALL_PROXY"
-    echo -e "${GREEN}Using HTTP proxy $ALL_PROXY${RESET}"
+    # Try HTTP proxy, then fallback to SOCKS5 proxy
+    if nc -z -w $NC_TIMEOUT $PROXY_HOST $PROXY_PORT 2>/dev/null; then
+        export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
+        export HTTP_PROXY="$ALL_PROXY"
+        export HTTPS_PROXY="$ALL_PROXY"
+        export http_proxy="$ALL_PROXY"
+        export https_proxy="$ALL_PROXY"
+        echo -e "${GREEN}Using HTTP proxy $ALL_PROXY${RESET}"
 
-elif nc -z 127.0.0.1 1080 2>/dev/null; then
-    export ALL_PROXY="socks5://127.0.0.1:1080"
-    export HTTP_PROXY="$ALL_PROXY"
-    export HTTPS_PROXY="$ALL_PROXY"
-    export http_proxy="$ALL_PROXY"
-    export https_proxy="$ALL_PROXY"
-    echo -e "${GREEN}Using SOCKS5 proxy $ALL_PROXY${RESET}"
+    elif nc -z 127.0.0.1 1080 2>/dev/null; then
+        export ALL_PROXY="socks5://127.0.0.1:1080"
+        export HTTP_PROXY="$ALL_PROXY"
+        export HTTPS_PROXY="$ALL_PROXY"
+        export http_proxy="$ALL_PROXY"
+        export https_proxy="$ALL_PROXY"
+        echo -e "${GREEN}Using SOCKS5 proxy $ALL_PROXY${RESET}"
 
-else
-    unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
-fi
+    else
+        unset ALL_PROXY HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
+    fi
 
-export NO_PROXY={{ .workNoProxy | quote }}
-export no_proxy="$NO_PROXY"
+    export NO_PROXY={{ .workNoProxy | quote }}
+    export no_proxy="$NO_PROXY"
+}
+_proxy_init
 
 # Set OLLAMA_HOST
 OLLAMA_HOST={{ .netgearIPv4 | quote }}
