@@ -131,19 +131,10 @@ fi
 
 # Proxy management functions
 proxy_on() {
-  local LOCAL_HOST="127.0.0.1"
   local PROXY_HOST={{ .netgearIPv4 | quote }}
   local PROXY_PORT="3128"
 
-  if nc -z $LOCAL_HOST $PROXY_PORT 2>/dev/null; then
-    export ALL_PROXY="http://$LOCAL_HOST:$PROXY_PORT"
-    export HTTP_PROXY="$ALL_PROXY"
-    export HTTPS_PROXY="$ALL_PROXY"
-    export http_proxy="$ALL_PROXY"
-    export https_proxy="$ALL_PROXY"
-    echo "Proxy activated: $ALL_PROXY"
-
-  elif nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
+  if nc -z $PROXY_HOST $PROXY_PORT 2>/dev/null; then
     export ALL_PROXY="http://$PROXY_HOST:$PROXY_PORT"
     export HTTP_PROXY="$ALL_PROXY"
     export HTTPS_PROXY="$ALL_PROXY"
