@@ -1,0 +1,17 @@
+[Unit]
+Description=HFS Service
+
+[Container]
+Image=docker.io/rejetto/hfs:latest
+ContainerName=hfs
+
+PublishPort=8080:80
+
+Volume=%h/.local/share/hfs:/data
+Volume=%h/Downloads:/shares
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
