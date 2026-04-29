@@ -1,0 +1,24 @@
+[Unit]
+Description=Gitea Service
+
+[Container]
+Image=docker.gitea.com/gitea:1.25.5-rootless
+ContainerName=gitea
+
+# Ports
+PublishPort=3000:3000
+PublishPort=2222:2222
+
+# Volumes (named volumes handled by Podman automatically)
+Volume=gitea_gitea-data:/var/lib/gitea
+Volume=gitea_gitea-config:/etc/gitea
+
+# Host time sync (read-only)
+Volume=/etc/timezone:/etc/timezone:ro
+Volume=/etc/localtime:/etc/localtime:ro
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
