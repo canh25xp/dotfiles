@@ -1,0 +1,26 @@
+[Unit]
+Description=Open WebUI
+After=network-online.target ollama.service
+Requires=ollama.service
+
+[Container]
+Image=ghcr.io/open-webui/open-webui:main
+ContainerName=open-webui
+
+# Equivalent to: -p 3000:8080
+PublishPort=3000:8080
+
+# Equivalent to: -v open-webui:/app/backend/data
+Volume=open-webui:/app/backend/data
+
+# Equivalent to: --add-host host.docker.internal:host-gateway
+AddHost=host.docker.internal:host-gateway
+
+# Default command (matches image behavior)
+Exec=bash start.sh
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
