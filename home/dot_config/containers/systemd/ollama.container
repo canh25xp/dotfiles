@@ -3,7 +3,7 @@ Description=Ollama Server
 After=network-online.target
 
 [Container]
-Image=docker.io/ollama/ollama
+Image=docker.io/ollama/ollama:latest
 ContainerName=ollama
 
 # Equivalent to: -p 11434:11434
