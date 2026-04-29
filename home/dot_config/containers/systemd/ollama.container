@@ -1,0 +1,27 @@
+[Unit]
+Description=Ollama Server
+After=network-online.target
+
+[Container]
+Image=docker.io/ollama/ollama:latest
+ContainerName=ollama
+
+# Equivalent to: -p 11434:11434
+PublishPort=11434:11434
+
+# Equivalent to: -v .ollama:/root/.ollama
+Volume=%h/.ollama:/root/.ollama
+
+# Optional GPU (NVIDIA)
+AddDevice=nvidia.com/gpu=all
+
+# Run ollama server
+Exec=serve
+
+[Service]
+Restart=always
+Environment="OLLAMA_CONTEXT_LENGTH=32768"
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+
+[Install]
+WantedBy=default.target
