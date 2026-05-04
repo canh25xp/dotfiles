@@ -5,7 +5,7 @@ Description=HFS Service
 Image=docker.io/rejetto/hfs:latest
 ContainerName=hfs
 
-PublishPort=8080:80
+PublishPort=6969:80
 
 Volume=%h/.local/share/hfs:/data
 Volume=%h/Downloads:/shares
