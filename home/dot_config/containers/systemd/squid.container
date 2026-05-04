@@ -5,9 +5,11 @@ Description=Squid Proxy Container
 Image=docker.io/ubuntu/squid
 ContainerName=squid
 PublishPort=3128:3128
-Volume=%h/.config/squid/allow-wifi-proxy.conf:/etc/squid/conf.d/allow-wifi-proxy.conf:ro
 Volume=%h/.cache/squid:/var/spool/squid
 Volume=%h/.local/share/squid:/var/log/squid
+Volume=%h/.config/squid/conf.d/snippet.conf:/etc/squid/conf.d/allow-wifi-proxy.conf:ro
+Volume=/etc/localtime:/etc/localtime:ro
+Volume=/etc/timezone:/etc/timezone:ro
 
 [Service]
 Restart=always
