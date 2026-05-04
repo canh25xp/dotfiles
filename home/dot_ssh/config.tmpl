@@ -45,7 +45,7 @@ Host wifiteam-laptop-debian
 
 Host work-laptop
   HostName {{ .workIPv4Lan }}
-  User {{ .knoxID }}
+  User {{ .knoxID | replace "." "-" }}
 
 Host wifiteam
   HostName {{ .wifiteamIPv4 }}
