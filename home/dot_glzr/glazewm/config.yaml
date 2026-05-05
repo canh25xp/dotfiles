@@ -300,6 +300,16 @@ keybindings:
     bindings: ["alt+9"]
   - commands: ["focus --workspace 0"]
     bindings: ["alt+0"]
+  - commands: ["focus --workspace 6"]
+    bindings: ["alt+q"]
+  - commands: ["focus --workspace 7"]
+    bindings: ["alt+w"]
+  - commands: ["focus --workspace 8"]
+    bindings: ["alt+e"]
+  - commands: ["focus --workspace 9"]
+    bindings: ["alt+r"]
+  - commands: ["focus --workspace 0"]
+    bindings: ["alt+t"]
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
