@@ -7,8 +7,8 @@ Requires=ollama.service
 Image=ghcr.io/open-webui/open-webui:main
 ContainerName=open-webui
 
-# Equivalent to: -p 3000:8080
-PublishPort=3000:8080
+# Equivalent to: -p 3080:8080
+PublishPort=3080:8080
 
 # Equivalent to: -v open-webui:/app/backend/data
 Volume=open-webui:/app/backend/data
