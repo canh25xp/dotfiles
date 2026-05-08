@@ -1,0 +1,18 @@
+[Unit]
+Description=Uptime Kuma Service
+
+[Container]
+Image=docker.io/louislam/uptime-kuma:2
+ContainerName=uptime-kuma
+
+# Ports
+PublishPort=3001:3001
+
+# Persistent data
+Volume=uptime-kuma:/app/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
