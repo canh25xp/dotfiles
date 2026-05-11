@@ -1,0 +1,20 @@
+[Unit]
+Description=NGINX Reverse Proxy
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=docker.io/library/nginx:alpine
+ContainerName=nginx
+
+# Publish port
+PublishPort=3000:3000
+
+# Mount nginx config
+Volume=%h/.config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro,Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
