@@ -14,11 +14,6 @@ Host desktop
   HostName {{ .bunniesDesktopWindowsIP }}
   User {{ .nickName }}
 
-Host desktop-admin
-  HostName {{ .bunniesDesktopWindowsIP }}
-  User Admin
-  IdentityFile ~/.ssh/id_ed25519_sudo
-
 Host desktop-debian
   HostName {{ .bunniesDesktopDebianIP }}
   User {{ .nickName | lower }}
