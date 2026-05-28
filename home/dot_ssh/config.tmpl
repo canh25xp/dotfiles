@@ -1,12 +1,10 @@
-{{ if .work -}}
-IdentityFile ~/.ssh/id_ed25519_work_pc
-{{- else if .personal -}}
-IdentityFile ~/.ssh/id_ed25519_home_pc
-{{- end }}
-
-HashKnownHosts no
-
 Host *
+  {{ if .work -}}
+  IdentityFile ~/.ssh/id_ed25519_work_pc
+  {{- else if .personal -}}
+  IdentityFile ~/.ssh/id_ed25519_home_pc
+  {{- end }}
+  HashKnownHosts no
   AddKeysToAgent yes
   KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256
 
