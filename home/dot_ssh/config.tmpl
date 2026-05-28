@@ -13,11 +13,11 @@ Host *
 # ========== Direct Host =======================================================
 
 Host desktop
-  HostName {{ .bunniesDesktopIP }}
+  HostName {{ .bunniesDesktopWindowsIP }}
   User {{ .nickName }}
 
 Host desktop-admin
-  HostName {{ .bunniesDesktopIP }}
+  HostName {{ .bunniesDesktopWindowsIP }}
   User Admin
   IdentityFile ~/.ssh/id_ed25519_sudo
 
@@ -30,17 +30,17 @@ Host laptop-debian
   User {{ .nickName | lower }}
 
 Host phone
-  HostName {{ .bunniesF741bIP }}
+  HostName {{ .bunniesZflipIP }}
   User {{ .phoneUserName }}
   Port 8022
 
 Host tablet
-  HostName {{ if .work -}} localhost {{- else -}} {{ .bunniesX826bIP }} {{- end }}
+  HostName {{ if .work -}} localhost {{- else -}} {{ .bunniesTabletIP }} {{- end }}
   User {{ .tabletUserName }}
   Port 8022
 
 Host wifiteam-laptop-debian
-  HostName {{ .wifiteamLaptopUbuntuIP }}
+  HostName {{ .wifiteamLaptopDebianIP }}
   User {{ .knoxID | replace "." "-" }}
 
 Host work-laptop
@@ -54,18 +54,18 @@ Host wifiteam
 # ========== Proxy Jump Host ===================================================
 
 Host desktop-jump
-  HostName {{ .bunniesDesktopIP }}
+  HostName {{ .bunniesDesktopWindowsIP }}
   User {{ .nickName }}
   ProxyJump tablet
 
 Host phone-jump
-  HostName {{ .bunniesF741bIP }}
+  HostName {{ .bunniesZflipIP }}
   User {{ .phoneUserName }}
   Port 8022
   ProxyJump tablet
 
 Host wifiteam-jump-tablet
-  HostName {{ .wifiteamLaptopUbuntuIP }}
+  HostName {{ .wifiteamLaptopDebianIP }}
   User {{ .knoxID | replace "." "-" }}
   ProxyJump tablet
 
@@ -78,7 +78,7 @@ Host wifiteam-jump-netgear
 
 Host tablet-proxy
   HostName localhost
-  User {{ .bunniesX826bIP }}
+  User {{ .bunniesTabletIP }}
   DynamicForward 1080
   Port 8022
   ExitOnForwardFailure yes

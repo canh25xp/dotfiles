@@ -29,12 +29,13 @@ netgearIPv4: 107.98.150.183
 
 # Tailscale
 tailnetDNS: "walleye-godzilla.ts.net"
-bunniesDesktopIP: 100.99.0.0
+bunniesDesktopWindowsIP: 100.99.0.0
 bunniesDesktopDebianIP: 100.99.0.1
-bunniesF741bIP: 100.99.0.2
-bunniesX826bIP: 100.99.0.3
+bunniesZflipIP: 100.99.0.2
+bunniesTabletIP: 100.99.0.3
 bunniesLaptopDebianIP: 100.99.0.4
-wifiteamLaptopUbuntuIP: 100.99.0.10
+bunniesIphoneIP: 100.99.0.5
+wifiteamLaptopDebianIP: 100.99.0.10
 
 # Proxy settings
 androidSerial: "R32X6003EPL"
