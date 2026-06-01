@@ -34,7 +34,7 @@ Prioritize to use vim-like bindings if possible.
 | W   | Word, Window, Write, Workspace, Wrap               |
 | X   | Cut, Close, eXchange                               |
 | Y   | Yank[^5], Yes                                      |
-| Z   | Fold[^7], Redraw, Undo, Zoom, Suspend[^8]          |
+| Z   | Fold[^7], Redraw, Undo, Zoom, Suspend[^8], Zen[^9] |
 
 [^1]: a hunk is a block of changes in git (or any version control system)
 
@@ -49,6 +49,10 @@ Prioritize to use vim-like bindings if possible.
 [^6]: Think of it like the z fold phone
 
 [^7]: Think of it like sleep (Zzz)
+
+[^8]: Zombie
+
+[^9]: Zen mode, usually for hiding UI elements, like status bar, ...
 
 ## Numbers (0–9)
 
