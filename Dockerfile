@@ -66,12 +66,8 @@ ENV GIT_LFS_SKIP_SMUDGE=1
 # Initialize chezmoi from GitHub
 RUN chezmoi init canh25xp --depth 1
 
-# Apply dotfiles (exclude scripts to avoid interactive prompts)
-# Scripts will be applied on first container run if needed
-RUN chezmoi apply --exclude scripts --no-tty
-
-# Apply externals (nvim-lazy, fonts, themes, tmux plugins, etc.)
-RUN chezmoi apply --include externals --no-tty
+# Apply dotfiles
+RUN chezmoi apply --no-tty
 
 # =============================================================================
 # Bootstrap Neovim.
