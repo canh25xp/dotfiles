@@ -8,22 +8,6 @@
 {{- $wsl := false -}}
 {{- $android := false -}}
 
-{{- $hostname := .chezmoi.hostname                    -}}
-{{- $username := .chezmoi.username                    -}}
-{{- if ($hostname | lower | contains "vancanh-ng")    -}}
-{{-   $work = true                                    -}}
-{{-   $laptop = true                                  -}}
-{{- else if eq $username "u0_a505"                    -}}
-{{-   $personal = true                                -}}
-{{- else if ($hostname | lower | contains "bunnies")  -}}
-{{-   $personal = true                                -}}
-{{-   if ($hostname | lower | contains "desktop")     -}}
-{{-     $desktop = true                               -}}
-{{-   else if ($hostname | lower | contains "laptop") -}}
-{{-     $laptop = true                                -}}
-{{-   end                                             -}}
-{{- end                                               -}}
-
 {{- $email := "nv.canh@outlook.com" -}}
 {{- if $work -}}
 {{-   $email = "vancanh.ng@samsung.com" -}}
