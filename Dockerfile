@@ -1,4 +1,4 @@
-# Dockerfile for debian:unstable with chezmoi dotfiles
+# My Dockerized debian:unstable home.
 # Usage: docker build -t dotfiles-debian:unstable .
 #        docker run -it --rm dotfiles-debian:unstable
 
@@ -68,10 +68,10 @@ RUN chezmoi init canh25xp --depth 1
 
 # Apply dotfiles (exclude scripts to avoid interactive prompts)
 # Scripts will be applied on first container run if needed
-RUN chezmoi apply --exclude scripts
+RUN chezmoi apply --exclude scripts --no-tty
 
 # Apply externals (nvim-lazy, fonts, themes, tmux plugins, etc.)
-RUN chezmoi apply --include externals
+RUN chezmoi apply --include externals --no-tty
 
 # =============================================================================
 # Bootstrap Neovim.
