@@ -138,11 +138,22 @@ git config --global --add safe.directory '*'
 
 > https://askubuntu.com/questions/599808/cannot-set-lc-ctype-to-default-locale-no-such-file-or-directory
 
+First install locales package with `sudo apt instlal locale`.
+Then:
+
 ```bash
 sudo dpkg-reconfigure locales
 # Select the following number
 97
 3
+```
+
+Or non-interatively:
+
+```bash
+sudo sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+sudo update-locale LANG=en_US.UTF-8
 ```
 
 ### To clear the state of run*onchange* scripts, run:
