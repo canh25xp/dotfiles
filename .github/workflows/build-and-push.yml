@@ -4,8 +4,16 @@ on:
   push:
     branches: ["main"]
     tags: ["v*"]
+    paths:
+      - "Dockerfile"
+      - "home/**"
+      - ".github/workflows/build-and-push.yml"
   pull_request:
     branches: ["main"]
+    paths:
+      - "Dockerfile"
+      - "home/**"
+      - ".github/workflows/build-and-push.yml"
 
 jobs:
   build-and-push:
