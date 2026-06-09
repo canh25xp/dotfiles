@@ -13,6 +13,8 @@ packages:
       - eza
       - fastfetch
       - fd-find
+      - ffmpeg
+      - file
       - fzf
       - gawk # required for `trans` cli
       - gdb
@@ -25,6 +27,7 @@ packages:
       - hexyl
       - htop
       - httpie
+      - imagemagick
       - iproute2
       - jq
       - lazygit
@@ -40,10 +43,12 @@ packages:
       - p4
       - p7zip
       - pass
+      - poppler-utils
       - procs
       - python3
       - python3-pip
       - python3-venv
+      - ripgrep
       - ripgrep
       - rsync
       - rustup
@@ -57,6 +62,7 @@ packages:
       - tree-sitter-cli
       - unzip
       - wget
+      - xsel
       - zip
       - zoxide
     apt-desktop:
