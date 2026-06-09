@@ -9,8 +9,16 @@
 echo "================================================================================"
 echo "[Chezmoi] Installing packages"
 
-read -p "Continue? (Y/n): " confirmation
-confirmation=${confirmation:-Y}
+# TTY detection: default to Y if no TTY
+is_tty() { [ -t 0 ]; }
+
+if is_tty; then
+    read -p "Continue? (Y/n): " confirmation
+    confirmation=${confirmation:-Y}
+else
+    confirmation="Y"
+fi
+
 if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   echo "Canceled"
   exit 0
@@ -33,7 +41,10 @@ trap 'rm -f "$temp_file"' EXIT
 
 printf "%s\n" "${default_packages[@]}" >"$temp_file"
 
-editor "$temp_file"
+# Skip editor if no TTY (non-interactive mode)
+if is_tty; then
+    editor "$temp_file"
+fi
 
 # Read edited package list
 mapfile -t selected_packages <"$temp_file"
@@ -84,8 +95,14 @@ for pkg in "${available_packages[@]}"; do
   echo " - $pkg"
 done
 
-read -p "Do you want to proceed with the installation? (Y/n): " confirmation
-confirmation=${confirmation:-Y}
+# Skip prompt if no TTY (non-interactive mode)
+if is_tty; then
+    read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+    confirmation=${confirmation:-Y}
+else
+    confirmation="Y"
+fi
+
 if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
   echo "Installation canceled."
   exit 0

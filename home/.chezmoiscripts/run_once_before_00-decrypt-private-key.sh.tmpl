@@ -6,10 +6,19 @@
 
 {{ end -}}
 
+# TTY detection: skip interactive operations if no TTY
+is_tty() { [ -t 0 ]; }
+
 KEY_FILE="${HOME}/.config/chezmoi/key.txt"
 ENC_FILE="${HOME}/.local/share/chezmoi/.key.txt.age"
 
 if [ ! -f "$KEY_FILE" ]; then
+    # Skip decrypt if no TTY (non-interactive mode)
+    if ! is_tty; then
+        echo "[Chezmoi] No TTY detected, skipping key decryption"
+        exit 0
+    fi
+
     mkdir -p "${HOME}/.config/chezmoi"
 
     attempts=0

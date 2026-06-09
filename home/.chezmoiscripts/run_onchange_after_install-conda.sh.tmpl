@@ -11,13 +11,20 @@
 echo "================================================================================"
 echo "[Chezmoi] Installing conda (miniconda)"
 
+# TTY detection: default to Y if no TTY
+is_tty() { [ -t 0 ]; }
+
 if command -v conda &>/dev/null; then
     echo "conda is already installed. Exiting."
     exit 0
 fi
 
-read -p "Do you want to proceed with the installation? (Y/n): " confirmation
-confirmation=${confirmation:-Y}
+if is_tty; then
+    read -p "Do you want to proceed with the installation? (Y/n): " confirmation
+    confirmation=${confirmation:-Y}
+else
+    confirmation="Y"
+fi
 
 if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
     echo "Installation canceled."

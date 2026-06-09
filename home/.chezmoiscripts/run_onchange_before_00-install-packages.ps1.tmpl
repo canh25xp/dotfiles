@@ -1,7 +1,15 @@
 Write-Host "================================================================================"
 Write-Host "[Chezmoi] Install winget packages"
 
-$confirmation = Read-Host "Do you want to install winget packages? (Y/n)"
+# TTY detection: skip interactive operations if no TTY
+# In PowerShell, check if stdin is redirected
+$IsInteractive = -not [Console]::IsInputRedirected
+
+if ($IsInteractive) {
+    $confirmation = Read-Host "Do you want to install winget packages? (Y/n)"
+} else {
+    $confirmation = "Y"
+}
 
 if ($confirmation -notmatch "^[Yy]$") {
   Write-Host "Skip"
