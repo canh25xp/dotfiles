@@ -48,6 +48,13 @@ jobs:
           tags: |
             ghcr.io/canh25xp/dotfiles-debian:latest
 
+      - name: Test image
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          docker run --rm \
+            ghcr.io/${{ github.repository_owner }}/dotfiles-debian:latest \
+            chezmoi status
+
       - name: Build and push version tag
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         uses: docker/build-push-action@v6
