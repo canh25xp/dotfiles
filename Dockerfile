@@ -95,4 +95,4 @@ RUN curl -fsSL https://api.github.com/repos/sxyazi/yazi/releases/latest \
 RUN rm -rf ~/.cache
 
 # Default shell
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "-l"]
