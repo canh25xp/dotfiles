@@ -17,6 +17,12 @@ Focus on:
 
 Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (without chroot)
 
+## Quick test
+
+```sh
+docker run -it --rm ghcr.io/canh25xp/dotfiles-debian:latest
+```
+
 ## Installation
 
 ### Debian & Ubuntu
