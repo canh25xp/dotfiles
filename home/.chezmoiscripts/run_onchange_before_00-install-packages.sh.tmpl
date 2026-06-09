@@ -36,6 +36,19 @@ default_packages=(
 {{- end }}
 )
 
+{{- if .linux }}
+desktop_packages=(
+{{- range index .packages.linux "apt-desktop" }}
+  {{ . }}
+{{- end }}
+)
+
+# If TTY detected, include desktop packages too
+if is_tty; then
+    default_packages+=("${desktop_packages[@]}")
+fi
+{{- end }}
+
 temp_file=$(mktemp)
 trap 'rm -f "$temp_file"' EXIT
 
