@@ -81,6 +81,15 @@ RUN nvim --headless +qa 2>/dev/null || true
 RUN bat cache --build 2>/dev/null || true
 
 # =============================================================================
+# Install Yazi
+# =============================================================================
+RUN curl -fsSL https://api.github.com/repos/sxyazi/yazi/releases/latest \
+    | grep -o 'https://[^"]*x86_64-unknown-linux-gnu\.deb' \
+    | xargs -n1 curl -Lo /tmp/yazi-x86_64-unknown-linux-gnu.deb \
+    && dpkg -i /tmp/yazi-x86_64-unknown-linux-gnu.deb \
+    && rm /tmp/yazi-x86_64-unknown-linux-gnu.deb
+
+# =============================================================================
 # Cleanup
 # =============================================================================
 RUN rm -rf ~/.cache
