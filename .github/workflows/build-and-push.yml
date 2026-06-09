@@ -15,14 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Login to Quay.io
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: docker/login-action@v3
-        with:
-          registry: quay.io
-          username: ${{ secrets.QUAY_USERNAME }}
-          password: ${{ secrets.QUAY_ENCRYPTED_PASSWORD }}
-
       - name: Login to GHCR
         if: ${{ github.event_name != 'pull_request' }}
         uses: docker/login-action@v3
@@ -43,7 +35,6 @@ jobs:
         with:
           push: true
           tags: |
-            quay.io/canh25xp/dotfiles-debian:latest
             ghcr.io/canh25xp/dotfiles-debian:latest
 
       - name: Build and push version tag
@@ -52,5 +43,4 @@ jobs:
         with:
           push: true
           tags: |
-            quay.io/canh25xp/dotfiles-debian:${{ github.ref_name }}
             ghcr.io/canh25xp/dotfiles-debian:${{ github.ref_name }}
