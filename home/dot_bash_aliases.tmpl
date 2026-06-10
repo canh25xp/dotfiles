@@ -68,13 +68,13 @@ alias fuck='sudo $(fc -ln -1)'
 
 alias givemethekey="source ~/.secrets"
 
-{{ if lookPath "bat" -}}
-alias cat='bat -P'
-{{ end -}}
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat -P'
+fi
 
-{{ if lookPath "podman" -}}
-alias docker=podman
-{{ end -}}
+if [ -x "$(command -v podman)" ]; then
+  alias docker=podman
+fi
 
 # Open Nvim and enter Neotree
 ntree() {
