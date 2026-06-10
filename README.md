@@ -20,7 +20,7 @@ Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (witho
 ## Quick test
 
 ```sh
-docker run -it --rm ghcr.io/canh25xp/dotfiles-debian:latest bash -l
+docker run -it --rm ghcr.io/canh25xp/dotfiles-debian:latest
 ```
 
 ## Installation
