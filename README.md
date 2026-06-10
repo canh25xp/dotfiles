@@ -23,6 +23,14 @@ Tested on **Windows 11**, **Debian Sid**, **Ubuntu Noble** and **Termux** (witho
 docker run -it --rm ghcr.io/canh25xp/dotfiles-debian:latest
 ```
 
+Or using WSL:
+
+```pwsh
+curl -LO https://github.com/canh25xp/dotfiles/releases/download/v1.0.0/dotfiles-debian.tar.gz
+wsl --import Debian C:\WSL\Debian dotfiles-debian.tar.gz --version 2
+wsl -d Debian
+```
+
 ## Installation
 
 ### Debian & Ubuntu
