@@ -74,6 +74,9 @@ RUN chezmoi apply --no-tty
 # =============================================================================
 RUN nvim --headless +qa 2>/dev/null || true
 
+# Install mason packages
+RUN nvim --headless +MasonEnsureInstall +qa 2>/dev/null || true
+
 # =============================================================================
 # Build Bat Cache
 # =============================================================================
