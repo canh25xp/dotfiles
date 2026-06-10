@@ -45,9 +45,10 @@ RUN useradd -m -s /bin/bash canh25xp \
 # =============================================================================
 # Install Chezmoi
 # =============================================================================
-RUN curl -fsSL https://api.github.com/repos/twpayne/chezmoi/releases/latest \
-    | grep -o 'https://[^"]*linux_amd64\.deb' \
-    | xargs -n1 curl -Lo /tmp/chezmoi_linux_amd64.deb \
+ARG CHEZMOI_VERSION=v2.70.5
+
+RUN curl -fsSL -o /tmp/chezmoi_linux_amd64.deb \
+    "https://github.com/twpayne/chezmoi/releases/download/${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION#v}_linux_amd64.deb" \
     && dpkg -i /tmp/chezmoi_linux_amd64.deb \
     && rm /tmp/chezmoi_linux_amd64.deb
 
