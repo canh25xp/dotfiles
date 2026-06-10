@@ -76,35 +76,17 @@ if [ -x "$(command -v podman)" ]; then
   alias docker=podman
 fi
 
-# Open Nvim and enter Neotree
-ntree() {
-  nvim -c "Neotree position=current"
-}
-
 # cd on exit
-{{ if lookPath "yazi" -}}
-cdi() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
-
-{{ else if lookPath "lf" -}}
-cdi() {
-  # `command` is needed in case `lfcd` is aliased to `lf`
-  cd "$(command lf -print-last-dir "$@")"
-}
-
-{{ end -}}
-
-# bat help
-alias bathelp='bat --plain --language=help'
-help() {
-  "$@" --help 2>&1 | bathelp
-}
+if [ -x "$(command -v yazi)" ]; then
+  cdi() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
+fi
 
 # Add an "alert" alias for long running commands (Useless in WSL)
 # Use like so:
