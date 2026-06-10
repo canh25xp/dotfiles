@@ -1,8 +1,10 @@
 name: Export and Release
 
 on:
-  push:
-    tags: ["v*"]
+  workflow_run:
+    workflows: ["Build and Push"]
+    types: [completed]
+    branches: ["v*"]
 
 jobs:
   export-and-release:
