@@ -9,7 +9,7 @@
 #umask 022
 
 export EDITOR=nvim
-export NVIM_APPNAME=nvim-lazy
+export NVIM_APPNAME=nvim
 
 export PAGER=less
 
