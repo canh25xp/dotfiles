@@ -1,0 +1,48 @@
+name: Export and Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  export-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
+
+    strategy:
+      matrix:
+        image:
+          - name: dotfiles-debian
+            tag: ghcr.io/canh25xp/dotfiles-debian:latest
+
+    steps:
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull image
+        run: docker pull ${{ matrix.image.tag }}
+
+      - name: Run container
+        run: docker run --name ${{ matrix.image.name }} ${{ matrix.image.tag }}
+
+      - name: Export container to tar
+        run: docker export ${{ matrix.image.name }} > ${{ matrix.image.name }}.tar
+
+      - name: Compress tar
+        run: gzip ${{ matrix.image.name }}.tar
+
+      - name: Cleanup container
+        if: always()
+        run: docker rm -f ${{ matrix.image.name }} || true
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.image.name }}.tar.gz
+          generate_release_notes: true
