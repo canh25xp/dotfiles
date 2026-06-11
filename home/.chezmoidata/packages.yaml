@@ -49,7 +49,6 @@ packages:
       - python3-pip
       - python3-venv
       - ripgrep
-      - ripgrep
       - rsync
       - rustup
       - sd
