@@ -1,11 +1,7 @@
-# My Dockerized debian:unstable home.
-# Usage: docker build -t dotfiles-debian:unstable .
-#        docker run -it --rm dotfiles-debian:unstable
-
 FROM debian:unstable
 
 LABEL maintainer="Ngô Văn Cảnh <nv.canh@outlook.com>"
-LABEL description="Debian unstable with chezmoi dotfiles for canh25xp"
+LABEL description="canh25xp's dockerize home"
 
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive

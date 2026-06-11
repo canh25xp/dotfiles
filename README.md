@@ -80,3 +80,10 @@ GIT_LFS_SKIP_SMUDGE=1 chezmoi init canh25xp --depth 1
 ```bash
 chemzoi apply
 ```
+
+## Dockerize
+
+```sh
+docker build -t dotfiles-debian .
+docker run -it --rm dotfiles-debian
+```
