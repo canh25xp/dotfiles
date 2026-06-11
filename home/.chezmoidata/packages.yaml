@@ -40,7 +40,6 @@ packages:
       - netcat-traditional
       - nodejs
       - npm
-      - p4
       - p7zip
       - pass
       - podman
