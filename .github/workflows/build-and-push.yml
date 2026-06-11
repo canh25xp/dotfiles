@@ -47,13 +47,6 @@ jobs:
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             type=ref,event=tag
 
-      # DOTFILES_SHA changes will trigger a cache invalidation at `chezmoi init && chezmoi apply` layer,
-      # So it make sense to only change when home/ directory changes.
-      - name: Get home/ SHA
-        id: home_sha
-        run: |
-          echo "sha=$(git log -1 --format='%H' -- home/)" >> $GITHUB_OUTPUT
-
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -63,7 +56,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: DOTFILES_SHA=${{ steps.home_sha.outputs.sha }}
+          build-args: DOTFILES_SHA=${{ github.sha }}
 
       - name: Test image
         if: ${{ github.ref == 'refs/heads/main' }}
