@@ -1,32 +1,45 @@
 {{ if .linux -}}
-#!/bin/bash
+#!/usr/bin/env bash
 
 {{ else if .android -}}
 #!/data/data/com.termux/files/usr/bin/bash
 
 {{ end -}}
 
+set -euo pipefail
+
 # https://docs.anaconda.com/free/miniconda/
 
-echo "================================================================================"
-echo "[Chezmoi] Installing conda (miniconda)"
+# --- Helper functions ---
 
-# TTY detection: default to Y if no TTY
 is_tty() { [ -t 0 ]; }
+
+banner() {
+  echo "================================================================================"
+  echo "[Chezmoi] $*"
+}
+
+confirm() {
+  local prompt="${1:-Continue?} (Y/n): "
+  if is_tty; then
+    read -p "$prompt" answer
+    answer="${answer:-Y}"
+  else
+    answer="Y"
+  fi
+  [[ "$answer" =~ ^[Yy]$ ]]
+}
+
+# --- Main ---
 
 if command -v conda &>/dev/null; then
     echo "conda is already installed. Exiting."
     exit 0
 fi
 
-if is_tty; then
-    read -p "Do you want to proceed with the installation? (Y/n): " confirmation
-    confirmation=${confirmation:-Y}
-else
-    confirmation="Y"
-fi
+banner "Installing conda (miniconda)"
 
-if ! [[ "$confirmation" == "y" || "$confirmation" == "Y" ]]; then
+if ! confirm "Do you want to proceed with the installation?"; then
     echo "Installation canceled."
     exit 0
 fi

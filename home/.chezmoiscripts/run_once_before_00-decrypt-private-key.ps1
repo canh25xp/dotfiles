@@ -1,32 +1,45 @@
 #!/usr/bin/env pwsh
 
-# TTY detection: skip interactive operations if no TTY
-# In PowerShell, check if stdin is redirected
-$IsInteractive = -not [Console]::IsInputRedirected
+# --- Helper functions ---
 
-$keyFile = "$HOME/.config/chezmoi/key.txt"
-$encFile = "$HOME/.local/share/chezmoi/.key.txt.age"
-
-if (-not (Test-Path $keyFile)) {
-    # Skip decrypt if not interactive (non-interactive mode)
-    if (-not $IsInteractive) {
-        Write-Host "[Chezmoi] No TTY detected, skipping key decryption"
-        exit 0
-    }
-
-    $attempt = 0
-    while ($attempt -lt 3) {
-        try {
-            chezmoi age decrypt --passphrase --output $keyFile $encFile
-            if (Test-Path $keyFile) {
-                break
-            }
-        } catch {}
-
-        $attempt++
-        Write-Host "Decrypt failed ($attempt/3), try again..."
-    }
+function Test-TTY {
+  -not [Console]::IsInputRedirected
 }
 
-# Skip decrypt
-exit 0
+function Write-Banner {
+  param([string]$Message)
+  Write-Host "================================================================================"
+  Write-Host "[Chezmoi] $Message"
+}
+
+# --- Main ---
+
+$KeyFile = "$HOME/.config/chezmoi/key.txt"
+$EncFile = "$HOME/.local/share/chezmoi/.key.txt.age"
+
+if (Test-Path $KeyFile) {
+  exit 0
+}
+
+# Skip decrypt if not interactive (non-interactive mode)
+if (-not (Test-TTY)) {
+  Write-Host "[Chezmoi] No TTY detected, skipping key decryption"
+  exit 0
+}
+
+Write-Banner "decrypt private key"
+
+$attempt = 0
+while ($attempt -lt 3) {
+  try {
+    chezmoi age decrypt --passphrase --output $KeyFile $EncFile
+    if (Test-Path $KeyFile) {
+      exit 0
+    }
+  } catch {}
+
+  $attempt++
+  Write-Host "Decrypt failed ($attempt/3), try again..."
+}
+
+exit 1

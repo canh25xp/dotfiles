@@ -1,19 +1,35 @@
-Write-Host "================================================================================"
-Write-Host "[Chezmoi] Install winget packages"
+#!/usr/bin/env pwsh
 
-# TTY detection: skip interactive operations if no TTY
-# In PowerShell, check if stdin is redirected
-$IsInteractive = -not [Console]::IsInputRedirected
+# --- Helper functions ---
 
-if ($IsInteractive) {
-    $confirmation = Read-Host "Do you want to install winget packages? (Y/n)"
-} else {
-    $confirmation = "Y"
+function Test-TTY {
+  -not [Console]::IsInputRedirected
 }
 
-if ($confirmation -notmatch "^[Yy]$") {
+function Write-Banner {
+  param([string]$Message)
+  Write-Host "================================================================================"
+  Write-Host "[Chezmoi] $Message"
+}
+
+function Confirm-Action {
+  param([string]$Prompt = "Continue?")
+  if (Test-TTY) {
+    $answer = Read-Host "$Prompt (Y/n)"
+    if ($null -eq $answer -or $answer -eq "") { $answer = "Y" }
+  } else {
+    $answer = "Y"
+  }
+  $answer -match "^[Yy]$"
+}
+
+# --- Main ---
+
+Write-Banner "Install winget packages"
+
+if (-not (Confirm-Action "Do you want to install winget packages?")) {
   Write-Host "Skip"
-  exit
+  exit 0
 }
 
 winget install {{- range .packages.windows.winget }} {{ . }} {{- end }}

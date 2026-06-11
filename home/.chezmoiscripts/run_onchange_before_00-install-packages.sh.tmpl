@@ -1,93 +1,123 @@
 {{ if .linux -}}
-#!/bin/bash
+#!/usr/bin/env bash
 
 {{ else if .android -}}
 #!/data/data/com.termux/files/usr/bin/bash
 
 {{ end -}}
 
-echo "================================================================================"
-echo "[Chezmoi] Installing packages"
+set -euo pipefail
 
-# TTY detection: default to Y if no TTY
+# --- Helper functions ---
+
 is_tty() { [ -t 0 ]; }
 
-if is_tty; then
-    read -p "Continue? (Y/n): " confirmation
-    confirmation=${confirmation:-Y}
-else
-    confirmation="Y"
-fi
+banner() {
+  echo "================================================================================"
+  echo "[Chezmoi] $*"
+}
 
-if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
+confirm() {
+  local prompt="${1:-Continue?} (Y/n): "
+  if is_tty; then
+    read -p "$prompt" answer
+    answer="${answer:-Y}"
+  else
+    answer="Y"
+  fi
+  [[ "$answer" =~ ^[Yy]$ ]]
+}
+
+# Build the package list from template data, optionally including desktop packages
+build_package_list() {
+  local -a pkgs=()
+  {{- if .linux }}
+  {{- range .packages.linux.apt }}
+  pkgs+=("{{ . }}")
+  {{- end }}
+  {{- else if .android }}
+  {{- range .packages.termux.pkg }}
+  pkgs+=("{{ . }}")
+  {{- end }}
+  {{- end }}
+
+  {{- if .linux }}
+  # Include desktop packages only when interactive (TTY)
+  if is_tty; then
+    {{- range index .packages.linux "apt-desktop" }}
+    pkgs+=("{{ . }}")
+    {{- end }}
+  fi
+  {{- end }}
+
+  printf '%s\n' "${pkgs[@]}"
+}
+
+# Let the user edit the package list in a temp file (TTY only)
+edit_package_list() {
+  local tmpfile="$1"
+  if is_tty; then
+    editor "$tmpfile"
+  fi
+}
+
+# Read package names from file, skipping blank lines and comments
+read_package_list() {
+  local tmpfile="$1"
+  local -a result=()
+  while IFS= read -r line || [ -n "$line" ]; do
+    # Trim leading/trailing whitespace
+    line="${line#"${line%%[![:space:]]*}"}"
+    line="${line%"${line##*[![:space:]]}"}"
+    # Skip empty lines and comments
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    result+=("$line")
+  done <"$tmpfile"
+  printf '%s\n' "${result[@]}"
+}
+
+# Validate packages exist in apt cache, split into available and missing
+validate_packages() {
+  local -a pkgs=("$@")
+  available_packages=()
+  missing_packages=()
+  for pkg in "${pkgs[@]}"; do
+    if apt-cache show "$pkg" >/dev/null 2>&1; then
+      available_packages+=("$pkg")
+    else
+      missing_packages+=("$pkg")
+    fi
+  done
+}
+
+# --- Main ---
+
+banner "Installing packages"
+
+if ! confirm "Continue?"; then
   echo "Canceled"
   exit 0
 fi
 
-default_packages=(
-{{- if .linux }}
-{{- range .packages.linux.apt }}
-  {{ . }}
-{{- end }}
-{{- else if .android }}
-{{- range .packages.termux.pkg }}
-  {{ . }}
-{{- end }}
-{{- end }}
-)
-
-{{- if .linux }}
-desktop_packages=(
-{{- range index .packages.linux "apt-desktop" }}
-  {{ . }}
-{{- end }}
-)
-
-# If TTY detected, include desktop packages too
-if is_tty; then
-    default_packages+=("${desktop_packages[@]}")
-fi
-{{- end }}
-
 temp_file=$(mktemp)
 trap 'rm -f "$temp_file"' EXIT
 
-printf "%s\n" "${default_packages[@]}" >"$temp_file"
-
-# Skip editor if no TTY (non-interactive mode)
-if is_tty; then
-    editor "$temp_file"
-fi
+build_package_list >"$temp_file"
+edit_package_list "$temp_file"
 
 # Read edited package list
-mapfile -t selected_packages <"$temp_file"
-
-# Skip empty or comment lines
-selected_packages=("${selected_packages[@]/*#/}")
-selected_packages=("${selected_packages[@]/#/}") # Trim whitespace
-
-# Remove empty entries
-selected_packages=($(printf "%s\n" "${selected_packages[@]}" | sed '/^\s*$/d'))
+mapfile -t selected_packages < <(read_package_list "$temp_file")
 
 if [[ ${#selected_packages[@]} -eq 0 ]]; then
   echo "No packages selected. Exiting."
   exit 1
 fi
 
-{{ if .linux -}} sudo {{ end -}} apt-get update
-
+# Validate packages
 available_packages=()
 missing_packages=()
+validate_packages "${selected_packages[@]}"
 
-for pkg in "${selected_packages[@]}"; do
-  if apt-cache show "$pkg" >/dev/null 2>&1; then
-    available_packages+=("$pkg")
-  else
-    missing_packages+=("$pkg")
-  fi
-done
-
-# Show missing packages
 if ((${#missing_packages[@]} > 0)); then
   echo
   echo "Warning: The following packages were not found and will be skipped:"
@@ -108,17 +138,10 @@ for pkg in "${available_packages[@]}"; do
   echo " - $pkg"
 done
 
-# Skip prompt if no TTY (non-interactive mode)
-if is_tty; then
-    read -p "Do you want to proceed with the installation? (Y/n): " confirmation
-    confirmation=${confirmation:-Y}
-else
-    confirmation="Y"
-fi
-
-if ! [[ "$confirmation" =~ ^[Yy]$ ]]; then
+if ! confirm "Do you want to proceed with the installation?"; then
   echo "Installation canceled."
   exit 0
 fi
 
+{{ if .linux -}} sudo {{ end -}} apt-get update
 {{ if .linux -}} sudo {{ end -}} apt-get install "${available_packages[@]}" -y
