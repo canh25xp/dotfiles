@@ -33,8 +33,4 @@ because it follows semantic line breaks.
 
 * Improves readability in source form.
 * Makes Git diffs cleaner and more precise.
-* Aligns line structure with meaning rather than formatting. ([G DevOps][1])
-
----
-
-[1]: https://gdevops.frama.io/documentation/news/2024/01/26/semantic-line-breaks.html "2024-01-26 Semantic Line Breaks — Documentation news"
+* Aligns line structure with meaning rather than formatting.
