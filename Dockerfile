@@ -22,8 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     age \
     && sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen \
-    && update-locale LANG=en_US.UTF-8 \
-    && rm -rf /var/lib/apt/lists/*
+    && update-locale LANG=en_US.UTF-8
 
 # =============================================================================
 # Create User and Setup Sudo
