@@ -1,4 +1,11 @@
-#!/bin/sh
-echo "================================================================================"
-echo "[Chezmoi] termux reload settings"
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+banner() {
+  echo "================================================================================"
+  echo "[Chezmoi] $*"
+}
+
+banner "termux reload settings"
 termux-reload-settings

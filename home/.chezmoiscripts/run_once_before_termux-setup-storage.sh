@@ -1,5 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo "================================================================================"
-echo "[Chezmoi] termux setup storage"
+set -euo pipefail
+
+banner() {
+  echo "================================================================================"
+  echo "[Chezmoi] $*"
+}
+
+banner "termux setup storage"
 termux-setup-storage
