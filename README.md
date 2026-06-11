@@ -87,3 +87,8 @@ chemzoi apply
 docker build -t dotfiles-debian .
 docker run -it --rm dotfiles-debian
 ```
+
+> [!NOTE]
+> To avoid unnecessary rerun chezmoi init, use:
+>
+> `docker build -t dotfiles-debian . --build-arg DOTFILES_SHA=$(git log -1 --format='%H' -- home/)`
