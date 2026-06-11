@@ -113,6 +113,8 @@ if [[ ${#selected_packages[@]} -eq 0 ]]; then
   exit 1
 fi
 
+{{ if .linux -}} sudo {{ end -}} apt-get update
+
 # Validate packages
 available_packages=()
 missing_packages=()
@@ -143,5 +145,4 @@ if ! confirm "Do you want to proceed with the installation?"; then
   exit 0
 fi
 
-{{ if .linux -}} sudo {{ end -}} apt-get update
 {{ if .linux -}} sudo {{ end -}} apt-get install "${available_packages[@]}" -y
