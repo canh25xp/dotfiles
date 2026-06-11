@@ -52,7 +52,10 @@ WORKDIR /home/canh25xp
 # =============================================================================
 # Initialize and Apply Dotfiles
 # =============================================================================
-RUN chezmoi init canh25xp --depth 1 \
+ARG DOTFILES_SHA=latest
+
+RUN echo "dotfiles: ${DOTFILES_SHA}" \
+    && chezmoi init canh25xp --depth 1 \
     && chezmoi apply --no-tty
 
 # =============================================================================
