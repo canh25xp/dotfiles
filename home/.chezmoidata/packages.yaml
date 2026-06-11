@@ -43,6 +43,7 @@ packages:
       - p4
       - p7zip
       - pass
+      - podman
       - poppler-utils
       - procs
       - python3
