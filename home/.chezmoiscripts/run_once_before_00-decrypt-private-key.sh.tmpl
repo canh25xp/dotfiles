@@ -46,4 +46,5 @@ while [ "$attempts" -lt 3 ]; do
   echo "Decrypt failed ($attempts/3), try again..."
 done
 
-exit 1
+# Skip decrypt
+exit 0
