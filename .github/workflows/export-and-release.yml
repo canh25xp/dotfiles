@@ -16,6 +16,8 @@ jobs:
         image:
           - name: dotfiles-debian
             tag: ghcr.io/canh25xp/dotfiles-debian:latest
+          - name: dotfiles-debian-minimal
+            tag: ghcr.io/canh25xp/dotfiles-debian:minimal
 
     steps:
       - name: Login to GHCR
