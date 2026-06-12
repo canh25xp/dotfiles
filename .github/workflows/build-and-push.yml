@@ -23,6 +23,14 @@ jobs:
       contents: read
       packages: write
 
+    strategy:
+      matrix:
+        target:
+          - name: full
+            flavor: latest
+          - name: minimal
+            flavor: minimal
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,8 +52,8 @@ jobs:
         with:
           images: ghcr.io/canh25xp/dotfiles-debian
           tags: |
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-            type=ref,event=tag
+            type=raw,value=${{ matrix.target.flavor }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{version}},prefix=${{ matrix.target.name != 'full' && format('{0}-', matrix.target.flavor) || '' }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -57,9 +65,10 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: DOTFILES_SHA=${{ github.sha }}
+          target: ${{ matrix.target.name }}
 
       - name: Test image
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && matrix.target.name == 'full' }}
         run: |
           docker run --rm \
             ghcr.io/${{ github.repository_owner }}/dotfiles-debian:latest \
