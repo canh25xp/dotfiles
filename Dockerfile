@@ -48,7 +48,7 @@ RUN curl -fsSL -o /tmp/chezmoi.deb \
 # =============================================================================
 COPY home/.chezmoidata/packages.yaml /tmp/packages.yaml
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends $(yq '.packages.linux.apt[]' /tmp/packages.yaml) && \
+    apt-get install -y --no-install-recommends $(yq -r '.packages.linux.apt[]' /tmp/packages.yaml) && \
     rm -f /tmp/packages.yaml && \
     rm -rf /var/lib/apt/lists/*
 
