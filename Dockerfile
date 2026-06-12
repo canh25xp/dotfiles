@@ -53,6 +53,16 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
+# Install Yazi
+# =============================================================================
+ARG YAZI_VERSION=26.1.4
+
+RUN curl -fsSL -o /tmp/yazi.deb \
+    "https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSION}/yazi-x86_64-unknown-linux-gnu.deb" \
+    && dpkg -i /tmp/yazi.deb \
+    && rm /tmp/yazi.deb
+
+# =============================================================================
 # Setup User Environment
 # =============================================================================
 USER canh25xp
@@ -66,17 +76,6 @@ ARG DOTFILES_SHA=latest
 RUN echo "dotfiles: ${DOTFILES_SHA}" \
     && chezmoi init canh25xp --depth 1 \
     && chezmoi apply --no-tty --exclude scripts
-
-# =============================================================================
-# Install Yazi
-# =============================================================================
-ARG YAZI_VERSION=26.1.4
-
-# NOTE: yazi is need to run after chezmoi init to ensure dependencies installed. So sudo is needed
-RUN curl -fsSL -o /tmp/yazi.deb \
-    "https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSION}/yazi-x86_64-unknown-linux-gnu.deb" \
-    && sudo dpkg -i /tmp/yazi.deb \
-    && rm /tmp/yazi.deb
 
 # =============================================================================
 # Install npm packages
