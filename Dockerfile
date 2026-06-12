@@ -63,6 +63,15 @@ ARG UV_VERSION=0.11.21
 RUN curl -LsSf https://astral.sh/uv/${UV_VERSION}/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh
 
 # =============================================================================
+# Install `p4`
+# =============================================================================
+ARG P4_VERSION=r26.1
+
+RUN curl -fsSL -o /usr/local/bin/p4 \
+    "https://filehost.perforce.com/perforce/${P4_VERSION}/bin.linux26x86_64/p4" \
+    && chmod +x /usr/local/bin/p4
+
+# =============================================================================
 # Minimal target — stops here (no user, no dotfiles)
 # =============================================================================
 FROM base AS minimal
