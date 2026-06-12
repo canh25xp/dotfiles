@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     ca-certificates \
     openssh-server \
+    yq \
     && sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8
@@ -40,6 +41,16 @@ RUN curl -fsSL -o /tmp/chezmoi.deb \
     "https://github.com/twpayne/chezmoi/releases/download/${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION#v}_linux_${TARGETARCH}.deb" \
     && dpkg -i /tmp/chezmoi.deb \
     && rm /tmp/chezmoi.deb
+
+# =============================================================================
+# Pre-install apt packages for Docker layer caching
+# Only invalidated when packages.yaml changes; other dotfile changes hit cache.
+# =============================================================================
+COPY home/.chezmoidata/packages.yaml /tmp/packages.yaml
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends $(yq '.packages.linux.apt[]' /tmp/packages.yaml) && \
+    rm -f /tmp/packages.yaml && \
+    rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
 # Setup User Environment
