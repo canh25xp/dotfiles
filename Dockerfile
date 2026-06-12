@@ -58,7 +58,7 @@ RUN curl -fsSL -o /tmp/yazi.deb \
 # =============================================================================
 # Install `uv`
 # =============================================================================
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh
 
 # =============================================================================
 # Minimal target — stops here (no user, no dotfiles)
