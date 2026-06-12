@@ -87,3 +87,11 @@ chemzoi apply
 docker build -t dotfiles-debian .
 docker run -it --rm dotfiles-debian
 ```
+
+Build minimal tag.
+The default tag is "full"
+
+```sh
+docker build -t dotfiles-debian:minimal . --target minimal
+docker run -it --rm dotfiles-debian:minimal
+```
