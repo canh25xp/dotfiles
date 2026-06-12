@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && update-locale LANG=en_US.UTF-8
 
 # =============================================================================
-# Install Chezmoi
+# Install `chezmoi`
 # =============================================================================
 ARG CHEZMOI_VERSION=v2.70.5
 ARG TARGETARCH=amd64
@@ -46,7 +46,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
-# Install Yazi
+# Install `yazi`
 # =============================================================================
 ARG YAZI_VERSION=26.1.4
 
@@ -54,6 +54,11 @@ RUN curl -fsSL -o /tmp/yazi.deb \
     "https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSION}/yazi-x86_64-unknown-linux-gnu.deb" \
     && dpkg -i /tmp/yazi.deb \
     && rm /tmp/yazi.deb
+
+# =============================================================================
+# Install `uv`
+# =============================================================================
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # =============================================================================
 # Minimal target — stops here (no user, no dotfiles)
@@ -95,11 +100,6 @@ RUN echo "dotfiles: ${DOTFILES_SHA}" \
 RUN npm install -g \
     @openai/codex@latest \
     opencode-ai@latest
-
-# =============================================================================
-# Install uv
-# =============================================================================
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # =============================================================================
 # Bootstrap tools
