@@ -113,20 +113,6 @@ if [[ ${#selected_packages[@]} -eq 0 ]]; then
   exit 1
 fi
 
-# Early exit: skip apt-get update/install when all packages are already present
-all_installed=true
-for pkg in "${selected_packages[@]}"; do
-  if ! dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
-    all_installed=false
-    break
-  fi
-done
-
-if $all_installed; then
-  echo "All packages already installed. Skipping."
-  exit 0
-fi
-
 {{ if .linux -}} sudo {{ end -}} apt-get update
 
 # Validate packages
