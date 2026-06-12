@@ -1,4 +1,4 @@
-FROM debian:unstable
+FROM debian:unstable AS base
 
 LABEL maintainer="Ngô Văn Cảnh <nv.canh@outlook.com>"
 LABEL description="canh25xp's dockerize home"
@@ -23,13 +23,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8
-
-# =============================================================================
-# Create User and Setup Sudo
-# =============================================================================
-RUN useradd -m -s /bin/bash canh25xp \
-    && usermod -aG sudo canh25xp \
-    && echo 'canh25xp ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # =============================================================================
 # Install Chezmoi
@@ -61,6 +54,25 @@ RUN curl -fsSL -o /tmp/yazi.deb \
     "https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSION}/yazi-x86_64-unknown-linux-gnu.deb" \
     && dpkg -i /tmp/yazi.deb \
     && rm /tmp/yazi.deb
+
+# =============================================================================
+# Minimal target — stops here (no user, no dotfiles)
+# =============================================================================
+FROM base AS minimal
+
+CMD ["/bin/bash", "-l"]
+
+# =============================================================================
+# Full target — user creation, dotfiles, and extra tooling
+# =============================================================================
+FROM base AS full
+
+# =============================================================================
+# Create User and Setup Sudo
+# =============================================================================
+RUN useradd -m -s /bin/bash canh25xp \
+    && usermod -aG sudo canh25xp \
+    && echo 'canh25xp ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # =============================================================================
 # Setup User Environment
