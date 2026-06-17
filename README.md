@@ -95,3 +95,9 @@ The default tag is "full"
 docker build -t dotfiles-debian:minimal . --target minimal
 docker run -it --rm dotfiles-debian:minimal
 ```
+
+Run with persistent user home data.
+
+```sh
+docker run -it --rm -v dotfiles-home:/home/canh25xp dotfiles-debian
+```
