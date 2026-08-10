@@ -1,7 +1,7 @@
 {
   "general": {
     "vimMode": false,
-    "preferredEditor": "nvim"
+    "preferredEditor": "neovim"
   },
   "ui": {
     "theme": "GitHub",
