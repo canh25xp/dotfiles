@@ -15,6 +15,8 @@ export P4TICKETS="$HOME/.p4tickets"
 
 export FZF_DEFAULT_OPTS='--height=50% --multi --layout=reverse --info=inline'
 
+export GOOGLE_CLOUD_PROJECT="gemini-enterprise-sec-dx-seao"
+
 {{ if .wsl -}}
 export FIGNORE=".dll:.DLL"
 {{ end -}}
@@ -42,6 +44,7 @@ export DONT_PROMPT_WSL_INSTALL=true
 export PATH="$LOCALAPPDATA/Programs/Microsoft VS Code/bin:$PATH"
 export PATH="$PATH:/mnt/c/Program Files/Neovide"
 export PATH="$PATH:/mnt/c/Program Files/PowerShell/7"
+export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft/Edge/Application"
 {{ end -}}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
