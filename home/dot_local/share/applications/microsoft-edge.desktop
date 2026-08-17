@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Microsoft Edge
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+Exec=msedge.exe %U
+Terminal=false
+Type=Application
+Icon=microsoft-edge
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/about;x-scheme-handler/unknown;x-scheme-handler/chrome;
+StartupNotify=true
