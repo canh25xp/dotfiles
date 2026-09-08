@@ -516,6 +516,31 @@ function Edit-Config {
     }
 }
 
+function Connect-SSH {
+    if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) {
+        Write-Error "fzf command is required but not found."
+        return
+    }
+
+    $sshConfig = Join-Path $HOME ".ssh/config"
+    if (-not (Test-Path $sshConfig)) {
+        Write-Error "SSH config not found at $sshConfig"
+        return
+    }
+
+    $sshHosts = Get-Content $sshConfig |
+        Select-String '^\s*Host\s+(.+)$' |
+        ForEach-Object { $_.Matches[0].Groups[1].Value -split '\s+' } |
+        Where-Object { $_ -ne '*' } |
+        Select-Object -Unique
+
+    $selection = $sshHosts | fzf --prompt="SSH Host> "
+
+    if ($selection) {
+        ssh $selection
+    }
+}
+
 function Open-Telegram {
     & "$env:USERPROFILE\AppData\Roaming\Telegram Desktop\Telegram.exe"
 }
