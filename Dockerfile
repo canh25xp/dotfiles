@@ -100,6 +100,8 @@ RUN echo "dotfiles: ${DOTFILES_SHA}" \
 # =============================================================================
 RUN npm install -g \
     @openai/codex@latest \
+    @google/gemini-cli@latest \
+    @anthropic-ai/claude-code@latest \
     opencode-ai@latest
 
 # =============================================================================
