@@ -20,20 +20,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     openssh-server \
     yq \
+    chezmoi \
     && sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8
-
-# =============================================================================
-# Install `chezmoi`
-# =============================================================================
-ARG CHEZMOI_VERSION=v2.70.5
-ARG TARGETARCH=amd64
-
-RUN curl -fsSL -o /tmp/chezmoi.deb \
-    "https://github.com/twpayne/chezmoi/releases/download/${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION#v}_linux_${TARGETARCH}.deb" \
-    && dpkg -i /tmp/chezmoi.deb \
-    && rm /tmp/chezmoi.deb
 
 # =============================================================================
 # Pre-install apt packages for Docker layer caching
